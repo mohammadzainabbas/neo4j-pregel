@@ -24,7 +24,8 @@ import org.neo4j.procedure.Procedure;
 
 @GdsCallable(
         name = "pregel.pagerank.stream",
-        executionMode = ExecutionMode.STREAM
+        executionMode = ExecutionMode.STREAM,
+        description = "Frequent Pattern Mining :: Neo4j - PageRank with Pregel"
 )
 @Generated("org.neo4j.gds.beta.pregel.PregelProcessor")
 public final class PageRankPregelStreamProc extends PregelStreamProc<PageRankPregelAlgorithm, PageRankPregel.PageRankPregelConfig> {
@@ -32,6 +33,7 @@ public final class PageRankPregelStreamProc extends PregelStreamProc<PageRankPre
             name = "pregel.pagerank.stream",
             mode = Mode.READ
     )
+    @Description("Frequent Pattern Mining :: Neo4j - PageRank with Pregel")
     public Stream<PregelStreamResult> stream(@Name("graphName") String graphName,
             @Name(value = "configuration", defaultValue = "{}") Map<String, Object> configuration) {
         return stream(compute(graphName, configuration));
