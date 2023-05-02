@@ -30,7 +30,8 @@ public class PageRankPregel implements PregelComputation<PageRankPregel.PageRank
     public PregelSchema schema(PageRankPregelConfig config) {
         return new PregelSchema.Builder().add(PAGE_RANK, ValueType.DOUBLE).build();
     }
-
+    
+    /* Called  */
     @Override
     public void init(InitContext<PageRankPregelConfig> context) {
         var initialValue = context.config().seedProperty() != null
