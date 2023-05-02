@@ -9,7 +9,7 @@
 description = 'Frequent Pattern Mining :: Neo4J with Pregel'
 
 ext {
-    gdsVersion = '2.4.0-alpha05'
+    gdsVersion = '2.3.5'
     neo4jVersion = '5.1.0'
 }
 
