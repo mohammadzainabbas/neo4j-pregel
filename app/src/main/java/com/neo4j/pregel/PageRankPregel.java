@@ -25,7 +25,7 @@ public class PageRankPregel implements PregelComputation<PageRankPregel.PageRank
 
     private static boolean weighted;
 
-    /* Each node will have this value during pregel computation */
+    /* Each node will have this value-schema during pregel computation */
     @Override
     public PregelSchema schema(PageRankPregelConfig config) {
         return new PregelSchema.Builder().add(PAGE_RANK, ValueType.DOUBLE).build();
