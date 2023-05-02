@@ -18,7 +18,7 @@ import org.neo4j.gds.core.CypherMapWrapper;
 
 import java.util.Optional;
 
-@PregelProcedure(name = "pregel.pagerank", modes = { GDSMode.STREAM, GDSMode.MUTATE }, description = "Frequent Pattern Mining :: Neo4j - PageRank with Pregel")
+@PregelProcedure(name = "custom.pregel.pagerank", modes = { GDSMode.STREAM, GDSMode.MUTATE }, description = "Frequent Pattern Mining :: Neo4j - PageRank with Pregel")
 public class PageRankPregel implements PregelComputation<PageRankPregel.PageRankPregelConfig> {
 
     static final String PAGE_RANK = "pagerank";
