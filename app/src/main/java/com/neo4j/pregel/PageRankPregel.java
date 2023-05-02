@@ -18,10 +18,10 @@ import org.neo4j.gds.core.CypherMapWrapper;
 
 import java.util.Optional;
 
-@PregelProcedure(name = "pregel.pagerank", modes = {GDSMode.STREAM, GDSMode.MUTATE})
+@PregelProcedure(name = "pregel.pagerank", modes = { GDSMode.STREAM, GDSMode.MUTATE })
 public class PageRankPregel implements PregelComputation<PageRankPregel.PageRankPregelConfig> {
 
-  static final String PAGE_RANK = "pagerank";
+    static final String PAGE_RANK = "pagerank";
 
     private static boolean weighted;
 
@@ -33,8 +33,8 @@ public class PageRankPregel implements PregelComputation<PageRankPregel.PageRank
     @Override
     public void init(InitContext<PageRankPregelConfig> context) {
         var initialValue = context.config().seedProperty() != null
-            ? context.nodeProperties(context.config().seedProperty()).doubleValue(context.nodeId())
-            : 1.0 / context.nodeCount();
+                ? context.nodeProperties(context.config().seedProperty()).doubleValue(context.nodeId())
+                : 1.0 / context.nodeCount();
         context.setNodeValue(PAGE_RANK, initialValue);
 
         weighted = context.config().hasRelationshipWeightProperty();
@@ -75,7 +75,8 @@ public class PageRankPregel implements PregelComputation<PageRankPregel.PageRank
 
     @Override
     public double applyRelationshipWeight(double nodeValue, double relationshipWeight) {
-        // ! assuming normalized relationshipWeights (sum of outgoing edge weights = 1 and none negative weights)
+        // ! assuming normalized relationshipWeights (sum of outgoing edge weights = 1
+        // and none negative weights)
         return nodeValue * relationshipWeight;
     }
 
