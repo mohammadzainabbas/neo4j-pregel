@@ -42,6 +42,7 @@ public class PageRankPregel implements PregelComputation<PageRankPregel.PageRank
         weighted = context.config().hasRelationshipWeightProperty();
     }
 
+    /* Called for each node in every superstep */
     @Override
     public void compute(ComputeContext<PageRankPregelConfig> context, Messages messages) {
         double newRank = context.doubleNodeValue(PAGE_RANK);
