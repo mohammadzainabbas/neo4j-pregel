@@ -29,7 +29,19 @@ dependencies {
 
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:31.1-jre'
-    implementation 'org.neo4j:neo4j:4.3.7'
+    
+    compileOnly "org.neo4j:neo4j:$neo4jVersion"
+
+    compileOnly "org.neo4j.gds:proc:$gdsVersion"
+    compileOnly "org.neo4j.gds:core:$gdsVersion"
+    compileOnly "org.neo4j.gds:algo-common:$gdsVersion"
+    compileOnly "org.neo4j.gds:executor:$gdsVersion"
+    compileOnly "org.neo4j.gds:memory-usage:$gdsVersion"
+    compileOnly "org.neo4j.gds:annotations:$gdsVersion"
+    compileOnly "org.neo4j.gds:proc-pregel:$gdsVersion"
+    compileOnly "org.neo4j.gds:config-api:$gdsVersion"
+    compileOnly "org.neo4j.gds:progress-tracking:$gdsVersion"
+
     implementation "org.neo4j.gds:core:$gdsVersion"
     implementation 'org.neo4j.graphalgo:graph-data-science:1.7.0'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.0'
