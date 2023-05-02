@@ -26,14 +26,14 @@ import org.neo4j.procedure.Name;
 import org.neo4j.procedure.Procedure;
 
 @GdsCallable(
-        name = "custom.pregel.pagerank.mutate",
+        name = "esilv.pregel.pagerank.mutate",
         executionMode = ExecutionMode.MUTATE_NODE_PROPERTY,
         description = "Frequent Pattern Mining :: Neo4j - PageRank with Pregel"
 )
 @Generated("org.neo4j.gds.beta.pregel.PregelProcessor")
 public final class PageRankPregelMutateProc extends PregelMutateProc<PageRankPregelAlgorithm, PageRankPregel.PageRankPregelConfig> {
     @Procedure(
-            name = "custom.pregel.pagerank.mutate",
+            name = "esilv.pregel.pagerank.mutate",
             mode = Mode.READ
     )
     @Description("Frequent Pattern Mining :: Neo4j - PageRank with Pregel")
@@ -43,7 +43,7 @@ public final class PageRankPregelMutateProc extends PregelMutateProc<PageRankPre
     }
 
     @Procedure(
-            name = "custom.pregel.pagerank.mutate.estimate",
+            name = "esilv.pregel.pagerank.mutate.estimate",
             mode = Mode.READ
     )
     @Description(BaseProc.ESTIMATE_DESCRIPTION)
