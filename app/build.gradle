@@ -77,7 +77,7 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass = 'com.neo4j.pregel.App'
+    mainClass = 'com.neo4j.pregel.PageRankPregel'
 }
 
 tasks.named('test') {
