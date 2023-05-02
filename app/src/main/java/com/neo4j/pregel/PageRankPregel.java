@@ -31,7 +31,7 @@ public class PageRankPregel implements PregelComputation<PageRankPregel.PageRank
         return new PregelSchema.Builder().add(PAGE_RANK, ValueType.DOUBLE).build();
     }
     
-    /* Called  */
+    /* Called in the beginning of the first superstep of the Pregel computation and allows initializing node values */
     @Override
     public void init(InitContext<PageRankPregelConfig> context) {
         var initialValue = context.config().seedProperty() != null
