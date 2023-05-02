@@ -30,6 +30,7 @@ dependencies {
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:31.1-jre'
     implementation 'org.neo4j:neo4j:4.3.7'
+    implementation "org.neo4j.gds:core:$gdsVersion"
     implementation 'org.neo4j.graphalgo:graph-data-science:1.7.0'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.0'
