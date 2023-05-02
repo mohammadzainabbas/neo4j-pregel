@@ -5,17 +5,16 @@
  * For more details take a look at the 'Building Java & JVM projects' chapter in the Gradle
  * User Manual available at https://docs.gradle.org/8.1.1/userguide/building_java_projects.html
  */
+plugins {
+    // Apply the application plugin to add support for building a CLI application in Java.
+    id 'application'
+}
 
 description = 'Frequent Pattern Mining :: Neo4J with Pregel'
 
 ext {
     gdsVersion = '2.3.5'
     neo4jVersion = '5.7.0'
-}
-
-plugins {
-    // Apply the application plugin to add support for building a CLI application in Java.
-    id 'application'
 }
 
 repositories {
