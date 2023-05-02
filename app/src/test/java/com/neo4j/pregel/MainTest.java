@@ -6,7 +6,7 @@ package com.neo4j.pregel;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-class AppTest {
+class MainTest {
     @Test void appHasAGreeting() {
         Main classUnderTest = new Main();
         assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
