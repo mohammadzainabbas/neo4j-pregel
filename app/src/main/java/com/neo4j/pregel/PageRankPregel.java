@@ -45,6 +45,7 @@ public class PageRankPregel implements PregelComputation<PageRankPregel.PageRank
     /* Called for each node in every superstep */
     @Override
     public void compute(ComputeContext<PageRankPregelConfig> context, Messages messages) {
+
         double newRank = context.doubleNodeValue(PAGE_RANK);
 
         // compute new rank based on neighbor ranks
