@@ -42,8 +42,26 @@ dependencies {
     compileOnly "org.neo4j.gds:config-api:$gdsVersion"
     compileOnly "org.neo4j.gds:progress-tracking:$gdsVersion"
 
-    implementation "org.neo4j.gds:core:$gdsVersion"
-    implementation 'org.neo4j.graphalgo:graph-data-science:1.7.0'
+    // We need an annotation processor for our K1 configuration
+    annotationProcessor "org.immutables:value:$immutablesVersion"
+    annotationProcessor "org.neo4j.gds:config-generator:$gdsVersion"
+    annotationProcessor "org.neo4j.gds:pregel-proc-generator:$gdsVersion"
+    compileOnly         "org.jetbrains:annotations:$jetbrainsAnnotations"
+    compileOnly         "org.immutables:value-annotations:$immutablesVersion"
+
+    // We need an annotation processor for our test configurations
+    testAnnotationProcessor "org.neo4j.gds:config-generator:$gdsVersion"
+
+    // We need to provide GDS for the test as well, along with some test helpers
+    testImplementation "org.neo4j.gds:test-utils:$gdsVersion"
+    testImplementation "org.neo4j.gds:proc:$gdsVersion"
+    testImplementation "org.neo4j.gds:core:$gdsVersion"
+    testImplementation "org.neo4j.gds:proc-pregel:$gdsVersion"
+    testImplementation "org.neo4j.gds:config-api:$gdsVersion"
+    testImplementation "org.neo4j.gds:progress-tracking:$gdsVersion"
+
+    // implementation "org.neo4j.gds:core:$gdsVersion"
+    // implementation 'org.neo4j.graphalgo:graph-data-science:1.7.0'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.0'
 }
