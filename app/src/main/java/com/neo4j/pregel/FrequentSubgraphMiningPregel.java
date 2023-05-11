@@ -18,35 +18,35 @@ import org.neo4j.gds.core.CypherMapWrapper;
 
 import java.util.Optional;
 
-@PregelProcedure(name = "esilv.pregel.pagerank", modes = { GDSMode.STREAM, GDSMode.MUTATE }, description = "Frequent Pattern Mining :: Neo4j - PageRank with Pregel")
-public class PageRankPregel implements PregelComputation<PageRankPregel.PageRankPregelConfig> {
+@PregelProcedure(name = "esilv.pregel.fsm", modes = { GDSMode.STREAM, GDSMode.MUTATE }, description = "Frequent Pattern Mining :: Neo4j - Approximate Frequent Subgraph Mining with Pregel")
+public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig> {
 
-    static final String PAGE_RANK = "pagerank";
+    static final String FSM = "fsm";
 
     private static boolean weighted;
 
     /* Each node will have this value-schema during pregel computation */
     @Override
-    public PregelSchema schema(PageRankPregelConfig config) {
-        return new PregelSchema.Builder().add(PAGE_RANK, ValueType.DOUBLE).build();
+    public PregelSchema schema(FrequentSubgraphMiningPregelConfig config) {
+        return new PregelSchema.Builder().add(FSM, ValueType.DOUBLE).build();
     }
     
     /* Called in the beginning of the first superstep of the Pregel computation and allows initializing node values */
     @Override
-    public void init(InitContext<PageRankPregelConfig> context) {
+    public void init(InitContext<FrequentSubgraphMiningPregelConfig> context) {
         var initialValue = context.config().seedProperty() != null
                 ? context.nodeProperties(context.config().seedProperty()).doubleValue(context.nodeId())
                 : 1.0 / context.nodeCount();
-        context.setNodeValue(PAGE_RANK, initialValue);
+        context.setNodeValue(FSM, initialValue);
 
         weighted = context.config().hasRelationshipWeightProperty();
     }
 
     /* Called for each node in every superstep */
     @Override
-    public void compute(ComputeContext<PageRankPregelConfig> context, Messages messages) {
+    public void compute(ComputeContext<FrequentSubgraphMiningPregelConfig> context, Messages messages) {
 
-        double newRank = context.doubleNodeValue(PAGE_RANK);
+        double newRank = context.doubleNodeValue(FSM);
 
         // compute new rank based on neighbor ranks
         if (!context.isInitialSuperstep()) {
@@ -60,7 +60,7 @@ public class PageRankPregel implements PregelComputation<PageRankPregel.PageRank
 
             newRank = (jumpProbability / context.nodeCount()) + dampingFactor * sum;
 
-            context.setNodeValue(PAGE_RANK, newRank);
+            context.setNodeValue(FSM, newRank);
         }
 
         // send new rank to neighbors
@@ -85,16 +85,16 @@ public class PageRankPregel implements PregelComputation<PageRankPregel.PageRank
     }
 
     @ValueClass
-    @Configuration("PageRankPregelConfigImpl")
+    @Configuration("FrequentSubgraphMiningPregelConfigImpl")
     @SuppressWarnings("immutables:subtype")
-    public interface PageRankPregelConfig extends PregelProcedureConfig, SeedConfig {
+    public interface FrequentSubgraphMiningPregelConfig extends PregelProcedureConfig, SeedConfig {
         @Value.Default
         default double dampingFactor() {
             return 0.85;
         }
 
-        static PageRankPregelConfig of(CypherMapWrapper userInput) {
-            return new PageRankPregelConfigImpl(userInput);
+        static FrequentSubgraphMiningPregelConfig of(CypherMapWrapper userInput) {
+            return new FrequentSubgraphMiningPregelConfigImpl(userInput);
         }
     }
 }
