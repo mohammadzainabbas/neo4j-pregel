@@ -18,6 +18,7 @@ import org.neo4j.gds.core.CypherMapWrapper;
 
 import java.util.Optional;
 
+
 @PregelProcedure(name = "esilv.pregel.fsm", modes = { GDSMode.STREAM, GDSMode.MUTATE }, description = "Frequent Pattern Mining :: Neo4j - Approximate Frequent Subgraph Mining with Pregel")
 public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig> {
 
@@ -95,6 +96,59 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
 
         static FrequentSubgraphMiningPregelConfig of(CypherMapWrapper userInput) {
             return new FrequentSubgraphMiningPregelConfigImpl(userInput);
+        }
+    }
+}
+
+
+
+public class FrequentSubgraph implements PregelComputation<FrequentSubgraphConfig> {
+
+    // Define the node properties that will be used
+    private static final String F = "F";
+    private static final String F1 = "F1";
+    private static final String Sk = "Sk";
+    private static final String Ext = "Ext";
+    private static final String Fk1 = "Fk1";
+    private static final String Fw_i = "Fw_i";
+
+    @Override
+    public PregelSchema schema(FrequentSubgraphConfig config) {
+        return new PregelSchema.Builder()
+                .add(F, ValueType.LONG)
+                .add(F1, ValueType.LONG)
+                .add(Sk, ValueType.LONG)
+                .add(Ext, ValueType.LONG)
+                .add(Fk1, ValueType.LONG)
+                .add(Fw_i, ValueType.LONG)
+                .build();
+    }
+
+    @Override
+    public void compute(ComputeContext<FrequentSubgraphConfig> context, Messages messages) {
+        if (context.isInitialSuperstep()) {
+            // Initialization step
+            context.setNodeValue(F, 0);
+            context.setNodeValue(F1, calculateFrequentSize1Subgraphs()); // Replace with actual logic
+            context.setNodeValue(Sk, calculateEmbeddings(context.getNodeValue(F1))); // Replace with actual logic
+        } else {
+            // Main computation step
+            context.setNodeValue(Sk, calculateEmbeddings(context.getNodeValue(Fk1))); // Replace with actual logic
+            context.setNodeValue(Ext, calculateExtensions(context.getNodeValue(Sk))); // Replace with actual logic
+            context.setNodeValue(Fk1, ApFSMEXTEND(context.getNodeValue(Fk1), context.getNodeValue(Sk))); // Replace with actual logic
+
+            while (context.getNodeValue(Fk1) != 0) {
+                context.setNodeValue(Fw_i, LocalPrunning(context.getNodeValue(Fk1))); // Replace with actual logic
+            }
+
+            context.setNodeValue(Fk1, calculateDistinctSubgraphImages(context.getNodeValue(Fw_i))); // Replace with actual logic
+        }
+    }
+
+    @Override
+    public void masterCompute(MasterComputeContext<FrequentSubgraphConfig> context) {
+        while (context.getNodeValue(Fk1) != 0) {
+            context.setNodeValue(F, GlobalPrunning(context.getNodeValue(Fk1))); // Replace with actual logic
         }
     }
 }
