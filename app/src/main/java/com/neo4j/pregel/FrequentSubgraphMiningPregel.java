@@ -63,19 +63,19 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
         if (context.isInitialSuperstep()) {
             // Initialization step
             context.setNodeValue(F, 0);
-            context.setNodeValue(F1, calculateFrequentSize1Subgraphs()); // Replace with actual logic
-            context.setNodeValue(Sk, calculateEmbeddings(context.getNodeValue(F1))); // Replace with actual logic
+            context.setNodeValue(F1, calculateFrequentSize1Subgraphs());
+            context.setNodeValue(Sk, calculateEmbeddings(context.getNodeValue(F1)));
         } else {
             // Main computation step
-            context.setNodeValue(Sk, calculateEmbeddings(context.getNodeValue(Fk1))); // Replace with actual logic
-            context.setNodeValue(Ext, calculateExtensions(context.getNodeValue(Sk))); // Replace with actual logic
-            context.setNodeValue(Fk1, ApFSMEXTEND(context.getNodeValue(Fk1), context.getNodeValue(Sk))); // Replace with actual logic
+            context.setNodeValue(Sk, calculateEmbeddings(context.getNodeValue(Fk1)));
+            context.setNodeValue(Ext, calculateExtensions(context.getNodeValue(Sk)));
+            context.setNodeValue(Fk1, ApFSMEXTEND(context.getNodeValue(Fk1), context.getNodeValue(Sk)));
 
             while (context.getNodeValue(Fk1) != 0) {
-                context.setNodeValue(Fw_i, LocalPrunning(context.getNodeValue(Fk1))); // Replace with actual logic
+                context.setNodeValue(Fw_i, LocalPrunning(context.getNodeValue(Fk1)));
             }
 
-            context.setNodeValue(Fk1, calculateDistinctSubgraphImages(context.getNodeValue(Fw_i))); // Replace with actual logic
+            context.setNodeValue(Fk1, calculateDistinctSubgraphImages(context.getNodeValue(Fw_i)));
         }
     }
 
@@ -94,7 +94,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
     @Override
     public void masterCompute(MasterComputeContext<FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig> context) {
         while (context.getNodeValue(Fk1) != 0) {
-            context.setNodeValue(F, GlobalPrunning(context.getNodeValue(Fk1))); // Replace with actual logic
+            context.setNodeValue(F, GlobalPrunning(context.getNodeValue(Fk1)));
         }
     }
 
