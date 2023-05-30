@@ -78,7 +78,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
             context.setNodeValue(Fk1, calculateDistinctSubgraphImages(context.getNodeValue(Fw_i))); // Replace with actual logic
         }
     }
-    
+
     @Override
     public Optional<Reducer> reducer() {
         return Optional.of(new Reducer.Sum());
@@ -89,6 +89,13 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
         // ! assuming normalized relationshipWeights (sum of outgoing edge weights = 1
         // and none negative weights)
         return nodeValue * relationshipWeight;
+    }
+
+    @Override
+    public void masterCompute(MasterComputeContext<FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig> context) {
+        while (context.getNodeValue(Fk1) != 0) {
+            context.setNodeValue(F, GlobalPrunning(context.getNodeValue(Fk1))); // Replace with actual logic
+        }
     }
 
     @ValueClass
