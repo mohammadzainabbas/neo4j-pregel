@@ -22,7 +22,13 @@ import java.util.Optional;
 @PregelProcedure(name = "esilv.pregel.fsm", modes = { GDSMode.STREAM, GDSMode.MUTATE }, description = "Frequent Pattern Mining :: Neo4j - Approximate Frequent Subgraph Mining with Pregel")
 public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig> {
 
-    static final String FSM = "fsm";
+    private static final String FSM = "fsm";
+    private static final String F = "F";
+    private static final String F1 = "F1";
+    private static final String Sk = "Sk";
+    private static final String Ext = "Ext";
+    private static final String Fk1 = "Fk1";
+    private static final String Fw_i = "Fw_i";
 
     private static boolean weighted;
 
@@ -104,13 +110,6 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
 
 public class FrequentSubgraph implements PregelComputation<FrequentSubgraphConfig> {
 
-    // Define the node properties that will be used
-    private static final String F = "F";
-    private static final String F1 = "F1";
-    private static final String Sk = "Sk";
-    private static final String Ext = "Ext";
-    private static final String Fk1 = "Fk1";
-    private static final String Fw_i = "Fw_i";
 
     @Override
     public PregelSchema schema(FrequentSubgraphConfig config) {
