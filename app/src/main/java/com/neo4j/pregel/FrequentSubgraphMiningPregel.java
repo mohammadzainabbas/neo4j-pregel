@@ -112,17 +112,3 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
         }
     }
 }
-
-
-
-public class FrequentSubgraph implements PregelComputation<FrequentSubgraphConfig> {
-
-
-
-    @Override
-    public void masterCompute(MasterComputeContext<FrequentSubgraphConfig> context) {
-        while (context.getNodeValue(Fk1) != 0) {
-            context.setNodeValue(F, GlobalPrunning(context.getNodeValue(Fk1))); // Replace with actual logic
-        }
-    }
-}
