@@ -66,10 +66,14 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
             context.setNodeValue(FSM, empty_fsm_array);
             context.setNodeValue(STEPS, 0);
         } else {
-            double[] fsm = context.doubleArrayNodeValue(FSM);
+            double[] fsms = context.doubleArrayNodeValue(FSM);
             long steps = context.longNodeValue(STEPS);
 
-            
+            double[] new_fsms = new double[fsms.length + 1];
+
+            for (double fsm : fsms) {
+                
+            }
 
             
             context.setNodeValue(STEPS, context.longNodeValue(STEPS) + 1);
