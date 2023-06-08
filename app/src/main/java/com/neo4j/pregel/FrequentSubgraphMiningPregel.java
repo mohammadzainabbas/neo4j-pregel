@@ -59,37 +59,6 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
         weighted = context.config().hasRelationshipWeightProperty();
     }
 
-    public long calculateFrequentSize1Subgraphs(ComputeContext<FrequentSubgraphMiningPregelConfig> context) {
-        return 0;
-    }
-
-    public Set<Subgraph> ApFSMEXTEND(Set<Subgraph> Fk, Graph Gprime, Set<Embedding> S_Fk) {
-        Set<Subgraph> Fk1 = new HashSet<>();
-
-        for (Embedding e : S_Fk) {
-            Subgraph sPrime = e.getSubgraph();
-            Set<Subgraph> Ck1 = getCandidateSubgraphs(); // Replace with actual logic
-
-            for (Subgraph c_k1 : Ck1) {
-                if (isParentOf(Fk, c_k1)) { // Replace with actual logic
-                    for (Extension ext : getExtensions(Gprime, e)) { // Replace with actual logic
-                        if (ext.isEdgeExtension()) {
-                            Vertex v = ext.getVertex();
-                            if (isFrequent(v, sPrime)) { // Replace with actual logic
-                                Ck1.add(ext.getExtendedSubgraph());
-                            }
-                        } else if (ext.isVertexExtension()) {
-                            Vertex v_sPrime = ext.getVertex();
-                            Ck1.add(ext.getExtendedSubgraph());
-                        }
-                    }
-                }
-                Fk1.addAll(Ck1);
-            }
-        }
-        return Fk1; // All size k+1 subgraphs
-    }
-
     /* Called for each node in every superstep */
     @Override
     public void compute(ComputeContext<FrequentSubgraphMiningPregelConfig> context, Messages messages) {
