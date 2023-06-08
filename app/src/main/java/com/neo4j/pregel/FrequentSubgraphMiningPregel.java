@@ -92,8 +92,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
         long steps = context.longNodeValue(STEPS);
 
         
-        return 
-        return false; // continue computation
+        return superstep() > 10;
     }
 
     @ValueClass
