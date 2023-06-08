@@ -96,6 +96,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
         while (context.getNodeValue(Fk1) != 0) {
             context.setNodeValue(F, GlobalPrunning(context.getNodeValue(Fk1)));
         }
+        return false; // continue computation
     }
 
     @ValueClass
