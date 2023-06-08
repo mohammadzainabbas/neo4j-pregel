@@ -71,11 +71,15 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
 
             double[] new_fsms = new double[fsms.length + 1];
 
-            for (double fsm : fsms) {
-                
+            for (int i = 0; i < new_fsms.length; i++) {
+                if (i == new_fsms.length - 1) {
+                    new_fsms[i] = context.nodeId();
+                } else {
+                    new_fsms[i] = fsms[i];
+                }
             }
 
-            
+            context.setNodeValue(FSM, new_fsms);
             context.setNodeValue(STEPS, context.longNodeValue(STEPS) + 1);
         }
     }
