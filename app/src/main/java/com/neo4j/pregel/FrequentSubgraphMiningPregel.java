@@ -39,6 +39,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
     public PregelSchema schema(FrequentSubgraphMiningPregelConfig config) {
         return new PregelSchema.Builder()
                 .add(FSM, ValueType.DOUBLE)
+                .add(FSM, ValueType.DOUBLE)
                 .add(F, ValueType.LONG)
                 .add(F1, ValueType.LONG)
                 .add(Sk, ValueType.LONG)
@@ -64,7 +65,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
     public void compute(ComputeContext<FrequentSubgraphMiningPregelConfig> context, Messages messages) {
         if (context.isInitialSuperstep()) {
             // Initialization step
-            context.setNodeValue(F, 0);
+            context.setNodeValue(, 0);
             context.setNodeValue(F1, calculateFrequentSize1Subgraphs(context));
             context.setNodeValue(Sk, calculateEmbeddings(context.getNodeValue(F1)));
         } else {
