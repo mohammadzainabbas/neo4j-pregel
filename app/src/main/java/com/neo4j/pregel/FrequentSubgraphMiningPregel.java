@@ -57,7 +57,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
         weighted = context.config().hasRelationshipWeightProperty();
     }
 
-    public long calculateFrequentSize1Subgraphs() {
+    public long calculateFrequentSize1Subgraphs(ComputeContext<FrequentSubgraphMiningPregelConfig> context) {
         return 0;
     }
 
@@ -67,7 +67,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
         if (context.isInitialSuperstep()) {
             // Initialization step
             context.setNodeValue(F, 0);
-            context.setNodeValue(F1, calculateFrequentSize1Subgraphs());
+            context.setNodeValue(F1, calculateFrequentSize1Subgraphs(context));
             context.setNodeValue(Sk, calculateEmbeddings(context.getNodeValue(F1)));
         } else {
             // Main computation step
