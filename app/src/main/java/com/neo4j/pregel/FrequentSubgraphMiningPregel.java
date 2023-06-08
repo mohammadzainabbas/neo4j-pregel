@@ -42,14 +42,14 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
     public PregelSchema schema(FrequentSubgraphMiningPregelConfig config) {
         return new PregelSchema.Builder()
                 // .add(FSM, ValueType.DOUBLE)
-                .add(FSM, ValueType.LONG_ARRAY)
-                .add(STEPS, ValueType.LONG)
-                .add(F, ValueType.LONG)
-                .add(F1, ValueType.LONG)
-                .add(Sk, ValueType.LONG)
-                .add(Ext, ValueType.LONG)
-                .add(Fk1, ValueType.LONG)
-                .add(Fw_i, ValueType.LONG)
+                .add(FSM, ValueType.LONG)
+                // .add(STEPS, ValueType.LONG)
+                // .add(F, ValueType.LONG)
+                // .add(F1, ValueType.LONG)
+                // .add(Sk, ValueType.LONG)
+                // .add(Ext, ValueType.LONG)
+                // .add(Fk1, ValueType.LONG)
+                // .add(Fw_i, ValueType.LONG)
                 .build();
     }
     
