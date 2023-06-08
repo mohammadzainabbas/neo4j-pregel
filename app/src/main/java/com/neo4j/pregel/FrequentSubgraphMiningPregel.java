@@ -85,6 +85,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
 
             context.setNodeValue(Fk1, calculateDistinctSubgraphImages(context.getNodeValue(Fw_i)));
         }
+        context.setNodeValue(STEPS, context.getNodeValue(STEPS) + 1);
     }
 
     @Override
