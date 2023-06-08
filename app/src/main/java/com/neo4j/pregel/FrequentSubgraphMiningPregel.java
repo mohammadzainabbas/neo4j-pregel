@@ -42,7 +42,6 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
     public PregelSchema schema(FrequentSubgraphMiningPregelConfig config) {
         return new PregelSchema.Builder()
                 .add(FSM, ValueType.LONG_ARRAY)
-                .add(STEPS, ValueType.LONG)
                 .build();
     }
     
@@ -64,10 +63,8 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
             // Initialization step
             double[] empty_fsm_array = {};
             context.setNodeValue(FSM, empty_fsm_array);
-            context.setNodeValue(STEPS, 0);
         } else {
             double[] fsms = context.doubleArrayNodeValue(FSM);
-            long steps = context.longNodeValue(STEPS);
 
             double[] new_fsms = new double[fsms.length + 1];
 
@@ -80,7 +77,6 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
             }
 
             context.setNodeValue(FSM, new_fsms);
-            context.setNodeValue(STEPS, steps + 1);
         }
     }
 
@@ -100,7 +96,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
     public boolean masterCompute(MasterComputeContext<FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig> context) {
         
         long steps = context.longNodeValue(STEPS);
-        
+
         
         return 
         return false; // continue computation
