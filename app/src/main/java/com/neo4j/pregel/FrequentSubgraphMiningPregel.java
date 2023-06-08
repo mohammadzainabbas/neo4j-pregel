@@ -27,9 +27,6 @@ import java.util.Optional;
 public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig> {
 
     private static final String FSM = "fsm";
-    private static final String STEPS = "steps";
-
-    private static boolean weighted;
 
     /* Each node will have this value-schema during pregel computation */
     @Override
@@ -59,7 +56,6 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
             context.setNodeValue(FSM, empty_fsm_array);
         } else {
             double[] fsms = context.doubleArrayNodeValue(FSM);
-
             double[] new_fsms = new double[fsms.length + 1];
 
             for (int i = 0; i < new_fsms.length; i++) {
