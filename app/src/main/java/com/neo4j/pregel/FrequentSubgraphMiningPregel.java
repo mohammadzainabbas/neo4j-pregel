@@ -65,19 +65,8 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
             double[] empty_fsm_array = {};
             context.setNodeValue(FSM, empty_fsm_array);
             context.setNodeValue(STEPS, 0);
-            // context.setNodeValue(F1, calculateFrequentSize1Subgraphs(context));
-            // context.setNodeValue(Sk, calculateEmbeddings(context.getNodeValue(F1)));
         } else {
-            // // Main computation step
-            // context.setNodeValue(Sk, calculateEmbeddings(context.getNodeValue(Fk1)));
-            // context.setNodeValue(Ext, calculateExtensions(context.getNodeValue(Sk)));
-            // context.setNodeValue(Fk1, ApFSMEXTEND(context.getNodeValue(Fk1), context.getNodeValue(Sk)));
-
-            // while (context.getNodeValue(Fk1) != 0) {
-            //     context.setNodeValue(Fw_i, LocalPrunning(context.getNodeValue(Fk1)));
-            // }
-
-            // context.setNodeValue(Fk1, calculateDistinctSubgraphImages(context.getNodeValue(Fw_i)));
+            
             context.setNodeValue(STEPS, context.longNodeValue(STEPS) + 1);
         }
     }
