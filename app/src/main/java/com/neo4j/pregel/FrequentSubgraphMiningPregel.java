@@ -13,6 +13,7 @@ import org.neo4j.gds.beta.pregel.annotation.GDSMode;
 import org.neo4j.gds.beta.pregel.annotation.PregelProcedure;
 import org.neo4j.gds.beta.pregel.context.ComputeContext;
 import org.neo4j.gds.beta.pregel.context.InitContext;
+import org.neo4j.gds.beta.pregel.context.MasterComputeContext;
 import org.neo4j.gds.config.SeedConfig;
 import org.neo4j.gds.core.CypherMapWrapper;
 
