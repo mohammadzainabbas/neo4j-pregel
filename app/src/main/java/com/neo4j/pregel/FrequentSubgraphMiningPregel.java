@@ -28,12 +28,6 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
 
     private static final String FSM = "fsm";
     private static final String STEPS = "steps";
-    private static final String F = "F";
-    private static final String F1 = "F1";
-    private static final String Sk = "Sk";
-    private static final String Ext = "Ext";
-    private static final String Fk1 = "Fk1";
-    private static final String Fw_i = "Fw_i";
 
     private static boolean weighted;
 
