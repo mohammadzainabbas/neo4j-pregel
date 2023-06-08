@@ -19,6 +19,7 @@ import org.neo4j.gds.config.SeedConfig;
 import org.neo4j.gds.core.CypherMapWrapper;
 
 import java.util.Set;
+import java.lang.reflect.Array;
 import java.util.HashSet;
 import java.util.Optional;
 
@@ -66,7 +67,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
     public void compute(ComputeContext<FrequentSubgraphMiningPregelConfig> context, Messages messages) {
         if (context.isInitialSuperstep()) {
             // Initialization step
-            context.setNodeValue(FSM, );
+            context.setNodeValue(FSM, Array());
             // context.setNodeValue(F1, calculateFrequentSize1Subgraphs(context));
             // context.setNodeValue(Sk, calculateEmbeddings(context.getNodeValue(F1)));
         } else {
