@@ -62,7 +62,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
             long msg;
 
             for (var message: messages) {
-                msg = message;
+                msg = (long) message;
             }
 
             for (int i = 0; i < new_fsms.length; i++) {
