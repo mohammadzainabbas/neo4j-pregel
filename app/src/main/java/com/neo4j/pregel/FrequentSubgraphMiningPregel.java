@@ -57,6 +57,10 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
         weighted = context.config().hasRelationshipWeightProperty();
     }
 
+    public long calculateFrequentSize1Subgraphs() {
+        return 0;
+    }
+
     /* Called for each node in every superstep */
     @Override
     public void compute(ComputeContext<FrequentSubgraphMiningPregelConfig> context, Messages messages) {
