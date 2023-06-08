@@ -92,7 +92,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
     }
 
     @Override
-    public void masterCompute(MasterComputeContext<FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig> context) {
+    public boolean masterCompute(MasterComputeContext<FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig> context) {
         while (context.getNodeValue(Fk1) != 0) {
             context.setNodeValue(F, GlobalPrunning(context.getNodeValue(Fk1)));
         }
