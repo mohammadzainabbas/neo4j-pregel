@@ -96,8 +96,8 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
     @SuppressWarnings("immutables:subtype")
     public interface FrequentSubgraphMiningPregelConfig extends PregelProcedureConfig, SeedConfig {
         @Value.Default
-        default double dampingFactor() {
-            return 0.85;
+        default int maxIterations() {
+            return 10;
         }
 
         static FrequentSubgraphMiningPregelConfig of(CypherMapWrapper userInput) {

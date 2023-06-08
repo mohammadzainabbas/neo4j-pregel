@@ -24,7 +24,7 @@ import org.neo4j.gds.core.utils.progress.JobId;
 
 @Generated("org.neo4j.gds.proc.ConfigurationProcessor")
 public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig {
-    private double dampingFactor;
+    private int maxIterations;
 
     private String mutateProperty;
 
@@ -50,8 +50,6 @@ public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSub
 
     private Optional<String> relationshipWeightProperty;
 
-    private int maxIterations;
-
     private int writeConcurrency;
 
     private @Nullable String seedProperty;
@@ -59,7 +57,7 @@ public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSub
     public FrequentSubgraphMiningPregelConfigImpl(@NotNull CypherMapAccess config) {
         ArrayList<IllegalArgumentException> errors = new ArrayList<>();
         try {
-            this.dampingFactor = config.getDouble("dampingFactor", FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.dampingFactor());
+            this.maxIterations = config.getInt("maxIterations", FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.maxIterations());
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
@@ -124,12 +122,6 @@ public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSub
             errors.add(e);
         }
         try {
-            this.maxIterations = config.requireInt("maxIterations");
-            CypherMapAccess.validateIntegerRange("maxIterations", maxIterations, 0, 2147483647, true, true);
-        } catch (IllegalArgumentException e) {
-            errors.add(e);
-        }
-        try {
             this.writeConcurrency = config.getInt("writeConcurrency", FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.writeConcurrency());
         } catch (IllegalArgumentException e) {
             errors.add(e);
@@ -170,8 +162,8 @@ public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSub
     }
 
     @Override
-    public double dampingFactor() {
-        return this.dampingFactor;
+    public int maxIterations() {
+        return this.maxIterations;
     }
 
     @Override
@@ -252,7 +244,7 @@ public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSub
 
     @Override
     public Collection<String> configKeys() {
-        return Arrays.asList("dampingFactor", "mutateProperty", "writeProperty", "isAsynchronous", "partitioning", "nodeLabels", "relationshipTypes", "logProgress", "sudo", "username", "concurrency", "jobId", "relationshipWeightProperty", "maxIterations", "writeConcurrency", "seedProperty");
+        return Arrays.asList("maxIterations", "mutateProperty", "writeProperty", "isAsynchronous", "partitioning", "nodeLabels", "relationshipTypes", "logProgress", "sudo", "username", "concurrency", "jobId", "relationshipWeightProperty", "writeConcurrency", "seedProperty");
     }
 
     @Override
@@ -268,7 +260,7 @@ public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSub
     @Override
     public Map<String, Object> toMap() {
         Map<String, Object> map = new LinkedHashMap<>();
-        map.put("dampingFactor", dampingFactor());
+        map.put("maxIterations", maxIterations());
         map.put("mutateProperty", mutateProperty());
         map.put("writeProperty", writeProperty());
         map.put("isAsynchronous", isAsynchronous());
@@ -281,7 +273,6 @@ public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSub
         map.put("concurrency", concurrency());
         map.put("jobId", org.neo4j.gds.core.utils.progress.JobId.asString(jobId()));
         relationshipWeightProperty().ifPresent(relationshipWeightProperty -> map.put("relationshipWeightProperty", relationshipWeightProperty));
-        map.put("maxIterations", maxIterations());
         map.put("writeConcurrency", writeConcurrency());
         map.put("seedProperty", seedProperty());
         return map;
@@ -308,11 +299,6 @@ public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSub
     }
 
     @Override
-    public int maxIterations() {
-        return this.maxIterations;
-    }
-
-    @Override
     public int writeConcurrency() {
         return this.writeConcurrency;
     }
@@ -336,7 +322,7 @@ public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSub
         public static FrequentSubgraphMiningPregelConfigImpl.Builder from(
                 FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig baseConfig) {
             var builder = new FrequentSubgraphMiningPregelConfigImpl.Builder();
-            builder.dampingFactor(baseConfig.dampingFactor());
+            builder.maxIterations(baseConfig.maxIterations());
             builder.mutateProperty(baseConfig.mutateProperty());
             builder.writeProperty(baseConfig.writeProperty());
             builder.isAsynchronous(baseConfig.isAsynchronous());
@@ -349,14 +335,13 @@ public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSub
             builder.concurrency(baseConfig.concurrency());
             builder.jobId(baseConfig.jobId());
             builder.relationshipWeightProperty(baseConfig.relationshipWeightProperty());
-            builder.maxIterations(baseConfig.maxIterations());
             builder.writeConcurrency(baseConfig.writeConcurrency());
             builder.seedProperty(baseConfig.seedProperty());
             return builder;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder dampingFactor(double dampingFactor) {
-            this.config.put("dampingFactor", dampingFactor);
+        public FrequentSubgraphMiningPregelConfigImpl.Builder maxIterations(int maxIterations) {
+            this.config.put("maxIterations", maxIterations);
             return this;
         }
 
@@ -434,11 +419,6 @@ public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSub
         public FrequentSubgraphMiningPregelConfigImpl.Builder relationshipWeightProperty(
                 Optional<String> relationshipWeightProperty) {
             relationshipWeightProperty.ifPresent(actualrelationshipWeightProperty -> this.config.put("relationshipWeightProperty", actualrelationshipWeightProperty));
-            return this;
-        }
-
-        public FrequentSubgraphMiningPregelConfigImpl.Builder maxIterations(int maxIterations) {
-            this.config.put("maxIterations", maxIterations);
             return this;
         }
 

@@ -59,7 +59,6 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
   private final List<String> relationshipTypes;
   private transient final boolean hasRelationshipWeightProperty;
   private final @Nullable String relationshipWeightProperty;
-  private final int maxIterations;
   private final boolean isAsynchronous;
   private final Partitioning partitioning;
   private transient final boolean useForkJoin;
@@ -67,7 +66,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
   private final String mutateProperty;
   private final String writeProperty;
   private final @org.jetbrains.annotations.Nullable String seedProperty;
-  private final double dampingFactor;
+  private final int maxIterations;
 
   private ImmutableFrequentSubgraphMiningPregelConfig(
       int concurrency,
@@ -75,27 +74,25 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
       Iterable<String> nodeLabels,
       Iterable<String> relationshipTypes,
       Optional<String> relationshipWeightProperty,
-      int maxIterations,
       boolean isAsynchronous,
       Partitioning partitioning,
       int writeConcurrency,
       String mutateProperty,
       String writeProperty,
       @org.jetbrains.annotations.Nullable String seedProperty,
-      double dampingFactor) {
+      int maxIterations) {
     initShim.concurrency(concurrency);
     initShim.minBatchSize(minBatchSize);
     initShim.nodeLabels(createUnmodifiableList(false, createSafeList(nodeLabels, true, false)));
     initShim.relationshipTypes(createUnmodifiableList(false, createSafeList(relationshipTypes, true, false)));
     this.relationshipWeightProperty = relationshipWeightProperty.orElse(null);
-    this.maxIterations = maxIterations;
     initShim.isAsynchronous(isAsynchronous);
     initShim.partitioning(Objects.requireNonNull(partitioning, "partitioning"));
     initShim.writeConcurrency(writeConcurrency);
     initShim.mutateProperty(Objects.requireNonNull(mutateProperty, "mutateProperty"));
     initShim.writeProperty(Objects.requireNonNull(writeProperty, "writeProperty"));
     initShim.seedProperty(seedProperty);
-    initShim.dampingFactor(dampingFactor);
+    initShim.maxIterations(maxIterations);
     this.usernameOverride = null;
     this.configKeys = initShim.configKeys();
     this.logProgress = initShim.logProgress();
@@ -114,7 +111,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     this.mutateProperty = initShim.mutateProperty();
     this.writeProperty = initShim.writeProperty();
     this.seedProperty = initShim.seedProperty();
-    this.dampingFactor = initShim.dampingFactor();
+    this.maxIterations = initShim.maxIterations();
     this.initShim = null;
   }
 
@@ -124,27 +121,25 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
       Iterable<String> nodeLabels,
       Iterable<String> relationshipTypes,
       @Nullable String relationshipWeightProperty,
-      int maxIterations,
       boolean isAsynchronous,
       Partitioning partitioning,
       int writeConcurrency,
       String mutateProperty,
       String writeProperty,
       @org.jetbrains.annotations.Nullable String seedProperty,
-      double dampingFactor) {
+      int maxIterations) {
     initShim.concurrency(concurrency);
     initShim.minBatchSize(minBatchSize);
     initShim.nodeLabels(createUnmodifiableList(false, createSafeList(nodeLabels, true, false)));
     initShim.relationshipTypes(createUnmodifiableList(false, createSafeList(relationshipTypes, true, false)));
     this.relationshipWeightProperty = relationshipWeightProperty;
-    this.maxIterations = maxIterations;
     initShim.isAsynchronous(isAsynchronous);
     initShim.partitioning(Objects.requireNonNull(partitioning, "partitioning"));
     initShim.writeConcurrency(writeConcurrency);
     initShim.mutateProperty(Objects.requireNonNull(mutateProperty, "mutateProperty"));
     initShim.writeProperty(Objects.requireNonNull(writeProperty, "writeProperty"));
     initShim.seedProperty(seedProperty);
-    initShim.dampingFactor(dampingFactor);
+    initShim.maxIterations(maxIterations);
     this.usernameOverride = null;
     this.configKeys = initShim.configKeys();
     this.logProgress = initShim.logProgress();
@@ -163,14 +158,13 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     this.mutateProperty = initShim.mutateProperty();
     this.writeProperty = initShim.writeProperty();
     this.seedProperty = initShim.seedProperty();
-    this.dampingFactor = initShim.dampingFactor();
+    this.maxIterations = initShim.maxIterations();
     this.initShim = null;
   }
 
   private ImmutableFrequentSubgraphMiningPregelConfig(ImmutableFrequentSubgraphMiningPregelConfig.Builder builder) {
     this.usernameOverride = builder.usernameOverride;
     this.relationshipWeightProperty = builder.relationshipWeightProperty;
-    this.maxIterations = builder.maxIterations;
     if (builder.configKeys != null) {
       initShim.configKeys(builder.configKeys);
     }
@@ -213,8 +207,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     if (builder.seedPropertyIsSet()) {
       initShim.seedProperty(builder.seedProperty);
     }
-    if (builder.dampingFactorIsSet()) {
-      initShim.dampingFactor(builder.dampingFactor);
+    if (builder.maxIterationsIsSet()) {
+      initShim.maxIterations(builder.maxIterations);
     }
     this.configKeys = initShim.configKeys();
     this.logProgress = initShim.logProgress();
@@ -233,7 +227,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     this.mutateProperty = initShim.mutateProperty();
     this.writeProperty = initShim.writeProperty();
     this.seedProperty = initShim.seedProperty();
-    this.dampingFactor = initShim.dampingFactor();
+    this.maxIterations = initShim.maxIterations();
     this.initShim = null;
   }
 
@@ -248,14 +242,13 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
       List<String> nodeLabels,
       List<String> relationshipTypes,
       @Nullable String relationshipWeightProperty,
-      int maxIterations,
       boolean isAsynchronous,
       Partitioning partitioning,
       int writeConcurrency,
       String mutateProperty,
       String writeProperty,
       @org.jetbrains.annotations.Nullable String seedProperty,
-      double dampingFactor) {
+      int maxIterations) {
     initShim.configKeys(configKeys);
     initShim.logProgress(logProgress);
     initShim.sudo(sudo);
@@ -266,14 +259,13 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     initShim.nodeLabels(nodeLabels);
     initShim.relationshipTypes(relationshipTypes);
     this.relationshipWeightProperty = relationshipWeightProperty;
-    this.maxIterations = maxIterations;
     initShim.isAsynchronous(isAsynchronous);
     initShim.partitioning(partitioning);
     initShim.writeConcurrency(writeConcurrency);
     initShim.mutateProperty(mutateProperty);
     initShim.writeProperty(writeProperty);
     initShim.seedProperty(seedProperty);
-    initShim.dampingFactor(dampingFactor);
+    initShim.maxIterations(maxIterations);
     this.configKeys = initShim.configKeys();
     this.logProgress = initShim.logProgress();
     this.sudo = initShim.sudo();
@@ -291,7 +283,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     this.mutateProperty = initShim.mutateProperty();
     this.writeProperty = initShim.writeProperty();
     this.seedProperty = initShim.seedProperty();
-    this.dampingFactor = initShim.dampingFactor();
+    this.maxIterations = initShim.maxIterations();
     this.initShim = null;
   }
 
@@ -594,22 +586,22 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
       seedPropertyBuildStage = STAGE_INITIALIZED;
     }
 
-    private byte dampingFactorBuildStage = STAGE_UNINITIALIZED;
-    private double dampingFactor;
+    private byte maxIterationsBuildStage = STAGE_UNINITIALIZED;
+    private int maxIterations;
 
-    double dampingFactor() {
-      if (dampingFactorBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
-      if (dampingFactorBuildStage == STAGE_UNINITIALIZED) {
-        dampingFactorBuildStage = STAGE_INITIALIZING;
-        this.dampingFactor = dampingFactorInitialize();
-        dampingFactorBuildStage = STAGE_INITIALIZED;
+    int maxIterations() {
+      if (maxIterationsBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+      if (maxIterationsBuildStage == STAGE_UNINITIALIZED) {
+        maxIterationsBuildStage = STAGE_INITIALIZING;
+        this.maxIterations = maxIterationsInitialize();
+        maxIterationsBuildStage = STAGE_INITIALIZED;
       }
-      return this.dampingFactor;
+      return this.maxIterations;
     }
 
-    void dampingFactor(double dampingFactor) {
-      this.dampingFactor = dampingFactor;
-      dampingFactorBuildStage = STAGE_INITIALIZED;
+    void maxIterations(int maxIterations) {
+      this.maxIterations = maxIterations;
+      maxIterationsBuildStage = STAGE_INITIALIZED;
     }
 
     private String formatInitCycleMessage() {
@@ -631,7 +623,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
       if (mutatePropertyBuildStage == STAGE_INITIALIZING) attributes.add("mutateProperty");
       if (writePropertyBuildStage == STAGE_INITIALIZING) attributes.add("writeProperty");
       if (seedPropertyBuildStage == STAGE_INITIALIZING) attributes.add("seedProperty");
-      if (dampingFactorBuildStage == STAGE_INITIALIZING) attributes.add("dampingFactor");
+      if (maxIterationsBuildStage == STAGE_INITIALIZING) attributes.add("maxIterations");
       return "Cannot build FrequentSubgraphMiningPregelConfig, attribute initializers form cycle " + attributes;
     }
   }
@@ -704,8 +696,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     return FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.seedProperty();
   }
 
-  private double dampingFactorInitialize() {
-    return FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.dampingFactor();
+  private int maxIterationsInitialize() {
+    return FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.maxIterations();
   }
 
   /**
@@ -835,14 +827,6 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
   }
 
   /**
-   * @return The value of the {@code maxIterations} attribute
-   */
-  @Override
-  public int maxIterations() {
-    return maxIterations;
-  }
-
-  /**
    * @return The value of the {@code isAsynchronous} attribute
    */
   @Override
@@ -920,14 +904,14 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
   }
 
   /**
-   * @return The value of the {@code dampingFactor} attribute
+   * @return The value of the {@code maxIterations} attribute
    */
   @Override
-  public double dampingFactor() {
+  public int maxIterations() {
     InitShim shim = this.initShim;
     return shim != null
-        ? shim.dampingFactor()
-        : this.dampingFactor;
+        ? shim.maxIterations()
+        : this.maxIterations;
   }
 
   /**
@@ -950,14 +934,13 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.nodeLabels,
         this.relationshipTypes,
         this.relationshipWeightProperty,
-        this.maxIterations,
         this.isAsynchronous,
         this.partitioning,
         this.writeConcurrency,
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.dampingFactor));
+        this.maxIterations));
   }
 
   /**
@@ -979,14 +962,13 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.nodeLabels,
         this.relationshipTypes,
         this.relationshipWeightProperty,
-        this.maxIterations,
         this.isAsynchronous,
         this.partitioning,
         this.writeConcurrency,
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.dampingFactor));
+        this.maxIterations));
   }
 
   /**
@@ -1008,14 +990,13 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.nodeLabels,
         this.relationshipTypes,
         this.relationshipWeightProperty,
-        this.maxIterations,
         this.isAsynchronous,
         this.partitioning,
         this.writeConcurrency,
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.dampingFactor));
+        this.maxIterations));
   }
 
   /**
@@ -1037,14 +1018,13 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.nodeLabels,
         this.relationshipTypes,
         this.relationshipWeightProperty,
-        this.maxIterations,
         this.isAsynchronous,
         this.partitioning,
         this.writeConcurrency,
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.dampingFactor));
+        this.maxIterations));
   }
 
   /**
@@ -1067,14 +1047,13 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.nodeLabels,
         this.relationshipTypes,
         this.relationshipWeightProperty,
-        this.maxIterations,
         this.isAsynchronous,
         this.partitioning,
         this.writeConcurrency,
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.dampingFactor));
+        this.maxIterations));
   }
 
   /**
@@ -1096,14 +1075,13 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.nodeLabels,
         this.relationshipTypes,
         this.relationshipWeightProperty,
-        this.maxIterations,
         this.isAsynchronous,
         this.partitioning,
         this.writeConcurrency,
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.dampingFactor));
+        this.maxIterations));
   }
 
   /**
@@ -1125,14 +1103,13 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.nodeLabels,
         this.relationshipTypes,
         this.relationshipWeightProperty,
-        this.maxIterations,
         this.isAsynchronous,
         this.partitioning,
         this.writeConcurrency,
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.dampingFactor));
+        this.maxIterations));
   }
 
   /**
@@ -1155,14 +1132,13 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.nodeLabels,
         this.relationshipTypes,
         this.relationshipWeightProperty,
-        this.maxIterations,
         this.isAsynchronous,
         this.partitioning,
         this.writeConcurrency,
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.dampingFactor));
+        this.maxIterations));
   }
 
   /**
@@ -1183,14 +1159,13 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         newValue,
         this.relationshipTypes,
         this.relationshipWeightProperty,
-        this.maxIterations,
         this.isAsynchronous,
         this.partitioning,
         this.writeConcurrency,
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.dampingFactor));
+        this.maxIterations));
   }
 
   /**
@@ -1213,14 +1188,13 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         newValue,
         this.relationshipTypes,
         this.relationshipWeightProperty,
-        this.maxIterations,
         this.isAsynchronous,
         this.partitioning,
         this.writeConcurrency,
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.dampingFactor));
+        this.maxIterations));
   }
 
   /**
@@ -1241,14 +1215,13 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.nodeLabels,
         newValue,
         this.relationshipWeightProperty,
-        this.maxIterations,
         this.isAsynchronous,
         this.partitioning,
         this.writeConcurrency,
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.dampingFactor));
+        this.maxIterations));
   }
 
   /**
@@ -1271,14 +1244,13 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.nodeLabels,
         newValue,
         this.relationshipWeightProperty,
-        this.maxIterations,
         this.isAsynchronous,
         this.partitioning,
         this.writeConcurrency,
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.dampingFactor));
+        this.maxIterations));
   }
 
   /**
@@ -1300,14 +1272,13 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.nodeLabels,
         this.relationshipTypes,
         newValue,
-        this.maxIterations,
         this.isAsynchronous,
         this.partitioning,
         this.writeConcurrency,
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.dampingFactor));
+        this.maxIterations));
   }
 
   /**
@@ -1330,43 +1301,13 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.nodeLabels,
         this.relationshipTypes,
         value,
-        this.maxIterations,
         this.isAsynchronous,
         this.partitioning,
         this.writeConcurrency,
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.dampingFactor));
-  }
-
-  /**
-   * Copy the current immutable object by setting a value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#maxIterations() maxIterations} attribute.
-   * A value equality check is used to prevent copying of the same value by returning {@code this}.
-   * @param value A new value for maxIterations
-   * @return A modified copy of the {@code this} object
-   */
-  public final ImmutableFrequentSubgraphMiningPregelConfig withMaxIterations(int value) {
-    if (this.maxIterations == value) return this;
-    return validate(new ImmutableFrequentSubgraphMiningPregelConfig(
-        this.configKeys,
-        this.logProgress,
-        this.sudo,
-        this.usernameOverride,
-        this.concurrency,
-        this.minBatchSize,
-        this.jobId,
-        this.nodeLabels,
-        this.relationshipTypes,
-        this.relationshipWeightProperty,
-        value,
-        this.isAsynchronous,
-        this.partitioning,
-        this.writeConcurrency,
-        this.mutateProperty,
-        this.writeProperty,
-        this.seedProperty,
-        this.dampingFactor));
+        this.maxIterations));
   }
 
   /**
@@ -1388,14 +1329,13 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.nodeLabels,
         this.relationshipTypes,
         this.relationshipWeightProperty,
-        this.maxIterations,
         value,
         this.partitioning,
         this.writeConcurrency,
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.dampingFactor));
+        this.maxIterations));
   }
 
   /**
@@ -1419,14 +1359,13 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.nodeLabels,
         this.relationshipTypes,
         this.relationshipWeightProperty,
-        this.maxIterations,
         this.isAsynchronous,
         newValue,
         this.writeConcurrency,
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.dampingFactor));
+        this.maxIterations));
   }
 
   /**
@@ -1448,14 +1387,13 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.nodeLabels,
         this.relationshipTypes,
         this.relationshipWeightProperty,
-        this.maxIterations,
         this.isAsynchronous,
         this.partitioning,
         value,
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.dampingFactor));
+        this.maxIterations));
   }
 
   /**
@@ -1478,14 +1416,13 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.nodeLabels,
         this.relationshipTypes,
         this.relationshipWeightProperty,
-        this.maxIterations,
         this.isAsynchronous,
         this.partitioning,
         this.writeConcurrency,
         newValue,
         this.writeProperty,
         this.seedProperty,
-        this.dampingFactor));
+        this.maxIterations));
   }
 
   /**
@@ -1508,14 +1445,13 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.nodeLabels,
         this.relationshipTypes,
         this.relationshipWeightProperty,
-        this.maxIterations,
         this.isAsynchronous,
         this.partitioning,
         this.writeConcurrency,
         this.mutateProperty,
         newValue,
         this.seedProperty,
-        this.dampingFactor));
+        this.maxIterations));
   }
 
   /**
@@ -1537,24 +1473,23 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.nodeLabels,
         this.relationshipTypes,
         this.relationshipWeightProperty,
-        this.maxIterations,
         this.isAsynchronous,
         this.partitioning,
         this.writeConcurrency,
         this.mutateProperty,
         this.writeProperty,
         value,
-        this.dampingFactor));
+        this.maxIterations));
   }
 
   /**
-   * Copy the current immutable object by setting a value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#dampingFactor() dampingFactor} attribute.
-   * A value strict bits equality used to prevent copying of the same value by returning {@code this}.
-   * @param value A new value for dampingFactor
+   * Copy the current immutable object by setting a value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#maxIterations() maxIterations} attribute.
+   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+   * @param value A new value for maxIterations
    * @return A modified copy of the {@code this} object
    */
-  public final ImmutableFrequentSubgraphMiningPregelConfig withDampingFactor(double value) {
-    if (Double.doubleToLongBits(this.dampingFactor) == Double.doubleToLongBits(value)) return this;
+  public final ImmutableFrequentSubgraphMiningPregelConfig withMaxIterations(int value) {
+    if (this.maxIterations == value) return this;
     return validate(new ImmutableFrequentSubgraphMiningPregelConfig(
         this.configKeys,
         this.logProgress,
@@ -1566,7 +1501,6 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.nodeLabels,
         this.relationshipTypes,
         this.relationshipWeightProperty,
-        this.maxIterations,
         this.isAsynchronous,
         this.partitioning,
         this.writeConcurrency,
@@ -1598,7 +1532,6 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         && relationshipTypes.equals(another.relationshipTypes)
         && hasRelationshipWeightProperty == another.hasRelationshipWeightProperty
         && Objects.equals(relationshipWeightProperty, another.relationshipWeightProperty)
-        && maxIterations == another.maxIterations
         && isAsynchronous == another.isAsynchronous
         && partitioning.equals(another.partitioning)
         && useForkJoin == another.useForkJoin
@@ -1606,11 +1539,11 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         && mutateProperty.equals(another.mutateProperty)
         && writeProperty.equals(another.writeProperty)
         && Objects.equals(seedProperty, another.seedProperty)
-        && Double.doubleToLongBits(dampingFactor) == Double.doubleToLongBits(another.dampingFactor);
+        && maxIterations == another.maxIterations;
   }
 
   /**
-   * Computes a hash code from attributes: {@code logProgress}, {@code sudo}, {@code usernameOverride}, {@code concurrency}, {@code minBatchSize}, {@code jobId}, {@code nodeLabels}, {@code relationshipTypes}, {@code hasRelationshipWeightProperty}, {@code relationshipWeightProperty}, {@code maxIterations}, {@code isAsynchronous}, {@code partitioning}, {@code useForkJoin}, {@code writeConcurrency}, {@code mutateProperty}, {@code writeProperty}, {@code seedProperty}, {@code dampingFactor}.
+   * Computes a hash code from attributes: {@code logProgress}, {@code sudo}, {@code usernameOverride}, {@code concurrency}, {@code minBatchSize}, {@code jobId}, {@code nodeLabels}, {@code relationshipTypes}, {@code hasRelationshipWeightProperty}, {@code relationshipWeightProperty}, {@code isAsynchronous}, {@code partitioning}, {@code useForkJoin}, {@code writeConcurrency}, {@code mutateProperty}, {@code writeProperty}, {@code seedProperty}, {@code maxIterations}.
    * @return hashCode value
    */
   @Override
@@ -1626,7 +1559,6 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     h += (h << 5) + relationshipTypes.hashCode();
     h += (h << 5) + Boolean.hashCode(hasRelationshipWeightProperty);
     h += (h << 5) + Objects.hashCode(relationshipWeightProperty);
-    h += (h << 5) + maxIterations;
     h += (h << 5) + Boolean.hashCode(isAsynchronous);
     h += (h << 5) + partitioning.hashCode();
     h += (h << 5) + Boolean.hashCode(useForkJoin);
@@ -1634,7 +1566,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     h += (h << 5) + mutateProperty.hashCode();
     h += (h << 5) + writeProperty.hashCode();
     h += (h << 5) + Objects.hashCode(seedProperty);
-    h += (h << 5) + Double.hashCode(dampingFactor);
+    h += (h << 5) + maxIterations;
     return h;
   }
 
@@ -1670,8 +1602,6 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
       builder.append("relationshipWeightProperty=").append(relationshipWeightProperty);
     }
     builder.append(", ");
-    builder.append("maxIterations=").append(maxIterations);
-    builder.append(", ");
     builder.append("isAsynchronous=").append(isAsynchronous);
     builder.append(", ");
     builder.append("partitioning=").append(partitioning);
@@ -1688,7 +1618,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
       builder.append("seedProperty=").append(seedProperty);
     }
     builder.append(", ");
-    builder.append("dampingFactor=").append(dampingFactor);
+    builder.append("maxIterations=").append(maxIterations);
     return builder.append("}").toString();
   }
 
@@ -1699,18 +1629,17 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
    * @param nodeLabels The value for the {@code nodeLabels} attribute
    * @param relationshipTypes The value for the {@code relationshipTypes} attribute
    * @param relationshipWeightProperty The value for the {@code relationshipWeightProperty} attribute
-   * @param maxIterations The value for the {@code maxIterations} attribute
    * @param isAsynchronous The value for the {@code isAsynchronous} attribute
    * @param partitioning The value for the {@code partitioning} attribute
    * @param writeConcurrency The value for the {@code writeConcurrency} attribute
    * @param mutateProperty The value for the {@code mutateProperty} attribute
    * @param writeProperty The value for the {@code writeProperty} attribute
    * @param seedProperty The value for the {@code seedProperty} attribute
-   * @param dampingFactor The value for the {@code dampingFactor} attribute
+   * @param maxIterations The value for the {@code maxIterations} attribute
    * @return An immutable FrequentSubgraphMiningPregelConfig instance
    */
-  public static FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig of(int concurrency, int minBatchSize, List<String> nodeLabels, List<String> relationshipTypes, Optional<String> relationshipWeightProperty, int maxIterations, boolean isAsynchronous, Partitioning partitioning, int writeConcurrency, String mutateProperty, String writeProperty, @org.jetbrains.annotations.Nullable String seedProperty, double dampingFactor) {
-    return of(concurrency, minBatchSize, (Iterable<String>) nodeLabels, (Iterable<String>) relationshipTypes, relationshipWeightProperty, maxIterations, isAsynchronous, partitioning, writeConcurrency, mutateProperty, writeProperty, seedProperty, dampingFactor);
+  public static FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig of(int concurrency, int minBatchSize, List<String> nodeLabels, List<String> relationshipTypes, Optional<String> relationshipWeightProperty, boolean isAsynchronous, Partitioning partitioning, int writeConcurrency, String mutateProperty, String writeProperty, @org.jetbrains.annotations.Nullable String seedProperty, int maxIterations) {
+    return of(concurrency, minBatchSize, (Iterable<String>) nodeLabels, (Iterable<String>) relationshipTypes, relationshipWeightProperty, isAsynchronous, partitioning, writeConcurrency, mutateProperty, writeProperty, seedProperty, maxIterations);
   }
 
   /**
@@ -1720,18 +1649,17 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
    * @param nodeLabels The value for the {@code nodeLabels} attribute
    * @param relationshipTypes The value for the {@code relationshipTypes} attribute
    * @param relationshipWeightProperty The value for the {@code relationshipWeightProperty} attribute
-   * @param maxIterations The value for the {@code maxIterations} attribute
    * @param isAsynchronous The value for the {@code isAsynchronous} attribute
    * @param partitioning The value for the {@code partitioning} attribute
    * @param writeConcurrency The value for the {@code writeConcurrency} attribute
    * @param mutateProperty The value for the {@code mutateProperty} attribute
    * @param writeProperty The value for the {@code writeProperty} attribute
    * @param seedProperty The value for the {@code seedProperty} attribute
-   * @param dampingFactor The value for the {@code dampingFactor} attribute
+   * @param maxIterations The value for the {@code maxIterations} attribute
    * @return An immutable FrequentSubgraphMiningPregelConfig instance
    */
-  public static FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig of(int concurrency, int minBatchSize, Iterable<String> nodeLabels, Iterable<String> relationshipTypes, Optional<String> relationshipWeightProperty, int maxIterations, boolean isAsynchronous, Partitioning partitioning, int writeConcurrency, String mutateProperty, String writeProperty, @org.jetbrains.annotations.Nullable String seedProperty, double dampingFactor) {
-    return validate(new ImmutableFrequentSubgraphMiningPregelConfig(concurrency, minBatchSize, nodeLabels, relationshipTypes, relationshipWeightProperty, maxIterations, isAsynchronous, partitioning, writeConcurrency, mutateProperty, writeProperty, seedProperty, dampingFactor));
+  public static FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig of(int concurrency, int minBatchSize, Iterable<String> nodeLabels, Iterable<String> relationshipTypes, Optional<String> relationshipWeightProperty, boolean isAsynchronous, Partitioning partitioning, int writeConcurrency, String mutateProperty, String writeProperty, @org.jetbrains.annotations.Nullable String seedProperty, int maxIterations) {
+    return validate(new ImmutableFrequentSubgraphMiningPregelConfig(concurrency, minBatchSize, nodeLabels, relationshipTypes, relationshipWeightProperty, isAsynchronous, partitioning, writeConcurrency, mutateProperty, writeProperty, seedProperty, maxIterations));
   }
 
   /**
@@ -1741,18 +1669,17 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
    * @param nodeLabels The value for the {@code nodeLabels} attribute
    * @param relationshipTypes The value for the {@code relationshipTypes} attribute
    * @param relationshipWeightProperty The value for the {@code relationshipWeightProperty} attribute
-   * @param maxIterations The value for the {@code maxIterations} attribute
    * @param isAsynchronous The value for the {@code isAsynchronous} attribute
    * @param partitioning The value for the {@code partitioning} attribute
    * @param writeConcurrency The value for the {@code writeConcurrency} attribute
    * @param mutateProperty The value for the {@code mutateProperty} attribute
    * @param writeProperty The value for the {@code writeProperty} attribute
    * @param seedProperty The value for the {@code seedProperty} attribute
-   * @param dampingFactor The value for the {@code dampingFactor} attribute
+   * @param maxIterations The value for the {@code maxIterations} attribute
    * @return An immutable FrequentSubgraphMiningPregelConfig instance
    */
-  public static FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig of(int concurrency, int minBatchSize, Iterable<String> nodeLabels, Iterable<String> relationshipTypes, @Nullable String relationshipWeightProperty, int maxIterations, boolean isAsynchronous, Partitioning partitioning, int writeConcurrency, String mutateProperty, String writeProperty, @org.jetbrains.annotations.Nullable String seedProperty, double dampingFactor) {
-    return validate(new ImmutableFrequentSubgraphMiningPregelConfig(concurrency, minBatchSize, nodeLabels, relationshipTypes, relationshipWeightProperty, maxIterations, isAsynchronous, partitioning, writeConcurrency, mutateProperty, writeProperty, seedProperty, dampingFactor));
+  public static FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig of(int concurrency, int minBatchSize, Iterable<String> nodeLabels, Iterable<String> relationshipTypes, @Nullable String relationshipWeightProperty, boolean isAsynchronous, Partitioning partitioning, int writeConcurrency, String mutateProperty, String writeProperty, @org.jetbrains.annotations.Nullable String seedProperty, int maxIterations) {
+    return validate(new ImmutableFrequentSubgraphMiningPregelConfig(concurrency, minBatchSize, nodeLabels, relationshipTypes, relationshipWeightProperty, isAsynchronous, partitioning, writeConcurrency, mutateProperty, writeProperty, seedProperty, maxIterations));
   }
 
   private static ImmutableFrequentSubgraphMiningPregelConfig validate(ImmutableFrequentSubgraphMiningPregelConfig instance) {
@@ -1792,14 +1719,13 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
    *    .addNodeLabel|addAllNodeLabels(String) // {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#nodeLabels() nodeLabels} elements
    *    .addRelationshipType|addAllRelationshipTypes(String) // {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#relationshipTypes() relationshipTypes} elements
    *    .relationshipWeightProperty(String) // optional {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#relationshipWeightProperty() relationshipWeightProperty}
-   *    .maxIterations(int) // required {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#maxIterations() maxIterations}
    *    .isAsynchronous(boolean) // optional {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#isAsynchronous() isAsynchronous}
    *    .partitioning(org.neo4j.gds.beta.pregel.Partitioning) // optional {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#partitioning() partitioning}
    *    .writeConcurrency(int) // optional {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#writeConcurrency() writeConcurrency}
    *    .mutateProperty(String) // optional {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#mutateProperty() mutateProperty}
    *    .writeProperty(String) // optional {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#writeProperty() writeProperty}
    *    .seedProperty(String | null) // nullable {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#seedProperty() seedProperty}
-   *    .dampingFactor(double) // optional {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#dampingFactor() dampingFactor}
+   *    .maxIterations(int) // optional {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#maxIterations() maxIterations}
    *    .build();
    * </pre>
    * @return A new FrequentSubgraphMiningPregelConfig builder
@@ -1818,7 +1744,6 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
   @Generated(from = "FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig", generator = "Immutables")
   @NotThreadSafe
   public static final class Builder {
-    private static final long INIT_BIT_MAX_ITERATIONS = 0x1L;
     private static final long OPT_BIT_LOG_PROGRESS = 0x1L;
     private static final long OPT_BIT_SUDO = 0x2L;
     private static final long OPT_BIT_CONCURRENCY = 0x4L;
@@ -1828,8 +1753,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     private static final long OPT_BIT_IS_ASYNCHRONOUS = 0x40L;
     private static final long OPT_BIT_WRITE_CONCURRENCY = 0x80L;
     private static final long OPT_BIT_SEED_PROPERTY = 0x100L;
-    private static final long OPT_BIT_DAMPING_FACTOR = 0x200L;
-    private long initBits = 0x1L;
+    private static final long OPT_BIT_MAX_ITERATIONS = 0x200L;
     private long optBits;
 
     private @Nullable Collection<String> configKeys;
@@ -1842,14 +1766,13 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     private List<String> nodeLabels = null;
     private List<String> relationshipTypes = null;
     private @Nullable String relationshipWeightProperty;
-    private int maxIterations;
     private boolean isAsynchronous;
     private @Nullable Partitioning partitioning;
     private int writeConcurrency;
     private @Nullable String mutateProperty;
     private @Nullable String writeProperty;
     private @Nullable String seedProperty;
-    private double dampingFactor;
+    private int maxIterations;
 
     private Builder() {
     }
@@ -2018,27 +1941,27 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
       }
       if (object instanceof WritePropertyConfig) {
         WritePropertyConfig instance = (WritePropertyConfig) object;
-        if ((bits & 0x1L) == 0) {
+        if ((bits & 0x2L) == 0) {
           writeProperty(instance.writeProperty());
-          bits |= 0x1L;
+          bits |= 0x2L;
         }
       }
       if (object instanceof PregelProcedureConfig) {
         PregelProcedureConfig instance = (PregelProcedureConfig) object;
-        if ((bits & 0x1L) == 0) {
-          writeProperty(instance.writeProperty());
-          bits |= 0x1L;
-        }
         if ((bits & 0x2L) == 0) {
-          mutateProperty(instance.mutateProperty());
+          writeProperty(instance.writeProperty());
           bits |= 0x2L;
+        }
+        if ((bits & 0x4L) == 0) {
+          mutateProperty(instance.mutateProperty());
+          bits |= 0x4L;
         }
       }
       if (object instanceof MutatePropertyConfig) {
         MutatePropertyConfig instance = (MutatePropertyConfig) object;
-        if ((bits & 0x2L) == 0) {
+        if ((bits & 0x4L) == 0) {
           mutateProperty(instance.mutateProperty());
-          bits |= 0x2L;
+          bits |= 0x4L;
         }
       }
       if (object instanceof BaseConfig) {
@@ -2086,11 +2009,17 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
       }
       if (object instanceof FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig) {
         FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig instance = (FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig) object;
-        dampingFactor(instance.dampingFactor());
+        if ((bits & 0x1L) == 0) {
+          maxIterations(instance.maxIterations());
+          bits |= 0x1L;
+        }
       }
       if (object instanceof IterationsConfig) {
         IterationsConfig instance = (IterationsConfig) object;
-        maxIterations(instance.maxIterations());
+        if ((bits & 0x1L) == 0) {
+          maxIterations(instance.maxIterations());
+          bits |= 0x1L;
+        }
       }
     }
 
@@ -2339,18 +2268,6 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     }
 
     /**
-     * Initializes the value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#maxIterations() maxIterations} attribute.
-     * @param maxIterations The value for maxIterations 
-     * @return {@code this} builder for use in a chained invocation
-     */
-    @CanIgnoreReturnValue 
-    public final Builder maxIterations(int maxIterations) {
-      this.maxIterations = maxIterations;
-      initBits &= ~INIT_BIT_MAX_ITERATIONS;
-      return this;
-    }
-
-    /**
      * Initializes the value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#isAsynchronous() isAsynchronous} attribute.
      * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#isAsynchronous() isAsynchronous}.</em>
      * @param isAsynchronous The value for isAsynchronous 
@@ -2426,15 +2343,15 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     }
 
     /**
-     * Initializes the value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#dampingFactor() dampingFactor} attribute.
-     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#dampingFactor() dampingFactor}.</em>
-     * @param dampingFactor The value for dampingFactor 
+     * Initializes the value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#maxIterations() maxIterations} attribute.
+     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#maxIterations() maxIterations}.</em>
+     * @param maxIterations The value for maxIterations 
      * @return {@code this} builder for use in a chained invocation
      */
     @CanIgnoreReturnValue 
-    public final Builder dampingFactor(double dampingFactor) {
-      this.dampingFactor = dampingFactor;
-      optBits |= OPT_BIT_DAMPING_FACTOR;
+    public final Builder maxIterations(int maxIterations) {
+      this.maxIterations = maxIterations;
+      optBits |= OPT_BIT_MAX_ITERATIONS;
       return this;
     }
 
@@ -2444,7 +2361,6 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
      */
     @CanIgnoreReturnValue 
     public Builder clear() {
-      initBits = 0x1L;
       optBits = 0;
       this.configKeys = null;
       this.logProgress = false;
@@ -2460,14 +2376,13 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         relationshipTypes.clear();
       }
       this.relationshipWeightProperty = null;
-      this.maxIterations = 0;
       this.isAsynchronous = false;
       this.partitioning = null;
       this.writeConcurrency = 0;
       this.mutateProperty = null;
       this.writeProperty = null;
       this.seedProperty = null;
-      this.dampingFactor = 0;
+      this.maxIterations = 0;
       return this;
     }
 
@@ -2477,9 +2392,6 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
      * @throws java.lang.IllegalStateException if any required attributes are missing
      */
     public FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig build() {
-      if (initBits != 0) {
-        throw new IllegalStateException(formatRequiredAttributesMessage());
-      }
       return ImmutableFrequentSubgraphMiningPregelConfig.validate(new ImmutableFrequentSubgraphMiningPregelConfig(this));
     }
 
@@ -2519,14 +2431,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
       return (optBits & OPT_BIT_SEED_PROPERTY) != 0;
     }
 
-    private boolean dampingFactorIsSet() {
-      return (optBits & OPT_BIT_DAMPING_FACTOR) != 0;
-    }
-
-    private String formatRequiredAttributesMessage() {
-      List<String> attributes = new ArrayList<>();
-      if ((initBits & INIT_BIT_MAX_ITERATIONS) != 0) attributes.add("maxIterations");
-      return "Cannot build FrequentSubgraphMiningPregelConfig, some of required attributes are not set " + attributes;
+    private boolean maxIterationsIsSet() {
+      return (optBits & OPT_BIT_MAX_ITERATIONS) != 0;
     }
   }
 
