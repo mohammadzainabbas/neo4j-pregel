@@ -88,7 +88,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
 
     @Override
     public boolean masterCompute(MasterComputeContext<FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig> context) {
-        return context.superstep() > 10;
+        return context.superstep() < 5;
     }
 
     @ValueClass
