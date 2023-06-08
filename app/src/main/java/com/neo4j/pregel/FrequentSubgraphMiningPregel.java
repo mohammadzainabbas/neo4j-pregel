@@ -67,7 +67,8 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
     public void compute(ComputeContext<FrequentSubgraphMiningPregelConfig> context, Messages messages) {
         if (context.isInitialSuperstep()) {
             // Initialization step
-            context.setNodeValue(FSM, {});
+            double[] empty_array = {};
+            context.setNodeValue(FSM, empty_array);
             // context.setNodeValue(F1, calculateFrequentSize1Subgraphs(context));
             // context.setNodeValue(Sk, calculateEmbeddings(context.getNodeValue(F1)));
         } else {
