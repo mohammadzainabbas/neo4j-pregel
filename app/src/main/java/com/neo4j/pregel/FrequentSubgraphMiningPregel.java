@@ -61,7 +61,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
 
             for (int i = 0; i < new_fsms.length; i++) {
                 if (i == new_fsms.length - 1) {
-                    new_fsms[i] = context.nodeId();
+                    new_fsms[i] = messages;
                 } else {
                     new_fsms[i] = fsms[i];
                 }
