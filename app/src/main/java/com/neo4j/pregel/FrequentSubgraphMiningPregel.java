@@ -1,5 +1,6 @@
 package com.neo4j.pregel;
 
+import org.checkerframework.checker.units.qual.A;
 import org.immutables.value.Value;
 import org.neo4j.gds.annotation.Configuration;
 import org.neo4j.gds.annotation.ValueClass;
@@ -65,7 +66,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
     public void compute(ComputeContext<FrequentSubgraphMiningPregelConfig> context, Messages messages) {
         if (context.isInitialSuperstep()) {
             // Initialization step
-            context.setNodeValue(FSM, []);
+            context.setNodeValue(FSM, );
             // context.setNodeValue(F1, calculateFrequentSize1Subgraphs(context));
             // context.setNodeValue(Sk, calculateEmbeddings(context.getNodeValue(F1)));
         } else {
