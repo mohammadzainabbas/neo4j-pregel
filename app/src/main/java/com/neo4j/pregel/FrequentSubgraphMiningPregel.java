@@ -33,7 +33,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
 
     /* Each node will have this value-schema during pregel computation */
     @Override
-    public PregelSchema schema(FrequentSubgraphConfig config) {
+    public PregelSchema schema(FrequentSubgraphMiningPregelConfig config) {
         return new PregelSchema.Builder()
                 .add(FSM, ValueType.DOUBLE)
                 .add(F, ValueType.LONG)
@@ -58,7 +58,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
 
     /* Called for each node in every superstep */
     @Override
-    public void compute(ComputeContext<FrequentSubgraphConfig> context, Messages messages) {
+    public void compute(ComputeContext<FrequentSubgraphMiningPregelConfig> context, Messages messages) {
         if (context.isInitialSuperstep()) {
             // Initialization step
             context.setNodeValue(F, 0);
