@@ -87,4 +87,7 @@ tasks.named('test') {
 
 shadowJar {
     exclude 'META-INF/versions/**/*'
+    baseName = 'graph-frequent-pattern'
+    version = project.version
+    classifier = null
 }
