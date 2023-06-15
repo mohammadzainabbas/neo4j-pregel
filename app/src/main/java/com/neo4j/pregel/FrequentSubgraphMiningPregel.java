@@ -33,7 +33,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
     public PregelSchema schema(FrequentSubgraphMiningPregelConfig config) {
         return new PregelSchema.Builder()
                 .add(FSM, ValueType.LONG_ARRAY)
-                .build();
+                // .build();
     }
     
     /* Called in the beginning of the first superstep of the Pregel computation and allows initializing node values */
