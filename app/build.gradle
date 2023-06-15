@@ -91,4 +91,5 @@ shadowJar {
     exclude 'META-INF/versions/**/*'
     archiveBaseName.set('graph-frequent-pattern')  // set the base name of your jar file
     archiveVersion.set(version)  // set the version of your jar file
+    archiveClassifier.set('')  // remove the 'all' suffix
 }
