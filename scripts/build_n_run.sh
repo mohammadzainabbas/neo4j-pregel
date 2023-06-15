@@ -18,7 +18,7 @@ log "Starting 'Build & Copy' script ..."
 
 # Define directories
 PRE_DIR="$HOME/Library/Application Support/Neo4j Desktop/Application/relate-data/dbmss"
-NEO4J_DIR="$PRE_DIR/dbms-259a33e6-ef51-40da-ab00-fadcd3341a7a"
+NEO4J_DIR="$PRE_DIR/dbms-96002127-fa29-4823-8bd6-36b4f1a9d179"
 PLUGINS_DIR="$NEO4J_DIR/plugins/"
 
 # Clean the project
