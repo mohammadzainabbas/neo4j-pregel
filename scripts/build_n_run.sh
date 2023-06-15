@@ -10,7 +10,7 @@ log() {
     echo "[$(date +%Y-%m-%dT%H:%M:%S%z)] $1"
 }
 
-log "Starting 'Build & Copy' script..."
+log "Starting 'Build & Copy' script ..."
 
 # Define directories
 PRE_DIR="$HOME/Library/Application\ Support/Neo4j\ Desktop/Application/relate-data/dbmss"
@@ -18,29 +18,29 @@ NEO4J_DIR="$PRE_DIR/dbms-259a33e6-ef51-40da-ab00-fadcd3341a7a"
 PLUGINS_DIR="$NEO4J_DIR/plugins/"
 
 # Clean the project
-log "Cleaning the project..."
+log "Cleaning the project ..."
 if ./gradlew clean; then
     log "Project cleaned successfully."
 else
-    log "Failed to clean the project. Exiting..."
+    log "Failed to clean the project. Exiting ..."
     exit 1
 fi
 
 # Build the project using Gradle
-log "Building the project..."
+log "Building the project ..."
 if ./gradlew shadowJar; then
     log "Project built successfully."
 else
-    log "Failed to build the project. Exiting..."
+    log "Failed to build the project. Exiting ..."
     exit 1
 fi
 
 # Copy the plugin to the plugins directory
-log "Copying the plugin to the Neo4j plugins directory..."
+log "Copying the plugin to the Neo4j plugins directory ..."
 if cp app/build/libs/*.jar "$PLUGINS_DIR"; then
     log "Plugin copied successfully."
 else
-    log "Failed to copy the plugin. Exiting..."
+    log "Failed to copy the plugin. Exiting ..."
     exit 1
 fi
 
