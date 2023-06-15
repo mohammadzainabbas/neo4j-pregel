@@ -12,7 +12,7 @@ log() {
 }
 
 error() {
-    echo -e "\e[31m[$(date +"%a %d %b, %Y - %I:%M %p")] ERROR: $1\e[0m"
+    echo -e "\e[34m[$(date +"%a %d %b, %Y - %I:%M %p")]\e[31m $1\e[0m"
 }
 
 log "Starting 'Build & Copy' script ..."
