@@ -8,10 +8,7 @@ log() {
 ./gradlew clean
 
 # Build the project using gradle
-./gradlew build
-
-# Run the project
-./gradlew run
+./gradlew shadowJar
 
 # Check
 PRE_DIR="$HOME/Library/Application\ Support/Neo4j\ Desktop/Application/relate-data/dbmss"
