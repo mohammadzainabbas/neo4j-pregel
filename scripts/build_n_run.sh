@@ -7,7 +7,12 @@
 
 # Function to output log messages with a timestamp
 log() {
-    echo "[$(date +%Y-%m-%dT%H:%M:%S%z)] $1"
+    # echo "[$(date +%Y-%m-%dT%H:%M:%S%z)] $1"
+    echo -e "\e[34m[$(date +"%a %d %b, %Y - %I:%M %p")]\e[32m $1\e[0m"
+}
+
+error() {
+    echo -e "\e[31m[$(date +"%a %d %b, %Y - %I:%M %p")] ERROR: $1\e[0m"
 }
 
 log "Starting 'Build & Copy' script ..."
