@@ -8,7 +8,7 @@
 # Function to output log messages with a timestamp
 log() {
     # echo "[$(date +%Y-%m-%dT%H:%M:%S%z)] $1"
-    echo -e "\e[34m[$(date +"%a %d %b, %Y - %I:%M %p")]\e[32m $1\e[0m"
+    printf "\033[34m[%s]\033[32m %s\033[0m\n" "$(date +"%a %d %b, %Y - %I:%M %p")" "$1"
 }
 
 error() {
