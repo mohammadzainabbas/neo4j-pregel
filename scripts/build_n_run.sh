@@ -15,6 +15,7 @@ NEO4J_DIR="$PRE_DIR/dbms-259a33e6-ef51-40da-ab00-fadcd3341a7a"
 PLUGINS_DIR="$NEO4J_DIR/plugins/"
 
 # Copy the plugin to the plugins directory
-cp app/build/libs/*.jar $PLUGINS_DIR
+cp app/build/libs/*.jar "$PLUGINS_DIR"
+
 
 
