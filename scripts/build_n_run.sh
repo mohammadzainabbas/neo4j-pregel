@@ -50,7 +50,3 @@ else
 fi
 
 log "'Build & Copy' script completed."
-
-
-/Users/mohammadzainabbas/Library/Application\ Support/Neo4j\ Desktop/Application/relate-data/dbmss/dbms-259a33e6-ef51-40da-ab00-fadcd3341a7a/plugins
-/Users/mohammadzainabbas/Library/Application\ Support/Neo4j\ Desktop/Application/relate-data/dbmss/dbms-259a33e6-ef51-40da-ab00-fadcd3341a7a/plugins/
