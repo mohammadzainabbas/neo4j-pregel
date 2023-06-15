@@ -89,7 +89,6 @@ tasks.named('test') {
 
 shadowJar {
     exclude 'META-INF/versions/**/*'
-    baseName = 'graph-frequent-pattern'
-    version = project.version
-    classifier = null
+    archiveBaseName.set('graph-frequent-pattern')  // set the base name of your jar file
+    archiveVersion.set(version)  // set the version of your jar file
 }
