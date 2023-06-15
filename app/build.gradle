@@ -12,6 +12,7 @@ plugins {
 }
 
 description = 'Frequent Pattern Mining :: Neo4J with Pregel'
+version '1.0.0'
 
 ext {
     gdsVersion = '2.3.5'
