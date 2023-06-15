@@ -1,7 +1,9 @@
 #!/bin/bash
+#----------------------------------------------------------------------------------------
 # This script is used to build the project using Gradle, and then copy the output jar 
 # (a Neo4j plugin) into the Neo4j's plugin directory. This allows the plugin to be loaded 
 # by Neo4j when it starts up.
+#----------------------------------------------------------------------------------------
 
 # Function to output log messages with a timestamp
 log() {
