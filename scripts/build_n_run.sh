@@ -27,7 +27,7 @@ log "Cleaning the project ..."
 if ./gradlew clean; then
     log "Project cleaned successfully."
 else
-    log "Failed to clean the project. Exiting ..."
+    error "Failed to clean the project. Exiting ..."
     exit 1
 fi
 
@@ -36,7 +36,7 @@ log "Building the project ..."
 if ./gradlew shadowJar; then
     log "Project built successfully."
 else
-    log "Failed to build the project. Exiting ..."
+    error "Failed to build the project. Exiting ..."
     exit 1
 fi
 
@@ -45,7 +45,7 @@ log "Copying the plugin to the Neo4j plugins directory ..."
 if cp app/build/libs/*.jar "$PLUGINS_DIR"; then
     log "Plugin copied successfully."
 else
-    log "Failed to copy the plugin. Exiting ..."
+    error "Failed to copy the plugin. Exiting ..."
     exit 1
 fi
 
