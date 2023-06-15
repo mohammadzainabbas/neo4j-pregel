@@ -10,7 +10,7 @@ log() {
     echo "[$(date +%Y-%m-%dT%H:%M:%S%z)] $1"
 }
 
-log "Starting script..."
+log "Starting Build & Copy script..."
 
 # Define directories
 PRE_DIR="$HOME/Library/Application\ Support/Neo4j\ Desktop/Application/relate-data/dbmss"
