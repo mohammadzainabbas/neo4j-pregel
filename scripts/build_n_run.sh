@@ -44,4 +44,4 @@ else
     exit 1
 fi
 
-log "Script completed."
+log "'Build & Copy' script completed."
