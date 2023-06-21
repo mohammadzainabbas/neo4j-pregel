@@ -14,7 +14,7 @@ plugins {
 description = 'Frequent Pattern Mining :: Neo4J with Pregel'
 
 ext {
-    gdsVersion = '2.4.0'
+    gdsVersion = '2.3.5'
     neo4jVersion = '5.7.0'
     immutablesVersion = '2.8.1'
     jetbrainsAnnotations = '18.0.0'
