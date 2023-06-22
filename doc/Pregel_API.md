@@ -618,7 +618,7 @@ To play around, we recommend copying one of the algorithms into the `pregel-boot
 | NodeCentricContext | `long nodeCount()`                                                                                      |
 
 
-### PregelContext Methods
+### PregelContext (NodeCentricContext's superclass) Methods
 
 | Context         | Method                                              |
 |-----------------|-----------------------------------------------------|
