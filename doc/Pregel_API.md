@@ -1,11 +1,8 @@
-[[algorithms-pregel-api]]
-= Pregel API
-:description: This chapter provides documentation for the Pregel API in the Neo4j Graph Data Science library.
+# Pregel API
 
-include::partial$/common-usage/not-on-aurads-note.adoc[]
+This chapter provides documentation for the Pregel API in the Neo4j Graph Data Science library.
 
-[[algorithms-pregel-api-intro]]
-== Introduction
+## Introduction
 
 Pregel is a vertex-centric computation model to define your own algorithms via a user-defined _compute_ function.
 Node values can be updated within the compute function and represent the algorithm result.
