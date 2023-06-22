@@ -342,9 +342,8 @@ If a reducer is present, the `messages` iterator contains either zero or one mes
 Note, that defining a reducer precludes running the computation with asynchronous messaging.
 The `isAsynchronous` flag at the config is ignored in that case.
 
-<a id="algorithms-pregel-api-java-context" />
+<a id="algorithms-pregel-api-java-config" />
 
-[[algorithms-pregel-api-java-config]]
 ### Configuration
 
 To configure the execution of a custom Pregel computation, the framework requires a configuration.
