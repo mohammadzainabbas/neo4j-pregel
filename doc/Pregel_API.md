@@ -38,8 +38,7 @@ The first step is to implement the `org.neo4j.gds.beta.pregel.PregelComputation`
 It is the main interface to express user-defined logic using the Pregel framework.
 
 .The Pregel computation
-[source, java]
-----
+```java
 public interface PregelComputation<C extends PregelConfig> {
     // The schema describes the node property layout.
     PregelSchema schema();
@@ -58,7 +57,7 @@ public interface PregelComputation<C extends PregelConfig> {
     // Used to close any opened resources, such as ThreadLocals
     default void close() {}
 }
-----
+```
 
 Pregel node values are composite values.
 The `schema` describes the layout of that composite value.
