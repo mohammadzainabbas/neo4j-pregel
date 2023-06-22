@@ -351,6 +351,7 @@ The configuration options also map to the parameters that can later be set via a
 This is equivalent to all the other algorithms within the GDS library.
 
 > Pregel Configuration
+
 | Name                                                                             | Type      | Default       | Description                                                                                      |
 |----------------------------------------------------------------------------------|-----------|---------------|--------------------------------------------------------------------------------------------------|
 | [maxIterations](https://neo4j.com/docs/graph-data-science/current/common-usage/running-algos/#common-configuration-max-iterations)                            | Integer   | -             | Maximum number of supersteps after which the computation will terminate.                          |
