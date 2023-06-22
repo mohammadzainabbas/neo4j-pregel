@@ -510,6 +510,7 @@ public abstract class PregelContext<CONFIG extends PregelConfig> {
 To make a custom Pregel computation accessible via Cypher, it needs to be exposed via the procedure API.
 The Pregel framework in GDS provides an easy way to generate procedures for all the default modes.
 
+<a id="algorithms-pregel-api-procedure-generation" />
 [[algorithms-pregel-api-procedure-generation]]
 ### Procedure generation
 
@@ -549,9 +550,8 @@ Note that by default, all values specified in the `PregelSchema` are included in
 To change that behaviour, we can change the visibility for individual parts of the schema.
 For more details, please refer to the xref:algorithms/pregel-api.adoc#algorithms-pregel-api-schema[dedicated documentation section].
 
-<a id="algorithms-pregel-api-java-context" />
+<a id="algorithms-pregel-api-plugin" />
 
-[[algorithms-pregel-api-plugin]]
 ### Building and installing a Neo4j plugin
 
 In order to use a Pregel algorithm in Neo4j via a procedure, we need to package it as Neo4j plugin.
