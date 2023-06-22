@@ -147,7 +147,7 @@ PregelSchema schema() {
         .build();
 }
 ```
-
+<a id="algorithms-pregel-api-java-context" />
 
 [[algorithms-pregel-api-java-context]]
 === Init context and compute context
