@@ -528,6 +528,7 @@ public class CustomComputation implements PregelComputation<PregelProcedureConfi
 The annotation provides a number of configuration options for the code generation.
 
 > Configuration
+
 | Name          | Type   | Default                         | Description                                                      |
 |---------------|--------|---------------------------------|------------------------------------------------------------------|
 | name          | String | -                               | The prefix of the generated procedure name. It is appended by the mode. |
