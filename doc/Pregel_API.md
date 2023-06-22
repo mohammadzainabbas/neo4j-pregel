@@ -287,9 +287,8 @@ public final class MasterComputeContext {
 }
 ```
 
-<a id="algorithms-pregel-api-java-context" />
+<a id="algorithms-pregel-api-reducer" />
 
-[[algorithms-pregel-api-reducer]]
 ### Message reducer
 
 Many Pregel computations rely on computing a single value from all messages being sent to a node.
