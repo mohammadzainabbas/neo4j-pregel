@@ -579,9 +579,8 @@ dbms.security.procedures.unrestricted=custom.pregel.proc.*
 dbms.security.procedures.allowlist=custom.pregel.proc.*
 ```
 
-<a id="algorithms-pregel-api-java-context" />
+<a id="algorithms-pregel-api-example" />
 
-[[algorithms-pregel-api-example]]
 ## Examples
 
 The [pregel-examples](https://github.com/neo4j/graph-data-science/tree/master/examples/pregel-example) module contains a set of examples for Pregel algorithms.
