@@ -490,9 +490,9 @@ The internal id space represents the node ids of the in-memory graph and is alwa
 A Pregel computation uses the internal node id space, e.g., `ComputeContext#nodeId()` returns the internal id of the currently processed node.
 In order to translate from the original to the internal node id space and vice versa, all context classes provide the following methods:
 
-.Methods to translate between id spaces which can be used in all Pregel contexts
-[source, java]
-----
+> Methods to translate between id spaces which can be used in all Pregel contexts
+
+```java
 // All contexts inherit from PregelContext
 public abstract class PregelContext<CONFIG extends PregelConfig> {
     // Maps the given internal node to its original counterpart.
@@ -500,7 +500,7 @@ public abstract class PregelContext<CONFIG extends PregelConfig> {
     // Maps the given original node to its internal counterpart.
     public long toInternalNodeId(long originalNodeId);
 }
-----
+```
 
 [[algorithms-pregel-api-procedure]]
 == Run Pregel via Cypher
@@ -516,7 +516,7 @@ In addition, the config parameter of the custom computation must be a subtype of
 
 .Using the `@PregelProcedure` annotation to configure code generation.
 [source, java]
-----
+```
 @PregelProcedure(
     name = "custom.pregel.proc",
     modes = {GDSMode.STREAM, GDSMode.WRITE},
@@ -525,7 +525,7 @@ In addition, the config parameter of the custom computation must be a subtype of
 public class CustomComputation implements PregelComputation<PregelProcedureConfig> {
     // ...
 }
-----
+```
 
 The annotation provides a number of configuration options for the code generation.
 
