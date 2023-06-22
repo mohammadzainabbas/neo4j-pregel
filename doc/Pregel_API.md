@@ -154,9 +154,9 @@ The `org.neo4j.gds.beta.pregel.PregelContext.InitContext` is available in the `i
 It provides access to node properties stored in the in-memory graph.
 We can set the initial node state to a fixed value, e.g. the node id, or use graph properties and the user-defined configuration to initialize a context-dependent state.
 
-.The InitContext
-[source, java]
-----
+> The InitContext
+
+```java
 public final class InitContext {
     // The currently processed node id.
     public long nodeId();
@@ -181,14 +181,13 @@ public final class InitContext {
     // Node properties stored in the input graph.
     public NodeProperties nodeProperties(String key);
 }
-----
+```
 
 In contrast, `org.neo4j.gds.beta.pregel.PregelContext.ComputeContext` can be accessed inside the `compute` method.
 The context provides methods to access the computation state, e.g. the current superstep, and to send messages to other nodes in the graph.
 
-.The ComputeContext
-[source, java]
-----
+> The ComputeContext
+```java
 public final class ComputeContext {
     // The currently processed node id.
     public long nodeId();
@@ -227,10 +226,11 @@ public final class ComputeContext {
     // Stream of neighbor ids of the current node.
     public LongStream getNeighbours();
 }
-----
+```
 
-[[algorithms-pregel-api-master-compute]]
-=== Master Computation
+<a id="algorithms-pregel-api-master-compute" />
+
+### Master Computation
 
 Some Pregel programs may require logic that is executed after all threads have finished the current superstep, for example, to reset or evaluate a global data structure.
 This can be achieved by overriding the `org.neo4j.gds.beta.pregel.PregelComputation.masterCompute` function of the `PregelComputation`.
@@ -241,9 +241,8 @@ The `masterCompute` function has access to the `org.neo4j.gds.beta.pregel.Pregel
 That context is similar to the `ComputeContext` but is not tied to a specific node and does not allow sending messages.
 Furthermore, the `MasterComputeContext` allows to run a function for every node in the graph and has access to the computation state of all nodes.
 
-.The MasterComputeContext
-[source, java]
-----
+> The MasterComputeContext
+```java
 public final class MasterComputeContext {
     // User-defined Pregel configuration
     public PregelConfig config();
@@ -276,7 +275,7 @@ public final class MasterComputeContext {
     // 0-based superstep identifier.
     public int superstep();
 }
-----
+```
 
 [[algorithms-pregel-api-reducer]]
 === Message reducer
