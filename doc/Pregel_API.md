@@ -445,15 +445,16 @@ In addition, the `BidirectionalComputeContext` also exposes the following functi
 public void sendToIncomingNeighbors(double message);
 ```
 
+<a id="algorithms-pregel-api-java-context" />
 
 [[algorithms-pregel-api-logging]]
-=== Logging
+### Logging
 
 The following methods are available for all contexts (`InitContext`, `ComputeContext`, `MasterComputeContext`) to inject custom messages into the progress log of the algorithm execution.
 
-.The log methods can be used in Pregel contexts
-[source, java]
-----
+> The log methods can be used in Pregel contexts
+
+```java
 // All contexts inherit from PregelContext
 public abstract class PregelContext<CONFIG extends PregelConfig> {
 
