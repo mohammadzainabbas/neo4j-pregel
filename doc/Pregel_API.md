@@ -564,21 +564,20 @@ Therefore, GDS needs to be installed as a plugin on the Neo4j server.
 
 To build the project and create a plugin jar, just run:
 
-[source, bash]
-----
+```bash
 ./gradlew shadowJar
-----
+```
 
 You can find the `pregel-bootstrap.jar` in `build/libs`.
 The jar needs to be placed in the `plugins` directory within your Neo4j installation alongside a GDS plugin jar.
 In order to have access to the procedure in Cypher, its namespace potentially needs to be added to the `neo4j.conf` file.
 
-.Enabling an example procedure in `neo4j.conf`
-[source, bash]
-----
+> Enabling an example procedure in `neo4j.conf`
+
+```bash
 dbms.security.procedures.unrestricted=custom.pregel.proc.*
 dbms.security.procedures.allowlist=custom.pregel.proc.*
-----
+```
 
 
 [[algorithms-pregel-api-example]]
