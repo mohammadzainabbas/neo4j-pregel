@@ -584,3 +584,24 @@ The [pregel-examples](https://github.com/neo4j/graph-data-science/tree/master/ex
 The algorithm implementations demonstrate the usage of the Pregel API.
 Along with each example, we provide test classes that can be used as a guideline on how to write tests for custom algorithms.
 To play around, we recommend copying one of the algorithms into the `pregel-bootstrap` project, build it and setup the plugin in Neo4j.
+
+#
+
+| Context         | Method                                                       |
+|-----------------|--------------------------------------------------------------|
+| **ComputeContext**  |                                                               |
+|                   | `double doubleNodeValue(java.lang.String key)`                |
+|                   | `long longNodeValue(java.lang.String key)`                    |
+|                   | `long[] longArrayNodeValue(java.lang.String key)`             |
+|                   | `long[] longArrayNodeValue(java.lang.String key, long id)`    |
+|                   | `double[] doubleArrayNodeValue(java.lang.String key)`         |
+|                   | `void voteToHalt()`                                           |
+|                   | `boolean isInitialSuperstep()`                                |
+|                   | `int superstep()`                                             |
+|                   | `void sendToNeighbors(double message)`                        |
+|                   | `void sendTo(long targetNodeId, double message)`              |
+|                   | `void sendToNeighbors(long sourceNodeId, double message)`     |
+|                   | `void sendToNeighborsWeighted(long sourceNodeId, double message)` |
+|                   | `boolean hasSentMessage()`                                    |
+|                   | `boolean lambda$sendToNeighborsWeighted$1(double message, long ignored, long targetNodeId, double weight)` |
+|                   | `boolean lambda$sendToNeighbors$0(double message, long ignored, long targetNodeId)` |
