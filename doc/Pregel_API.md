@@ -610,7 +610,7 @@ To play around, we recommend copying one of the algorithms into the `pregel-boot
 | ComputeContext  | boolean lambda$sendToNeighbors$0(double message, long ignored, long targetNodeId) |
 
 
-### NodeCentricContext (ComputeContext) Methods
+### NodeCentricContext (ComputeContext's superclass) Methods
 
 | Context           | Method                                                                                                  |
 |-------------------|---------------------------------------------------------------------------------------------------------|
