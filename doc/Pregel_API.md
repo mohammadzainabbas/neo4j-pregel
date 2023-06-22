@@ -101,7 +101,7 @@ If the input graph has no relationship properties, i.e. is unweighted, the metho
 The `close` method can be used to close any resources opened as part of the implementation.
 This includes ThreadLocals, file handles, network connections, or anything else that should not be kept alive after the algorithm has finished computing.
 
-<a id="algorithms-pregel-api-java-context" />
+<a id="algorithms-pregel-api-schema" />
 
 ### Pregel schema
 
