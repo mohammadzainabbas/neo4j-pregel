@@ -407,9 +407,8 @@ public class CustomComputation implements PregelComputation<CustomConfig> {
 }
 ```
 
-<a id="algorithms-pregel-api-java-context" />
+<a id="algorithms-pregel-api-bidirectional" />
 
-[[algorithms-pregel-api-bidirectional]]
 ### Traversing incoming relationships
 
 Some algorithms implemented in Pregel might require or benefit from the ability to access and send messages to all incoming relationships of the current context node.
@@ -477,7 +476,6 @@ public abstract class PregelContext<CONFIG extends PregelConfig> {
 
 <a id="algorithms-pregel-api-id-mapping" />
 
-[[algorithms-pregel-api-id-mapping]]
 ### Node id space translation
 
 Some algorithms require nodes as input from the user.
