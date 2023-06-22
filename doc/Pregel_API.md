@@ -301,16 +301,16 @@ By default, a Pregel computation does not make use of a reducer.
 All messages sent to a node are stored in a queue and received in the next superstep.
 To enable message reduction, one needs to implement the `reducer` method and provide either a custom or a pre-defined reducer.
 
-.The Reducer interface that needs to be implemented.
-[source, java]
-----
+> The Reducer interface that needs to be implemented.
+
+```java
 public interface Reducer {
     // The identity element is used as the initial value.
     double identity();
     // Computes a new value based on the current value and the message.
     double reduce(double current, double message);
 }
-----
+```
 
 The identity value is used as the initial value for the `current` argument in the `reduce` function.
 All subsequent calls use the result of the previous call as `current` value.
