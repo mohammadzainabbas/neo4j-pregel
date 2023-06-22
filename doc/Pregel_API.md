@@ -502,8 +502,10 @@ public abstract class PregelContext<CONFIG extends PregelConfig> {
 }
 ```
 
+<a id="algorithms-pregel-api-java-context" />
+
 [[algorithms-pregel-api-procedure]]
-== Run Pregel via Cypher
+## Run Pregel via Cypher
 
 To make a custom Pregel computation accessible via Cypher, it needs to be exposed via the procedure API.
 The Pregel framework in GDS provides an easy way to generate procedures for all the default modes.
@@ -514,9 +516,9 @@ The Pregel framework in GDS provides an easy way to generate procedures for all 
 To generate procedures for a computation, it needs to be annotated with the `@org.neo4j.gds.beta.pregel.annotation.PregelProcedure` annotation.
 In addition, the config parameter of the custom computation must be a subtype of `org.neo4j.gds.beta.pregel.PregelProcedureConfig`.
 
-.Using the `@PregelProcedure` annotation to configure code generation.
-[source, java]
-```
+> Using the `@PregelProcedure` annotation to configure code generation.
+
+```java
 @PregelProcedure(
     name = "custom.pregel.proc",
     modes = {GDSMode.STREAM, GDSMode.WRITE},
