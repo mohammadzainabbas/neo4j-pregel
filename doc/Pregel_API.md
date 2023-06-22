@@ -531,14 +531,12 @@ public class CustomComputation implements PregelComputation<PregelProcedureConfi
 
 The annotation provides a number of configuration options for the code generation.
 
-.Configuration
-[opts="header",cols="1,1,1,6"]
-|===
-| Name                      | Type      | Default                           | Description
-| name                      | String    | -                                 | The prefix of the generated procedure name. It is appended by the mode.
-| modes                     | List      | `[STREAM, WRITE, MUTATE, STATS]`  | A procedure is generated for each of the specified modes.
-| description               | String    | `""`                              | Procedure description that is printed in `dbms.listProcedures()`.
-|===
+> Configuration
+| Name          | Type   | Default                         | Description                                                      |
+|---------------|--------|---------------------------------|------------------------------------------------------------------|
+| name          | String | -                               | The prefix of the generated procedure name. It is appended by the mode. |
+| modes         | List   | `[STREAM, WRITE, MUTATE, STATS]` | A procedure is generated for each of the specified modes.        |
+| description   | String | `""`                            | Procedure description that is printed in `dbms.listProcedures()`. |
 
 For the above Code snippet, we generate four procedures:
 
