@@ -138,7 +138,7 @@ Note, that each property consumes additional memory when executing the algorithm
 
 The `add` method on the builder takes a third argument: `Visibility`.
 There are two possible values: `PUBLIC` (default) and `PRIVATE`.
-The visibility is considered during xref:algorithms/pregel-api.adoc#algorithms-pregel-api-procedure[procedure code generation] to indicate if the value is part of the Pregel result or not.
+The visibility is considered during [procedure code generation](#algorithms-pregel-api-procedure) to indicate if the value is part of the Pregel result or not.
 Any value that has visibility `PUBLIC` will be part of the computation result and included in the result of the procedure, e.g., streamed to the caller, mutated to the in-memory graph or written to the database.
 
 The following shows a schema where one value is used as result and a second value is only used during computation:
@@ -545,7 +545,7 @@ For the above Code snippet, we generate four procedures:
 
 Note that by default, all values specified in the `PregelSchema` are included in the procedure results.
 To change that behaviour, we can change the visibility for individual parts of the schema.
-For more details, please refer to the xref:algorithms/pregel-api.adoc#algorithms-pregel-api-schema[dedicated documentation section].
+For more details, please refer to the [dedicated documentation section](#algorithms-pregel-api-schema).
 
 <a id="algorithms-pregel-api-plugin" />
 
