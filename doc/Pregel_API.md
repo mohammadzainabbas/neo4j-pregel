@@ -93,9 +93,7 @@ If the input graph has no relationship properties, i.e. is unweighted, the metho
 The `close` method can be used to close any resources opened as part of the implementation.
 This includes ThreadLocals, file handles, network connections, or anything else that should not be kept alive after the algorithm has finished computing.
 
-
-[[algorithms-pregel-api-schema]]
-=== Pregel schema
+### Pregel schema
 
 In Pregel, each node is associated with a value which can be accessed from within the `compute` method.
 The value is typically used to represent intermediate computation state and eventually the computation result.
@@ -105,7 +103,7 @@ From the perspective of the `compute` function, each of these values can be acce
 When implementing a `PregelComputation`, one must override the `schema()` method.
 The following example shows the simplest possible example:
 
-```
+```java
 PregelSchema schema() {
     return PregelSchema.Builder().add("foobar", ValueType.LONG).build();
 }
@@ -116,7 +114,7 @@ A node value can be of any GDS-supported type, i.e. `long`, `double`, `long[]`, 
 
 We can add an arbitrary number of values to the schema:
 
-```
+```java
 PregelSchema schema() {
     return PregelSchema.Builder()
         .add("foobar", ValueType.LONG)
@@ -134,7 +132,7 @@ Any value that has visibility `PUBLIC` will be part of the computation result an
 
 The following shows a schema where one value is used as result and a second value is only used during computation:
 
-```
+```java
 PregelSchema schema() {
     return PregelSchema.Builder()
         .add("result", ValueType.LONG, Visiblity.PUBLIC)
