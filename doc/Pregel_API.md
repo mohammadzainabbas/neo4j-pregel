@@ -32,13 +32,13 @@ Second, we need to expose the algorithm via a Cypher procedure to make use of it
 
 For an example on how to expose a custom Pregel computation via a Neo4j procedure, have a look at the [Pregel examples](https://github.com/neo4j/graph-data-science/tree/master/examples/pregel-example/src/main/java/org/neo4j/gds/beta/pregel).
 
-<a id="algorithms-pregel-api-intro" />
+<a id="algorithms-pregel-api-java" />
 
 ## Pregel Java API
 
 The Pregel Java API allows us to easily build our own algorithm by implementing several interfaces.
 
-<a id="algorithms-pregel-api-java-context" />
+<a id="algorithms-pregel-api-java-computation" />
 
 ### Computation
 
