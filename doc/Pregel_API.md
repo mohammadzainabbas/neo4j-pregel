@@ -43,7 +43,7 @@ The Pregel Java API allows us to easily build our own algorithm by implementing 
 
 ### Computation
 
-The first step is to implement the `org.neo4j.gds.beta.pregel.PregelComputation` interface.
+The first step is to implement the [`org.neo4j.gds.beta.pregel.PregelComputation`](https://github.com/neo4j/graph-data-science/blob/66fd5819b6cd10c1b3619316cd73af8f30cfb5a3/pregel/src/main/java/org/neo4j/gds/beta/pregel/PregelComputation.java#L35) interface.
 It is the main interface to express user-defined logic using the Pregel framework.
 
 > The Pregel computation
