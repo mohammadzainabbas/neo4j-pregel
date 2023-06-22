@@ -474,11 +474,12 @@ public abstract class PregelContext<CONFIG extends PregelConfig> {
     }
 
 }
-----
+```
 
+<a id="algorithms-pregel-api-java-context" />
 
 [[algorithms-pregel-api-id-mapping]]
-=== Node id space translation
+### Node id space translation
 
 Some algorithms require nodes as input from the user.
 For example, a shortest path algorithm needs to know about the start and the end node.
@@ -508,7 +509,7 @@ To make a custom Pregel computation accessible via Cypher, it needs to be expose
 The Pregel framework in GDS provides an easy way to generate procedures for all the default modes.
 
 [[algorithms-pregel-api-procedure-generation]]
-=== Procedure generation
+### Procedure generation
 
 To generate procedures for a computation, it needs to be annotated with the `@org.neo4j.gds.beta.pregel.annotation.PregelProcedure` annotation.
 In addition, the config parameter of the custom computation must be a subtype of `org.neo4j.gds.beta.pregel.PregelProcedureConfig`.
@@ -550,7 +551,7 @@ For more details, please refer to the xref:algorithms/pregel-api.adoc#algorithms
 
 
 [[algorithms-pregel-api-plugin]]
-=== Building and installing a Neo4j plugin
+### Building and installing a Neo4j plugin
 
 In order to use a Pregel algorithm in Neo4j via a procedure, we need to package it as Neo4j plugin.
 The https://github.com/neo4j/graph-data-science/tree/master/examples/pregel-bootstrap[pregel-bootstrap] project is a good starting point.
