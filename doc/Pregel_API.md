@@ -318,9 +318,8 @@ All subsequent calls use the result of the previous call as `current` value.
 The framework already provides implementations for computing the minimum, maximum, sum and count of messages.
 The default implementations are part of the `Reducer` interface and can be applied as follows:
 
-.Applying the sum reducer in a custom computation.
-[source, java]
-----
+> Applying the sum reducer in a custom computation.
+```java
 public class CustomComputation implements PregelComputation<PregelConfig> {
 
     @Override
@@ -336,15 +335,17 @@ public class CustomComputation implements PregelComputation<PregelConfig> {
         return Optional.of(new Reducer.Sum());
     }
 }
-----
+```
 
 The implementation of the compute method does not need to be adapted.
 If a reducer is present, the `messages` iterator contains either zero or one message.
 Note, that defining a reducer precludes running the computation with asynchronous messaging.
 The `isAsynchronous` flag at the config is ignored in that case.
 
+<a id="algorithms-pregel-api-java-context" />
+
 [[algorithms-pregel-api-java-config]]
-=== Configuration
+### Configuration
 
 To configure the execution of a custom Pregel computation, the framework requires a configuration.
 The `org.neo4j.gds.beta.pregel.PregelConfig` provides the minimum set of options to execute a computation.
