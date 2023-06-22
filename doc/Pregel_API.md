@@ -141,9 +141,8 @@ PregelSchema schema() {
 }
 ```
 
-
 [[algorithms-pregel-api-java-context]]
-=== Init context and compute context
+### Init context and compute context
 
 The main purpose of the two context objects is to enable the computation to communicate with the Pregel framework.
 A context is stateful, and all its methods are subject to the current superstep and the currently processed node.
