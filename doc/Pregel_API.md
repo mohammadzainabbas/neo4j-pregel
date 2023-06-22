@@ -141,7 +141,8 @@ PregelSchema schema() {
 }
 ```
 
-[[algorithms-pregel-api-java-context]]
+<a id="algorithms-pregel-api-java-context" />
+
 ### Init context and compute context
 
 The main purpose of the two context objects is to enable the computation to communicate with the Pregel framework.
