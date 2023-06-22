@@ -42,7 +42,7 @@ public class PageRankTol implements PregelComputation<PageRankTol.PrTolConfig> {
 
     @Override
     public void compute(ComputeContext<PrTolConfig> context, Messages messages) {
-        // context.logMessage(String.format("starting compute for %s", context.nodeId()));
+        context.logMessage(String.format("starting compute for %s", context.nodeId()));
         double prValue = context.doubleNodeValue(PR_KEY);
         double oldPrValue = prValue;
 
