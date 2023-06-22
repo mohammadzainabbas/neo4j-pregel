@@ -587,7 +587,9 @@ To play around, we recommend copying one of the algorithms into the `pregel-boot
 
 #
 
-### ComputeContext Methods
+## API Reference
+
+## ComputeContext Methods
 
 | Context         | Method                                                       |
 |-----------------|--------------------------------------------------------------|
