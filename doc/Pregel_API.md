@@ -549,12 +549,13 @@ Note that by default, all values specified in the `PregelSchema` are included in
 To change that behaviour, we can change the visibility for individual parts of the schema.
 For more details, please refer to the xref:algorithms/pregel-api.adoc#algorithms-pregel-api-schema[dedicated documentation section].
 
+<a id="algorithms-pregel-api-java-context" />
 
 [[algorithms-pregel-api-plugin]]
 ### Building and installing a Neo4j plugin
 
 In order to use a Pregel algorithm in Neo4j via a procedure, we need to package it as Neo4j plugin.
-The https://github.com/neo4j/graph-data-science/tree/master/examples/pregel-bootstrap[pregel-bootstrap] project is a good starting point.
+The [pregel-bootstrap](https://github.com/neo4j/graph-data-science/tree/master/examples/pregel-bootstrap) project is a good starting point.
 The `build.gradle` file within the project contains all the dependencies necessary to implement a Pregel algorithm and to generate corresponding procedures.
 
 Make sure to change the `gdsVersion` and `neo4jVersion` according to your setup.
