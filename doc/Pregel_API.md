@@ -1,6 +1,10 @@
+<a id="algorithms-pregel-api-java-context" />
+
 # Pregel API
 
 This chapter provides documentation for the Pregel API in the Neo4j Graph Data Science library.
+
+<a id="algorithms-pregel-api-java-context" />
 
 ## Introduction
 
