@@ -361,7 +361,7 @@ This is equivalent to all the other algorithms within the GDS library.
 | [relationshipWeightProperty](https://neo4j.com/docs/graph-data-science/current/common-usage/running-algos/#common-configuration-relationship-weight-property) | String    | null          | Name of the relationship property to use as weights. If unspecified, the algorithm runs unweighted.|
 | [concurrency](https://neo4j.com/docs/graph-data-science/current/common-usage/running-algos/#common-configuration-concurrency)                                 | Integer   | 4             | Concurrency used when executing the Pregel computation.                                           |
 | [writeConcurrency](https://neo4j.com/docs/graph-data-science/current/common-usage/running-algos/#common-configuration-write-concurrency)                      | Integer   | concurrency   | Concurrency used when writing computation results to Neo4j.                                       |
-| xref:common-usage/running-algos.adoc#common-configuration-write-property[writeProperty]                            | String    | "pregel_"     | Prefix string that is prepended to node schema keys in write mode.                               |
+| [writeProperty](https://neo4j.com/docs/graph-data-science/current/common-usage/running-algos/#common-configuration-write-property)                            | String    | "pregel_"     | Prefix string that is prepended to node schema keys in write mode.                               |
 | mutateProperty                                                                   | String    | "pregel_"     | Prefix string that is prepended to node schema keys in mutate mode.                              |
 
 
