@@ -352,7 +352,7 @@ The `org.neo4j.gds.beta.pregel.PregelConfig` provides the minimum set of options
 The configuration options also map to the parameters that can later be set via a custom procedure.
 This is equivalent to all the other algorithms within the GDS library.
 
-.Pregel Configuration
+> Pregel Configuration
 | Name                                                                             | Type      | Default       | Description                                                                                      |
 |----------------------------------------------------------------------------------|-----------|---------------|--------------------------------------------------------------------------------------------------|
 | [maxIterations](https://neo4j.com/docs/graph-data-science/current/common-usage/running-algos/#common-configuration-max-iterations)                            | Integer   | -             | Maximum number of supersteps after which the computation will terminate.                          |
@@ -375,9 +375,8 @@ We can achieve that by declaring an option to set that key in a custom configura
 
 If a user-defined Pregel computation requires custom options a custom configuration can be created by extending the `PregelConfig`.
 
-.A custom configuration and how it can be used in the init phase.
-[source, java]
-----
+> A custom configuration and how it can be used in the init phase.
+```java
 @ValueClass
 @Configuration
 public interface CustomConfig extends PregelConfig {
@@ -406,10 +405,12 @@ public class CustomComputation implements PregelComputation<CustomConfig> {
 
     // ...
 }
-----
+```
+
+<a id="algorithms-pregel-api-java-context" />
 
 [[algorithms-pregel-api-bidirectional]]
-=== Traversing incoming relationships
+### Traversing incoming relationships
 
 Some algorithms implemented in Pregel might require or benefit from the ability to access and send messages to all incoming relationships of the current context node.
 GDS supports the creation of inverse indexes for relationship types, which enables the traversal of incoming relationships for directed relationship types.
