@@ -32,9 +32,13 @@ Second, we need to expose the algorithm via a Cypher procedure to make use of it
 
 For an example on how to expose a custom Pregel computation via a Neo4j procedure, have a look at the [Pregel examples](https://github.com/neo4j/graph-data-science/tree/master/examples/pregel-example/src/main/java/org/neo4j/gds/beta/pregel).
 
+<a id="algorithms-pregel-api-java-context" />
+
 ## Pregel Java API
 
 The Pregel Java API allows us to easily build our own algorithm by implementing several interfaces.
+
+<a id="algorithms-pregel-api-java-context" />
 
 ### Computation
 
@@ -96,6 +100,8 @@ If the input graph has no relationship properties, i.e. is unweighted, the metho
 
 The `close` method can be used to close any resources opened as part of the implementation.
 This includes ThreadLocals, file handles, network connections, or anything else that should not be kept alive after the algorithm has finished computing.
+
+<a id="algorithms-pregel-api-java-context" />
 
 ### Pregel schema
 
