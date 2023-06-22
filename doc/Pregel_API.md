@@ -64,7 +64,7 @@ Pregel node values are composite values.
 The `schema` describes the layout of that composite value.
 Each element of the schema can represent either a primitive long or double value as well as arrays of those.
 The element is uniquely identified by a key, which is used to access the value during the computation.
-Details on schema declaration can be found in the [dedicated section](#algorithms/pregel-api.adoc#algorithms-pregel-api-schema)
+Details on schema declaration can be found in the [dedicated section](#algorithms-pregel-api-schema)
 
 The `init` method is called in the beginning of the first superstep of the Pregel computation and allows initializing node values.
 The interface defines an abstract `compute` method, which is called for each node in every superstep.
