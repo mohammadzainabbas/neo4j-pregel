@@ -593,21 +593,21 @@ To play around, we recommend copying one of the algorithms into the `pregel-boot
 
 | Context         | Method                                                       |
 |-----------------|--------------------------------------------------------------|
-| ComputeContext  | double doubleNodeValue(java.lang.String key)                 |
-| ComputeContext  | long longNodeValue(java.lang.String key)                     |
-| ComputeContext  | long[] longArrayNodeValue(java.lang.String key)              |
-| ComputeContext  | long[] longArrayNodeValue(java.lang.String key, long id)     |
-| ComputeContext  | double[] doubleArrayNodeValue(java.lang.String key)          |
-| ComputeContext  | void voteToHalt()                                            |
-| ComputeContext  | boolean isInitialSuperstep()                                 |
-| ComputeContext  | int superstep()                                              |
-| ComputeContext  | void sendToNeighbors(double message)                         |
-| ComputeContext  | void sendTo(long targetNodeId, double message)               |
-| ComputeContext  | void sendToNeighbors(long sourceNodeId, double message)      |
-| ComputeContext  | void sendToNeighborsWeighted(long sourceNodeId, double message) |
-| ComputeContext  | boolean hasSentMessage()                                     |
-| ComputeContext  | boolean lambda$sendToNeighborsWeighted$1(double message, long ignored, long targetNodeId, double weight) |
-| ComputeContext  | boolean lambda$sendToNeighbors$0(double message, long ignored, long targetNodeId) |
+| ComputeContext  | `double doubleNodeValue(java.lang.String key)`                 |
+| ComputeContext  | `long longNodeValue(java.lang.String key)`                     |
+| ComputeContext  | `long[] longArrayNodeValue(java.lang.String key)`              |
+| ComputeContext  | `long[] longArrayNodeValue(java.lang.String key, long id)`     |
+| ComputeContext  | `double[] doubleArrayNodeValue(java.lang.String key)`          |
+| ComputeContext  | `void voteToHalt()`                                            |
+| ComputeContext  | `boolean isInitialSuperstep()`                                 |
+| ComputeContext  | `int superstep()`                                              |
+| ComputeContext  | `void sendToNeighbors(double message)`                         |
+| ComputeContext  | `void sendTo(long targetNodeId, double message)`               |
+| ComputeContext  | `void sendToNeighbors(long sourceNodeId, double message)`      |
+| ComputeContext  | `void sendToNeighborsWeighted(long sourceNodeId, double message)` |
+| ComputeContext  | `boolean hasSentMessage()`                                     |
+| ComputeContext  | `boolean lambda$sendToNeighborsWeighted$1(double message, long ignored, long targetNodeId, double weight)` |
+| ComputeContext  | `boolean lambda$sendToNeighbors$0(double message, long ignored, long targetNodeId)` |
 
 
 ### NodeCentricContext (ComputeContext's superclass) Methods
