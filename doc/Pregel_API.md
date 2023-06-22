@@ -425,8 +425,7 @@ Implementing this interface has the following consequences:
 
 The `BidirectionalInitContext` and `BidirectionalComputeContexts` expose the following new methods in addition to the methods defined by `InitContext` and `ComputeContext`:
 
-[source, java]
-----
+```java
 //Returns the incoming degree (number of relationships) of the currently processed node.
 public int incomingDegree();
 // Calls the consumer for each incoming neighbor of the currently processed node.
@@ -437,15 +436,14 @@ public void forEachIncomingNeighbor(long nodeId, LongConsumer targetConsumer);
 public void forEachDistinctIncomingNeighbor(LongConsumer targetConsumer);
 // Calls the consumer once for each incoming neighbor of the given node.
 public void forEachDistinctIncomingNeighbor(long nodeId, LongConsumer targetConsumer);
-----
+```
 
 In addition, the `BidirectionalComputeContext` also exposes the following function:
 
-[source, java]
-----
+```java
 // Sends the given message to all neighbors of the node.
 public void sendToIncomingNeighbors(double message);
-----
+```
 
 
 [[algorithms-pregel-api-logging]]
