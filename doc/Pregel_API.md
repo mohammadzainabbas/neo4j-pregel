@@ -18,7 +18,7 @@ The algorithm terminates after a fixed number of supersteps or if no messages ar
 A Pregel computation is executed in parallel.
 Each thread executes the compute function for a batch of nodes.
 
-For more information about Pregel, have a look at https://kowshik.github.io/JPregel/pregel_paper.pdf.
+For more information about Pregel, have a look at the [original paper](https://kowshik.github.io/JPregel/pregel_paper.pdf).
 
 To implement your own Pregel algorithm, the Graph Data Science library provides a Java API, which is described below.
 
