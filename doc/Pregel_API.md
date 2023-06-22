@@ -78,14 +78,14 @@ Messages can be sent to neighbor nodes or any node if its identifier is known.
 
 The `masterCompute` method is called exactly once at the end of each superstep.
 It is executed by a single thread and can be used to modify a global state based on the current computation state.
-Details on using a master computation can be found in the xref:algorithms/pregel-api.adoc#algorithms-pregel-api-master-compute[dedicated section].
+Details on using a master computation can be found in the [dedicated section](#algorithms-pregel-api-master-compute).
 
 An optional `reducer` can be used to define a function that is being applied on messages sent to a single node.
 It takes two arguments, the current value and a message value, and produces a new value.
 The function is called repeatedly, once for each message that is sent to a node.
 Eventually, only one message will be received by the node in the next superstep.
 By defining a reducer, memory consumption and computation runtime can be improved significantly.
-Check the xref:algorithms/pregel-api.adoc#algorithms-pregel-api-reducer[dedicated section] for more details.
+Check the [dedicated section](#algorithms-pregel-api-reducer) for more details.
 
 The `applyRelationshipWeight` method can be used to modify the message based on a relationship property.
 If the input graph has no relationship properties, i.e. is unweighted, the method is skipped.
