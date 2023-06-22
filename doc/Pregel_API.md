@@ -355,7 +355,7 @@ This is equivalent to all the other algorithms within the GDS library.
 .Pregel Configuration
 | Name                                                                             | Type      | Default       | Description                                                                                      |
 |----------------------------------------------------------------------------------|-----------|---------------|--------------------------------------------------------------------------------------------------|
-| xref:common-usage/running-algos.adoc#common-configuration-max-iterations[maxIterations]                            | Integer   | -             | Maximum number of supersteps after which the computation will terminate.                          |
+| [maxIterations](https://neo4j.com/docs/graph-data-science/current/common-usage/running-algos/#common-configuration-max-iterations)                            | Integer   | -             | Maximum number of supersteps after which the computation will terminate.                          |
 | isAsynchronous                                                                   | Boolean   | false         | Flag indicating if messages can be sent and received in the same superstep.                       |
 | partitioning                                                                     | String    | "range"       | Selects the partitioning of the input graph, can be either "range", "degree" or "auto".           |
 | xref:common-usage/running-algos.adoc#common-configuration-relationship-weight-property[relationshipWeightProperty] | String    | null          | Name of the relationship property to use as weights. If unspecified, the algorithm runs unweighted.|
