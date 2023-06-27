@@ -54,7 +54,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ steps.extract.outputs.version }}
-          release_name: Frequent Pattern Mining - ${{ steps.extract.outputs.version }}
+          tag_name: ${{ env.version }}
+          release_name: Frequent Pattern Mining - ${{ env.version }}
           draft: true
           prerelease: false
