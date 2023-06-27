@@ -161,7 +161,7 @@ A context is stateful, and all its methods are subject to the current superstep 
 Both context objects share a set of methods, e.g., to access the config and node state.
 Additionally, each context adds context-specific methods.
 
-The `org.neo4j.gds.beta.pregel.PregelContext.InitContext` is available in the `init` method of a Pregel computation.
+The [`org.neo4j.gds.beta.pregel.PregelContext.InitContext`](https://github.com/neo4j/graph-data-science/blob/66fd5819b6cd10c1b3619316cd73af8f30cfb5a3/pregel/src/main/java/org/neo4j/gds/beta/pregel/context/InitContext.java#L36) is available in the `init` method of a Pregel computation.
 It provides access to node properties stored in the in-memory graph.
 We can set the initial node state to a fixed value, e.g. the node id, or use graph properties and the user-defined configuration to initialize a context-dependent state.
 
