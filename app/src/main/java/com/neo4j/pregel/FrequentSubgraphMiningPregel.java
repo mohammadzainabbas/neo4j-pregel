@@ -89,6 +89,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
     @SuppressWarnings("immutables:subtype")
     public interface FrequentSubgraphMiningPregelConfig extends PregelProcedureConfig, SeedConfig {
 
+        @Override
         
 
         static FrequentSubgraphMiningPregelConfig of(CypherMapWrapper userInput) {
