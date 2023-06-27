@@ -419,7 +419,7 @@ Implementing this interface has the following consequences:
 
 * The Pregel framework will make sure that all relationships passed into the algorithm are inverse indexed.
   If no such index exists, an error will be thrown.
-* The signature of the `init` and `compute` functions now accept a [`org.neo4j.gds.beta.pregel.context.InitContext.BidirectionalInitContext`](https://github.com/neo4j/graph-data-science/blob/7239c03f80bdfafad14cf83de582f5d1213735bc/pregel/src/main/java/org/neo4j/gds/beta/pregel/context/InitContext.java#L65) and `org.neo4j.gds.beta.pregel.context.ComputeContext.BidirectionalComputeContext` respectively.
+* The signature of the `init` and `compute` functions now accept a [`org.neo4j.gds.beta.pregel.context.InitContext.BidirectionalInitContext`](https://github.com/neo4j/graph-data-science/blob/7239c03f80bdfafad14cf83de582f5d1213735bc/pregel/src/main/java/org/neo4j/gds/beta/pregel/context/InitContext.java#L65) and [`org.neo4j.gds.beta.pregel.context.ComputeContext.BidirectionalComputeContext`](https://github.com/neo4j/graph-data-science/blob/7239c03f80bdfafad14cf83de582f5d1213735bc/pregel/src/main/java/org/neo4j/gds/beta/pregel/context/ComputeContext.java#L183) respectively.
 * Algorithms annotated with the `@PregelProcedure` annotation will automatically create all required inverse indexes.
 
 The `BidirectionalInitContext` and `BidirectionalComputeContexts` expose the following new methods in addition to the methods defined by `InitContext` and `ComputeContext`:
