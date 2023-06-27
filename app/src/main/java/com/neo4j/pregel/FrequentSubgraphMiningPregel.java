@@ -55,6 +55,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
 
             // long[] fsms = context.longArrayNodeValue(FSM);
             // long[] new_fsms = new long[fsms.length + 1];
+            var superstep = context.superstep();
 
             int i = 0;
             for (var message: messages) {
@@ -62,7 +63,6 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
                 System.out.println("Message No. " + i + " for Node: " + context.nodeId() + " Message: " + message);
             }
 
-            var superstep = context.superstep();
 
             context.setNodeValue(FSM, context.nodeId());
             context.sendToNeighbors(context.nodeId());
