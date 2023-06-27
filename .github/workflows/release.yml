@@ -44,7 +44,6 @@ jobs:
         id: extract
         run: |
           if [ "${{ steps.check.outputs.version_changed }}" = "true" ]; then
-            VERSION=$(grep 'version' app/build.gradle | cut -d "'" -f 2)
             VERSION=$(grep "version '" app/build.gradle | awk '{print $2}' | tr -d \')
             echo "::set-output name=version::$VERSION"
           else
