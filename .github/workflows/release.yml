@@ -1,3 +1,4 @@
+# Workflow to automatically create a release when the version in app/build.gradle changes
 name: Auto-Release Workflow
 
 on:
