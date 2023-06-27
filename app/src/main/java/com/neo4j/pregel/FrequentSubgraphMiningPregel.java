@@ -27,7 +27,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
     @Override
     public PregelSchema schema(FrequentSubgraphMiningPregelConfig config) {
         return new PregelSchema.Builder()
-                .add(FSM, ValueType.LONG_ARRAY)
+                .add(FSM, ValueType.LONG)
                 .build();
     }
     
@@ -39,13 +39,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
 
         context.logMessage("NodeProperties: " + nodeProperties);
 
-
-        var initialValue = context.config().seedProperty() != null
-                ? context.nodeProperties(context.config().seedProperty()).doubleValue(context.nodeId())
-                : 1.0 / context.nodeCount();
-        context.setNodeValue(FSM, initialValue);
-
-        weighted = context.config().hasRelationshipWeightProperty();
+        context.setNodeValue(FSM, 0l);
     }
 
     /* Called for each node in every superstep */
