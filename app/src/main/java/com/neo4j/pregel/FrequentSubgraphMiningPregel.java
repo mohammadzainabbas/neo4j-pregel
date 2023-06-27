@@ -35,7 +35,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
     @Override
     public void init(InitContext<FrequentSubgraphMiningPregelConfig> context) {
 
-        var name = context.nodeProperties("name");
+        var nodeProperties = context.nodePropertyKeys();
 
         context.logMessage("InitContext: " + context);
 
