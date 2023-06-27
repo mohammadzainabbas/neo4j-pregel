@@ -194,7 +194,7 @@ public final class InitContext {
 }
 ```
 
-In contrast, `org.neo4j.gds.beta.pregel.PregelContext.ComputeContext` can be accessed inside the `compute` method.
+In contrast, [`org.neo4j.gds.beta.pregel.PregelContext.ComputeContext`](https://github.com/neo4j/graph-data-science/blob/66fd5819b6cd10c1b3619316cd73af8f30cfb5a3/pregel/src/main/java/org/neo4j/gds/beta/pregel/context/ComputeContext.java#L39) can be accessed inside the `compute` method.
 The context provides methods to access the computation state, e.g. the current superstep, and to send messages to other nodes in the graph.
 
 > The ComputeContext
