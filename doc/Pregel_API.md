@@ -347,7 +347,7 @@ The `isAsynchronous` flag at the config is ignored in that case.
 ### Configuration
 
 To configure the execution of a custom Pregel computation, the framework requires a configuration.
-The `org.neo4j.gds.beta.pregel.PregelConfig` provides the minimum set of options to execute a computation.
+The [`org.neo4j.gds.beta.pregel.PregelConfig`](https://github.com/neo4j/graph-data-science/blob/66fd5819b6cd10c1b3619316cd73af8f30cfb5a3/pregel/src/main/java/org/neo4j/gds/beta/pregel/PregelConfig.java#L33) provides the minimum set of options to execute a computation.
 The configuration options also map to the parameters that can later be set via a custom procedure.
 This is equivalent to all the other algorithms within the GDS library.
 
