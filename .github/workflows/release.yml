@@ -3,11 +3,11 @@ name: Release 🚀
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
-    paths:
-      - 'app/build.gradle'
+  # push:
+  #   branches:
+  #     - main
+  #   paths:
+  #     - 'app/build.gradle'
 
 jobs:
   release:
@@ -22,23 +22,23 @@ jobs:
           java-version: '8'
           distribution: 'adopt'
 
-      - name: Check for version change
-        id: check
-        run: |
-          git fetch
-          if git rev-parse HEAD^ >/dev/null 2>&1; then
-            DIFF=$(git diff HEAD^ HEAD -- app/build.gradle)
-            if echo "$DIFF" | grep -q "+version"; then
-              echo "Version changed"
-              echo "::set-output name=version_changed::true"
-            else
-              echo "Version did not change"
-              echo "::set-output name=version_changed::false"
-            fi
-          else
-            echo "No previous commit to compare against"
-            echo "::set-output name=version_changed::false"
-          fi
+      # - name: Check for version change
+      #   id: check
+      #   run: |
+      #     git fetch
+      #     if git rev-parse HEAD^ >/dev/null 2>&1; then
+      #       DIFF=$(git diff HEAD^ HEAD -- app/build.gradle)
+      #       if echo "$DIFF" | grep -q "+version"; then
+      #         echo "Version changed"
+      #         echo "::set-output name=version_changed::true"
+      #       else
+      #         echo "Version did not change"
+      #         echo "::set-output name=version_changed::false"
+      #       fi
+      #     else
+      #       echo "No previous commit to compare against"
+      #       echo "::set-output name=version_changed::false"
+      #     fi
 
       - name: Extract version
         id: extract
