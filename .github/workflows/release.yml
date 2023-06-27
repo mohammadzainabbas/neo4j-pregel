@@ -1,5 +1,5 @@
-# Workflow to automatically create a release when the version in app/build.gradle changes
-name: Auto-Release Workflow
+# Workflow to create a release when the version in app/build.gradle changes
+name: Release Workflow
 
 on:
   workflow_dispatch:
