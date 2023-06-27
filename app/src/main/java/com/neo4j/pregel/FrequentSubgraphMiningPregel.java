@@ -1,6 +1,5 @@
 package com.neo4j.pregel;
 
-import org.immutables.value.Value;
 import org.neo4j.gds.annotation.Configuration;
 import org.neo4j.gds.annotation.ValueClass;
 import org.neo4j.gds.api.nodeproperties.ValueType;
@@ -91,8 +90,6 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
     public interface FrequentSubgraphMiningPregelConfig extends PregelProcedureConfig, SeedConfig {
 
         @Override
-        @Configuration.Ignore
-        @Value.Derived
         default boolean isAsynchronous() {
             return true;
         }
