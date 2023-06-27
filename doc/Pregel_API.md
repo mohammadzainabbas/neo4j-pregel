@@ -510,7 +510,7 @@ The Pregel framework in GDS provides an easy way to generate procedures for all 
 
 ### Procedure generation
 
-To generate procedures for a computation, it needs to be annotated with the `@org.neo4j.gds.beta.pregel.annotation.PregelProcedure` annotation.
+To generate procedures for a computation, it needs to be annotated with the [`@org.neo4j.gds.beta.pregel.annotation.PregelProcedure`](https://github.com/neo4j/graph-data-science/blob/7239c03f80bdfafad14cf83de582f5d1213735bc/pregel/src/main/java/org/neo4j/gds/beta/pregel/annotation/PregelProcedure.java#L29) annotation.
 In addition, the config parameter of the custom computation must be a subtype of `org.neo4j.gds.beta.pregel.PregelProcedureConfig`.
 
 > Using the `@PregelProcedure` annotation to configure code generation.
