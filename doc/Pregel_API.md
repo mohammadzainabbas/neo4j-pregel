@@ -414,7 +414,7 @@ public class CustomComputation implements PregelComputation<CustomConfig> {
 Some algorithms implemented in Pregel might require or benefit from the ability to access and send messages to all incoming relationships of the current context node.
 GDS supports the creation of inverse indexes for relationship types, which enables the traversal of incoming relationships for directed relationship types.
 
-A Pregel algorithm can access this index by implementing the `org.neo4j.gds.beta.pregel.BidirectionalPregelComputation` interface instead of the `PregelComputation` interface.
+A Pregel algorithm can access this index by implementing the [`org.neo4j.gds.beta.pregel.BidirectionalPregelComputation`](https://github.com/neo4j/graph-data-science/blob/66fd5819b6cd10c1b3619316cd73af8f30cfb5a3/pregel/src/main/java/org/neo4j/gds/beta/pregel/BidirectionalPregelComputation.java#L38) interface instead of the `PregelComputation` interface.
 Implementing this interface has the following consequences:
 
 * The Pregel framework will make sure that all relationships passed into the algorithm are inverse indexed.
