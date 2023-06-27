@@ -7,16 +7,12 @@ import org.neo4j.gds.beta.pregel.PregelSchema;
 import org.neo4j.gds.beta.pregel.annotation.PregelProcedure;
 import org.neo4j.gds.beta.pregel.context.ComputeContext;
 import org.neo4j.gds.beta.pregel.context.InitContext;
-
-import static org.neo4j.gds.beta.pregel.annotation.GDSMode.MUTATE;
-import static org.neo4j.gds.beta.pregel.annotation.GDSMode.STATS;
-import static org.neo4j.gds.beta.pregel.annotation.GDSMode.STREAM;
-import static org.neo4j.gds.beta.pregel.annotation.GDSMode.WRITE;
+import org.neo4j.gds.beta.pregel.annotation.GDSMode;
 
 @PregelProcedure(
     name = "esilv.pregel.cc",
     description = "Connected Components with Pregel",
-    modes = {STREAM, WRITE, MUTATE, STATS}
+    modes = { GDSMode.STREAM, GDSMode.MUTATE, GDSMode.STATS }
 )
 public class ConnectedComponentsPregel implements PregelComputation<ConnectedComponentsConfig> {
 
