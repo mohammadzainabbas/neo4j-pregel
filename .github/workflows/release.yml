@@ -58,5 +58,5 @@ jobs:
         with:
           tag_name: ${{ steps.extract.outputs.version }}
           release_name: Frequent Pattern Mining - ${{ steps.extract.outputs.version }}
-          draft: false
+          draft: true
           prerelease: false
