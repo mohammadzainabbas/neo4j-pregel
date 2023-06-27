@@ -19,7 +19,7 @@ import org.neo4j.gds.core.CypherMapWrapper;
 import java.util.function.LongPredicate;
 
 
-@PregelProcedure(name = "esilv.pregel.prtol", modes = {GDSMode.STREAM, GDSMode.MUTATE, GDSMode.WRITE})
+@PregelProcedure(name = "esilv.pregel.prtol", modes = {GDSMode.STREAM, GDSMode.MUTATE})
 public class PageRankTol implements PregelComputation<PageRankTol.PrTolConfig> {
 
     static final String PR_KEY = "pr";

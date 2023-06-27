@@ -1,7 +1,5 @@
 package com.neo4j.pregel;
 
-import org.checkerframework.checker.units.qual.A;
-import org.immutables.value.Value;
 import org.neo4j.gds.annotation.Configuration;
 import org.neo4j.gds.annotation.ValueClass;
 import org.neo4j.gds.api.nodeproperties.ValueType;
@@ -18,9 +16,6 @@ import org.neo4j.gds.beta.pregel.context.MasterComputeContext;
 import org.neo4j.gds.config.SeedConfig;
 import org.neo4j.gds.core.CypherMapWrapper;
 
-import java.util.Set;
-import java.lang.reflect.Array;
-import java.util.HashSet;
 import java.util.Optional;
 
 @PregelProcedure(name = "esilv.pregel.fsm", modes = { GDSMode.STREAM, GDSMode.MUTATE }, description = "Frequent Pattern Mining :: Neo4j - Approximate Frequent Subgraph Mining with Pregel")
@@ -100,10 +95,6 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
     @Configuration("FrequentSubgraphMiningPregelConfigImpl")
     @SuppressWarnings("immutables:subtype")
     public interface FrequentSubgraphMiningPregelConfig extends PregelProcedureConfig, SeedConfig {
-        @Value.Default
-        default int maxIterations() {
-            return 10;
-        }
 
         static FrequentSubgraphMiningPregelConfig of(CypherMapWrapper userInput) {
             return new FrequentSubgraphMiningPregelConfigImpl(userInput);
