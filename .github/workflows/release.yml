@@ -25,12 +25,17 @@ jobs:
         id: check
         run: |
           git fetch
-          DIFF=$(git diff HEAD^ HEAD -- app/build.gradle)
-          if echo "$DIFF" | grep -q "+version"; then
-            echo "Version changed"
-            echo "::set-output name=version_changed::true"
+          if git rev-parse HEAD^ >/dev/null 2>&1; then
+            DIFF=$(git diff HEAD^ HEAD -- app/build.gradle)
+            if echo "$DIFF" | grep -q "+version"; then
+              echo "Version changed"
+              echo "::set-output name=version_changed::true"
+            else
+              echo "Version did not change"
+              echo "::set-output name=version_changed::false"
+            fi
           else
-            echo "Version did not change"
+            echo "No previous commit to compare against"
             echo "::set-output name=version_changed::false"
           fi
 
