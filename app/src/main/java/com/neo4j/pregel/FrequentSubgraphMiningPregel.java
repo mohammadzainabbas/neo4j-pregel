@@ -39,7 +39,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
 
         var nodeId = context.nodeId();
 
-        context.logMessage("NodeProperties: " + nodeProperties);
+        context.logMessage("Node ID: " + nodeId + "NodeProperties: " + nodeProperties);
 
         context.setNodeValue(FSM, 0l);
     }
