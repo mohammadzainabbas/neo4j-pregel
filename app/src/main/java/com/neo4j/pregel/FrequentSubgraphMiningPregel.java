@@ -74,21 +74,21 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
         }
     }
 
-    @Override
-    public Optional<Reducer> reducer() {
-        return Optional.of(new Reducer.Sum());
-    }
+    // @Override
+    // public Optional<Reducer> reducer() {
+    //     return Optional.of(new Reducer.Sum());
+    // }
 
-    @Override
-    public double applyRelationshipWeight(double nodeValue, double relationshipWeight) {
-        // ! assuming normalized relationshipWeights (sum of outgoing edge weights = 1
-        // and none negative weights)
-        return nodeValue * relationshipWeight;
-    }
+    // @Override
+    // public double applyRelationshipWeight(double nodeValue, double relationshipWeight) {
+    //     // ! assuming normalized relationshipWeights (sum of outgoing edge weights = 1
+    //     // and none negative weights)
+    //     return nodeValue * relationshipWeight;
+    // }
 
     @Override
     public boolean masterCompute(MasterComputeContext<FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig> context) {
-        return context.superstep() >= 5; // stop after 5 supersteps
+        return context.superstep() >= 1; // stop after 5 supersteps
     }
 
     @ValueClass
