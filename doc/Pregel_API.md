@@ -121,7 +121,7 @@ PregelSchema schema() {
 ```
 
 The node value consists of a single value named `foobar` which is of type `long`.
-A node value can be of any GDS-supported type, i.e. `long`, `double`, `long[]`, `double[]` and `float[]`.
+A node value can be of any [GDS-supported type](https://aura.support.neo4j.com/hc/en-us/articles/16541375872275-What-are-the-data-types-supported-by-Neo4j-GDS-Library-), i.e. `long`, `double`, `long[]`, `double[]` and `float[]`.
 
 We can add an arbitrary number of values to the schema:
 
