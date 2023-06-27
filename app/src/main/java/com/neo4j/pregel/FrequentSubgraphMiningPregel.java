@@ -41,7 +41,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
 
         var _str = "Node ID: '" + nodeId + "' ";
         for (var property: nodeProperties) {
-            _str += property + " ";
+            _str = _str + property + " ";
         }
 
         context.logMessage("Node ID: '" + nodeId + "' NodeProperties: " + nodeProperties + " relationshipCount: " + context.relationshipCount());
