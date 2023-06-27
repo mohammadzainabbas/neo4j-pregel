@@ -248,7 +248,7 @@ This can be achieved by overriding the `org.neo4j.gds.beta.pregel.PregelComputat
 This function will be called at the end of each superstep after all compute threads have finished.
 The master compute function will be called by a single thread.
 
-The `masterCompute` function has access to the `org.neo4j.gds.beta.pregel.PregelContext.MasterComputeContext`.
+The `masterCompute` function has access to the [`org.neo4j.gds.beta.pregel.PregelContext.MasterComputeContext`](https://github.com/neo4j/graph-data-science/blob/66fd5819b6cd10c1b3619316cd73af8f30cfb5a3/pregel/src/main/java/org/neo4j/gds/beta/pregel/context/MasterComputeContext.java#L30).
 That context is similar to the `ComputeContext` but is not tied to a specific node and does not allow sending messages.
 Furthermore, the `MasterComputeContext` allows to run a function for every node in the graph and has access to the computation state of all nodes.
 
