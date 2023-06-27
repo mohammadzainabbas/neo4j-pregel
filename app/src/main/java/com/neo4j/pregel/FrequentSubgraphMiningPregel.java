@@ -22,6 +22,9 @@ import java.util.Optional;
 public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig> {
 
     private static final String FSM = "fsm";
+    private static final String POS_X = "fsm";
+    private static final String POS_Y = "fsm";
+    private static final String RATING = "fsm";
 
     /* Each node will have this value-schema during pregel computation */
     @Override
