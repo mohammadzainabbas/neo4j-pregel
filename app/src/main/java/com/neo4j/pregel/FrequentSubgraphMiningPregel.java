@@ -60,6 +60,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
             int i = 0;
             for (var message: messages) {
                 msg = message;
+                i++;
                 System.out.println("Node " + context.nodeId() + " has Messages: " + messages);
             }
 
