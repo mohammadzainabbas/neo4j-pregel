@@ -1,4 +1,4 @@
-# Workflow to create a release when the version in app/build.gradle changes
+# Workflow to create a release
 name: Release Workflow
 
 on:
