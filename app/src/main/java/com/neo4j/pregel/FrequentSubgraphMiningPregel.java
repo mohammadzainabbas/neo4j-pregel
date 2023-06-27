@@ -64,7 +64,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
                 System.out.println("Message No. " + i + " for Node: " + context.nodeId() + " Message: " + message);
             }
 
-            context.setNodeValue(FSM, new_fsms);
+            context.setNodeValue(FSM, context.nodeId());
             context.sendToNeighbors(context.nodeId());
         }
     }
