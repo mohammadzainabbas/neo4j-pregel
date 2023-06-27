@@ -90,6 +90,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
     public interface FrequentSubgraphMiningPregelConfig extends PregelProcedureConfig, SeedConfig {
 
         @Override
+        
         public boolean isAsynchronous() {
             return true;
         }
