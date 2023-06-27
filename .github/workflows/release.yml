@@ -45,6 +45,8 @@ jobs:
         run: |
           VERSION=$(grep "^version '" app/build.gradle | awk '{print $2}' | tr -d \')
           echo "version=$VERSION" >> "$GITHUB_ENV"
+          echo "### Extract Version Step! :rocket:" >> $GITHUB_STEP_SUMMARY
+          echo "#### Version: $VERSION :rocket:" >> $GITHUB_STEP_SUMMARY
 
       - name: Create Release
         id: create_release
