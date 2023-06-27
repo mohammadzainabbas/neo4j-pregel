@@ -22,7 +22,7 @@ import java.util.Optional;
 public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig> {
 
     private static final String FSM = "fsm";
-    private static final String NODE_ID = "node_id";
+    private static final String G_ID = "gid";
     private static final String POS_X = "pos_x";
     private static final String POS_Y = "pos_y";
     private static final String RATING = "rating";
@@ -32,6 +32,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
     public PregelSchema schema(FrequentSubgraphMiningPregelConfig config) {
         return new PregelSchema.Builder()
                 .add(FSM, ValueType.LONG)
+                .add(G_ID, ValueType.LONG)
                 .add(POS_X, ValueType.DOUBLE)
                 .add(POS_Y, ValueType.DOUBLE)
                 .add(RATING, ValueType.DOUBLE)
