@@ -44,6 +44,7 @@ jobs:
         id: extract
         run: |
           VERSION=$(grep "^version '" app/build.gradle | awk '{print $2}' | tr -d \')
+          "action_state=yellow" >> "$GITHUB_ENV"
           echo "::set-output name=version::$VERSION"
 
       - name: Create Release
