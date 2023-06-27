@@ -244,7 +244,7 @@ public final class ComputeContext {
 ### Master Computation
 
 Some Pregel programs may require logic that is executed after all threads have finished the current superstep, for example, to reset or evaluate a global data structure.
-This can be achieved by overriding the `org.neo4j.gds.beta.pregel.PregelComputation.masterCompute` function of the `PregelComputation`.
+This can be achieved by overriding the [`org.neo4j.gds.beta.pregel.PregelComputation.masterCompute`](https://github.com/neo4j/graph-data-science/blob/66fd5819b6cd10c1b3619316cd73af8f30cfb5a3/pregel/src/main/java/org/neo4j/gds/beta/pregel/BasePregelComputation.java#L54) function of the `PregelComputation`.
 This function will be called at the end of each superstep after all compute threads have finished.
 The master compute function will be called by a single thread.
 
