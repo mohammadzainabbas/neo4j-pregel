@@ -34,6 +34,10 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
     /* Called in the beginning of the first superstep of the Pregel computation and allows initializing node values */
     @Override
     public void init(InitContext<FrequentSubgraphMiningPregelConfig> context) {
+
+        context.logMessage("InitContext: " + context);
+
+
         var initialValue = context.config().seedProperty() != null
                 ? context.nodeProperties(context.config().seedProperty()).doubleValue(context.nodeId())
                 : 1.0 / context.nodeCount();
