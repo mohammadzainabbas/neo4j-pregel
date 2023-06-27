@@ -93,7 +93,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
         @Override
         @Configuration.Ignore
         @Value.Derived
-        public boolean isAsynchronous() {
+        default boolean isAsynchronous() {
             return true;
         }
 
