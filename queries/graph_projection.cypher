@@ -102,6 +102,8 @@ CALL gds.graph.project.cypher(
 
 //-----
 
+gds.export.location: "/Users/mohammadzainabbas/Masters/Thesis/Experiments/neo4j-pregel"}
+
 // check all projections
 CALL gds.graph.list()
 
