@@ -36,12 +36,6 @@ CALL gds.graph.project.cypher(
                  RETURN id(n) as source, id(m) as target, sum(r.NB) as NB"
 ) YIELD graphName AS graph, nodeCount AS nodes, relationshipCount AS rels;
 
-
-
-
-
-
-
 //Cypher Projection reverse CountriesAll
 CALL gds.graph.drop("countries_reverse_all");
 CALL gds.graph.project.cypher(
