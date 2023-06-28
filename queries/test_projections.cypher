@@ -20,12 +20,7 @@ WITH gds.graph.project(
         },
         relationshipProperties: {
             year: coalesce(toInteger(r.year), toInteger(0)),
-            distance: coalesce(tofloat(r.distance), tofloat(0)),
-            duration: coalesce(tofloat(r.duration), tofloat(0)),
-            cost: coalesce(tofloat(r.cost), tofloat(0)),
-            rating: coalesce(tofloat(r.rating), tofloat(0)),
-            pos_x: coalesce(toInteger(r.position.x), 0),
-            pos_y: coalesce(toInteger(r.position.y), 0)
+            
         },
         relationshipTypes: "trip",
     },
