@@ -23,7 +23,6 @@ WITH gds.graph.project(
             NbPerMaxDurationDays_1: coalesce(toInteger(r.NbPerMaxDurationDays_1), toInteger(0)),
         },
         relationshipTypes: "trip",
-    },
-    // {undirectedRelationshipTypes: ['*']}
+    }
 ) as g
 CALL gds.graph.export(g.graphName, { dbName: "temp" });
