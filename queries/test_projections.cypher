@@ -6,8 +6,8 @@ WITH gds.graph.project(
     s,
     t,
     {
-        sourceNodeLabels: ['Location'],
-        targetNodeLabels: ['Location'],
+        sourceNodeLabels: 'Location',
+        targetNodeLabels: 'Location',
         sourceNodeProperties: s {
             rating: coalesce(tofloat(s.rating), tofloat(0)),
             pos_x: coalesce(toInteger(s.position.x), 0),
