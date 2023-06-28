@@ -19,6 +19,7 @@ WITH gds.graph.project(
             pos_y: coalesce(toInteger(t.position.y), 0)
         },
         relationshipProperties: {
+            year: coalesce(toInteger(r.year), toInteger(0)),
             distance: coalesce(tofloat(r.distance), tofloat(0)),
             duration: coalesce(tofloat(r.duration), tofloat(0)),
             cost: coalesce(tofloat(r.cost), tofloat(0)),
