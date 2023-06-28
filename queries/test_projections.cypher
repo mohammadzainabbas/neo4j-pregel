@@ -25,6 +25,7 @@ WITH gds.graph.project(
         },
     }
 ) as g
-CALL gds.graph.export(g.graphName, { dbName: "temp" });
+RETURN g.graphName as graph_name, g.nodeCount as nodes, g.relationshipCount as rels;
+CALL gds.graph.export("", { dbName: "temp" });
 CREATE DATABASE temp IF NOT EXISTS;
 // -------
