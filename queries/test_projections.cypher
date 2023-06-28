@@ -20,7 +20,7 @@ WITH gds.graph.project(
         },
         relationshipProperties: {
             year: coalesce(toInteger(r.year), toInteger(0)),
-            
+            NbPerMaxDurationDays_1: coalesce(toInteger(r.NbPerMaxDurationDays_1), toInteger(0)),
         },
         relationshipTypes: "trip",
     },
