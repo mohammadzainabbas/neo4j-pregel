@@ -24,6 +24,6 @@ WITH gds.graph.project(
         },
         relationshipTypes: "trip",
     },
-    {undirectedRelationshipTypes: ['*']}
+    // {undirectedRelationshipTypes: ['*']}
 ) as g
 CALL gds.graph.export(g.graphName, { dbName: "temp" });
