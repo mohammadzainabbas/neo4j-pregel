@@ -26,3 +26,4 @@ WITH gds.graph.project(
     }
 ) as g
 CALL gds.graph.export(g.graphName, { dbName: "temp" });
+CREATE DATABASE temp IF NOT EXISTS;
