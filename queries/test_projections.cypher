@@ -16,6 +16,7 @@ WITH gds.graph.project(
             pos_x: coalesce(toInteger(t.position.x), 0),
             pos_y: coalesce(toInteger(t.position.y), 0)
         }
-    }
+    },
+    {undirectedRelationshipTypes: ['*']}
 ) as g
 RETURN g.graphName as graph, g.nodeCount as nodes, g.relationshipCount as rels;
