@@ -26,4 +26,4 @@ WITH gds.graph.project(
     },
     {undirectedRelationshipTypes: ['*']}
 ) as g
-RETURN g.graphName as graph, g.nodeCount as nodes, g.relationshipCount as rels;
+CALL 
