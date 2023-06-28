@@ -120,6 +120,8 @@ RETURN 'dropped ' + graphName
 //----- Visualise in-memory (projected) graph in Neo4j Browser
 DROP DATABASE temp IF EXISTS;
 CALL gds.graph.export("countries_2018", { dbName: "temp" });
+CREATE DATABASE temp IF NOT EXISTS;
+:use temp;
 MATCH (n) RETURN n LIMIT 15;
 //-----
 
