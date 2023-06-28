@@ -6,9 +6,9 @@ WITH gds.graph.project(
     s,
     t,
     {
-        sourceNodeLabels: "Location",
-        targetNodeLabels: "Location",
-        relationshipTypes: "trip",
+        sourceNodeLabels: 'Location',
+        targetNodeLabels: 'Location',
+        relationshipTypes: 'trip',
         sourceNodeProperties: s {
             rating: coalesce(tofloat(s.rating), tofloat(0)),
             pos_x: coalesce(toInteger(s.position.x), 0),
