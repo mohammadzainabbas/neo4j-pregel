@@ -118,6 +118,7 @@ YIELD database
 RETURN 'dropped ' + graphName
 
 //----- Visualise in-memory (projected) graph in Neo4j Browser
+DROP database temp;
 CALL gds.graph.export("countries_2018", { dbName: 'temp' });
 
 //-----
