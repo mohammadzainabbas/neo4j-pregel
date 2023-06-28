@@ -1,3 +1,4 @@
+DROP DATABASE temp IF EXISTS;
 MATCH (s:Location) -[r:trip{year:2018}]-> (t:Location)
 WHERE not r.country in ['MEL', 'HdF', 'not_HdF']
 WITH gds.graph.project(
