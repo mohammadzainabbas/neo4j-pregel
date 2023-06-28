@@ -25,7 +25,8 @@ WITH gds.graph.project(
             rating: coalesce(tofloat(r.rating), tofloat(0)),
             pos_x: coalesce(toInteger(r.position.x), 0),
             pos_y: coalesce(toInteger(r.position.y), 0)
-        }
+        },
+        relationshipTypes: "trip",
     },
     {undirectedRelationshipTypes: ['*']}
 ) as g
