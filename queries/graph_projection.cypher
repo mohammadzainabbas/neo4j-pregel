@@ -118,8 +118,7 @@ YIELD database
 RETURN 'dropped ' + graphName
 
 //----- Visualise in-memory (projected) graph in Neo4j Browser
-CALL gds.beta.graph.visualize.browser(graphName)
-YIELD nodeCount, relationshipCount
+CALL gds.graph.export("countries_2018", { dbName: 'temp' });
 
 //-----
 
