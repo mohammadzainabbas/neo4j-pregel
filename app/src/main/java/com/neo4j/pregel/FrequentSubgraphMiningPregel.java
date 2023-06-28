@@ -21,11 +21,11 @@ import java.util.Optional;
 @PregelProcedure(name = "esilv.pregel.fsm", modes = { GDSMode.STREAM, GDSMode.MUTATE }, description = "Frequent Pattern Mining :: Neo4j - Approximate Frequent Subgraph Mining with Pregel")
 public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig> {
 
-    private static final String FSM = "fsm";
-    private static final String G_ID = "gid";
-    private static final String POS_X = "pos_x";
-    private static final String POS_Y = "pos_y";
-    private static final String RATING = "rating";
+    public static final String FSM = "fsm";
+    public static final String G_ID = "gid";
+    public static final String POS_X = "pos_x";
+    public static final String POS_Y = "pos_y";
+    public static final String RATING = "rating";
 
     /* Each node will have this value-schema during pregel computation */
     @Override
