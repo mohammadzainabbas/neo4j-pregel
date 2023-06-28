@@ -26,6 +26,6 @@ WITH gds.graph.project(
     }
 ) as g
 RETURN g.graphName as graph_name, g.nodeCount as nodes, g.relationshipCount as rels;
-CALL gds.graph.export("", { dbName: "temp" });
+CALL gds.graph.export("countries_2018", { dbName: "temp" });
 CREATE DATABASE temp IF NOT EXISTS;
 // -------
