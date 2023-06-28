@@ -1,4 +1,5 @@
 DROP DATABASE temp IF EXISTS;
+
 MATCH (s:Location) -[r:trip{year:2018}]-> (t:Location)
 WHERE not r.country in ['MEL', 'HdF', 'not_HdF']
 WITH gds.graph.project(
@@ -22,10 +23,12 @@ WITH gds.graph.project(
         relationshipProperties: {
             year: coalesce(toInteger(r.year), toInteger(0)),
             NbPerMaxDurationDays_1: coalesce(toInteger(r.NbPerMaxDurationDays_1), toInteger(0))
-        },
+        }
     }
 ) as g
 RETURN g.graphName as graph_name, g.nodeCount as nodes, g.relationshipCount as rels;
+
+
 CALL gds.graph.export("countries_2018", { dbName: "temp" });
 CREATE DATABASE temp IF NOT EXISTS;
 // -------
