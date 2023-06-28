@@ -121,8 +121,7 @@ RETURN 'dropped ' + graphName
 DROP DATABASE temp IF EXISTS;
 CALL gds.graph.export("countries_2018", { dbName: "temp" });
 CREATE DATABASE temp IF NOT EXISTS;
-:use temp;
-MATCH (n) RETURN n LIMIT 15;
+USE temp MATCH (n) RETURN n LIMIT 15;
 //-----
 
 CALL esilv.pregel.pagerank.stream("countries_2018", {maxIterations: 10})
