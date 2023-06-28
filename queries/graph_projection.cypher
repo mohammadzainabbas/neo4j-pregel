@@ -120,8 +120,7 @@ RETURN 'dropped ' + graphName
 //----- Visualise in-memory (projected) graph in Neo4j Browser
 DROP DATABASE temp IF EXISTS;
 CALL gds.graph.export("countries_2018", { dbName: "temp" });
-
-
+MATCH (n) RETURN n LIMIT 15;
 //-----
 
 CALL esilv.pregel.pagerank.stream("countries_2018", {maxIterations: 10})
