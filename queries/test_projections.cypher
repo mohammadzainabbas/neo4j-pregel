@@ -6,8 +6,8 @@ WITH gds.graph.project(
     s,
     t,
     {
-        sourceNodeLabels: 'Location',
-        targetNodeLabels: 'Location',
+        sourceNodeLabels: "Location",
+        targetNodeLabels: "Location",
         sourceNodeProperties: s {
             rating: coalesce(tofloat(s.rating), tofloat(0)),
             pos_x: coalesce(toInteger(s.position.x), 0),
@@ -17,7 +17,8 @@ WITH gds.graph.project(
             rating: coalesce(tofloat(t.rating), tofloat(0)),
             pos_x: coalesce(toInteger(t.position.x), 0),
             pos_y: coalesce(toInteger(t.position.y), 0)
-        }
+        },
+        relationshipProperties: 
     },
     {undirectedRelationshipTypes: ['*']}
 ) as g
