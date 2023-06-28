@@ -111,6 +111,12 @@ CALL gds.graph.list() YIELD graphName, memoryUsage, nodeCount, relationshipCount
 // check all functions with a prefix "esilv"
 SHOW PROCEDURES yield name, description, signature where name starts with "esilv"
 
+// drop all projections
+CALL gds.graph.list() YIELD graphName
+CALL gds.graph.drop(graphName)
+YIELD database
+RETURN 'dropped ' + graphName
+
 //-----
 
 CALL esilv.pregel.pagerank.stream("countries_2018", {maxIterations: 10})
