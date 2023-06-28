@@ -115,7 +115,7 @@ SHOW PROCEDURES yield name, description, signature where name starts with "esilv
 CALL gds.graph.list() YIELD graphName
 CALL gds.graph.drop(graphName)
 YIELD database
-RETURN 'dropped ' + graphName
+RETURN graphName as dropped_graph
 
 //----- Visualise in-memory (projected) graph in Neo4j Browser
 DROP DATABASE temp IF EXISTS;
