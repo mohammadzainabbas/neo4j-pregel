@@ -26,4 +26,4 @@ WITH gds.graph.project(
     },
     {undirectedRelationshipTypes: ['*']}
 ) as g
-CALL 
+CALL gds.graph.export(g.graphName, { dbName: "temp" });
