@@ -117,6 +117,10 @@ CALL gds.graph.drop(graphName)
 YIELD database
 RETURN 'dropped ' + graphName
 
+//----- Visualise in-memory (projected) graph in Neo4j Browser
+CALL gds.beta.graph.visualize.browser(graphName)
+YIELD nodeCount, relationshipCount
+
 //-----
 
 CALL esilv.pregel.pagerank.stream("countries_2018", {maxIterations: 10})
