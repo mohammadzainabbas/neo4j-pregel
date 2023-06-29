@@ -137,6 +137,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
         }
 
         @Value.Default
+        @Configuration.Key("maxRepeatNodes")
         default long maxRepeatNodes() {
             return 0;
         }
