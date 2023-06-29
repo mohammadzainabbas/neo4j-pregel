@@ -80,6 +80,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
         var idToInsert = new MutableLong(0);
 
         long[] fsms = context.longArrayNodeValue(FSM);
+        long[] new_fsms = new long[fsms.length + 1];
 
 
         if (context.isInitialSuperstep()) {
