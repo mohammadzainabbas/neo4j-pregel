@@ -35,8 +35,8 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
     public PregelSchema schema(FrequentSubgraphMiningPregelConfig config) {
         return new PregelSchema.Builder()
                 .add(FSM, ValueType.LONG_ARRAY)
+                .add(DEGREE, ValueType.LONG_ARRAY)
                 .add(G_ID, ValueType.LONG)
-                .add(DEGREE, ValueType.LONG)
                 .add(POS_X, ValueType.DOUBLE)
                 .add(POS_Y, ValueType.DOUBLE)
                 .add(RATING, ValueType.DOUBLE)
@@ -97,7 +97,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
             for (var message: messages) {
                 var from_node_id = message.longValue();
 
-                
+
 
                 var degree = context.longNodeValue(DEGREE, message);
                 if (degree > max_degree.longValue()) {
