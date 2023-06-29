@@ -4,18 +4,24 @@ CREATE (n0:Location {pos_x:3, pos_y:50, rating:3.7918918132781982 }),
 (n3:Location {pos_x:3, pos_y:50, rating:3.646122932434082 }),
 (n4:Location {pos_x:3, pos_y:50, rating:4.110304355621338 }),
 (n5:Location {pos_x:3, pos_y:50, rating:3.8604729175567627 }),
+
 (n0)-[:trip {NbPerMaxDurationDays_1:1.0, year:2018.0}]->(n1),
 (n0)-[:trip {NbPerMaxDurationDays_1:1.0, year:2018.0}]->(n1),
+
 (n1)-[:trip {NbPerMaxDurationDays_1:1.0, year:2018.0}]->(n1),
 (n1)-[:trip {NbPerMaxDurationDays_1:2.0, year:2018.0}]->(n1),
+
 (n2)-[:trip {NbPerMaxDurationDays_1:1.0, year:2018.0}]->(n1),
 (n2)-[:trip {NbPerMaxDurationDays_1:1.0, year:2018.0}]->(n2),
+
 (n3)-[:trip {NbPerMaxDurationDays_1:0.0, year:2018.0}]->(n1),
 (n3)-[:trip {NbPerMaxDurationDays_1:4.0, year:2018.0}]->(n3),
+
 (n4)-[:trip {NbPerMaxDurationDays_1:0.0, year:2018.0}]->(n3),
 (n4)-[:trip {NbPerMaxDurationDays_1:1.0, year:2018.0}]->(n4),
 (n4)-[:trip {NbPerMaxDurationDays_1:5.0, year:2018.0}]->(n4),
 (n4)-[:trip {NbPerMaxDurationDays_1:1.0, year:2018.0}]->(n5),
+
 (n5)-[:trip {NbPerMaxDurationDays_1:1.0, year:2018.0}]->(n5),
 (n5)-[:trip {NbPerMaxDurationDays_1:4.0, year:2018.0}]->(n5),
 (n5)-[:trip {NbPerMaxDurationDays_1:1.0, year:2018.0}]->(n5)
