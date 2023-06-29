@@ -1,5 +1,6 @@
 package com.neo4j.pregel;
 
+import org.apache.commons.lang3.mutable.MutableLong;
 import org.neo4j.gds.annotation.Configuration;
 import org.neo4j.gds.annotation.ValueClass;
 import org.neo4j.gds.api.nodeproperties.ValueType;
@@ -76,7 +77,8 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
     @Override
     public void compute(ComputeContext<FrequentSubgraphMiningPregelConfig> context, Messages messages) {
         var nodeId = context.nodeId();
-        long idToInsert = 0;
+        var idToInsert = new MutableLong(0);
+        
         if (context.isInitialSuperstep()) {
             // Initialization step
             long[] empty_fsm_array = {};
