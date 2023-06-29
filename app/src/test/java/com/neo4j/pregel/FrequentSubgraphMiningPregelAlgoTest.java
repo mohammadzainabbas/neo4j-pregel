@@ -34,18 +34,6 @@ class FrequentSubgraphMiningPregelAlgoTest {
         MY_TEST_GRAPH = content;
     }
     
-    // private static final String MY_TEST_GRAPH = new String(Files.readAllBytes(Paths.get("queries/graph_generation.cypher")));
-    // private static final String MY_TEST_GRAPH = _graph;
-    // private static final String MY_TEST_GRAPH =
-    //     "CREATE" +
-    //     "  (alice)" +
-    //     ", (bob)" +
-    //     ", (eve)" +
-    //     ", (alice)-[:LIKES]->(bob)" +
-    //     ", (bob)-[:LIKES]->(alice)" +
-    //     ", (eve)-[:DISLIKES]->(alice)" +
-    //     ", (eve)-[:DISLIKES]->(bob)";
-
     @Inject
     private TestGraph graph;
 
