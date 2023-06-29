@@ -22,4 +22,4 @@ CREATE (n0:Location {pos_x:3, pos_y:50, rating:3.7918918132781982 }),
 (n6)-[:trip {NbPerMaxDurationDays_1:2.0, year:2018.0}]->(n3),
 (n6)-[:trip {NbPerMaxDurationDays_1:2.0, year:2018.0}]->(n4),
 (n6)-[:trip {NbPerMaxDurationDays_1:1.0, year:2018.0}]->(n5),
-(n6)-[:trip {NbPerMaxDurationDays_1:2.0, year:2018.0}]->(n6),
+(n6)-[:trip {NbPerMaxDurationDays_1:2.0, year:2018.0}]->(n6)
