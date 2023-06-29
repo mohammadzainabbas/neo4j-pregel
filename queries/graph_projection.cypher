@@ -31,7 +31,7 @@ RETURN g.graphName as graph_name, g.nodeCount as nodes, g.relationshipCount as r
 
 CALL esilv.pregel.fsm.stream("countries_2018", {maxIterations: 10})
 YIELD nodeId, values
-RETURN gds.util.asNode(nodeId).name AS name, values as pagerank
+RETURN gds.util.asNode(nodeId).name AS name, values as output
 ORDER BY pagerank DESC
 
 // ---
