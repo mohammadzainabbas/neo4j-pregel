@@ -58,6 +58,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
   private final String mutateProperty;
   private final String writeProperty;
   private final @Nullable String seedProperty;
+  private final double dampingFactor;
 
   @SuppressWarnings("unchecked") // safe covariant cast
   private ImmutableFrequentSubgraphMiningPregelConfig(
@@ -72,7 +73,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
       int writeConcurrency,
       String mutateProperty,
       String writeProperty,
-      @Nullable String seedProperty) {
+      @Nullable String seedProperty,
+      double dampingFactor) {
     initShim.concurrency(concurrency);
     initShim.minBatchSize(minBatchSize);
     initShim.nodeLabels(createUnmodifiableList(false, createSafeList(nodeLabels, true, false)));
@@ -85,6 +87,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     initShim.mutateProperty(Objects.requireNonNull(mutateProperty, "mutateProperty"));
     initShim.writeProperty(Objects.requireNonNull(writeProperty, "writeProperty"));
     initShim.seedProperty(seedProperty);
+    initShim.dampingFactor(dampingFactor);
     this.usernameOverride = null;
     this.configKeys = initShim.configKeys();
     this.logProgress = initShim.logProgress();
@@ -102,6 +105,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     this.mutateProperty = initShim.mutateProperty();
     this.writeProperty = initShim.writeProperty();
     this.seedProperty = initShim.seedProperty();
+    this.dampingFactor = initShim.dampingFactor();
     this.initShim = null;
   }
 
@@ -118,7 +122,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
       int writeConcurrency,
       String mutateProperty,
       String writeProperty,
-      @Nullable String seedProperty) {
+      @Nullable String seedProperty,
+      double dampingFactor) {
     initShim.concurrency(concurrency);
     initShim.minBatchSize(minBatchSize);
     initShim.nodeLabels(createUnmodifiableList(false, createSafeList(nodeLabels, true, false)));
@@ -131,6 +136,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     initShim.mutateProperty(Objects.requireNonNull(mutateProperty, "mutateProperty"));
     initShim.writeProperty(Objects.requireNonNull(writeProperty, "writeProperty"));
     initShim.seedProperty(seedProperty);
+    initShim.dampingFactor(dampingFactor);
     this.usernameOverride = null;
     this.configKeys = initShim.configKeys();
     this.logProgress = initShim.logProgress();
@@ -148,6 +154,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     this.mutateProperty = initShim.mutateProperty();
     this.writeProperty = initShim.writeProperty();
     this.seedProperty = initShim.seedProperty();
+    this.dampingFactor = initShim.dampingFactor();
     this.initShim = null;
   }
 
@@ -195,6 +202,9 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     if (builder.seedPropertyIsSet()) {
       initShim.seedProperty(builder.seedProperty);
     }
+    if (builder.dampingFactorIsSet()) {
+      initShim.dampingFactor(builder.dampingFactor);
+    }
     this.configKeys = initShim.configKeys();
     this.logProgress = initShim.logProgress();
     this.sudo = initShim.sudo();
@@ -211,6 +221,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     this.mutateProperty = initShim.mutateProperty();
     this.writeProperty = initShim.writeProperty();
     this.seedProperty = initShim.seedProperty();
+    this.dampingFactor = initShim.dampingFactor();
     this.initShim = null;
   }
 
@@ -231,7 +242,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
       int writeConcurrency,
       String mutateProperty,
       String writeProperty,
-      @Nullable String seedProperty) {
+      @Nullable String seedProperty,
+      double dampingFactor) {
     initShim.configKeys(configKeys);
     initShim.logProgress(logProgress);
     initShim.sudo(sudo);
@@ -249,6 +261,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     initShim.mutateProperty(mutateProperty);
     initShim.writeProperty(writeProperty);
     initShim.seedProperty(seedProperty);
+    initShim.dampingFactor(dampingFactor);
     this.configKeys = initShim.configKeys();
     this.logProgress = initShim.logProgress();
     this.sudo = initShim.sudo();
@@ -265,6 +278,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     this.mutateProperty = initShim.mutateProperty();
     this.writeProperty = initShim.writeProperty();
     this.seedProperty = initShim.seedProperty();
+    this.dampingFactor = initShim.dampingFactor();
     this.initShim = null;
   }
 
@@ -548,6 +562,24 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
       seedPropertyBuildStage = STAGE_INITIALIZED;
     }
 
+    private byte dampingFactorBuildStage = STAGE_UNINITIALIZED;
+    private double dampingFactor;
+
+    double dampingFactor() {
+      if (dampingFactorBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+      if (dampingFactorBuildStage == STAGE_UNINITIALIZED) {
+        dampingFactorBuildStage = STAGE_INITIALIZING;
+        this.dampingFactor = dampingFactorInitialize();
+        dampingFactorBuildStage = STAGE_INITIALIZED;
+      }
+      return this.dampingFactor;
+    }
+
+    void dampingFactor(double dampingFactor) {
+      this.dampingFactor = dampingFactor;
+      dampingFactorBuildStage = STAGE_INITIALIZED;
+    }
+
     private String formatInitCycleMessage() {
       List<String> attributes = new ArrayList<>();
       if (configKeysBuildStage == STAGE_INITIALIZING) attributes.add("configKeys");
@@ -566,6 +598,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
       if (mutatePropertyBuildStage == STAGE_INITIALIZING) attributes.add("mutateProperty");
       if (writePropertyBuildStage == STAGE_INITIALIZING) attributes.add("writeProperty");
       if (seedPropertyBuildStage == STAGE_INITIALIZING) attributes.add("seedProperty");
+      if (dampingFactorBuildStage == STAGE_INITIALIZING) attributes.add("dampingFactor");
       return "Cannot build FrequentSubgraphMiningPregelConfig, attribute initializers form cycle " + attributes;
     }
   }
@@ -632,6 +665,10 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
 
   private @Nullable String seedPropertyInitialize() {
     return FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.seedProperty();
+  }
+
+  private double dampingFactorInitialize() {
+    return FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.dampingFactor();
   }
 
   /**
@@ -843,6 +880,17 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
   }
 
   /**
+   * @return The value of the {@code dampingFactor} attribute
+   */
+  @Override
+  public double dampingFactor() {
+    InitShim shim = this.initShim;
+    return shim != null
+        ? shim.dampingFactor()
+        : this.dampingFactor;
+  }
+
+  /**
    * Copy the current immutable object by setting a value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#configKeys() configKeys} attribute.
    * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
    * @param value A new value for configKeys
@@ -868,7 +916,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.writeConcurrency,
         this.mutateProperty,
         this.writeProperty,
-        this.seedProperty));
+        this.seedProperty,
+        this.dampingFactor));
   }
 
   /**
@@ -896,7 +945,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.writeConcurrency,
         this.mutateProperty,
         this.writeProperty,
-        this.seedProperty));
+        this.seedProperty,
+        this.dampingFactor));
   }
 
   /**
@@ -924,7 +974,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.writeConcurrency,
         this.mutateProperty,
         this.writeProperty,
-        this.seedProperty));
+        this.seedProperty,
+        this.dampingFactor));
   }
 
   /**
@@ -952,7 +1003,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.writeConcurrency,
         this.mutateProperty,
         this.writeProperty,
-        this.seedProperty));
+        this.seedProperty,
+        this.dampingFactor));
   }
 
   /**
@@ -981,7 +1033,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.writeConcurrency,
         this.mutateProperty,
         this.writeProperty,
-        this.seedProperty));
+        this.seedProperty,
+        this.dampingFactor));
   }
 
   /**
@@ -1009,7 +1062,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.writeConcurrency,
         this.mutateProperty,
         this.writeProperty,
-        this.seedProperty));
+        this.seedProperty,
+        this.dampingFactor));
   }
 
   /**
@@ -1037,7 +1091,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.writeConcurrency,
         this.mutateProperty,
         this.writeProperty,
-        this.seedProperty));
+        this.seedProperty,
+        this.dampingFactor));
   }
 
   /**
@@ -1066,7 +1121,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.writeConcurrency,
         this.mutateProperty,
         this.writeProperty,
-        this.seedProperty));
+        this.seedProperty,
+        this.dampingFactor));
   }
 
   /**
@@ -1093,7 +1149,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.writeConcurrency,
         this.mutateProperty,
         this.writeProperty,
-        this.seedProperty));
+        this.seedProperty,
+        this.dampingFactor));
   }
 
   /**
@@ -1122,7 +1179,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.writeConcurrency,
         this.mutateProperty,
         this.writeProperty,
-        this.seedProperty));
+        this.seedProperty,
+        this.dampingFactor));
   }
 
   /**
@@ -1149,7 +1207,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.writeConcurrency,
         this.mutateProperty,
         this.writeProperty,
-        this.seedProperty));
+        this.seedProperty,
+        this.dampingFactor));
   }
 
   /**
@@ -1178,7 +1237,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.writeConcurrency,
         this.mutateProperty,
         this.writeProperty,
-        this.seedProperty));
+        this.seedProperty,
+        this.dampingFactor));
   }
 
   /**
@@ -1206,7 +1266,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.writeConcurrency,
         this.mutateProperty,
         this.writeProperty,
-        this.seedProperty));
+        this.seedProperty,
+        this.dampingFactor));
   }
 
   /**
@@ -1235,7 +1296,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.writeConcurrency,
         this.mutateProperty,
         this.writeProperty,
-        this.seedProperty));
+        this.seedProperty,
+        this.dampingFactor));
   }
 
   /**
@@ -1263,7 +1325,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.writeConcurrency,
         this.mutateProperty,
         this.writeProperty,
-        this.seedProperty));
+        this.seedProperty,
+        this.dampingFactor));
   }
 
   /**
@@ -1293,7 +1356,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.writeConcurrency,
         this.mutateProperty,
         this.writeProperty,
-        this.seedProperty));
+        this.seedProperty,
+        this.dampingFactor));
   }
 
   /**
@@ -1321,7 +1385,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.writeConcurrency,
         this.mutateProperty,
         this.writeProperty,
-        this.seedProperty));
+        this.seedProperty,
+        this.dampingFactor));
   }
 
   /**
@@ -1351,7 +1416,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.writeConcurrency,
         this.mutateProperty,
         this.writeProperty,
-        this.seedProperty));
+        this.seedProperty,
+        this.dampingFactor));
   }
 
   /**
@@ -1379,7 +1445,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         value,
         this.mutateProperty,
         this.writeProperty,
-        this.seedProperty));
+        this.seedProperty,
+        this.dampingFactor));
   }
 
   /**
@@ -1408,7 +1475,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.writeConcurrency,
         newValue,
         this.writeProperty,
-        this.seedProperty));
+        this.seedProperty,
+        this.dampingFactor));
   }
 
   /**
@@ -1437,7 +1505,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.writeConcurrency,
         this.mutateProperty,
         newValue,
-        this.seedProperty));
+        this.seedProperty,
+        this.dampingFactor));
   }
 
   /**
@@ -1465,6 +1534,36 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.writeConcurrency,
         this.mutateProperty,
         this.writeProperty,
+        value,
+        this.dampingFactor));
+  }
+
+  /**
+   * Copy the current immutable object by setting a value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#dampingFactor() dampingFactor} attribute.
+   * A value strict bits equality used to prevent copying of the same value by returning {@code this}.
+   * @param value A new value for dampingFactor
+   * @return A modified copy of the {@code this} object
+   */
+  public final ImmutableFrequentSubgraphMiningPregelConfig withDampingFactor(double value) {
+    if (Double.doubleToLongBits(this.dampingFactor) == Double.doubleToLongBits(value)) return this;
+    return validate(new ImmutableFrequentSubgraphMiningPregelConfig(
+        this.configKeys,
+        this.logProgress,
+        this.sudo,
+        this.usernameOverride,
+        this.concurrency,
+        this.minBatchSize,
+        this.jobId,
+        this.nodeLabels,
+        this.relationshipTypes,
+        this.relationshipWeightProperty,
+        this.maxIterations,
+        this.partitioning,
+        this.arrowConnectionInfo,
+        this.writeConcurrency,
+        this.mutateProperty,
+        this.writeProperty,
+        this.seedProperty,
         value));
   }
 
@@ -1497,11 +1596,12 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         && writeConcurrency == another.writeConcurrency
         && mutateProperty.equals(another.mutateProperty)
         && writeProperty.equals(another.writeProperty)
-        && Objects.equals(seedProperty, another.seedProperty);
+        && Objects.equals(seedProperty, another.seedProperty)
+        && Double.doubleToLongBits(dampingFactor) == Double.doubleToLongBits(another.dampingFactor);
   }
 
   /**
-   * Computes a hash code from attributes: {@code logProgress}, {@code sudo}, {@code usernameOverride}, {@code concurrency}, {@code minBatchSize}, {@code jobId}, {@code nodeLabels}, {@code relationshipTypes}, {@code hasRelationshipWeightProperty}, {@code relationshipWeightProperty}, {@code maxIterations}, {@code partitioning}, {@code useForkJoin}, {@code arrowConnectionInfo}, {@code writeConcurrency}, {@code mutateProperty}, {@code writeProperty}, {@code seedProperty}.
+   * Computes a hash code from attributes: {@code logProgress}, {@code sudo}, {@code usernameOverride}, {@code concurrency}, {@code minBatchSize}, {@code jobId}, {@code nodeLabels}, {@code relationshipTypes}, {@code hasRelationshipWeightProperty}, {@code relationshipWeightProperty}, {@code maxIterations}, {@code partitioning}, {@code useForkJoin}, {@code arrowConnectionInfo}, {@code writeConcurrency}, {@code mutateProperty}, {@code writeProperty}, {@code seedProperty}, {@code dampingFactor}.
    * @return hashCode value
    */
   @Override
@@ -1525,6 +1625,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     h += (h << 5) + mutateProperty.hashCode();
     h += (h << 5) + writeProperty.hashCode();
     h += (h << 5) + Objects.hashCode(seedProperty);
+    h += (h << 5) + Double.hashCode(dampingFactor);
     return h;
   }
 
@@ -1579,6 +1680,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
       builder.append(", ");
       builder.append("seedProperty=").append(seedProperty);
     }
+    builder.append(", ");
+    builder.append("dampingFactor=").append(dampingFactor);
     return builder.append("}").toString();
   }
 
@@ -1596,10 +1699,11 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
    * @param mutateProperty The value for the {@code mutateProperty} attribute
    * @param writeProperty The value for the {@code writeProperty} attribute
    * @param seedProperty The value for the {@code seedProperty} attribute
+   * @param dampingFactor The value for the {@code dampingFactor} attribute
    * @return An immutable FrequentSubgraphMiningPregelConfig instance
    */
-  public static FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig of(int concurrency, int minBatchSize, List<String> nodeLabels, List<String> relationshipTypes, Optional<String> relationshipWeightProperty, int maxIterations, Partitioning partitioning, Optional<WriteConfig.ArrowConnectionInfo> arrowConnectionInfo, int writeConcurrency, String mutateProperty, String writeProperty, @Nullable String seedProperty) {
-    return of(concurrency, minBatchSize, (Iterable<String>) nodeLabels, (Iterable<String>) relationshipTypes, relationshipWeightProperty, maxIterations, partitioning, arrowConnectionInfo, writeConcurrency, mutateProperty, writeProperty, seedProperty);
+  public static FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig of(int concurrency, int minBatchSize, List<String> nodeLabels, List<String> relationshipTypes, Optional<String> relationshipWeightProperty, int maxIterations, Partitioning partitioning, Optional<WriteConfig.ArrowConnectionInfo> arrowConnectionInfo, int writeConcurrency, String mutateProperty, String writeProperty, @Nullable String seedProperty, double dampingFactor) {
+    return of(concurrency, minBatchSize, (Iterable<String>) nodeLabels, (Iterable<String>) relationshipTypes, relationshipWeightProperty, maxIterations, partitioning, arrowConnectionInfo, writeConcurrency, mutateProperty, writeProperty, seedProperty, dampingFactor);
   }
 
   /**
@@ -1616,10 +1720,11 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
    * @param mutateProperty The value for the {@code mutateProperty} attribute
    * @param writeProperty The value for the {@code writeProperty} attribute
    * @param seedProperty The value for the {@code seedProperty} attribute
+   * @param dampingFactor The value for the {@code dampingFactor} attribute
    * @return An immutable FrequentSubgraphMiningPregelConfig instance
    */
-  public static FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig of(int concurrency, int minBatchSize, Iterable<String> nodeLabels, Iterable<String> relationshipTypes, Optional<String> relationshipWeightProperty, int maxIterations, Partitioning partitioning, Optional<? extends WriteConfig.ArrowConnectionInfo> arrowConnectionInfo, int writeConcurrency, String mutateProperty, String writeProperty, @Nullable String seedProperty) {
-    return validate(new ImmutableFrequentSubgraphMiningPregelConfig(concurrency, minBatchSize, nodeLabels, relationshipTypes, relationshipWeightProperty, maxIterations, partitioning, arrowConnectionInfo, writeConcurrency, mutateProperty, writeProperty, seedProperty));
+  public static FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig of(int concurrency, int minBatchSize, Iterable<String> nodeLabels, Iterable<String> relationshipTypes, Optional<String> relationshipWeightProperty, int maxIterations, Partitioning partitioning, Optional<? extends WriteConfig.ArrowConnectionInfo> arrowConnectionInfo, int writeConcurrency, String mutateProperty, String writeProperty, @Nullable String seedProperty, double dampingFactor) {
+    return validate(new ImmutableFrequentSubgraphMiningPregelConfig(concurrency, minBatchSize, nodeLabels, relationshipTypes, relationshipWeightProperty, maxIterations, partitioning, arrowConnectionInfo, writeConcurrency, mutateProperty, writeProperty, seedProperty, dampingFactor));
   }
 
   /**
@@ -1636,10 +1741,11 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
    * @param mutateProperty The value for the {@code mutateProperty} attribute
    * @param writeProperty The value for the {@code writeProperty} attribute
    * @param seedProperty The value for the {@code seedProperty} attribute
+   * @param dampingFactor The value for the {@code dampingFactor} attribute
    * @return An immutable FrequentSubgraphMiningPregelConfig instance
    */
-  public static FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig of(int concurrency, int minBatchSize, Iterable<String> nodeLabels, Iterable<String> relationshipTypes, String relationshipWeightProperty, int maxIterations, Partitioning partitioning, WriteConfig.ArrowConnectionInfo arrowConnectionInfo, int writeConcurrency, String mutateProperty, String writeProperty, @Nullable String seedProperty) {
-    return validate(new ImmutableFrequentSubgraphMiningPregelConfig(concurrency, minBatchSize, nodeLabels, relationshipTypes, relationshipWeightProperty, maxIterations, partitioning, arrowConnectionInfo, writeConcurrency, mutateProperty, writeProperty, seedProperty));
+  public static FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig of(int concurrency, int minBatchSize, Iterable<String> nodeLabels, Iterable<String> relationshipTypes, String relationshipWeightProperty, int maxIterations, Partitioning partitioning, WriteConfig.ArrowConnectionInfo arrowConnectionInfo, int writeConcurrency, String mutateProperty, String writeProperty, @Nullable String seedProperty, double dampingFactor) {
+    return validate(new ImmutableFrequentSubgraphMiningPregelConfig(concurrency, minBatchSize, nodeLabels, relationshipTypes, relationshipWeightProperty, maxIterations, partitioning, arrowConnectionInfo, writeConcurrency, mutateProperty, writeProperty, seedProperty, dampingFactor));
   }
 
   private static ImmutableFrequentSubgraphMiningPregelConfig validate(ImmutableFrequentSubgraphMiningPregelConfig instance) {
@@ -1686,6 +1792,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
    *    .mutateProperty(String) // optional {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#mutateProperty() mutateProperty}
    *    .writeProperty(String) // optional {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#writeProperty() writeProperty}
    *    .seedProperty(String | null) // nullable {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#seedProperty() seedProperty}
+   *    .dampingFactor(double) // optional {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#dampingFactor() dampingFactor}
    *    .build();
    * </pre>
    * @return A new FrequentSubgraphMiningPregelConfig builder
@@ -1712,6 +1819,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     private static final long OPT_BIT_RELATIONSHIP_TYPES = 0x20L;
     private static final long OPT_BIT_WRITE_CONCURRENCY = 0x40L;
     private static final long OPT_BIT_SEED_PROPERTY = 0x80L;
+    private static final long OPT_BIT_DAMPING_FACTOR = 0x100L;
     private long initBits = 0x1L;
     private long optBits;
 
@@ -1732,19 +1840,9 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     private String mutateProperty;
     private String writeProperty;
     private String seedProperty;
+    private double dampingFactor;
 
     private Builder() {
-    }
-
-    /**
-     * Fill a builder with attribute values from the provided {@code org.neo4j.gds.config.RelationshipWeightConfig} instance.
-     * @param instance The instance from which to copy values
-     * @return {@code this} builder for use in a chained invocation
-     */
-    public final Builder from(RelationshipWeightConfig instance) {
-      Objects.requireNonNull(instance, "instance");
-      from((Object) instance);
-      return this;
     }
 
     /**
@@ -1764,28 +1862,6 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
      * @return {@code this} builder for use in a chained invocation
      */
     public final Builder from(WritePropertyConfig instance) {
-      Objects.requireNonNull(instance, "instance");
-      from((Object) instance);
-      return this;
-    }
-
-    /**
-     * Fill a builder with attribute values from the provided {@code org.neo4j.gds.config.JobIdConfig} instance.
-     * @param instance The instance from which to copy values
-     * @return {@code this} builder for use in a chained invocation
-     */
-    public final Builder from(JobIdConfig instance) {
-      Objects.requireNonNull(instance, "instance");
-      from((Object) instance);
-      return this;
-    }
-
-    /**
-     * Fill a builder with attribute values from the provided {@code org.neo4j.gds.config.ConcurrencyConfig} instance.
-     * @param instance The instance from which to copy values
-     * @return {@code this} builder for use in a chained invocation
-     */
-    public final Builder from(ConcurrencyConfig instance) {
       Objects.requireNonNull(instance, "instance");
       from((Object) instance);
       return this;
@@ -1847,22 +1923,44 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     }
 
     /**
-     * Fill a builder with attribute values from the provided {@code org.neo4j.gds.config.IterationsConfig} instance.
+     * Fill a builder with attribute values from the provided {@code org.neo4j.gds.config.SeedConfig} instance.
      * @param instance The instance from which to copy values
      * @return {@code this} builder for use in a chained invocation
      */
-    public final Builder from(IterationsConfig instance) {
+    public final Builder from(SeedConfig instance) {
       Objects.requireNonNull(instance, "instance");
       from((Object) instance);
       return this;
     }
 
     /**
-     * Fill a builder with attribute values from the provided {@code org.neo4j.gds.config.SeedConfig} instance.
+     * Fill a builder with attribute values from the provided {@code org.neo4j.gds.config.RelationshipWeightConfig} instance.
      * @param instance The instance from which to copy values
      * @return {@code this} builder for use in a chained invocation
      */
-    public final Builder from(SeedConfig instance) {
+    public final Builder from(RelationshipWeightConfig instance) {
+      Objects.requireNonNull(instance, "instance");
+      from((Object) instance);
+      return this;
+    }
+
+    /**
+     * Fill a builder with attribute values from the provided {@code org.neo4j.gds.config.JobIdConfig} instance.
+     * @param instance The instance from which to copy values
+     * @return {@code this} builder for use in a chained invocation
+     */
+    public final Builder from(JobIdConfig instance) {
+      Objects.requireNonNull(instance, "instance");
+      from((Object) instance);
+      return this;
+    }
+
+    /**
+     * Fill a builder with attribute values from the provided {@code org.neo4j.gds.config.ConcurrencyConfig} instance.
+     * @param instance The instance from which to copy values
+     * @return {@code this} builder for use in a chained invocation
+     */
+    public final Builder from(ConcurrencyConfig instance) {
       Objects.requireNonNull(instance, "instance");
       from((Object) instance);
       return this;
@@ -1879,15 +1977,19 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
       return this;
     }
 
+    /**
+     * Fill a builder with attribute values from the provided {@code org.neo4j.gds.config.IterationsConfig} instance.
+     * @param instance The instance from which to copy values
+     * @return {@code this} builder for use in a chained invocation
+     */
+    public final Builder from(IterationsConfig instance) {
+      Objects.requireNonNull(instance, "instance");
+      from((Object) instance);
+      return this;
+    }
+
     private void from(Object object) {
       long bits = 0;
-      if (object instanceof RelationshipWeightConfig) {
-        RelationshipWeightConfig instance = (RelationshipWeightConfig) object;
-        Optional<String> relationshipWeightPropertyOptional = instance.relationshipWeightProperty();
-        if (relationshipWeightPropertyOptional.isPresent()) {
-          relationshipWeightProperty(relationshipWeightPropertyOptional);
-        }
-      }
       if (object instanceof WriteConfig) {
         WriteConfig instance = (WriteConfig) object;
         writeConcurrency(instance.writeConcurrency());
@@ -1902,15 +2004,6 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
           writeProperty(instance.writeProperty());
           bits |= 0x1L;
         }
-      }
-      if (object instanceof JobIdConfig) {
-        JobIdConfig instance = (JobIdConfig) object;
-        jobId(instance.jobId());
-      }
-      if (object instanceof ConcurrencyConfig) {
-        ConcurrencyConfig instance = (ConcurrencyConfig) object;
-        minBatchSize(instance.minBatchSize());
-        concurrency(instance.concurrency());
       }
       if (object instanceof PregelProcedureConfig) {
         PregelProcedureConfig instance = (PregelProcedureConfig) object;
@@ -1949,16 +2042,36 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         addAllRelationshipTypes(instance.relationshipTypes());
         addAllNodeLabels(instance.nodeLabels());
       }
-      if (object instanceof IterationsConfig) {
-        IterationsConfig instance = (IterationsConfig) object;
-        maxIterations(instance.maxIterations());
-      }
       if (object instanceof SeedConfig) {
         SeedConfig instance = (SeedConfig) object;
         @Nullable String seedPropertyValue = instance.seedProperty();
         if (seedPropertyValue != null) {
           seedProperty(seedPropertyValue);
         }
+      }
+      if (object instanceof RelationshipWeightConfig) {
+        RelationshipWeightConfig instance = (RelationshipWeightConfig) object;
+        Optional<String> relationshipWeightPropertyOptional = instance.relationshipWeightProperty();
+        if (relationshipWeightPropertyOptional.isPresent()) {
+          relationshipWeightProperty(relationshipWeightPropertyOptional);
+        }
+      }
+      if (object instanceof JobIdConfig) {
+        JobIdConfig instance = (JobIdConfig) object;
+        jobId(instance.jobId());
+      }
+      if (object instanceof ConcurrencyConfig) {
+        ConcurrencyConfig instance = (ConcurrencyConfig) object;
+        minBatchSize(instance.minBatchSize());
+        concurrency(instance.concurrency());
+      }
+      if (object instanceof FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig) {
+        FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig instance = (FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig) object;
+        dampingFactor(instance.dampingFactor());
+      }
+      if (object instanceof IterationsConfig) {
+        IterationsConfig instance = (IterationsConfig) object;
+        maxIterations(instance.maxIterations());
       }
     }
 
@@ -2277,6 +2390,18 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     }
 
     /**
+     * Initializes the value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#dampingFactor() dampingFactor} attribute.
+     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#dampingFactor() dampingFactor}.</em>
+     * @param dampingFactor The value for dampingFactor 
+     * @return {@code this} builder for use in a chained invocation
+     */
+    public final Builder dampingFactor(double dampingFactor) {
+      this.dampingFactor = dampingFactor;
+      optBits |= OPT_BIT_DAMPING_FACTOR;
+      return this;
+    }
+
+    /**
      * Clear the builder to the initial state.
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2304,6 +2429,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
       this.mutateProperty = null;
       this.writeProperty = null;
       this.seedProperty = null;
+      this.dampingFactor = 0;
       return this;
     }
 
@@ -2349,6 +2475,10 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
 
     private boolean seedPropertyIsSet() {
       return (optBits & OPT_BIT_SEED_PROPERTY) != 0;
+    }
+
+    private boolean dampingFactorIsSet() {
+      return (optBits & OPT_BIT_DAMPING_FACTOR) != 0;
     }
 
     private String formatRequiredAttributesMessage() {

@@ -137,6 +137,9 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
         }
 
         @Value.Default
+        default double dampingFactor() {
+            return 0.85;
+        }
 
 
         static FrequentSubgraphMiningPregelConfig of(CypherMapWrapper userInput) {
