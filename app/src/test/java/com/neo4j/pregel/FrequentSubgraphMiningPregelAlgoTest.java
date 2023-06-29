@@ -23,8 +23,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @GdlExtension
 class FrequentSubgraphMiningPregelAlgoTest {
 
-    // declare an enum with three string values "graph_generation.cypher", "dummy_graph_generation.cypher", "small_graph_generation.cypher
-
     public enum TestingGraph {
         DUMMY_GRAPH_GENERATION {
             public String toString() {
