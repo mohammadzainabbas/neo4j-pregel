@@ -118,10 +118,22 @@ YIELD database
 RETURN graphName as dropped_graph
 
 //----- Visualise in-memory (projected) graph in Neo4j Browser
+
 DROP DATABASE temp IF EXISTS;
 CALL gds.graph.export("countries_2018", { dbName: "temp" });
 CREATE DATABASE temp IF NOT EXISTS;
 MATCH (n) RETURN n LIMIT 15;
+
+//-----
+
+CALL apoc.export.cypher.all(null, {
+    streamStatements: true,
+    format: "plain",
+    useOptimizations: {type: "NONE"}
+})
+YIELD nodes, relationships, properties, cypherStatements
+RETURN nodes, relationships, properties, cypherStatements;
+
 //-----
 
 CALL esilv.pregel.pagerank.stream("countries_2018", {maxIterations: 10})
