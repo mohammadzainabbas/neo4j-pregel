@@ -22,6 +22,15 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @GdlExtension
 class FrequentSubgraphMiningPregelAlgoTest {
+
+    // declare an enum with three string values "graph_generation.cypher", "dummy_graph_generation.cypher", "small_graph_generation.cypher
+
+    public enum Graph {
+        GRAPH_GENERATION,
+        DUMMY_GRAPH_GENERATION,
+        SMALL_GRAPH_GENERATION
+    }
+
     
     static String PATH = "/Users/mohammadzainabbas/Masters/Thesis/Experiments/neo4j-pregel/queries/";
     // static String FILE_NAME = "graph_generation.cypher";
