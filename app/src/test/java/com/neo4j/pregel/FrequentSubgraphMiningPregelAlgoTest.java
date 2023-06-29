@@ -40,7 +40,6 @@ class FrequentSubgraphMiningPregelAlgoTest {
             }
         }
     }
-
     
     static String PATH = "/Users/mohammadzainabbas/Masters/Thesis/Experiments/neo4j-pregel/queries/";
     // static String FILE_NAME = "graph_generation.cypher";
