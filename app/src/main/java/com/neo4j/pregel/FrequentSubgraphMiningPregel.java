@@ -1,5 +1,6 @@
 package com.neo4j.pregel;
 
+import org.immutables.value.Value;
 import org.apache.commons.lang3.mutable.MutableLong;
 import org.neo4j.gds.annotation.Configuration;
 import org.neo4j.gds.annotation.ValueClass;
@@ -134,6 +135,9 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
         default boolean isAsynchronous() {
             return true;
         }
+
+        @Value.Default
+
 
         static FrequentSubgraphMiningPregelConfig of(CypherMapWrapper userInput) {
             return new FrequentSubgraphMiningPregelConfigImpl(userInput);
