@@ -26,6 +26,8 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
     public static final String POS_X = "pos_x";
     public static final String POS_Y = "pos_y";
     public static final String RATING = "rating";
+    public static final String NODE_DEGREE = "degree";
+
 
     /* Each node will have this value-schema during pregel computation */
     @Override
