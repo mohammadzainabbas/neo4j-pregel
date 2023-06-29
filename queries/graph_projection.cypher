@@ -27,6 +27,8 @@ WITH gds.graph.project(
 ) as g
 RETURN g.graphName as graph_name, g.nodeCount as nodes, g.relationshipCount as rels;
 
+// --- 
+
 
 //Cypher Projection CountriesAll
 CALL gds.graph.drop("countries_all");
