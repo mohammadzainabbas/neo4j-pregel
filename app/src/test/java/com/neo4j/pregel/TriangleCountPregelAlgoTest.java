@@ -39,7 +39,7 @@ class TriangleCountPregelAlgoTest {
         "  (a:A)" +
         ", (b:B)" +
         ", (c:C)" +
-        ", (a)-[]->(c)" +
+        ", (a)-[:trip {}]->(c)" +
         ", (b)-[]->(c)" +
         ", (b)-[]->(a)" +
         ", (c)-[]->(a)";
