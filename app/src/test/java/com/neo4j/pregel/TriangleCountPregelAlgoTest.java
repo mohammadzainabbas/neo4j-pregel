@@ -1,10 +1,5 @@
 package com.neo4j.pregel;
 
-class TriangleCountPregelAlgoTest {
-    
-}
-
-
 import org.junit.jupiter.api.Test;
 import org.neo4j.gds.TestSupport;
 import org.neo4j.gds.beta.pregel.Pregel;
@@ -21,12 +16,12 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import static com.neo4j.pregel.FrequentSubgraphMiningPregel.FSM;
+import static com.neo4j.pregel.TriangleCountPregel.FSM;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @GdlExtension
-class FrequentSubgraphMiningPregelAlgoTest {
+class TriangleCountPregelAlgoTest {
     // private static String _graph = null;
     // static {
     //     try {
@@ -65,17 +60,17 @@ class FrequentSubgraphMiningPregelAlgoTest {
     private TestGraph graph;
 
     @Test
-    void runFrequentSubgraphMiningPregel() {
+    void runTriangleCountPregel() {
         int maxIterations = 10;
 
-        var config = ImmutableFrequentSubgraphMiningPregelConfig.builder()
+        var config = ImmutableTriangleCountPregelConfig.builder()
             .maxIterations(maxIterations)
             .build();
 
         var pregelJob = Pregel.create(
             graph,
             config,
-            new FrequentSubgraphMiningPregel(),
+            new TriangleCountPregel(),
             Pools.DEFAULT,
             ProgressTracker.NULL_TRACKER
         );
