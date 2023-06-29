@@ -32,7 +32,19 @@ class FrequentSubgraphMiningPregelAlgoTest {
     // }
     
     @GdlGraph
-    private static final String MY_TEST_GRAPH = new String(Files.readAllBytes(Paths.get("queries/graph_generation.cypher")));
+    private static final String MY_TEST_GRAPH;
+
+    static {
+        String content = "";
+        try {
+            content = new String(Files.readAllBytes(Paths.get("queries/graph_generation.cypher")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        MY_TEST_GRAPH = content;
+    }
+    
+    // private static final String MY_TEST_GRAPH = new String(Files.readAllBytes(Paths.get("queries/graph_generation.cypher")));
     // private static final String MY_TEST_GRAPH = _graph;
     // private static final String MY_TEST_GRAPH =
     //     "CREATE" +
