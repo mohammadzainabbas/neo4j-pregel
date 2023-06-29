@@ -27,7 +27,7 @@ import org.neo4j.gds.core.utils.progress.JobId;
 public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig {
     private boolean isAsynchronous;
 
-    private double dampingFactor;
+    private long maxRepeatNodes;
 
     private String mutateProperty;
 
@@ -67,7 +67,7 @@ public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSub
             errors.add(e);
         }
         try {
-            this.dampingFactor = config.getDouble("dampingFactor", FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.dampingFactor());
+            this.maxRepeatNodes = config.getLong("maxRepeatNodes", FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.maxRepeatNodes());
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
@@ -183,8 +183,8 @@ public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSub
     }
 
     @Override
-    public double dampingFactor() {
-        return this.dampingFactor;
+    public long maxRepeatNodes() {
+        return this.maxRepeatNodes;
     }
 
     @Override
@@ -260,7 +260,7 @@ public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSub
 
     @Override
     public Collection<String> configKeys() {
-        return Arrays.asList("isAsynchronous", "dampingFactor", "mutateProperty", "writeProperty", "partitioning", "nodeLabels", "relationshipTypes", "logProgress", "sudo", "username", "concurrency", "jobId", "relationshipWeightProperty", "maxIterations", "arrowConnectionInfo", "writeConcurrency", "seedProperty");
+        return Arrays.asList("isAsynchronous", "maxRepeatNodes", "mutateProperty", "writeProperty", "partitioning", "nodeLabels", "relationshipTypes", "logProgress", "sudo", "username", "concurrency", "jobId", "relationshipWeightProperty", "maxIterations", "arrowConnectionInfo", "writeConcurrency", "seedProperty");
     }
 
     @Override
@@ -277,7 +277,7 @@ public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSub
     public Map<String, Object> toMap() {
         Map<String, Object> map = new LinkedHashMap<>();
         map.put("isAsynchronous", isAsynchronous());
-        map.put("dampingFactor", dampingFactor());
+        map.put("maxRepeatNodes", maxRepeatNodes());
         map.put("mutateProperty", mutateProperty());
         map.put("writeProperty", writeProperty());
         map.put("partitioning", org.neo4j.gds.beta.pregel.Partitioning.toString(partitioning()));
@@ -351,7 +351,7 @@ public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSub
                 FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig baseConfig) {
             var builder = new FrequentSubgraphMiningPregelConfigImpl.Builder();
             builder.isAsynchronous(baseConfig.isAsynchronous());
-            builder.dampingFactor(baseConfig.dampingFactor());
+            builder.maxRepeatNodes(baseConfig.maxRepeatNodes());
             builder.mutateProperty(baseConfig.mutateProperty());
             builder.writeProperty(baseConfig.writeProperty());
             builder.partitioning(baseConfig.partitioning());
@@ -376,8 +376,8 @@ public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSub
             return this;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder dampingFactor(double dampingFactor) {
-            this.config.put("dampingFactor", dampingFactor);
+        public FrequentSubgraphMiningPregelConfigImpl.Builder maxRepeatNodes(long maxRepeatNodes) {
+            this.config.put("maxRepeatNodes", maxRepeatNodes);
             return this;
         }
 

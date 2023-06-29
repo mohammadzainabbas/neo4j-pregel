@@ -137,10 +137,9 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
         }
 
         @Value.Default
-        default double dampingFactor() {
-            return 0.85;
+        default long maxRepeatNodes() {
+            return 0;
         }
-
 
         static FrequentSubgraphMiningPregelConfig of(CypherMapWrapper userInput) {
             return new FrequentSubgraphMiningPregelConfigImpl(userInput);
