@@ -139,11 +139,11 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
             return true;
         }
 
-        // @Value.Default
-        // @Configuration.Key("maxRepeatNodes")
-        // default long maxRepeatNodes() {
-        //     return 0;
-        // }
+        @Value.Default
+        @Configuration.Key("maxRepeatNodes")
+        default long maxRepeatNodes() {
+            return 0;
+        }
 
         static FrequentSubgraphMiningPregelConfig of(CypherMapWrapper userInput) {
             return new FrequentSubgraphMiningPregelConfigImpl(userInput);
