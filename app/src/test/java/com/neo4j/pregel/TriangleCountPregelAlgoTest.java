@@ -36,9 +36,9 @@ class TriangleCountPregelAlgoTest {
     // }
     private static final String MY_TEST_GRAPH =
         "CREATE" +
-        "  (a)" +
-        ", (b)" +
-        ", (c)" +
+        "  (a:A)" +
+        ", (b:B)" +
+        ", (c:C)" +
         ", (a)-[]->(c)" +
         ", (b)-[]->(c)" +
         ", (b)-[]->(a)" +
