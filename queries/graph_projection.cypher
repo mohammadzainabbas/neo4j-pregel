@@ -1,3 +1,6 @@
+
+
+
 //Cypher Projection CountriesAll
 CALL gds.graph.drop("countries_all");
 CALL gds.graph.project.cypher(
