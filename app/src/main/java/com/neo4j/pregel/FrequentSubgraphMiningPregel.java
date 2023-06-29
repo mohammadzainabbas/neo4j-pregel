@@ -91,6 +91,21 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
             // iterate over all messages (coming from all the neighbors) and pick the one with highest degree 
             // (NOTE: can be discussed which one to pick)
 
+            var max_degree = new MutableLong(0);
+            var max_degree_node_id = new MutableLong(0);
+
+            
+
+            context.forEachMessage((nodeIdFrom, message) -> {
+                var degree = context.longNodeValue(DEGREE, nodeIdFrom);
+                if (degree > max_degree.longValue()) {
+                    max_degree.setValue(degree);
+                    max_degree_node_id.setValue(nodeIdFrom);
+                }
+            });
+
+            context
+
             long[] fsms = context.longArrayNodeValue(FSM);
             long[] new_fsms = new long[fsms.length + 1];
             System.arraycopy(fsms, 0, new_fsms, 0, fsms.length); // copy existing nodeIds
