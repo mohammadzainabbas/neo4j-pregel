@@ -24,7 +24,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class FrequentSubgraphMiningPregelAlgoTest {
     
     static String PATH = "/Users/mohammadzainabbas/Masters/Thesis/Experiments/neo4j-pregel/queries/";
-    static String FILE_NAME = "graph_generation.cypher";
+    // static String FILE_NAME = "graph_generation.cypher";
+    // static String FILE_NAME = "dummy_graph_generation.cypher";
+    static String FILE_NAME = "small_graph_generation.cypher";
 
     @GdlGraph
     private static final String MY_TEST_GRAPH;
