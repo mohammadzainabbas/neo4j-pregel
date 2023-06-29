@@ -107,6 +107,8 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
             // context.setNodeValue(FSM, context.nodeId());
         }
         context.setNodeValue(FSM, new_fsms);
+
+        // send node_id to all neighbors
         context.sendToNeighbors(nodeId);
     }
 
