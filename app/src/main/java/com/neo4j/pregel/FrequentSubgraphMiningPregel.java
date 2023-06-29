@@ -103,6 +103,8 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
                     max_degree_node_id.setValue(from_node_id);
                 }
             }
+
+            idToInsert.setValue(max_degree_node_id.longValue());
         }
         
         new_fsms[fsms.length] = idToInsert.longValue(); // add the id that we want to insert
