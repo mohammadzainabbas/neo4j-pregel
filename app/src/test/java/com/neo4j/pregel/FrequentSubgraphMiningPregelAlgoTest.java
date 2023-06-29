@@ -37,7 +37,7 @@ class FrequentSubgraphMiningPregelAlgoTest {
     static {
         String content = "";
         try {
-            content = new String(Files.readAllBytes(Paths.get("queries/graph_generation.cypher")));
+            content = new String(Files.readAllBytes(Paths.get("/Users/mohammadzainabbas/Masters/Thesis/Experiments/neo4j-pregel/queries/graph_generation.cypher")));
         } catch (IOException e) {
             e.printStackTrace();
         }
