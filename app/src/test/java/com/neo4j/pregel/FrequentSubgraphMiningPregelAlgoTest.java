@@ -21,19 +21,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @GdlExtension
-class FrequentSubgraphMiningPregelAlgoTest {
-    // private static String _graph = null;
-    // static {
-    //     try {
-    //         _graph = new String(Files.readAllBytes(Paths.get("queries/graph_generation.cypher")));
-    //     } catch (IOException e) {
-    //         e.printStackTrace();
-    //     }
-    // }
-    
+class FrequentSubgraphMiningPregelAlgoTest {    
     @GdlGraph
     private static final String MY_TEST_GRAPH;
-
     static {
         String content = "";
         try {
