@@ -21,7 +21,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @GdlExtension
-class FrequentSubgraphMiningPregelAlgoTest {    
+class FrequentSubgraphMiningPregelAlgoTest {
+    
+    String PATH = "/Users/mohammadzainabbas/Masters/Thesis/Experiments/neo4j-pregel/queries/";
+    String FILE_NAME = "graph_generation.cypher";
+
+
     @GdlGraph
     private static final String MY_TEST_GRAPH;
     static {
