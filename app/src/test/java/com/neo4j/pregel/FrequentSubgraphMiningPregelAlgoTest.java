@@ -23,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class FrequentSubgraphMiningPregelAlgoTest {
 
     @GdlGraph
-    private static final String MY_TEST_GRAPH =
+    private static final String MY_TEST_GRAPH = new String(Files.readAllBytes(Paths.get("app/src/test/resources/graph.gdl")));
     // private static final String MY_TEST_GRAPH =
     //     "CREATE" +
     //     "  (alice)" +
