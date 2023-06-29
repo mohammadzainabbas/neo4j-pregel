@@ -36,13 +36,21 @@ class TriangleCountPregelAlgoTest {
     // }
     private static final String MY_TEST_GRAPH =
         "CREATE" +
-        "  (alice)" +
-        ", (bob)" +
-        ", (eve)" +
-        ", (alice)-[:LIKES]->(bob)" +
-        ", (bob)-[:LIKES]->(alice)" +
+        "  (a)" +
+        ", (b)" +
+        ", (c)" +
+        ", (a)-[:LIKES]->(bob)" +
+        ", (b)-[:LIKES]->(alice)" +
         ", (eve)-[:DISLIKES]->(alice)" +
         ", (eve)-[:DISLIKES]->(bob)";
+        // "CREATE" +
+        // "  (alice)" +
+        // ", (bob)" +
+        // ", (eve)" +
+        // ", (alice)-[:LIKES]->(bob)" +
+        // ", (bob)-[:LIKES]->(alice)" +
+        // ", (eve)-[:DISLIKES]->(alice)" +
+        // ", (eve)-[:DISLIKES]->(bob)";
 
     @Inject
     private TestGraph graph;
