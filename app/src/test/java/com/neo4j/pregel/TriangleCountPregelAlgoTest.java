@@ -23,34 +23,38 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @GdlExtension
 class TriangleCountPregelAlgoTest {
     
+    public enum TestingGraph {
+        DUMMY_GRAPH {
+            public String toString() {
+                return "dummy_graph_generation.cypher";
+            }
+        },
+        SMALL_GRAPH {
+            public String toString() {
+                return "small_graph_generation.cypher";
+            }
+        },
+        BIG_GRAPH {
+            public String toString() {
+                return "graph_generation.cypher";
+            }
+        }
+    }
+    
+    static String PATH = "/Users/mohammadzainabbas/Masters/Thesis/Experiments/neo4j-pregel/queries/";
+    static String FILE_NAME = TestingGraph.SMALL_GRAPH.toString();
+
     @GdlGraph
-    // private static final String MY_TEST_GRAPH;
-    // static {
-    //     String content = "";
-    //     try {
-    //         content = new String(Files.readAllBytes(Paths.get("/Users/mohammadzainabbas/Masters/Thesis/Experiments/neo4j-pregel/queries/graph_generation.cypher")));
-    //     } catch (IOException e) {
-    //         e.printStackTrace();
-    //     }
-    //     MY_TEST_GRAPH = content;
-    // }
-    private static final String MY_TEST_GRAPH =
-        "CREATE" +
-        "  (a:A)" +
-        ", (b:B)" +
-        ", (c:C)" +
-        ", (a)-[:trip {}]->(c)" +
-        ", (b)-[]->(c)" +
-        ", (b)-[]->(a)" +
-        ", (c)-[]->(a)";
-        // "CREATE" +
-        // "  (alice)" +
-        // ", (bob)" +
-        // ", (eve)" +
-        // ", (alice)-[:LIKES]->(bob)" +
-        // ", (bob)-[:LIKES]->(alice)" +
-        // ", (eve)-[:DISLIKES]->(alice)" +
-        // ", (eve)-[:DISLIKES]->(bob)";
+    private static final String MY_TEST_GRAPH;
+    static {
+        String content = "";
+        try {
+            content = new String(Files.readAllBytes(Paths.get(PATH + FILE_NAME)));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        MY_TEST_GRAPH = content;
+    }
 
     @Inject
     private TestGraph graph;
