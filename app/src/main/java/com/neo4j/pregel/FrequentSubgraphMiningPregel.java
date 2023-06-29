@@ -116,10 +116,6 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
         context.sendToNeighbors(nodeId);
     }
 
-    private void noRepeatNodes() {
-
-    }
-    
     // @Override
     // public Optional<Reducer> reducer() {
     //     return Optional.of(new Reducer.Sum());
