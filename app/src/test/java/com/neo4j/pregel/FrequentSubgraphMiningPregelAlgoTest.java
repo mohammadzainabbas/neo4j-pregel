@@ -26,13 +26,21 @@ class FrequentSubgraphMiningPregelAlgoTest {
     // declare an enum with three string values "graph_generation.cypher", "dummy_graph_generation.cypher", "small_graph_generation.cypher
 
     public enum TestingGraph {
+        DUMMY_GRAPH_GENERATION {
+            public String toString() {
+                return "dummy_graph_generation.cypher";
+            }
+        },
+        SMALL_GRAPH_GENERATION {
+            public String toString() {
+                return "small_graph_generation.cypher";
+            }
+        },
         BIG_GRAPH {
             public String toString() {
                 return "graph_generation.cypher";
             }
-        },
-        DUMMY_GRAPH_GENERATION,
-        SMALL_GRAPH_GENERATION
+        }
     }
 
     
