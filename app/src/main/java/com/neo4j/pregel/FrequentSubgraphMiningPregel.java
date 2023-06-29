@@ -92,7 +92,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
             // (NOTE: can be discussed which one to pick)
 
             var max_degree = new MutableLong(-1);
-            var max_degree_node_id = new MutableLong(0);
+            var max_degree_node_id = new MutableLong(-1);
 
             for (var message: messages) {
                 var from_node_id = message.longValue();
