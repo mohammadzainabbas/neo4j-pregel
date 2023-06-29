@@ -23,8 +23,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @GdlExtension
 class FrequentSubgraphMiningPregelAlgoTest {
     
-    String PATH = "/Users/mohammadzainabbas/Masters/Thesis/Experiments/neo4j-pregel/queries/";
-    String FILE_NAME = "graph_generation.cypher";
+    static final String PATH = "/Users/mohammadzainabbas/Masters/Thesis/Experiments/neo4j-pregel/queries/";
+    static final String FILE_NAME = "graph_generation.cypher";
 
     @GdlGraph
     private static final String MY_TEST_GRAPH;
