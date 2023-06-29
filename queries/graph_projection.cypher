@@ -126,7 +126,7 @@ MATCH (n) RETURN n LIMIT 15;
 
 //-----
 // https://neo4j.com/labs/apoc/4.1/export/cypher/
-// Export to cypher statements
+// Export graph in database to cypher statements
 
 CALL apoc.export.cypher.all(null, {
     streamStatements: true,
