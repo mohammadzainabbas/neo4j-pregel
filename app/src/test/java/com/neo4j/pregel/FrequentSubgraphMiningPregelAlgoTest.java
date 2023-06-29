@@ -24,12 +24,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class FrequentSubgraphMiningPregelAlgoTest {
 
     public enum TestingGraph {
-        DUMMY_GRAPH_GENERATION {
+        DUMMY_GRAPH {
             public String toString() {
                 return "dummy_graph_generation.cypher";
             }
         },
-        SMALL_GRAPH_GENERATION {
+        SMALL_GRAPH {
             public String toString() {
                 return "small_graph_generation.cypher";
             }
@@ -44,6 +44,7 @@ class FrequentSubgraphMiningPregelAlgoTest {
     static String PATH = "/Users/mohammadzainabbas/Masters/Thesis/Experiments/neo4j-pregel/queries/";
     // static String FILE_NAME = "graph_generation.cypher";
     // static String FILE_NAME = "dummy_graph_generation.cypher";
+    // static String FILE_NAME = "small_graph_generation.cypher";
     static String FILE_NAME = "small_graph_generation.cypher";
 
     @GdlGraph
