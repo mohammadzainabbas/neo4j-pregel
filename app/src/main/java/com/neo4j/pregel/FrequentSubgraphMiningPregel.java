@@ -106,8 +106,6 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
     }
 
     private long allowRepeatedNeighbors(ComputeContext<FrequentSubgraphMiningPregelConfig> context, Messages messages) {
-
-
         var max_degree = new MutableLong(-1);
         var max_degree_node_id = new MutableLong(-1);
 
@@ -123,6 +121,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
             }
         }
 
+        return max_degree_node_id.longValue();
     }
 
     private long minRepeatedNeighbors(ComputeContext<FrequentSubgraphMiningPregelConfig> context, Messages messages) {
