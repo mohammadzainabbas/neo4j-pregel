@@ -12,6 +12,9 @@ import org.neo4j.gds.extension.TestGraph;
 
 import java.util.HashMap;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 import static com.neo4j.pregel.FrequentSubgraphMiningPregel.FSM;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -21,14 +24,15 @@ class FrequentSubgraphMiningPregelAlgoTest {
 
     @GdlGraph
     private static final String MY_TEST_GRAPH =
-        "CREATE" +
-        "  (alice)" +
-        ", (bob)" +
-        ", (eve)" +
-        ", (alice)-[:LIKES]->(bob)" +
-        ", (bob)-[:LIKES]->(alice)" +
-        ", (eve)-[:DISLIKES]->(alice)" +
-        ", (eve)-[:DISLIKES]->(bob)";
+    // private static final String MY_TEST_GRAPH =
+    //     "CREATE" +
+    //     "  (alice)" +
+    //     ", (bob)" +
+    //     ", (eve)" +
+    //     ", (alice)-[:LIKES]->(bob)" +
+    //     ", (bob)-[:LIKES]->(alice)" +
+    //     ", (eve)-[:DISLIKES]->(alice)" +
+    //     ", (eve)-[:DISLIKES]->(bob)";
 
     @Inject
     private TestGraph graph;
