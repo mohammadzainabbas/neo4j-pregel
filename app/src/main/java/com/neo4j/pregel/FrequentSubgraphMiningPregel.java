@@ -83,10 +83,10 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
         long[] new_fsms = new long[fsms.length + 1];
 
 
+        // First superstep
         if (context.isInitialSuperstep()) {
-            // Initialization step
-            long[] empty_fsm_array = {};
-            context.setNodeValue(FSM, empty_fsm_array);
+            // add nodeId to FSM
+            idToInsert.setValue(nodeId);
         } else {
 
             long[] fsms = context.longArrayNodeValue(FSM);
@@ -106,8 +106,9 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
 
             // context.setNodeValue(FSM, context.nodeId());
         }
-        context.setNodeValue(FSM, new_fsms); // update paths internally (for each node)
 
+        context.setNodeValue(FSM, new_fsms); // update paths internally (for each node)
+        
         // send node_id to all neighbors (to let them know where they got this message from)
         context.sendToNeighbors(nodeId);
     }
