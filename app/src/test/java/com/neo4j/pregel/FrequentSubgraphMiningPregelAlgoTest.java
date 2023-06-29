@@ -11,6 +11,7 @@ import org.neo4j.gds.extension.Inject;
 import org.neo4j.gds.extension.TestGraph;
 
 import java.util.HashMap;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -21,17 +22,18 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @GdlExtension
 class FrequentSubgraphMiningPregelAlgoTest {
-    private static String _graph = null;
-    static {
-        try {
-            _graph = new String(Files.readAllBytes(Paths.get("queries/graph_generation.cypher")));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
+    // private static String _graph = null;
+    // static {
+    //     try {
+    //         _graph = new String(Files.readAllBytes(Paths.get("queries/graph_generation.cypher")));
+    //     } catch (IOException e) {
+    //         e.printStackTrace();
+    //     }
+    // }
+    
     @GdlGraph
-    private static final String MY_TEST_GRAPH = _graph;
+    private static final String MY_TEST_GRAPH = new String(Files.readAllBytes(Paths.get("queries/graph_generation.cypher")));
+    // private static final String MY_TEST_GRAPH = _graph;
     // private static final String MY_TEST_GRAPH =
     //     "CREATE" +
     //     "  (alice)" +
