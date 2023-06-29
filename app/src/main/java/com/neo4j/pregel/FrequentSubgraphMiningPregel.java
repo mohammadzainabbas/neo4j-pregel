@@ -78,7 +78,10 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
     public void compute(ComputeContext<FrequentSubgraphMiningPregelConfig> context, Messages messages) {
         var nodeId = context.nodeId();
         var idToInsert = new MutableLong(0);
-        
+
+        long[] fsms = context.longArrayNodeValue(FSM);
+
+
         if (context.isInitialSuperstep()) {
             // Initialization step
             long[] empty_fsm_array = {};
