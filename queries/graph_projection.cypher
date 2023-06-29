@@ -29,6 +29,10 @@ RETURN g.graphName as graph_name, g.nodeCount as nodes, g.relationshipCount as r
 
 // --- 
 
+// check all functions with a prefix "esilv"
+SHOW PROCEDURES yield name, description, signature where name starts with "esilv" ORDER BY name;
+
+
 
 //Cypher Projection CountriesAll
 CALL gds.graph.drop("countries_all");
