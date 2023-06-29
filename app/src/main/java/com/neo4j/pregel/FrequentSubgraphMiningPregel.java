@@ -75,6 +75,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
     /* Called for each node in every superstep */
     @Override
     public void compute(ComputeContext<FrequentSubgraphMiningPregelConfig> context, Messages messages) {
+        var nodeId = context.nodeId();
         if (context.isInitialSuperstep()) {
             // Initialization step
             long[] empty_fsm_array = {};
