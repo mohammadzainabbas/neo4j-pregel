@@ -102,7 +102,6 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
                     max_degree.setValue(from_degree);
                     max_degree_node_id.setValue(from_node_id);
                 }
-
             }
         }
         
