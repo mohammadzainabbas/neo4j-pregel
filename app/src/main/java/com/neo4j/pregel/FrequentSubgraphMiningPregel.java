@@ -88,6 +88,8 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
             // add nodeId to FSM
             idToInsert.setValue(nodeId);
         } else {
+            // iterate over all messages (coming from all the neighbors) and pick the one with highest degree 
+            // (NOTE: can be discussed which one to pick)
 
             long[] fsms = context.longArrayNodeValue(FSM);
             long[] new_fsms = new long[fsms.length + 1];
