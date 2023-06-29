@@ -108,8 +108,11 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
             idToInsert.setValue(max_degree_node_id.longValue()); // add the node with highest degree to FSM
         }
         
-        new_fsms[fsms.length] = idToInsert.longValue(); // add the id that we want to insert
-        context.setNodeValue(FSM, new_fsms); // update paths internally (for each node)
+        // new_fsms[fsms.length] = idToInsert.longValue(); // add the id that we want to insert
+        // context.setNodeValue(FSM, new_fsms); // update paths internally (for each node)
+        
+        fsms[context.superstep()] = idToInsert.longValue();
+        context.setNodeValue(FSM, fsms); // update paths internally (for each node)
         
         // send node_id to all neighbors (to let them know where they got this message from)
         context.sendToNeighbors(nodeId);
