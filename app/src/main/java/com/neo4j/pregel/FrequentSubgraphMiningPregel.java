@@ -103,34 +103,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
                     max_degree_node_id.setValue(from_node_id);
                 }
 
-                
-
-                
-
-
-
-                var degree = context.longNodeValue(DEGREE, message);
-
-
-
-
-                if (degree > max_degree.longValue()) {
-                    max_degree.setValue(degree);
-                    max_degree_node_id.setValue(message);
-                }
             }
-
-
-
-            context.forEachMessage((nodeIdFrom, message) -> {
-                var degree = context.longNodeValue(DEGREE, nodeIdFrom);
-                if (degree > max_degree.longValue()) {
-                    max_degree.setValue(degree);
-                    max_degree_node_id.setValue(nodeIdFrom);
-                }
-            });
-
-            context
 
             long[] fsms = context.longArrayNodeValue(FSM);
             long[] new_fsms = new long[fsms.length + 1];
