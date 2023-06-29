@@ -28,7 +28,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
     public static final String POS_X = "pos_x";
     public static final String POS_Y = "pos_y";
     public static final String RATING = "rating";
-    public static final String DEGREE = "degree";
+    public static final String NODE_INFO = "node_info";
 
 
     /* Each node will have this value-schema during pregel computation */
@@ -36,7 +36,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
     public PregelSchema schema(FrequentSubgraphMiningPregelConfig config) {
         return new PregelSchema.Builder()
                 .add(FSM, ValueType.LONG_ARRAY)
-                .add(DEGREE, ValueType.LONG_ARRAY) // TODO: extend ComputeContext so you can get any long/double value by providing a node_id
+                .add(NODE_INFO, ValueType.LONG_ARRAY) // TODO: extend ComputeContext so you can get any long/double value by providing a node_id
                 .add(G_ID, ValueType.LONG)
                 .add(POS_X, ValueType.DOUBLE)
                 .add(POS_Y, ValueType.DOUBLE)
