@@ -100,11 +100,11 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
 
                 if (from_node_degree > max_degree.longValue()) {
                     max_degree.setValue(from_node_degree);
-                    max_degree_node_id.setValue(from_node_id);
+                    max_degree_node_id.setValue(from_node_original_id);
                 }
             }
 
-            idToInsert.setValue(context.toOriginalId(max_degree_node_id.longValue())); // add the node with highest degree to FSM
+            idToInsert.setValue((max_degree_node_id.longValue()); // add the node with highest degree to FSM
         }
 
         if (idToInsert.longValue() == -1) { // nothing to add
