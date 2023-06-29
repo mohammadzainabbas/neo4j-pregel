@@ -16,24 +16,15 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import static com.neo4j.pregel.TriangleCountPregel.FSM;
+import static com.neo4j.pregel.TriangleCountPregel.TRIANGLE_COUNT;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @GdlExtension
 class TriangleCountPregelAlgoTest {
-    // private static String _graph = null;
-    // static {
-    //     try {
-    //         _graph = new String(Files.readAllBytes(Paths.get("queries/graph_generation.cypher")));
-    //     } catch (IOException e) {
-    //         e.printStackTrace();
-    //     }
-    // }
     
     @GdlGraph
     private static final String MY_TEST_GRAPH;
-
     static {
         String content = "";
         try {
