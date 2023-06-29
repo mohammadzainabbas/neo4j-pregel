@@ -104,7 +104,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
                 }
             }
 
-            idToInsert.setValue(max_degree_node_id.longValue());
+            idToInsert.setValue(max_degree_node_id.longValue()); // add the node with highest degree to FSM
         }
         
         new_fsms[fsms.length] = idToInsert.longValue(); // add the id that we want to insert
@@ -117,13 +117,6 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
     // @Override
     // public Optional<Reducer> reducer() {
     //     return Optional.of(new Reducer.Sum());
-    // }
-
-    // @Override
-    // public double applyRelationshipWeight(double nodeValue, double relationshipWeight) {
-    //     // ! assuming normalized relationshipWeights (sum of outgoing edge weights = 1
-    //     // and none negative weights)
-    //     return nodeValue * relationshipWeight;
     // }
 
     @Override
