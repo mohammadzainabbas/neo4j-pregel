@@ -105,7 +105,8 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
                 
                 // context.setNodeValue(FSM, context.nodeId());
         }
-        new_fsms[fsms.length] = idToInsert.longValue();
+        
+        new_fsms[fsms.length] = idToInsert.longValue(); // add the id that we want to insert
         context.setNodeValue(FSM, new_fsms); // update paths internally (for each node)
         
         // send node_id to all neighbors (to let them know where they got this message from)
