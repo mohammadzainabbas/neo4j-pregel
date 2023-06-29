@@ -21,18 +21,17 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @GdlExtension
 class FrequentSubgraphMiningPregelAlgoTest {
-
-    @GdlGraph
-    private static final String MY_TEST_GRAPH;
+    private static String graph = null;
     static {
-        String graph = null;
         try {
             graph = new String(Files.readAllBytes(Paths.get("queries/graph_generation.cypher")));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        MY_TEST_GRAPH = graph;
     }
+
+    @GdlGraph
+    private static final String MY_TEST_GRAPH = graph;
     // private static final String MY_TEST_GRAPH =
     //     "CREATE" +
     //     "  (alice)" +
