@@ -39,10 +39,10 @@ class TriangleCountPregelAlgoTest {
         "  (a)" +
         ", (b)" +
         ", (c)" +
-        ", (a)-[:LIKES]->(bob)" +
-        ", (b)-[:LIKES]->(alice)" +
-        ", (eve)-[:DISLIKES]->(alice)" +
-        ", (eve)-[:DISLIKES]->(bob)";
+        ", (a)-[]->(c)" +
+        ", (b)-[]->(c)" +
+        ", (b)-[]->(a)" +
+        ", (c)-[]->(a)";
         // "CREATE" +
         // "  (alice)" +
         // ", (bob)" +
