@@ -2108,7 +2108,6 @@ CREATE (n2106:Location {pos_x:2, pos_y:50, rating:3.041872262954712 });
 CREATE (n2107:Location {pos_x:3, pos_y:50, rating:3.195746421813965 });
 CREATE (n2108:Location {pos_x:3, pos_y:50, rating:3.0 });
 CREATE (n2109:Location {pos_x:3, pos_y:50, rating:3.025527238845825 });
-
 CREATE (n0)-[r:trip {NbPerMaxDurationDays_1:1.0, year:2018.0}]->(n1);
 CREATE (n0)-[r:trip {NbPerMaxDurationDays_1:1.0, year:2018.0}]->(n1);
 CREATE (n0)-[r:trip {NbPerMaxDurationDays_1:1.0, year:2018.0}]->(n128);
