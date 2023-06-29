@@ -117,8 +117,9 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
     }
 
     private void noRepeatNodes() {
-        
+
     }
+    
     // @Override
     // public Optional<Reducer> reducer() {
     //     return Optional.of(new Reducer.Sum());
