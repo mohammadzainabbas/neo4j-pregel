@@ -34,9 +34,6 @@ class TriangleCountPregelAlgoTest {
         }
         MY_TEST_GRAPH = content;
     }
-    
-    // private static final String MY_TEST_GRAPH = new String(Files.readAllBytes(Paths.get("queries/graph_generation.cypher")));
-    // private static final String MY_TEST_GRAPH = _graph;
     // private static final String MY_TEST_GRAPH =
     //     "CREATE" +
     //     "  (alice)" +
