@@ -121,7 +121,7 @@ PregelSchema schema() {
 ```
 
 The node value consists of a single value named `foobar` which is of type `long`.
-A node value can be of any GDS-supported type, i.e. `long`, `double`, `long[]`, `double[]` and `float[]`.
+A node value can be of any [GDS-supported type](https://aura.support.neo4j.com/hc/en-us/articles/16541375872275-What-are-the-data-types-supported-by-Neo4j-GDS-Library-), i.e. `long`, `double`, `long[]`, `double[]` and `float[]`.
 
 We can add an arbitrary number of values to the schema:
 
@@ -414,12 +414,12 @@ public class CustomComputation implements PregelComputation<CustomConfig> {
 Some algorithms implemented in Pregel might require or benefit from the ability to access and send messages to all incoming relationships of the current context node.
 GDS supports the creation of inverse indexes for relationship types, which enables the traversal of incoming relationships for directed relationship types.
 
-A Pregel algorithm can access this index by implementing the `org.neo4j.gds.beta.pregel.BidirectionalPregelComputation` interface instead of the `PregelComputation` interface.
+A Pregel algorithm can access this index by implementing the [`org.neo4j.gds.beta.pregel.BidirectionalPregelComputation`](https://github.com/neo4j/graph-data-science/blob/66fd5819b6cd10c1b3619316cd73af8f30cfb5a3/pregel/src/main/java/org/neo4j/gds/beta/pregel/BidirectionalPregelComputation.java#L38) interface instead of the `PregelComputation` interface.
 Implementing this interface has the following consequences:
 
 * The Pregel framework will make sure that all relationships passed into the algorithm are inverse indexed.
   If no such index exists, an error will be thrown.
-* The signature of the `init` and `compute` functions now accept a `org.neo4j.gds.beta.pregel.context.InitContext.BidirectionalInitContext` and `org.neo4j.gds.beta.pregel.context.ComputeContext.BidirectionalComputeContext` respectively.
+* The signature of the `init` and `compute` functions now accept a [`org.neo4j.gds.beta.pregel.context.InitContext.BidirectionalInitContext`](https://github.com/neo4j/graph-data-science/blob/7239c03f80bdfafad14cf83de582f5d1213735bc/pregel/src/main/java/org/neo4j/gds/beta/pregel/context/InitContext.java#L65) and [`org.neo4j.gds.beta.pregel.context.ComputeContext.BidirectionalComputeContext`](https://github.com/neo4j/graph-data-science/blob/7239c03f80bdfafad14cf83de582f5d1213735bc/pregel/src/main/java/org/neo4j/gds/beta/pregel/context/ComputeContext.java#L183) respectively.
 * Algorithms annotated with the `@PregelProcedure` annotation will automatically create all required inverse indexes.
 
 The `BidirectionalInitContext` and `BidirectionalComputeContexts` expose the following new methods in addition to the methods defined by `InitContext` and `ComputeContext`:
@@ -510,8 +510,8 @@ The Pregel framework in GDS provides an easy way to generate procedures for all 
 
 ### Procedure generation
 
-To generate procedures for a computation, it needs to be annotated with the `@org.neo4j.gds.beta.pregel.annotation.PregelProcedure` annotation.
-In addition, the config parameter of the custom computation must be a subtype of `org.neo4j.gds.beta.pregel.PregelProcedureConfig`.
+To generate procedures for a computation, it needs to be annotated with the [`@org.neo4j.gds.beta.pregel.annotation.PregelProcedure`](https://github.com/neo4j/graph-data-science/blob/7239c03f80bdfafad14cf83de582f5d1213735bc/pregel/src/main/java/org/neo4j/gds/beta/pregel/annotation/PregelProcedure.java#L29) annotation.
+In addition, the config parameter of the custom computation must be a subtype of [`org.neo4j.gds.beta.pregel.PregelProcedureConfig`](https://github.com/neo4j/graph-data-science/blob/7239c03f80bdfafad14cf83de582f5d1213735bc/pregel/src/main/java/org/neo4j/gds/beta/pregel/PregelProcedureConfig.java#L32).
 
 > Using the `@PregelProcedure` annotation to configure code generation.
 
