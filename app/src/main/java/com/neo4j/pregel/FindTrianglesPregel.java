@@ -41,7 +41,7 @@ public class FindTrianglesPregel implements PregelComputation<FindTrianglesPrege
 
     enum Phase {
         MERGE_NEIGHBORS(1),
-        COUNT_TRIANGLES(2);
+        UPDATE_PATHS(2);
 
         final long step;
 
