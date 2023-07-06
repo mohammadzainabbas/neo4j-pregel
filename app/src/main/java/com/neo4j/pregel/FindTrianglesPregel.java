@@ -109,7 +109,6 @@ public class FindTrianglesPregel implements PregelComputation<FindTrianglesPrege
 
             ArrayList<Long> messages_list = new ArrayList<Long>();
 
-
             var neighborsOfA = new LongHashSet(context.degree());
             context.forEachDistinctNeighbor(neighborsOfA::add);
 
