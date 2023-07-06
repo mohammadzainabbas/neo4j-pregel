@@ -91,13 +91,10 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
         } else {
             // iterate over all messages (coming from all the neighbors) and add them all to FSM 
             // (NOTE: each superstep is separated via some unique identifier)
-            if (context.config().maxRepeatNodes() < 0) { // negative -> doesn't care
-
-            }
+            
 
 
 
-            idToInsert.setValue(max_degree_node_id.longValue()); // add the node with highest degree to FSM
         }
 
         if (idToInsert.longValue() == -1) { // nothing to add
