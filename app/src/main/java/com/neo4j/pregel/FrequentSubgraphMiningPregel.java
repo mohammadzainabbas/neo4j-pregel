@@ -97,13 +97,14 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
         } else {
             // iterate over all messages (coming from all the neighbors) and add them all to FSM 
             // (NOTE: each superstep is separated via some unique identifier)
+            ArrayList<Long> messages_list = new ArrayList<Long>();
             for (var message: messages) {
                 var from_node_id = message.longValue();
                 var from_node_info = context.longArrayNodeValue(NODE_INFO, from_node_id);
                 // var from_node_degree = from_node_info[0];
                 var from_node_original_id = from_node_info[1];
 
-                new_fsm.add(from_node_original_id);
+                messages_list.add(from_node_original_id);
             }
         }
 
