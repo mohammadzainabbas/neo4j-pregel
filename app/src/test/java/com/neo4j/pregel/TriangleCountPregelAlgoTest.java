@@ -76,6 +76,7 @@ class TriangleCountPregelAlgoTest {
         );
 
         var result = pregelJob.run();
+        // result.nodeValues().longProperties("TRIANGLES")
 
         assertTrue(result.didConverge(), "Algorithm did not converge.");
         // assertEquals(0, result.ranIterations());
@@ -84,6 +85,7 @@ class TriangleCountPregelAlgoTest {
         expected.put("alice", 0L);
         expected.put("bob", 1L);
         expected.put("eve", 2L);
+
 
         TestSupport.assertLongValues(graph, (nodeId) -> result.nodeValues().longValue(FSM, nodeId), expected);
     }
