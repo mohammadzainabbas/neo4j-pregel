@@ -29,8 +29,9 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
     public static final String POS_Y = "pos_y";
     public static final String RATING = "rating";
     public static final String NODE_INFO = "node_info";
-
-
+    
+    public static final long IDENTIFIER = -1;
+    
     /* Each node will have this value-schema during pregel computation */
     @Override
     public PregelSchema schema(FrequentSubgraphMiningPregelConfig config) {
