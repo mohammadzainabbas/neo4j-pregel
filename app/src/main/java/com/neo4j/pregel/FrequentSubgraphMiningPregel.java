@@ -108,6 +108,10 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
                 // var from_node_degree = from_node_info[0];
                 var from_node_original_id = from_node_info[1];
 
+                if (from_node_original_id == nodeOriginalId) {
+                    continue; // disallow self-loops
+                }
+
                 messages_list.add(from_node_original_id);
             }
 
