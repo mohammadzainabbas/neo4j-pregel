@@ -19,7 +19,7 @@ public final class FindTrianglesPregelMutateProc extends BaseProc {
             name = "esilv.pregel.find_triangles.mutate",
             mode = Mode.READ
     )
-    @Description("Frequent Pattern Mining :: Neo4j - Approximate Frequent Subgraph Mining with Pregel")
+    @Description("Find Triangles :: Neo4j - Find triangles with Pregel")
     public Stream<PregelMutateResult> mutate(@Name("graphName") String graphName,
             @Name(value = "configuration", defaultValue = "{}") Map<String, Object> configuration) {
         var specification = new FindTrianglesPregelMutateSpecification();

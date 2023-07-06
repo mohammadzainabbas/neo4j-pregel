@@ -25,7 +25,7 @@ import java.util.Collections;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-@PregelProcedure(name = "esilv.pregel.find_triangles", modes = { GDSMode.STREAM, GDSMode.MUTATE }, description = "Frequent Pattern Mining :: Neo4j - Approximate Frequent Subgraph Mining with Pregel")
+@PregelProcedure(name = "esilv.pregel.find_triangles", modes = { GDSMode.STREAM, GDSMode.MUTATE }, description = "Find Triangles :: Neo4j - Find triangles with Pregel")
 public class FindTrianglesPregel implements PregelComputation<FindTrianglesPregel.FindTrianglesPregelConfig> {
 
     public static final String FSM = "fsm";

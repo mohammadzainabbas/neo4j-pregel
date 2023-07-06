@@ -15,7 +15,7 @@ import org.neo4j.gds.pregel.proc.PregelStreamResult;
 @GdsCallable(
         name = "esilv.pregel.find_triangles.stream",
         executionMode = ExecutionMode.STREAM,
-        description = "Frequent Pattern Mining :: Neo4j - Approximate Frequent Subgraph Mining with Pregel"
+        description = "Find Triangles :: Neo4j - Find triangles with Pregel"
 )
 @Generated("org.neo4j.gds.pregel.PregelProcessor")
 public final class FindTrianglesPregelStreamSpecification implements AlgorithmSpec<FindTrianglesPregelAlgorithm, PregelResult, FindTrianglesPregel.FindTrianglesPregelConfig, Stream<PregelStreamResult>, FindTrianglesPregelAlgorithmFactory> {
