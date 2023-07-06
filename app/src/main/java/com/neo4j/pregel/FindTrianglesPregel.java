@@ -26,7 +26,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @PregelProcedure(name = "esilv.pregel.fsm", modes = { GDSMode.STREAM, GDSMode.MUTATE }, description = "Frequent Pattern Mining :: Neo4j - Approximate Frequent Subgraph Mining with Pregel")
-public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig> {
+public class FindTrianglesPregel implements PregelComputation<FindTrianglesPregel.FindTrianglesPregelConfig> {
 
     public static final String FSM = "fsm";
     public static final String G_ID = "gid";
@@ -39,7 +39,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
     
     /* Each node will have this value-schema during pregel computation */
     @Override
-    public PregelSchema schema(FrequentSubgraphMiningPregelConfig config) {
+    public PregelSchema schema(FindTrianglesPregelConfig config) {
         // TODO: extend ComputeContext so you can get any long/double value by providing a node_id
         return new PregelSchema.Builder()
                 .add(FSM, ValueType.LONG_ARRAY)
@@ -53,7 +53,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
     
     /* Called in the beginning of the first superstep of the Pregel computation and allows initializing node values */
     @Override
-    public void init(InitContext<FrequentSubgraphMiningPregelConfig> context) {
+    public void init(InitContext<FindTrianglesPregelConfig> context) {
 
         long[] nodeInfo = {context.degree(), context.toOriginalId()};
         context.setNodeValue(NODE_INFO, nodeInfo);
@@ -80,7 +80,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
 
     /* Called for each node in every superstep */
     @Override
-    public void compute(ComputeContext<FrequentSubgraphMiningPregelConfig> context, Messages messages) {
+    public void compute(ComputeContext<FindTrianglesPregelConfig> context, Messages messages) {
         var nodeId = context.nodeId();
         var nodeOriginalId = context.toOriginalId(); // for showing correct IDs in the output
         boolean newMessage = false;
@@ -143,14 +143,14 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
     // }
 
     // @Override
-    // public boolean masterCompute(MasterComputeContext<FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig> context) {
+    // public boolean masterCompute(MasterComputeContext<FindTrianglesPregel.FindTrianglesPregelConfig> context) {
     //     return context.superstep() >= 2; // stop after 2 supersteps
     // }
 
     @ValueClass
-    @Configuration("FrequentSubgraphMiningPregelConfigImpl")
+    @Configuration("FindTrianglesPregelConfigImpl")
     @SuppressWarnings("immutables:subtype")
-    public interface FrequentSubgraphMiningPregelConfig extends PregelProcedureConfig, SeedConfig {
+    public interface FindTrianglesPregelConfig extends PregelProcedureConfig, SeedConfig {
 
         @Override
         default boolean isAsynchronous() {
@@ -169,8 +169,8 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
             return false;
         }
 
-        static FrequentSubgraphMiningPregelConfig of(CypherMapWrapper userInput) {
-            return new FrequentSubgraphMiningPregelConfigImpl(userInput);
+        static FindTrianglesPregelConfig of(CypherMapWrapper userInput) {
+            return new FindTrianglesPregelConfigImpl(userInput);
         }
     }
 }
