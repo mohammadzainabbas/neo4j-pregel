@@ -87,7 +87,7 @@ class TriangleCountPregelAlgoTest {
         expected.put("eve", 2L);
 
 
-        TestSupport.assertLongValues(graph, (nodeId) -> result.nodeValues().longValue(FSM, nodeId), expected);
+        TestSupport.assertLongValues(graph, (nodeId) -> result.nodeValues().longValue(TRIANGLE_COUNT, nodeId), expected);
     }
     
 }
