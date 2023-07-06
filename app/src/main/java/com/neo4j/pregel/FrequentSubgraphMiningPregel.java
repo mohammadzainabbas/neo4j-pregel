@@ -107,8 +107,10 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
                 messages_list.add(from_node_original_id);
             }
 
-            // remove duplicates
-            messages_list = (ArrayList<Long>) messages_list.stream().distinct().collect(Collectors.toList());
+            if (!context.config().withRepeition()) {
+                // remove duplicates
+                messages_list = (ArrayList<Long>) messages_list.stream().distinct().collect(Collectors.toList());
+            }
 
             new_fsm.addAll(messages_list);
         }
