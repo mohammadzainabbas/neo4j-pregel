@@ -96,6 +96,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
             // new_fsms[fsms.length] = nodeOriginalId; // add the id that we want to insert
             new_fsm.add(nodeOriginalId); // add the id that we want to insert
             new_fsm.add(IDENTIFIER); // add the unique identifier to separate supersteps
+            newMessage = true;
         } else {
             // iterate over all messages (coming from all the neighbors) and add them all to FSM 
             // (NOTE: each superstep is separated via some unique identifier)
