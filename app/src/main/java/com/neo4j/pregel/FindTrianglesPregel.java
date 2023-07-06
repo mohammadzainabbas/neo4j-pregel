@@ -106,6 +106,10 @@ public class FindTrianglesPregel implements PregelComputation<FindTrianglesPrege
             new_fsm.add(IDENTIFIER); // add the unique identifier to separate supersteps
             newMessage = true;
         } else {
+
+            ArrayList<Long> messages_list = new ArrayList<Long>();
+
+
             var neighborsOfA = new LongHashSet(context.degree());
             context.forEachDistinctNeighbor(neighborsOfA::add);
 
