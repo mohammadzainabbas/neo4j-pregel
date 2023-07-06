@@ -42,7 +42,7 @@ class FrequentSubgraphMiningPregelAlgoTest {
     }
     
     static String PATH = "/Users/mohammadzainabbas/Masters/Thesis/Experiments/neo4j-pregel/queries/";
-    static String FILE_NAME = TestingGraph.BIG_GRAPH.toString();
+    static String FILE_NAME = TestingGraph.SMALL_GRAPH.toString();
 
     @GdlGraph
     private static final String MY_TEST_GRAPH;
