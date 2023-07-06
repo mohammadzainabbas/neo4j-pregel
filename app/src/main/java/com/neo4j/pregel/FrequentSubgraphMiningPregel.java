@@ -84,6 +84,9 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
 
         // First superstep
         if (context.isInitialSuperstep()) {
+            
+
+
             // add nodeId to FSM
             idToInsert.setValue(nodeOriginalId);
         } else {
