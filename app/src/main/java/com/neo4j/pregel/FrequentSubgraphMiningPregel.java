@@ -109,6 +109,8 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
         }
 
         new_fsm.add(IDENTIFIER); // add the unique identifier to separate supersteps
+        // back to long[]
+        long[] new_fsms = new_fsm.stream().mapToLong(Long::longValue).toArray();
 
         if (idToInsert.longValue() == -1) { // nothing to add
             context.voteToHalt();
