@@ -21,6 +21,7 @@ import org.neo4j.gds.core.CypherMapWrapper;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Optional;
 
 @PregelProcedure(name = "esilv.pregel.fsm", modes = { GDSMode.STREAM, GDSMode.MUTATE }, description = "Frequent Pattern Mining :: Neo4j - Approximate Frequent Subgraph Mining with Pregel")
@@ -97,7 +98,10 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
 
             var new_list = Arrays.asList(fsms);
 
-            List<Long> new_fsm = new ArrayList<Long>(new_list);
+            List<Long> new_fsm = new ArrayList<Long>();
+            Collections.addAll(new_list, new_fsm);
+
+            
 
             for (var message: messages) {
                 var from_node_id = message.longValue();
