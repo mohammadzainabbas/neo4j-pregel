@@ -95,6 +95,38 @@ public class FindTrianglesPregel implements PregelComputation<FindTrianglesPrege
             new_fsm.add(IDENTIFIER); // add the unique identifier to separate supersteps
             newMessage = true;
         } else {
+            var neighborsOfA = new LongHashSet(context.degree());
+            context.forEachDistinctNeighbor(neighborsOfA::add);
+
+            long nodeA = context.nodeId();
+            var trianglesFromNodeA = new MutableLong();
+
+            neighborsOfA.forEach((LongProcedure) nodeB -> {
+                if (nodeB > nodeA) {
+                    LongConsumer findTriangles = nodeC -> {
+                        // find common neighbors of A
+                        // check indexed neighbors of A
+                        if (nodeC > nodeB && neighborsOfA.contains(nodeC)) {
+                            trianglesFromNodeA.increment();
+                            context.sendTo(nodeB, 1);
+                            context.sendTo(nodeC, 1);
+                        }
+                    };
+                    if (context.isMultiGraph()) {
+                        context.forEachDistinctNeighbor(nodeB, findTriangles);
+                    } else {
+                        context.forEachNeighbor(nodeB, findTriangles);
+                    }
+                }
+            });
+
+
+
+
+
+
+
+
             // iterate over all messages (coming from all the neighbors) and add them all to FSM 
             // (NOTE: each superstep is separated via some unique identifier)
             ArrayList<Long> messages_list = new ArrayList<Long>();
