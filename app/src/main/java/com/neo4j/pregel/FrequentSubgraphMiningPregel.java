@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @PregelProcedure(name = "esilv.pregel.fsm", modes = { GDSMode.STREAM, GDSMode.MUTATE }, description = "Frequent Pattern Mining :: Neo4j - Approximate Frequent Subgraph Mining with Pregel")
 public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig> {
@@ -96,7 +97,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
             // iterate over all messages (coming from all the neighbors) and add them all to FSM 
             // (NOTE: each superstep is separated via some unique identifier)
 
-            var new_fsm = Arrays.stream(fsms).boxed().collect(Co)
+            var new_fsm = Arrays.stream(fsms).boxed().collect(Collectors.toCollection(ArrayList::new));
 
             // List<Long> new_fsm = new ArrayList<Long>(new_list);
 
