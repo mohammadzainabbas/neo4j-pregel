@@ -16,12 +16,12 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import static com.neo4j.pregel.FrequentSubgraphMiningPregel.FSM;
+import static com.neo4j.pregel.FindTrianglesPregel.FSM;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @GdlExtension
-class FrequentSubgraphMiningPregelAlgoTest {
+class FindTrianglesPregelAlgoTest {
 
     public enum TestingGraph {
         DUMMY_GRAPH {
@@ -60,11 +60,11 @@ class FrequentSubgraphMiningPregelAlgoTest {
     private TestGraph graph;
 
     @Test
-    void runFrequentSubgraphMiningPregel() {
+    void runFindTrianglesPregel() {
         int maxIterations = 10;
         boolean withRepeition = false;
 
-        var config = ImmutableFrequentSubgraphMiningPregelConfig.builder()
+        var config = ImmutableFindTrianglesPregelConfig.builder()
             .maxIterations(maxIterations)
             .withRepeition(withRepeition)
             .build();
@@ -72,7 +72,7 @@ class FrequentSubgraphMiningPregelAlgoTest {
         var pregelJob = Pregel.create(
             graph,
             config,
-            new FrequentSubgraphMiningPregel(),
+            new FindTrianglesPregel(),
             Pools.DEFAULT,
             ProgressTracker.NULL_TRACKER
         );
