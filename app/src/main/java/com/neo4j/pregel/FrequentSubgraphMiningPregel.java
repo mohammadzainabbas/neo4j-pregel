@@ -112,7 +112,6 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
                 }
                 
                 messages_list.add(from_node_original_id);
-                newMessage = true;
             }
 
             if (!context.config().withRepeition()) {
