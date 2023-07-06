@@ -18,6 +18,8 @@ import org.neo4j.gds.beta.pregel.context.MasterComputeContext;
 import org.neo4j.gds.config.SeedConfig;
 import org.neo4j.gds.core.CypherMapWrapper;
 
+
+import com.carrotsearch.hppc.LongHashSet;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Arrays;
