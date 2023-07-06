@@ -29,7 +29,6 @@ import java.util.stream.Collectors;
 public class FindTrianglesPregel implements PregelComputation<FindTrianglesPregel.FindTrianglesPregelConfig> {
 
     public static final String FSM = "fsm";
-    public static final String G_ID = "gid";
     public static final String POS_X = "pos_x";
     public static final String POS_Y = "pos_y";
     public static final String RATING = "rating";
@@ -68,10 +67,6 @@ public class FindTrianglesPregel implements PregelComputation<FindTrianglesPrege
                 continue;
             }
             context.setNodeValue(property, _property.doubleValue(nodeId));
-        }
-        
-        if (context.nodeProperties(G_ID) != null) {
-            context.setNodeValue(G_ID, context.nodeProperties(G_ID).longValue(nodeId));
         }
 
         long[] empty_fsm_array = {};
