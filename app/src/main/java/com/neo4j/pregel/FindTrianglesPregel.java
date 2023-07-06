@@ -18,7 +18,7 @@ import org.neo4j.gds.beta.pregel.context.MasterComputeContext;
 import org.neo4j.gds.config.SeedConfig;
 import org.neo4j.gds.core.CypherMapWrapper;
 
-
+import com.carrotsearch.hppc.procedures.LongProcedure;
 import com.carrotsearch.hppc.LongHashSet;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +26,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.function.LongConsumer;
 
 @PregelProcedure(name = "esilv.pregel.find_triangles", modes = { GDSMode.STREAM, GDSMode.MUTATE }, description = "Find Triangles :: Neo4j - Find triangles with Pregel")
 public class FindTrianglesPregel implements PregelComputation<FindTrianglesPregel.FindTrianglesPregelConfig> {
