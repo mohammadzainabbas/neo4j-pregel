@@ -125,7 +125,9 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
             }
         }
 
-        if (!newMessage) { context.voteToHalt(); }
+        if (!newMessage) {
+            context.voteToHalt();
+        }
 
         // convert ArrayList<Long> back to long[]
         long[] new_fsms = new_fsm.stream().mapToLong(Long::longValue).toArray();
