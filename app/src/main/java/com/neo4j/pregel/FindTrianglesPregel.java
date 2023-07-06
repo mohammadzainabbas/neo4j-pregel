@@ -38,6 +38,17 @@ public class FindTrianglesPregel implements PregelComputation<FindTrianglesPrege
     public static final String NODE_INFO = "node_info";
     
     public static final long IDENTIFIER = -1;
+
+    enum Phase {
+        MERGE_NEIGHBORS(1),
+        COUNT_TRIANGLES(2);
+
+        final long step;
+
+        Phase(int i) {
+            step = i;
+        }
+    }
     
     /* Each node will have this value-schema during pregel computation */
     @Override
