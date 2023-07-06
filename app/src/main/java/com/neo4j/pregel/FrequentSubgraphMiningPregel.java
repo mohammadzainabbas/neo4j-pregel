@@ -102,6 +102,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
             // (NOTE: each superstep is separated via some unique identifier)
             ArrayList<Long> messages_list = new ArrayList<Long>();
             for (var message: messages) {
+                newMessage = true;
                 var from_node_id = message.longValue();
                 var from_node_info = context.longArrayNodeValue(NODE_INFO, from_node_id);
                 // var from_node_degree = from_node_info[0];
