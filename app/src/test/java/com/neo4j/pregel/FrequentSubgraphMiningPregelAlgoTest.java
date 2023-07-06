@@ -62,9 +62,11 @@ class FrequentSubgraphMiningPregelAlgoTest {
     @Test
     void runFrequentSubgraphMiningPregel() {
         int maxIterations = 10;
+        boolean withRepeition = true;
 
         var config = ImmutableFrequentSubgraphMiningPregelConfig.builder()
             .maxIterations(maxIterations)
+            .withRepeition(withRepeition)
             .build();
 
         var pregelJob = Pregel.create(
