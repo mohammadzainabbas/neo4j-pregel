@@ -13,7 +13,7 @@ import org.neo4j.gds.pregel.proc.PregelStreamComputationResultConsumer;
 import org.neo4j.gds.pregel.proc.PregelStreamResult;
 
 @GdsCallable(
-        name = "esilv.pregel.fsm.stream",
+        name = "esilv.pregel.find_triangles.stream",
         executionMode = ExecutionMode.STREAM,
         description = "Frequent Pattern Mining :: Neo4j - Approximate Frequent Subgraph Mining with Pregel"
 )

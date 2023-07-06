@@ -16,7 +16,7 @@ import org.neo4j.procedure.Procedure;
 @Generated("org.neo4j.gds.pregel.PregelProcessor")
 public final class FindTrianglesPregelMutateProc extends BaseProc {
     @Procedure(
-            name = "esilv.pregel.fsm.mutate",
+            name = "esilv.pregel.find_triangles.mutate",
             mode = Mode.READ
     )
     @Description("Frequent Pattern Mining :: Neo4j - Approximate Frequent Subgraph Mining with Pregel")
@@ -28,7 +28,7 @@ public final class FindTrianglesPregelMutateProc extends BaseProc {
     }
 
     @Procedure(
-            name = "esilv.pregel.fsm.mutate.estimate",
+            name = "esilv.pregel.find_triangles.mutate.estimate",
             mode = Mode.READ
     )
     @Description(BaseProc.ESTIMATE_DESCRIPTION)

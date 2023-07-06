@@ -13,7 +13,7 @@ import org.neo4j.gds.pregel.proc.PregelMutateComputationResultConsumer;
 import org.neo4j.gds.pregel.proc.PregelMutateResult;
 
 @GdsCallable(
-        name = "esilv.pregel.fsm.mutate",
+        name = "esilv.pregel.find_triangles.mutate",
         executionMode = ExecutionMode.MUTATE_NODE_PROPERTY,
         description = "Frequent Pattern Mining :: Neo4j - Approximate Frequent Subgraph Mining with Pregel"
 )
