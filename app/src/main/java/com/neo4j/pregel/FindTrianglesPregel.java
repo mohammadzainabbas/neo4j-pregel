@@ -46,7 +46,6 @@ public class FindTrianglesPregel implements PregelComputation<FindTrianglesPrege
         return new PregelSchema.Builder()
                 .add(FSM, ValueType.LONG_ARRAY)
                 .add(NODE_INFO, ValueType.LONG_ARRAY) // [degree, orginal_id] 
-                .add(G_ID, ValueType.LONG)
                 .add(POS_X, ValueType.DOUBLE)
                 .add(POS_Y, ValueType.DOUBLE)
                 .add(RATING, ValueType.DOUBLE)
