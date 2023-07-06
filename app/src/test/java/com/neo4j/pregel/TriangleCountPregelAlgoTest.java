@@ -85,7 +85,7 @@ class TriangleCountPregelAlgoTest {
         expected.put("bob", 1L);
         expected.put("eve", 2L);
 
-        // TestSupport.assertLongValues(graph, (nodeId) -> result.nodeValues().longValue(FSM, nodeId), expected);
+        TestSupport.assertLongValues(graph, (nodeId) -> result.nodeValues().longValue(FSM, nodeId), expected);
     }
     
 }
