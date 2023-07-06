@@ -141,10 +141,10 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
     //     return Optional.of(new Reducer.Sum());
     // }
 
-    @Override
-    public boolean masterCompute(MasterComputeContext<FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig> context) {
-        return context.superstep() >= 2; // stop after 2 supersteps
-    }
+    // @Override
+    // public boolean masterCompute(MasterComputeContext<FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig> context) {
+    //     return context.superstep() >= 2; // stop after 2 supersteps
+    // }
 
     @ValueClass
     @Configuration("FrequentSubgraphMiningPregelConfigImpl")
