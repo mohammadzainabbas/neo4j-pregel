@@ -106,9 +106,6 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
 
                 new_fsm.add(from_node_original_id);
             }
-
-
-
         }
 
         if (idToInsert.longValue() == -1) { // nothing to add
