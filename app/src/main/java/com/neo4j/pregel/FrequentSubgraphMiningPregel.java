@@ -83,7 +83,6 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
     public void compute(ComputeContext<FrequentSubgraphMiningPregelConfig> context, Messages messages) {
         var nodeId = context.nodeId();
         var nodeOriginalId = context.toOriginalId(); // for showing correct IDs in the output
-        var idToInsert = new MutableLong(-1);
 
         long[] fsms = context.longArrayNodeValue(FSM);
         // long[] to ArrayList<Long> (for dynamic array)
@@ -112,16 +111,6 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
         // convert ArrayList<Long> back to long[]
         long[] new_fsms = new_fsm.stream().mapToLong(Long::longValue).toArray();
         context.setNodeValue(FSM, new_fsms); // update paths internally (for each node)
-
-        if (idToInsert.longValue() == -1) { // nothing to add
-            context.voteToHalt();
-        } else {
-            long[] new_fsms = new long[fsms.length + 1];
-            System.arraycopy(fsms, 0, new_fsms, 0, fsms.length); // copy existing nodeIds
-            new_fsms[fsms.length] = idToInsert.longValue(); // add the id that we want to insert
-            context.setNodeValue(FSM, new_fsms); // update paths internally (for each node)
-        }
-
         context.sendToNeighbors(nodeId); // send node_id to all neighbors (to let them know where they got this message from)
     }
 
