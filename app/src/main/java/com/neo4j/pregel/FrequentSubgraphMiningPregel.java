@@ -108,6 +108,8 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
             }
         }
 
+        new_fsm.add(IDENTIFIER); // add the unique identifier to separate supersteps
+
         if (idToInsert.longValue() == -1) { // nothing to add
             context.voteToHalt();
         } else {
