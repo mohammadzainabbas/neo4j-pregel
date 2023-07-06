@@ -97,13 +97,9 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
             // iterate over all messages (coming from all the neighbors) and add them all to FSM 
             // (NOTE: each superstep is separated via some unique identifier)
 
+            // long[] to ArrayList<Long> (for dynamic array)
             ArrayList<Long> new_fsm = Arrays.stream(fsms).boxed().collect(Collectors.toCollection(ArrayList::new));
             
-
-            // List<Long> new_fsm = new ArrayList<Long>(new_list);
-
-
-
             for (var message: messages) {
                 var from_node_id = message.longValue();
                 var from_node_info = context.longArrayNodeValue(NODE_INFO, from_node_id);
