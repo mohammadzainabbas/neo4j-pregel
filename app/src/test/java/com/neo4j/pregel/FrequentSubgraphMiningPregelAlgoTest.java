@@ -62,7 +62,7 @@ class FrequentSubgraphMiningPregelAlgoTest {
     @Test
     void runFrequentSubgraphMiningPregel() {
         int maxIterations = 10;
-        boolean withRepeition = true;
+        boolean withRepeition = false;
 
         var config = ImmutableFrequentSubgraphMiningPregelConfig.builder()
             .maxIterations(maxIterations)
