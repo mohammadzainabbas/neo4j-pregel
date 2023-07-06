@@ -114,42 +114,15 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
         context.sendToNeighbors(nodeId); // send node_id to all neighbors (to let them know where they got this message from)
     }
 
-    private long allowRepeatedNeighbors(ComputeContext<FrequentSubgraphMiningPregelConfig> context, Messages messages) {
-        var max_degree = new MutableLong(-1);
-        var max_degree_node_id = new MutableLong(-1);
-
-        for (var message: messages) {
-            var from_node_id = message.longValue();
-            var from_node_info = context.longArrayNodeValue(NODE_INFO, from_node_id);
-            var from_node_degree = from_node_info[0];
-            var from_node_original_id = from_node_info[1];
-
-            if (from_node_degree > max_degree.longValue()) {
-                max_degree.setValue(from_node_degree);
-                max_degree_node_id.setValue(from_node_original_id);
-            }
-        }
-
-        return max_degree_node_id.longValue();
-    }
-
-    private long minRepeatedNeighbors(ComputeContext<FrequentSubgraphMiningPregelConfig> context, Messages messages) {
-
-    }
-
-    private long noRepeatedNeighbors(ComputeContext<FrequentSubgraphMiningPregelConfig> context, Messages messages) {
-
-    }
-
     // @Override
     // public Optional<Reducer> reducer() {
     //     return Optional.of(new Reducer.Sum());
     // }
 
-    // @Override
-    // public boolean masterCompute(MasterComputeContext<FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig> context) {
-    //     return context.superstep() >= 2; // stop after 5 supersteps
-    // }
+    @Override
+    public boolean masterCompute(MasterComputeContext<FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig> context) {
+        return context.superstep() >= 2; // stop after 2 supersteps
+    }
 
     @ValueClass
     @Configuration("FrequentSubgraphMiningPregelConfigImpl")
