@@ -140,6 +140,12 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
             return 0;
         }
 
+        @Value.Default
+        @Configuration.Key("withRepeition")
+        default boolean withRepeition() {
+            return false;
+        }
+
         static FrequentSubgraphMiningPregelConfig of(CypherMapWrapper userInput) {
             return new FrequentSubgraphMiningPregelConfigImpl(userInput);
         }

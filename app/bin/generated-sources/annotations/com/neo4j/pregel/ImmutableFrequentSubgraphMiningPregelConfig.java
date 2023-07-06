@@ -59,6 +59,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
   private final String writeProperty;
   private final @Nullable String seedProperty;
   private final long maxRepeatNodes;
+  private final boolean withRepeition;
 
   @SuppressWarnings("unchecked") // safe covariant cast
   private ImmutableFrequentSubgraphMiningPregelConfig(
@@ -74,7 +75,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
       String mutateProperty,
       String writeProperty,
       @Nullable String seedProperty,
-      long maxRepeatNodes) {
+      long maxRepeatNodes,
+      boolean withRepeition) {
     initShim.concurrency(concurrency);
     initShim.minBatchSize(minBatchSize);
     initShim.nodeLabels(createUnmodifiableList(false, createSafeList(nodeLabels, true, false)));
@@ -88,6 +90,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     initShim.writeProperty(Objects.requireNonNull(writeProperty, "writeProperty"));
     initShim.seedProperty(seedProperty);
     initShim.maxRepeatNodes(maxRepeatNodes);
+    initShim.withRepeition(withRepeition);
     this.usernameOverride = null;
     this.configKeys = initShim.configKeys();
     this.logProgress = initShim.logProgress();
@@ -106,6 +109,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     this.writeProperty = initShim.writeProperty();
     this.seedProperty = initShim.seedProperty();
     this.maxRepeatNodes = initShim.maxRepeatNodes();
+    this.withRepeition = initShim.withRepeition();
     this.initShim = null;
   }
 
@@ -123,7 +127,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
       String mutateProperty,
       String writeProperty,
       @Nullable String seedProperty,
-      long maxRepeatNodes) {
+      long maxRepeatNodes,
+      boolean withRepeition) {
     initShim.concurrency(concurrency);
     initShim.minBatchSize(minBatchSize);
     initShim.nodeLabels(createUnmodifiableList(false, createSafeList(nodeLabels, true, false)));
@@ -137,6 +142,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     initShim.writeProperty(Objects.requireNonNull(writeProperty, "writeProperty"));
     initShim.seedProperty(seedProperty);
     initShim.maxRepeatNodes(maxRepeatNodes);
+    initShim.withRepeition(withRepeition);
     this.usernameOverride = null;
     this.configKeys = initShim.configKeys();
     this.logProgress = initShim.logProgress();
@@ -155,6 +161,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     this.writeProperty = initShim.writeProperty();
     this.seedProperty = initShim.seedProperty();
     this.maxRepeatNodes = initShim.maxRepeatNodes();
+    this.withRepeition = initShim.withRepeition();
     this.initShim = null;
   }
 
@@ -205,6 +212,9 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     if (builder.maxRepeatNodesIsSet()) {
       initShim.maxRepeatNodes(builder.maxRepeatNodes);
     }
+    if (builder.withRepeitionIsSet()) {
+      initShim.withRepeition(builder.withRepeition);
+    }
     this.configKeys = initShim.configKeys();
     this.logProgress = initShim.logProgress();
     this.sudo = initShim.sudo();
@@ -222,6 +232,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     this.writeProperty = initShim.writeProperty();
     this.seedProperty = initShim.seedProperty();
     this.maxRepeatNodes = initShim.maxRepeatNodes();
+    this.withRepeition = initShim.withRepeition();
     this.initShim = null;
   }
 
@@ -243,7 +254,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
       String mutateProperty,
       String writeProperty,
       @Nullable String seedProperty,
-      long maxRepeatNodes) {
+      long maxRepeatNodes,
+      boolean withRepeition) {
     initShim.configKeys(configKeys);
     initShim.logProgress(logProgress);
     initShim.sudo(sudo);
@@ -262,6 +274,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     initShim.writeProperty(writeProperty);
     initShim.seedProperty(seedProperty);
     initShim.maxRepeatNodes(maxRepeatNodes);
+    initShim.withRepeition(withRepeition);
     this.configKeys = initShim.configKeys();
     this.logProgress = initShim.logProgress();
     this.sudo = initShim.sudo();
@@ -279,6 +292,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     this.writeProperty = initShim.writeProperty();
     this.seedProperty = initShim.seedProperty();
     this.maxRepeatNodes = initShim.maxRepeatNodes();
+    this.withRepeition = initShim.withRepeition();
     this.initShim = null;
   }
 
@@ -580,6 +594,24 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
       maxRepeatNodesBuildStage = STAGE_INITIALIZED;
     }
 
+    private byte withRepeitionBuildStage = STAGE_UNINITIALIZED;
+    private boolean withRepeition;
+
+    boolean withRepeition() {
+      if (withRepeitionBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+      if (withRepeitionBuildStage == STAGE_UNINITIALIZED) {
+        withRepeitionBuildStage = STAGE_INITIALIZING;
+        this.withRepeition = withRepeitionInitialize();
+        withRepeitionBuildStage = STAGE_INITIALIZED;
+      }
+      return this.withRepeition;
+    }
+
+    void withRepeition(boolean withRepeition) {
+      this.withRepeition = withRepeition;
+      withRepeitionBuildStage = STAGE_INITIALIZED;
+    }
+
     private String formatInitCycleMessage() {
       List<String> attributes = new ArrayList<>();
       if (configKeysBuildStage == STAGE_INITIALIZING) attributes.add("configKeys");
@@ -599,6 +631,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
       if (writePropertyBuildStage == STAGE_INITIALIZING) attributes.add("writeProperty");
       if (seedPropertyBuildStage == STAGE_INITIALIZING) attributes.add("seedProperty");
       if (maxRepeatNodesBuildStage == STAGE_INITIALIZING) attributes.add("maxRepeatNodes");
+      if (withRepeitionBuildStage == STAGE_INITIALIZING) attributes.add("withRepeition");
       return "Cannot build FrequentSubgraphMiningPregelConfig, attribute initializers form cycle " + attributes;
     }
   }
@@ -669,6 +702,10 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
 
   private long maxRepeatNodesInitialize() {
     return FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.maxRepeatNodes();
+  }
+
+  private boolean withRepeitionInitialize() {
+    return FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.withRepeition();
   }
 
   /**
@@ -891,6 +928,17 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
   }
 
   /**
+   * @return The value of the {@code withRepeition} attribute
+   */
+  @Override
+  public boolean withRepeition() {
+    InitShim shim = this.initShim;
+    return shim != null
+        ? shim.withRepeition()
+        : this.withRepeition;
+  }
+
+  /**
    * Copy the current immutable object by setting a value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#configKeys() configKeys} attribute.
    * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
    * @param value A new value for configKeys
@@ -917,7 +965,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes));
+        this.maxRepeatNodes,
+        this.withRepeition));
   }
 
   /**
@@ -946,7 +995,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes));
+        this.maxRepeatNodes,
+        this.withRepeition));
   }
 
   /**
@@ -975,7 +1025,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes));
+        this.maxRepeatNodes,
+        this.withRepeition));
   }
 
   /**
@@ -1004,7 +1055,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes));
+        this.maxRepeatNodes,
+        this.withRepeition));
   }
 
   /**
@@ -1034,7 +1086,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes));
+        this.maxRepeatNodes,
+        this.withRepeition));
   }
 
   /**
@@ -1063,7 +1116,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes));
+        this.maxRepeatNodes,
+        this.withRepeition));
   }
 
   /**
@@ -1092,7 +1146,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes));
+        this.maxRepeatNodes,
+        this.withRepeition));
   }
 
   /**
@@ -1122,7 +1177,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes));
+        this.maxRepeatNodes,
+        this.withRepeition));
   }
 
   /**
@@ -1150,7 +1206,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes));
+        this.maxRepeatNodes,
+        this.withRepeition));
   }
 
   /**
@@ -1180,7 +1237,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes));
+        this.maxRepeatNodes,
+        this.withRepeition));
   }
 
   /**
@@ -1208,7 +1266,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes));
+        this.maxRepeatNodes,
+        this.withRepeition));
   }
 
   /**
@@ -1238,7 +1297,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes));
+        this.maxRepeatNodes,
+        this.withRepeition));
   }
 
   /**
@@ -1267,7 +1327,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes));
+        this.maxRepeatNodes,
+        this.withRepeition));
   }
 
   /**
@@ -1297,7 +1358,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes));
+        this.maxRepeatNodes,
+        this.withRepeition));
   }
 
   /**
@@ -1326,7 +1388,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes));
+        this.maxRepeatNodes,
+        this.withRepeition));
   }
 
   /**
@@ -1357,7 +1420,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes));
+        this.maxRepeatNodes,
+        this.withRepeition));
   }
 
   /**
@@ -1386,7 +1450,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes));
+        this.maxRepeatNodes,
+        this.withRepeition));
   }
 
   /**
@@ -1417,7 +1482,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes));
+        this.maxRepeatNodes,
+        this.withRepeition));
   }
 
   /**
@@ -1446,7 +1512,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes));
+        this.maxRepeatNodes,
+        this.withRepeition));
   }
 
   /**
@@ -1476,7 +1543,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         newValue,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes));
+        this.maxRepeatNodes,
+        this.withRepeition));
   }
 
   /**
@@ -1506,7 +1574,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.mutateProperty,
         newValue,
         this.seedProperty,
-        this.maxRepeatNodes));
+        this.maxRepeatNodes,
+        this.withRepeition));
   }
 
   /**
@@ -1535,7 +1604,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         value,
-        this.maxRepeatNodes));
+        this.maxRepeatNodes,
+        this.withRepeition));
   }
 
   /**
@@ -1564,6 +1634,37 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
+        value,
+        this.withRepeition));
+  }
+
+  /**
+   * Copy the current immutable object by setting a value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#withRepeition() withRepeition} attribute.
+   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+   * @param value A new value for withRepeition
+   * @return A modified copy of the {@code this} object
+   */
+  public final ImmutableFrequentSubgraphMiningPregelConfig withWithRepeition(boolean value) {
+    if (this.withRepeition == value) return this;
+    return validate(new ImmutableFrequentSubgraphMiningPregelConfig(
+        this.configKeys,
+        this.logProgress,
+        this.sudo,
+        this.usernameOverride,
+        this.concurrency,
+        this.minBatchSize,
+        this.jobId,
+        this.nodeLabels,
+        this.relationshipTypes,
+        this.relationshipWeightProperty,
+        this.maxIterations,
+        this.partitioning,
+        this.arrowConnectionInfo,
+        this.writeConcurrency,
+        this.mutateProperty,
+        this.writeProperty,
+        this.seedProperty,
+        this.maxRepeatNodes,
         value));
   }
 
@@ -1597,11 +1698,12 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         && mutateProperty.equals(another.mutateProperty)
         && writeProperty.equals(another.writeProperty)
         && Objects.equals(seedProperty, another.seedProperty)
-        && maxRepeatNodes == another.maxRepeatNodes;
+        && maxRepeatNodes == another.maxRepeatNodes
+        && withRepeition == another.withRepeition;
   }
 
   /**
-   * Computes a hash code from attributes: {@code logProgress}, {@code sudo}, {@code usernameOverride}, {@code concurrency}, {@code minBatchSize}, {@code jobId}, {@code nodeLabels}, {@code relationshipTypes}, {@code hasRelationshipWeightProperty}, {@code relationshipWeightProperty}, {@code maxIterations}, {@code partitioning}, {@code useForkJoin}, {@code arrowConnectionInfo}, {@code writeConcurrency}, {@code mutateProperty}, {@code writeProperty}, {@code seedProperty}, {@code maxRepeatNodes}.
+   * Computes a hash code from attributes: {@code logProgress}, {@code sudo}, {@code usernameOverride}, {@code concurrency}, {@code minBatchSize}, {@code jobId}, {@code nodeLabels}, {@code relationshipTypes}, {@code hasRelationshipWeightProperty}, {@code relationshipWeightProperty}, {@code maxIterations}, {@code partitioning}, {@code useForkJoin}, {@code arrowConnectionInfo}, {@code writeConcurrency}, {@code mutateProperty}, {@code writeProperty}, {@code seedProperty}, {@code maxRepeatNodes}, {@code withRepeition}.
    * @return hashCode value
    */
   @Override
@@ -1626,6 +1728,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     h += (h << 5) + writeProperty.hashCode();
     h += (h << 5) + Objects.hashCode(seedProperty);
     h += (h << 5) + Long.hashCode(maxRepeatNodes);
+    h += (h << 5) + Boolean.hashCode(withRepeition);
     return h;
   }
 
@@ -1682,6 +1785,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     }
     builder.append(", ");
     builder.append("maxRepeatNodes=").append(maxRepeatNodes);
+    builder.append(", ");
+    builder.append("withRepeition=").append(withRepeition);
     return builder.append("}").toString();
   }
 
@@ -1700,10 +1805,11 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
    * @param writeProperty The value for the {@code writeProperty} attribute
    * @param seedProperty The value for the {@code seedProperty} attribute
    * @param maxRepeatNodes The value for the {@code maxRepeatNodes} attribute
+   * @param withRepeition The value for the {@code withRepeition} attribute
    * @return An immutable FrequentSubgraphMiningPregelConfig instance
    */
-  public static FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig of(int concurrency, int minBatchSize, List<String> nodeLabels, List<String> relationshipTypes, Optional<String> relationshipWeightProperty, int maxIterations, Partitioning partitioning, Optional<WriteConfig.ArrowConnectionInfo> arrowConnectionInfo, int writeConcurrency, String mutateProperty, String writeProperty, @Nullable String seedProperty, long maxRepeatNodes) {
-    return of(concurrency, minBatchSize, (Iterable<String>) nodeLabels, (Iterable<String>) relationshipTypes, relationshipWeightProperty, maxIterations, partitioning, arrowConnectionInfo, writeConcurrency, mutateProperty, writeProperty, seedProperty, maxRepeatNodes);
+  public static FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig of(int concurrency, int minBatchSize, List<String> nodeLabels, List<String> relationshipTypes, Optional<String> relationshipWeightProperty, int maxIterations, Partitioning partitioning, Optional<WriteConfig.ArrowConnectionInfo> arrowConnectionInfo, int writeConcurrency, String mutateProperty, String writeProperty, @Nullable String seedProperty, long maxRepeatNodes, boolean withRepeition) {
+    return of(concurrency, minBatchSize, (Iterable<String>) nodeLabels, (Iterable<String>) relationshipTypes, relationshipWeightProperty, maxIterations, partitioning, arrowConnectionInfo, writeConcurrency, mutateProperty, writeProperty, seedProperty, maxRepeatNodes, withRepeition);
   }
 
   /**
@@ -1721,10 +1827,11 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
    * @param writeProperty The value for the {@code writeProperty} attribute
    * @param seedProperty The value for the {@code seedProperty} attribute
    * @param maxRepeatNodes The value for the {@code maxRepeatNodes} attribute
+   * @param withRepeition The value for the {@code withRepeition} attribute
    * @return An immutable FrequentSubgraphMiningPregelConfig instance
    */
-  public static FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig of(int concurrency, int minBatchSize, Iterable<String> nodeLabels, Iterable<String> relationshipTypes, Optional<String> relationshipWeightProperty, int maxIterations, Partitioning partitioning, Optional<? extends WriteConfig.ArrowConnectionInfo> arrowConnectionInfo, int writeConcurrency, String mutateProperty, String writeProperty, @Nullable String seedProperty, long maxRepeatNodes) {
-    return validate(new ImmutableFrequentSubgraphMiningPregelConfig(concurrency, minBatchSize, nodeLabels, relationshipTypes, relationshipWeightProperty, maxIterations, partitioning, arrowConnectionInfo, writeConcurrency, mutateProperty, writeProperty, seedProperty, maxRepeatNodes));
+  public static FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig of(int concurrency, int minBatchSize, Iterable<String> nodeLabels, Iterable<String> relationshipTypes, Optional<String> relationshipWeightProperty, int maxIterations, Partitioning partitioning, Optional<? extends WriteConfig.ArrowConnectionInfo> arrowConnectionInfo, int writeConcurrency, String mutateProperty, String writeProperty, @Nullable String seedProperty, long maxRepeatNodes, boolean withRepeition) {
+    return validate(new ImmutableFrequentSubgraphMiningPregelConfig(concurrency, minBatchSize, nodeLabels, relationshipTypes, relationshipWeightProperty, maxIterations, partitioning, arrowConnectionInfo, writeConcurrency, mutateProperty, writeProperty, seedProperty, maxRepeatNodes, withRepeition));
   }
 
   /**
@@ -1742,10 +1849,11 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
    * @param writeProperty The value for the {@code writeProperty} attribute
    * @param seedProperty The value for the {@code seedProperty} attribute
    * @param maxRepeatNodes The value for the {@code maxRepeatNodes} attribute
+   * @param withRepeition The value for the {@code withRepeition} attribute
    * @return An immutable FrequentSubgraphMiningPregelConfig instance
    */
-  public static FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig of(int concurrency, int minBatchSize, Iterable<String> nodeLabels, Iterable<String> relationshipTypes, String relationshipWeightProperty, int maxIterations, Partitioning partitioning, WriteConfig.ArrowConnectionInfo arrowConnectionInfo, int writeConcurrency, String mutateProperty, String writeProperty, @Nullable String seedProperty, long maxRepeatNodes) {
-    return validate(new ImmutableFrequentSubgraphMiningPregelConfig(concurrency, minBatchSize, nodeLabels, relationshipTypes, relationshipWeightProperty, maxIterations, partitioning, arrowConnectionInfo, writeConcurrency, mutateProperty, writeProperty, seedProperty, maxRepeatNodes));
+  public static FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig of(int concurrency, int minBatchSize, Iterable<String> nodeLabels, Iterable<String> relationshipTypes, String relationshipWeightProperty, int maxIterations, Partitioning partitioning, WriteConfig.ArrowConnectionInfo arrowConnectionInfo, int writeConcurrency, String mutateProperty, String writeProperty, @Nullable String seedProperty, long maxRepeatNodes, boolean withRepeition) {
+    return validate(new ImmutableFrequentSubgraphMiningPregelConfig(concurrency, minBatchSize, nodeLabels, relationshipTypes, relationshipWeightProperty, maxIterations, partitioning, arrowConnectionInfo, writeConcurrency, mutateProperty, writeProperty, seedProperty, maxRepeatNodes, withRepeition));
   }
 
   private static ImmutableFrequentSubgraphMiningPregelConfig validate(ImmutableFrequentSubgraphMiningPregelConfig instance) {
@@ -1793,6 +1901,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
    *    .writeProperty(String) // optional {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#writeProperty() writeProperty}
    *    .seedProperty(String | null) // nullable {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#seedProperty() seedProperty}
    *    .maxRepeatNodes(long) // optional {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#maxRepeatNodes() maxRepeatNodes}
+   *    .withRepeition(boolean) // optional {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#withRepeition() withRepeition}
    *    .build();
    * </pre>
    * @return A new FrequentSubgraphMiningPregelConfig builder
@@ -1820,6 +1929,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     private static final long OPT_BIT_WRITE_CONCURRENCY = 0x40L;
     private static final long OPT_BIT_SEED_PROPERTY = 0x80L;
     private static final long OPT_BIT_MAX_REPEAT_NODES = 0x100L;
+    private static final long OPT_BIT_WITH_REPEITION = 0x200L;
     private long initBits = 0x1L;
     private long optBits;
 
@@ -1841,6 +1951,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     private String writeProperty;
     private String seedProperty;
     private long maxRepeatNodes;
+    private boolean withRepeition;
 
     private Builder() {
     }
@@ -2067,6 +2178,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
       }
       if (object instanceof FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig) {
         FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig instance = (FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig) object;
+        withRepeition(instance.withRepeition());
         maxRepeatNodes(instance.maxRepeatNodes());
       }
       if (object instanceof IterationsConfig) {
@@ -2402,6 +2514,18 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     }
 
     /**
+     * Initializes the value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#withRepeition() withRepeition} attribute.
+     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#withRepeition() withRepeition}.</em>
+     * @param withRepeition The value for withRepeition 
+     * @return {@code this} builder for use in a chained invocation
+     */
+    public final Builder withRepeition(boolean withRepeition) {
+      this.withRepeition = withRepeition;
+      optBits |= OPT_BIT_WITH_REPEITION;
+      return this;
+    }
+
+    /**
      * Clear the builder to the initial state.
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2430,6 +2554,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
       this.writeProperty = null;
       this.seedProperty = null;
       this.maxRepeatNodes = 0;
+      this.withRepeition = false;
       return this;
     }
 
@@ -2479,6 +2604,10 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
 
     private boolean maxRepeatNodesIsSet() {
       return (optBits & OPT_BIT_MAX_REPEAT_NODES) != 0;
+    }
+
+    private boolean withRepeitionIsSet() {
+      return (optBits & OPT_BIT_WITH_REPEITION) != 0;
     }
 
     private String formatRequiredAttributesMessage() {

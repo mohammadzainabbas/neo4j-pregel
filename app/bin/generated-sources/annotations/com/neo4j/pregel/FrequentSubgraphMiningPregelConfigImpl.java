@@ -29,6 +29,8 @@ public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSub
 
     private long maxRepeatNodes;
 
+    private boolean withRepeition;
+
     private String mutateProperty;
 
     private String writeProperty;
@@ -68,6 +70,11 @@ public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSub
         }
         try {
             this.maxRepeatNodes = config.getLong("maxRepeatNodes", FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.maxRepeatNodes());
+        } catch (IllegalArgumentException e) {
+            errors.add(e);
+        }
+        try {
+            this.withRepeition = config.getBool("withRepeition", FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.withRepeition());
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
@@ -188,6 +195,11 @@ public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSub
     }
 
     @Override
+    public boolean withRepeition() {
+        return this.withRepeition;
+    }
+
+    @Override
     public String mutateProperty() {
         return this.mutateProperty;
     }
@@ -260,7 +272,7 @@ public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSub
 
     @Override
     public Collection<String> configKeys() {
-        return Arrays.asList("isAsynchronous", "maxRepeatNodes", "mutateProperty", "writeProperty", "partitioning", "nodeLabels", "relationshipTypes", "logProgress", "sudo", "username", "concurrency", "jobId", "relationshipWeightProperty", "maxIterations", "arrowConnectionInfo", "writeConcurrency", "seedProperty");
+        return Arrays.asList("isAsynchronous", "maxRepeatNodes", "withRepeition", "mutateProperty", "writeProperty", "partitioning", "nodeLabels", "relationshipTypes", "logProgress", "sudo", "username", "concurrency", "jobId", "relationshipWeightProperty", "maxIterations", "arrowConnectionInfo", "writeConcurrency", "seedProperty");
     }
 
     @Override
@@ -278,6 +290,7 @@ public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSub
         Map<String, Object> map = new LinkedHashMap<>();
         map.put("isAsynchronous", isAsynchronous());
         map.put("maxRepeatNodes", maxRepeatNodes());
+        map.put("withRepeition", withRepeition());
         map.put("mutateProperty", mutateProperty());
         map.put("writeProperty", writeProperty());
         map.put("partitioning", org.neo4j.gds.beta.pregel.Partitioning.toString(partitioning()));
@@ -352,6 +365,7 @@ public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSub
             var builder = new FrequentSubgraphMiningPregelConfigImpl.Builder();
             builder.isAsynchronous(baseConfig.isAsynchronous());
             builder.maxRepeatNodes(baseConfig.maxRepeatNodes());
+            builder.withRepeition(baseConfig.withRepeition());
             builder.mutateProperty(baseConfig.mutateProperty());
             builder.writeProperty(baseConfig.writeProperty());
             builder.partitioning(baseConfig.partitioning());
@@ -378,6 +392,11 @@ public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSub
 
         public FrequentSubgraphMiningPregelConfigImpl.Builder maxRepeatNodes(long maxRepeatNodes) {
             this.config.put("maxRepeatNodes", maxRepeatNodes);
+            return this;
+        }
+
+        public FrequentSubgraphMiningPregelConfigImpl.Builder withRepeition(boolean withRepeition) {
+            this.config.put("withRepeition", withRepeition);
             return this;
         }
 
