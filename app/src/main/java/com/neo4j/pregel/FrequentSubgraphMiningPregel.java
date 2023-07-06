@@ -91,8 +91,8 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
         
         // First superstep
         if (context.isInitialSuperstep()) {
-            long[] new_fsms = new long[fsms.length + 1];
-            System.arraycopy(fsms, 0, new_fsms, 0, fsms.length); // copy existing nodeIds
+            // long[] new_fsms = new long[fsms.length + 1];
+            // System.arraycopy(fsms, 0, new_fsms, 0, fsms.length); // copy existing nodeIds
             new_fsms[fsms.length] = nodeOriginalId; // add the id that we want to insert
         } else {
             // iterate over all messages (coming from all the neighbors) and add them all to FSM 
