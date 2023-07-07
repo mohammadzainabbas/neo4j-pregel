@@ -24,7 +24,7 @@ import org.neo4j.gds.core.CypherMapWrapper;
 import org.neo4j.gds.core.utils.progress.JobId;
 
 @Generated("org.neo4j.gds.proc.ConfigurationProcessor")
-public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig {
+public final class FindTrianglesPregelConfigImpl implements FindTrianglesPregel.FindTrianglesPregelConfig {
     private boolean isAsynchronous;
 
     private long maxRepeatNodes;
@@ -61,55 +61,55 @@ public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSub
 
     private @Nullable String seedProperty;
 
-    public FrequentSubgraphMiningPregelConfigImpl(@NotNull CypherMapAccess config) {
+    public FindTrianglesPregelConfigImpl(@NotNull CypherMapAccess config) {
         ArrayList<IllegalArgumentException> errors = new ArrayList<>();
         try {
-            this.isAsynchronous = config.getBool("isAsynchronous", FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.isAsynchronous());
+            this.isAsynchronous = config.getBool("isAsynchronous", FindTrianglesPregel.FindTrianglesPregelConfig.super.isAsynchronous());
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.maxRepeatNodes = config.getLong("maxRepeatNodes", FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.maxRepeatNodes());
+            this.maxRepeatNodes = config.getLong("maxRepeatNodes", FindTrianglesPregel.FindTrianglesPregelConfig.super.maxRepeatNodes());
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.withRepeition = config.getBool("withRepeition", FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.withRepeition());
+            this.withRepeition = config.getBool("withRepeition", FindTrianglesPregel.FindTrianglesPregelConfig.super.withRepeition());
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.mutateProperty = CypherMapAccess.failOnNull("mutateProperty", config.getString("mutateProperty", FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.mutateProperty()));
+            this.mutateProperty = CypherMapAccess.failOnNull("mutateProperty", config.getString("mutateProperty", FindTrianglesPregel.FindTrianglesPregelConfig.super.mutateProperty()));
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.writeProperty = CypherMapAccess.failOnNull("writeProperty", config.getString("writeProperty", FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.writeProperty()));
+            this.writeProperty = CypherMapAccess.failOnNull("writeProperty", config.getString("writeProperty", FindTrianglesPregel.FindTrianglesPregelConfig.super.writeProperty()));
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.partitioning = CypherMapAccess.failOnNull("partitioning", Partitioning.parse(config.getChecked("partitioning", FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.partitioning(), Object.class)));
+            this.partitioning = CypherMapAccess.failOnNull("partitioning", Partitioning.parse(config.getChecked("partitioning", FindTrianglesPregel.FindTrianglesPregelConfig.super.partitioning(), Object.class)));
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.nodeLabels = CypherMapAccess.failOnNull("nodeLabels", config.getChecked("nodeLabels", FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.nodeLabels(), List.class));
+            this.nodeLabels = CypherMapAccess.failOnNull("nodeLabels", config.getChecked("nodeLabels", FindTrianglesPregel.FindTrianglesPregelConfig.super.nodeLabels(), List.class));
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.relationshipTypes = CypherMapAccess.failOnNull("relationshipTypes", config.getChecked("relationshipTypes", FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.relationshipTypes(), List.class));
+            this.relationshipTypes = CypherMapAccess.failOnNull("relationshipTypes", config.getChecked("relationshipTypes", FindTrianglesPregel.FindTrianglesPregelConfig.super.relationshipTypes(), List.class));
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.logProgress = config.getBool("logProgress", FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.logProgress());
+            this.logProgress = config.getBool("logProgress", FindTrianglesPregel.FindTrianglesPregelConfig.super.logProgress());
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.sudo = config.getBool("sudo", FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.sudo());
+            this.sudo = config.getBool("sudo", FindTrianglesPregel.FindTrianglesPregelConfig.super.sudo());
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
@@ -119,12 +119,12 @@ public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSub
             errors.add(e);
         }
         try {
-            this.concurrency = config.getInt("concurrency", FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.concurrency());
+            this.concurrency = config.getInt("concurrency", FindTrianglesPregel.FindTrianglesPregelConfig.super.concurrency());
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.jobId = CypherMapAccess.failOnNull("jobId", JobId.parse(config.getChecked("jobId", FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.jobId(), Object.class)));
+            this.jobId = CypherMapAccess.failOnNull("jobId", JobId.parse(config.getChecked("jobId", FindTrianglesPregel.FindTrianglesPregelConfig.super.jobId(), Object.class)));
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
@@ -145,12 +145,12 @@ public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSub
             errors.add(e);
         }
         try {
-            this.writeConcurrency = config.getInt("writeConcurrency", FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.writeConcurrency());
+            this.writeConcurrency = config.getInt("writeConcurrency", FindTrianglesPregel.FindTrianglesPregelConfig.super.writeConcurrency());
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.seedProperty = SeedConfig.validatePropertyName(config.getString("seedProperty", FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.seedProperty()));
+            this.seedProperty = SeedConfig.validatePropertyName(config.getString("seedProperty", FindTrianglesPregel.FindTrianglesPregelConfig.super.seedProperty()));
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
@@ -349,8 +349,8 @@ public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSub
         return this.seedProperty;
     }
 
-    public static FrequentSubgraphMiningPregelConfigImpl.Builder builder() {
-        return new FrequentSubgraphMiningPregelConfigImpl.Builder();
+    public static FindTrianglesPregelConfigImpl.Builder builder() {
+        return new FindTrianglesPregelConfigImpl.Builder();
     }
 
     public static final class Builder {
@@ -360,9 +360,9 @@ public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSub
             this.config = new HashMap<>();
         }
 
-        public static FrequentSubgraphMiningPregelConfigImpl.Builder from(
-                FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig baseConfig) {
-            var builder = new FrequentSubgraphMiningPregelConfigImpl.Builder();
+        public static FindTrianglesPregelConfigImpl.Builder from(
+                FindTrianglesPregel.FindTrianglesPregelConfig baseConfig) {
+            var builder = new FindTrianglesPregelConfigImpl.Builder();
             builder.isAsynchronous(baseConfig.isAsynchronous());
             builder.maxRepeatNodes(baseConfig.maxRepeatNodes());
             builder.withRepeition(baseConfig.withRepeition());
@@ -384,124 +384,120 @@ public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSub
             return builder;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder isAsynchronous(
-                boolean isAsynchronous) {
+        public FindTrianglesPregelConfigImpl.Builder isAsynchronous(boolean isAsynchronous) {
             this.config.put("isAsynchronous", isAsynchronous);
             return this;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder maxRepeatNodes(long maxRepeatNodes) {
+        public FindTrianglesPregelConfigImpl.Builder maxRepeatNodes(long maxRepeatNodes) {
             this.config.put("maxRepeatNodes", maxRepeatNodes);
             return this;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder withRepeition(boolean withRepeition) {
+        public FindTrianglesPregelConfigImpl.Builder withRepeition(boolean withRepeition) {
             this.config.put("withRepeition", withRepeition);
             return this;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder mutateProperty(
-                String mutateProperty) {
+        public FindTrianglesPregelConfigImpl.Builder mutateProperty(String mutateProperty) {
             this.config.put("mutateProperty", mutateProperty);
             return this;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder writeProperty(String writeProperty) {
+        public FindTrianglesPregelConfigImpl.Builder writeProperty(String writeProperty) {
             this.config.put("writeProperty", writeProperty);
             return this;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder partitioning(Object partitioning) {
+        public FindTrianglesPregelConfigImpl.Builder partitioning(Object partitioning) {
             this.config.put("partitioning", partitioning);
             return this;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder nodeLabels(List<String> nodeLabels) {
+        public FindTrianglesPregelConfigImpl.Builder nodeLabels(List<String> nodeLabels) {
             this.config.put("nodeLabels", nodeLabels);
             return this;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder relationshipTypes(
+        public FindTrianglesPregelConfigImpl.Builder relationshipTypes(
                 List<String> relationshipTypes) {
             this.config.put("relationshipTypes", relationshipTypes);
             return this;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder logProgress(boolean logProgress) {
+        public FindTrianglesPregelConfigImpl.Builder logProgress(boolean logProgress) {
             this.config.put("logProgress", logProgress);
             return this;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder sudo(boolean sudo) {
+        public FindTrianglesPregelConfigImpl.Builder sudo(boolean sudo) {
             this.config.put("sudo", sudo);
             return this;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder usernameOverride(
-                String usernameOverride) {
+        public FindTrianglesPregelConfigImpl.Builder usernameOverride(String usernameOverride) {
             this.config.put("username", usernameOverride);
             return this;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder usernameOverride(
+        public FindTrianglesPregelConfigImpl.Builder usernameOverride(
                 Optional<String> usernameOverride) {
             usernameOverride.ifPresent(actualusernameOverride -> this.config.put("username", actualusernameOverride));
             return this;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder concurrency(int concurrency) {
+        public FindTrianglesPregelConfigImpl.Builder concurrency(int concurrency) {
             this.config.put("concurrency", concurrency);
             return this;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder jobId(Object jobId) {
+        public FindTrianglesPregelConfigImpl.Builder jobId(Object jobId) {
             this.config.put("jobId", jobId);
             return this;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder relationshipWeightProperty(
+        public FindTrianglesPregelConfigImpl.Builder relationshipWeightProperty(
                 String relationshipWeightProperty) {
             this.config.put("relationshipWeightProperty", relationshipWeightProperty);
             return this;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder relationshipWeightProperty(
+        public FindTrianglesPregelConfigImpl.Builder relationshipWeightProperty(
                 Optional<String> relationshipWeightProperty) {
             relationshipWeightProperty.ifPresent(actualrelationshipWeightProperty -> this.config.put("relationshipWeightProperty", actualrelationshipWeightProperty));
             return this;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder maxIterations(int maxIterations) {
+        public FindTrianglesPregelConfigImpl.Builder maxIterations(int maxIterations) {
             this.config.put("maxIterations", maxIterations);
             return this;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder arrowConnectionInfo(
+        public FindTrianglesPregelConfigImpl.Builder arrowConnectionInfo(
                 Object arrowConnectionInfo) {
             this.config.put("arrowConnectionInfo", arrowConnectionInfo);
             return this;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder arrowConnectionInfo(
+        public FindTrianglesPregelConfigImpl.Builder arrowConnectionInfo(
                 Optional<Object> arrowConnectionInfo) {
             arrowConnectionInfo.ifPresent(actualarrowConnectionInfo -> this.config.put("arrowConnectionInfo", actualarrowConnectionInfo));
             return this;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder writeConcurrency(
-                int writeConcurrency) {
+        public FindTrianglesPregelConfigImpl.Builder writeConcurrency(int writeConcurrency) {
             this.config.put("writeConcurrency", writeConcurrency);
             return this;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder seedProperty(String seedProperty) {
+        public FindTrianglesPregelConfigImpl.Builder seedProperty(String seedProperty) {
             this.config.put("seedProperty", seedProperty);
             return this;
         }
 
-        public FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig build() {
+        public FindTrianglesPregel.FindTrianglesPregelConfig build() {
             CypherMapWrapper config = CypherMapWrapper.create(this.config);
-            return new FrequentSubgraphMiningPregelConfigImpl(config);
+            return new FindTrianglesPregelConfigImpl(config);
         }
     }
 }
