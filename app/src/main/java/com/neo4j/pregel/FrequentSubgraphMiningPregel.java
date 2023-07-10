@@ -36,6 +36,14 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
     public static final String NODE_INFO = "node_info";
     
     public static final long IDENTIFIER = -1;
+
+    public double encode(long num1, long num2) {
+        
+    }
+
+    public long[] decode(double num) {
+
+    }
     
     /* Each node will have this value-schema during pregel computation */
     @Override
