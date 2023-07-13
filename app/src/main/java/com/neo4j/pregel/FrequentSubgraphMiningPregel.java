@@ -65,7 +65,6 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
 
         schema
             .add(NODE_INFO, ValueType.LONG_ARRAY) // [degree, orginal_id] 
-            .add(NODE_INFO, ValueType.LONG_ARRAY) // [degree, orginal_id] 
             .add(G_ID, ValueType.LONG)
             .add(POS_X, ValueType.DOUBLE)
             .add(POS_Y, ValueType.DOUBLE)
