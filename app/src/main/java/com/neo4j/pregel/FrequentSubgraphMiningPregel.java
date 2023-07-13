@@ -153,7 +153,9 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
 
             for (var previous_message: previous_messages) {
 
-                if
+                if (previous_message == IDENTIFIER) {
+                    
+                }
 
 
 
