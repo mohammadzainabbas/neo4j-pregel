@@ -135,7 +135,19 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
                 previous_message_nodes.add(previous_message[i - 1]);
             }
 
-            
+            var messages_list = new ArrayList<Long>();
+            for (var message: messages) {
+                var from_node_id = message.longValue();
+                var from_node_info = context.longArrayNodeValue(NODE_INFO, from_node_id);
+                // var from_node_degree = from_node_info[0];
+                var from_node_original_id = from_node_info[1];
+                
+                if (from_node_original_id == nodeOriginalId && !context.config().withRepeition()) {
+                    continue; // disallow self-loops
+                }
+                
+                messages_list.add(from_node_original_id);
+            }
 
 
 
