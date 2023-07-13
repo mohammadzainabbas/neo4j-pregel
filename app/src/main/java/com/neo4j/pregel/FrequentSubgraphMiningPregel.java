@@ -117,7 +117,8 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
         // First superstep
         if (context.isInitialSuperstep()) {
             context.setNodeValue(stepKey, new long[] {nodeOriginalId, IDENTIFIER});
-        } else {
+        } 
+        else {
             // iterate over all messages (coming from all the neighbors) and add them all to FSM 
             // (NOTE: each superstep is separated via some unique identifier)
 
@@ -172,7 +173,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
                     new_fsm.addAll(fsm_buffer);
                     fsm_buffer.clear();
                 }
-        }
+            }
 
         if (newMessage) {
             // convert ArrayList<Long> back to long[]
