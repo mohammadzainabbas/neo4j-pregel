@@ -192,10 +192,10 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
     //     return Optional.of(new Reducer.Sum());
     // }
 
-    // @Override
-    // public boolean masterCompute(MasterComputeContext<PathsMiningPregel.PathsMiningPregelConfig> context) {
-    //     return context.superstep() >= 2; // stop after 2 supersteps
-    // }
+    @Override
+    public boolean masterCompute(MasterComputeContext<PathsMiningPregel.PathsMiningPregelConfig> context) {
+        return context.superstep() >= 2; // stop after 2 supersteps
+    }
 
     @ValueClass
     @Configuration("PathsMiningPregelConfigImpl")
