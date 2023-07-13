@@ -29,7 +29,7 @@ import java.util.stream.Collectors;
 @PregelProcedure(name = "esilv.pregel.find_paths", modes = { GDSMode.STREAM, GDSMode.MUTATE }, description = "Paths Mining with Pregel (find all paths of length 'max_iteration') - Frequent Pattern Mining :: Neo4j")
 public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.PathsMiningPregelConfig> {
 
-    public static final String PATH = "fsm";
+    public static final String PATH = "path";
     public static final String G_ID = "gid";
     public static final String POS_X = "pos_x";
     public static final String POS_Y = "pos_y";
@@ -102,8 +102,8 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             context.setNodeValue(G_ID, context.nodeProperties(G_ID).longValue(nodeId));
         }
 
-        long[] empty_fsm_array = {};
-        context.setNodeValue(PATH, empty_fsm_array);
+        long[] empty_path_array = {};
+        context.setNodeValue(PATH, empty_path_array);
     }
 
     /* Called for each node in every superstep */
@@ -135,8 +135,8 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
                 messages_map.computeIfAbsent(from_node_id, k -> new ArrayList<Long>()).add(to_node_id); // add to the hashmap's array list against the key
             }
             
-            var new_fsm = new ArrayList<Long>();
-            var fsm_buffer = new ArrayList<Long>();
+            var new_path = new ArrayList<Long>();
+            var path_buffer = new ArrayList<Long>();
             var previous_messages = context.longArrayNodeValue(previousKey);
 
             for (int i = 0; i < previous_messages.length; i++) {
@@ -154,7 +154,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
                         
                         for (var message: message_list) {
                             
-                            temp.addAll(fsm_buffer);
+                            temp.addAll(path_buffer);
 
                             long value = encode(previous_message_to_node, message);
 
@@ -162,24 +162,24 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
                             temp.add(IDENTIFIER);
                         }
 
-                        new_fsm.addAll(temp);
-                        fsm_buffer.clear();
+                        new_path.addAll(temp);
+                        path_buffer.clear();
                         temp.clear();
                         continue;
                     }
                 }                
-                fsm_buffer.add(previous_message);
+                path_buffer.add(previous_message);
                 if (previous_message == IDENTIFIER) {
-                    new_fsm.addAll(fsm_buffer);
-                    fsm_buffer.clear();
+                    new_path.addAll(path_buffer);
+                    path_buffer.clear();
                 }
         }
 
         if (newMessage) {
             // convert ArrayList<Long> back to long[]
-            long[] new_fsms = arrayListToNativeArray(new_fsm);
-            context.setNodeValue(stepKey, new_fsms); // update paths internally (for each node)
-            for (var message: new_fsms) {
+            long[] new_paths = arrayListToNativeArray(new_path);
+            context.setNodeValue(stepKey, new_paths); // update paths internally (for each node)
+            for (var message: new_paths) {
                 context.sendToNeighbors(message); // send node_id to all neighbors (to let them know where they got this message from)
             }
             context.sendToNeighbors(nodeId); // send node_id to all neighbors (to let them know where they got this message from)
