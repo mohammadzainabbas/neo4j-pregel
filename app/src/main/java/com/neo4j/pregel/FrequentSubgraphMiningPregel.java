@@ -135,6 +135,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
                 previous_message_nodes.add(previous_message[i - 1]);
             }
 
+            
 
 
 
