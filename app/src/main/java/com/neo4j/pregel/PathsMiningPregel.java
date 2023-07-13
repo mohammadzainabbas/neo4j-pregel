@@ -30,7 +30,7 @@ import java.util.stream.Collectors;
 public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.PathsMiningPregelConfig> {
 
     // INTERNALS
-    public static final String PATH = "path";
+    public static final String PATH = "path_";
     public static final String G_ID = "gid";
     public static final String POS_X = "pos_x";
     public static final String POS_Y = "pos_y";
