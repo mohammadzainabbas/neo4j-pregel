@@ -52,6 +52,11 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
         long result2 = result & 0xFFFFFFFFL;
         return new long[] {result1, result2};
     }
+
+    public T[] arrayListToNativeArray(ArrayList<T> arrayList) {
+        T[] array = arrayList.toArray(new T[arrayList.size()]);
+        return array;
+    }
     
     /* Each node will have this value-schema during pregel computation */
     @Override
@@ -126,7 +131,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
                 }
             }
 
-            
+
 
 
 
