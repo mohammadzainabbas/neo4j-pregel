@@ -121,8 +121,9 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             context.setNodeValue(stepKey, new long[] {nodeOriginalId, IDENTIFIER});
             context.sendToNeighbors(nodeOriginalId); // send node_id to all neighbors (to let them know where they got this message from)
         } 
-        else 
-        {
+        else if (superstep == PathFindingPhase.CONNECT_NEIGHBORS_PATH.step) {
+
+        } else if (superstep >= PathFindingPhase.COMPUTE_PATH.step) {
             // iterate over all messages (coming from all the neighbors) and add them all to PATH 
             // (NOTE: each superstep is separated via some unique identifier)
 
