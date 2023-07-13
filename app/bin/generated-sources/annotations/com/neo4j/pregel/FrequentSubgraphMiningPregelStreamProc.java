@@ -16,10 +16,10 @@ import org.neo4j.procedure.Procedure;
 @Generated("org.neo4j.gds.pregel.PregelProcessor")
 public final class FrequentSubgraphMiningPregelStreamProc extends BaseProc {
     @Procedure(
-            name = "esilv.pregel.fsm.stream",
+            name = "esilv.pregel.find_paths.stream",
             mode = Mode.READ
     )
-    @Description("Frequent Pattern Mining :: Neo4j - Approximate Frequent Subgraph Mining with Pregel")
+    @Description("Paths Mining with Pregel - Frequent Pattern Mining :: Neo4j")
     public Stream<PregelStreamResult> stream(@Name("graphName") String graphName,
             @Name(value = "configuration", defaultValue = "{}") Map<String, Object> configuration) {
         var specification = new FrequentSubgraphMiningPregelStreamSpecification();
@@ -28,7 +28,7 @@ public final class FrequentSubgraphMiningPregelStreamProc extends BaseProc {
     }
 
     @Procedure(
-            name = "esilv.pregel.fsm.stream.estimate",
+            name = "esilv.pregel.find_paths.stream.estimate",
             mode = Mode.READ
     )
     @Description(BaseProc.ESTIMATE_DESCRIPTION)
