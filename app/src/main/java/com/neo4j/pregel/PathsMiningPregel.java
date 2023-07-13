@@ -102,7 +102,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         if (context.nodeProperties(G_ID) != null) {
             context.setNodeValue(G_ID, context.nodeProperties(G_ID).longValue(nodeId));
         }
-        
+
         for (var i = 0; i < context.config().maxIterations(); i++) {
             context.setNodeValue(PATH + i, new long[]{}); // initialize all paths to empty array
         }
@@ -119,6 +119,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         // First superstep
         if (context.isInitialSuperstep()) {
             context.setNodeValue(stepKey, new long[] {nodeOriginalId, IDENTIFIER});
+            context.sendToNeighbors(nodeOriginalId); // send node_id to all neighbors (to let them know where they got this message from)
         } 
         else 
         {
