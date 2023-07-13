@@ -199,7 +199,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         return context.superstep() >= 2; // stop after 2 supersteps
     }
 
-    enum Phase {
+    enum PathFindingPhase {
         INIT_PATH(0),
         CONNECT_NEIGHBORS_PATH(1),
         COMPUTE_PATH(2);
