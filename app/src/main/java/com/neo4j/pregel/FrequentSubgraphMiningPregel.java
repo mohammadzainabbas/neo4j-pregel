@@ -164,6 +164,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
                         
                         for (var message: message_list) {
                             
+                            
 
                             long value = encode(previous_message_to_node, message);
 
