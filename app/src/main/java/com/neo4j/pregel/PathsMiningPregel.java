@@ -200,9 +200,9 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
     }
 
     enum Phase {
-        INIT(0),
-        COMPUTE(1),
-        REDUCE(2);
+        INIT_PATH(0),
+        CONNECT_NEIGHBORS_PATH(1),
+        COMPUTE_PATH(2);
 
         final int step;
 
