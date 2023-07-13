@@ -117,9 +117,9 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
         int superstep = context.superstep();
         var stepKey = FSM + superstep;
 
-        long[] fsms = context.longArrayNodeValue(FSM);
-        // long[] to ArrayList<Long> (for dynamic array)
-        ArrayList<Long> new_fsm = Arrays.stream(fsms).boxed().collect(Collectors.toCollection(ArrayList::new));
+        // long[] fsms = context.longArrayNodeValue(FSM);
+        // // long[] to ArrayList<Long> (for dynamic array)
+        // ArrayList<Long> new_fsm = Arrays.stream(fsms).boxed().collect(Collectors.toCollection(ArrayList::new));
         
         // First superstep
         if (context.isInitialSuperstep()) {
@@ -146,7 +146,6 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
                 
                 messages_map.computeIfAbsent(from_node_id, k -> new ArrayList<Long>()).add(to_node_id); // add to the hashmap's array list against the key
             }
-            
             
             var new_fsm = new ArrayList<Long>();
             var previous_messages = context.longArrayNodeValue(previousKey);
