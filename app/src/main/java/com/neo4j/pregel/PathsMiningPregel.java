@@ -119,7 +119,8 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         if (context.isInitialSuperstep()) {
             context.setNodeValue(stepKey, new long[] {nodeOriginalId, IDENTIFIER});
         } 
-        else {
+        else 
+        {
             // iterate over all messages (coming from all the neighbors) and add them all to PATH 
             // (NOTE: each superstep is separated via some unique identifier)
 
