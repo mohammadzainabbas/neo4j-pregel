@@ -162,7 +162,8 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
                     var message_list = messages_map.get(previous_message_to_node);
                     if (message_list != null) {
 
-                        
+                        var temp
+
                         for (var message: message_list) {
 
 
