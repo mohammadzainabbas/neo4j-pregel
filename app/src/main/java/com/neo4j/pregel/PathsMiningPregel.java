@@ -130,9 +130,9 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             
             var messages_list = new ArrayList<Long>();
             for (var message: messages) { // @TODO: recheck this logic (to build the correct message list)
-                long[] message = decode(message.longValue());
-                var from_node_id = message[0];
-                var to_node_id = message[1];
+                long[] msg = decode(message.longValue());
+                var from_node_id = msg[0];
+                var to_node_id = msg[1];
                 
                 messages_map.computeIfAbsent(from_node_id, k -> new ArrayList<Long>()).add(to_node_id); // add to the hashmap's array list against the key
             }
