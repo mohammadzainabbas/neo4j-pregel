@@ -29,6 +29,7 @@ import java.util.stream.Collectors;
 @PregelProcedure(name = "esilv.pregel.find_paths", modes = { GDSMode.STREAM, GDSMode.MUTATE }, description = "Paths Mining with Pregel (find all paths of length 'max_iteration') - Frequent Pattern Mining :: Neo4j")
 public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.PathsMiningPregelConfig> {
 
+    // INTERNALS
     public static final String PATH = "path";
     public static final String G_ID = "gid";
     public static final String POS_X = "pos_x";
