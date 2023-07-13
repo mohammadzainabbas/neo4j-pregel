@@ -19,7 +19,7 @@ public final class FrequentSubgraphMiningPregelStreamProc extends BaseProc {
             name = "esilv.pregel.find_paths.stream",
             mode = Mode.READ
     )
-    @Description("Frequent Pattern Mining :: Neo4j")
+    @Description("Path Mining with Pregel - Frequent Pattern Mining :: Neo4j")
     public Stream<PregelStreamResult> stream(@Name("graphName") String graphName,
             @Name(value = "configuration", defaultValue = "{}") Map<String, Object> configuration) {
         var specification = new FrequentSubgraphMiningPregelStreamSpecification();

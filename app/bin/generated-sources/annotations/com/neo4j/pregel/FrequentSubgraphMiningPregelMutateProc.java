@@ -19,7 +19,7 @@ public final class FrequentSubgraphMiningPregelMutateProc extends BaseProc {
             name = "esilv.pregel.find_paths.mutate",
             mode = Mode.READ
     )
-    @Description("Frequent Pattern Mining :: Neo4j")
+    @Description("Path Mining with Pregel - Frequent Pattern Mining :: Neo4j")
     public Stream<PregelMutateResult> mutate(@Name("graphName") String graphName,
             @Name(value = "configuration", defaultValue = "{}") Map<String, Object> configuration) {
         var specification = new FrequentSubgraphMiningPregelMutateSpecification();
