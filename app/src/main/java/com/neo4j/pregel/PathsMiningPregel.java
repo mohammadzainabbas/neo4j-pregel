@@ -206,7 +206,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
 
         final int step;
 
-        Phase(int i) {
+        PathFindingPhase(int i) {
             step = i;
         }
     }
