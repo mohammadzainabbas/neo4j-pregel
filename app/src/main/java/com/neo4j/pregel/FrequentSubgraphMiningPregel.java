@@ -147,6 +147,12 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
                 messages_map.computeIfAbsent(from_node_id, k -> new ArrayList<Long>()).add(to_node_id); // add to the hashmap's array list against the key
             }
 
+            for (var previous_message_node: previous_message_nodes) {
+                var message_list = messages_map.get(previous_message_node);
+                if (message_list != null) {
+                    messages_list.addAll(message_list);
+                }
+            }
             
 
 
