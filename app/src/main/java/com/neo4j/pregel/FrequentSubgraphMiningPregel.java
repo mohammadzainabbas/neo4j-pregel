@@ -56,6 +56,15 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
     /* Each node will have this value-schema during pregel computation */
     @Override
     public PregelSchema schema(FrequentSubgraphMiningPregelConfig config) {
+
+        var schema = new PregelSchema.Builder();
+
+        for (var i = 0; i < config.maxIterations(); i++) {
+            schema.add(FSM + i, ValueType.LONG_ARRAY);
+        }
+
+
+
         // TODO: extend ComputeContext so you can get any long/double value by providing a node_id
         return new PregelSchema.Builder()
                 .add(FSM, ValueType.LONG_ARRAY)
