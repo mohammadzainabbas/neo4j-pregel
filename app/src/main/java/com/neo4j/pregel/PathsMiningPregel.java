@@ -104,6 +104,11 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         }
 
         long[] empty_path_array = {};
+
+        for (var i = 0; i < context.config().maxIterations(); i++) {
+            context.setNodeValue(PATH + i, empty_path_array); // every step has its own PATH
+        }
+
         context.setNodeValue(PATH, empty_path_array);
     }
 
