@@ -155,10 +155,14 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
                 long previous_message = previous_messages[i];
                 long[] decoded_previous_message = decode(previous_message);
 
+                if (previous_messages[i + 1] == IDENTIFIER) {
+                    
+                }
+
                 long previous_message_from_node = decoded_previous_message[0];
                 long previous_message_to_node = decoded_previous_message[1];
 
-                
+
 
 
                 
