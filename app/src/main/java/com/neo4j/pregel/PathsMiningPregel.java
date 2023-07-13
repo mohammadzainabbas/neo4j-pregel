@@ -175,6 +175,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
                     new_path.addAll(path_buffer);
                     path_buffer.clear();
                 }
+            }
         }
 
         if (newMessage) {
