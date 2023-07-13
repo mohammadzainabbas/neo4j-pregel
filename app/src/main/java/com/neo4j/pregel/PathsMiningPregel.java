@@ -176,6 +176,15 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
                     path_buffer.clear();
                 }
             }
+
+            if (!new_path.isEmpty()) {
+                long[] new_paths = arrayListToNativeArray(new_path);
+                context.setNodeValue(stepKey, new_paths); // update paths internally (for each node)
+
+                for (var message: messages) {
+                    context.sendToNeighbors(message); // send node_id to all neighbors (to let them know where they got this message from)
+                }
+            }
         }
 
         if (!new_path.isEmpty()) {
