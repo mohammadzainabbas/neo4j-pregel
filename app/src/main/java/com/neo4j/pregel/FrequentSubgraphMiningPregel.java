@@ -183,65 +183,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
                     new_fsm.addAll(fsm_buffer);
                     fsm_buffer.clear();
                 }
-
-
-
-
-
-
-                var message_list = messages_map.get(previous_message_node);
-                if (message_list != null) {
-                    messages_list.addAll(message_list);
-                }
-            }
-            
-
-
-
-
-
-
-
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            ArrayList<Long> messages_list = new ArrayList<Long>();
-            for (var message: messages) {
-                var from_node_id = message.longValue();
-                var from_node_info = context.longArrayNodeValue(NODE_INFO, from_node_id);
-                // var from_node_degree = from_node_info[0];
-                var from_node_original_id = from_node_info[1];
-                
-                if (from_node_original_id == nodeOriginalId && !context.config().withRepeition()) {
-                    continue; // disallow self-loops
-                }
-                
-                messages_list.add(from_node_original_id);
-            }
-
-            if (!context.config().withRepeition()) {
-                // remove duplicates
-                messages_list = (ArrayList<Long>) messages_list.stream().distinct().collect(Collectors.toList());
-            }
-            
-            if (messages_list.size() > 0) { // if there are any messages
-                newMessage = true;
-                new_fsm.addAll(messages_list);
-                new_fsm.add(IDENTIFIER); // add the unique identifier to separate supersteps
-            }
+}
         }
 
         if (newMessage) {
