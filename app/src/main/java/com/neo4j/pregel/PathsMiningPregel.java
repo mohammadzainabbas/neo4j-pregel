@@ -199,6 +199,18 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         return context.superstep() >= 2; // stop after 2 supersteps
     }
 
+    enum Phase {
+        INIT(0),
+        COMPUTE(1),
+        REDUCE(2);
+
+        final int step;
+
+        Phase(int i) {
+            step = i;
+        }
+    }
+
     @ValueClass
     @Configuration("PathsMiningPregelConfigImpl")
     @SuppressWarnings("immutables:subtype")
