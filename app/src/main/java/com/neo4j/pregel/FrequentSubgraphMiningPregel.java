@@ -44,9 +44,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
         return (value1 << 32) | (value2 & 0xFFFFFFFFL);  
     }
     
-    public long[] decode(double value) {
-        // Convert back to long
-        long result = Double.doubleToLongBits(value);
+    public long[] decode(long result) {
         // Extract the two longs
         long result1 = result >> 32;
         long result2 = result & 0xFFFFFFFFL;
