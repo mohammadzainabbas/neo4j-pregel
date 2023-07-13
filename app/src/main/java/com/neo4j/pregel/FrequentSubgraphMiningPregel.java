@@ -57,18 +57,16 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
     @Override
     public PregelSchema schema(FrequentSubgraphMiningPregelConfig config) {
 
-        var schema = new PregelSchema.Builder();
-
-        for (var i = 0; i < config.maxIterations(); i++) {
-            schema.add(FSM + i, ValueType.LONG_ARRAY); // every step has its own FSM
-        }
-
-        schema
+        var schema = new PregelSchema.Builder()
             .add(NODE_INFO, ValueType.LONG_ARRAY) // [degree, orginal_id] 
             .add(G_ID, ValueType.LONG)
             .add(POS_X, ValueType.DOUBLE)
             .add(POS_Y, ValueType.DOUBLE)
             .add(RATING, ValueType.DOUBLE);
+
+        for (var i = 0; i < config.maxIterations(); i++) {
+            schema.add(FSM + i, ValueType.LONG_ARRAY); // every step has its own FSM
+        }
 
         return schema.build();
     }
