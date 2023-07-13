@@ -187,7 +187,10 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
         if (newMessage) {
             // convert ArrayList<Long> back to long[]
             long[] new_fsms = arrayListToNativeArray(new_fsm);
-            context.setNodeValue(FSM, new_fsms); // update paths internally (for each node)
+            context.setNodeValue(stepKey, new_fsms); // update paths internally (for each node)
+            for (var message: new_fsms) {
+                context.sendToNeighbors(message); // send node_id to all neighbors (to let them know where they got this message from)
+            }
             context.sendToNeighbors(nodeId); // send node_id to all neighbors (to let them know where they got this message from)
         } 
         else {
