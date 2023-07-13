@@ -184,20 +184,9 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
                 for (var message: messages) {
                     context.sendToNeighbors(message); // send node_id to all neighbors (to let them know where they got this message from)
                 }
+            } else {
+                context.voteToHalt();
             }
-        }
-
-        if (!new_path.isEmpty()) {
-            // convert ArrayList<Long> back to long[]
-            long[] new_paths = arrayListToNativeArray(new_path);
-            context.setNodeValue(stepKey, new_paths); // update paths internally (for each node)
-            for (var message: new_paths) {
-                context.sendToNeighbors(message); // send node_id to all neighbors (to let them know where they got this message from)
-            }
-            context.sendToNeighbors(nodeId); // send node_id to all neighbors (to let them know where they got this message from)
-        } 
-        else {
-            context.voteToHalt();
         }
     }
 
