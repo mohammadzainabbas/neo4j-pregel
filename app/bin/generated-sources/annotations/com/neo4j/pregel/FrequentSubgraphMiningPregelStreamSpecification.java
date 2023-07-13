@@ -15,7 +15,7 @@ import org.neo4j.gds.pregel.proc.PregelStreamResult;
 @GdsCallable(
         name = "esilv.pregel.find_paths.stream",
         executionMode = ExecutionMode.STREAM,
-        description = "Paths Mining with Pregel - Frequent Pattern Mining :: Neo4j"
+        description = "Paths Mining with Pregel (find all paths of length 'max_iteration') - Frequent Pattern Mining :: Neo4j"
 )
 @Generated("org.neo4j.gds.pregel.PregelProcessor")
 public final class FrequentSubgraphMiningPregelStreamSpecification implements AlgorithmSpec<FrequentSubgraphMiningPregelAlgorithm, PregelResult, FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig, Stream<PregelStreamResult>, FrequentSubgraphMiningPregelAlgorithmFactory> {
