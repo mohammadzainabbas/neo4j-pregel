@@ -63,6 +63,8 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
             schema.add(FSM + i, ValueType.LONG_ARRAY); // every step has its own FSM
         }
 
+        schema.add(FSM, null, null)
+
 
 
         // TODO: extend ComputeContext so you can get any long/double value by providing a node_id
