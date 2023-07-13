@@ -29,7 +29,7 @@ import java.util.stream.Collectors;
 @PregelProcedure(name = "esilv.pregel.find_paths", modes = { GDSMode.STREAM, GDSMode.MUTATE }, description = "Paths Mining with Pregel (find all paths of length 'max_iteration') - Frequent Pattern Mining :: Neo4j")
 public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.PathsMiningPregelConfig> {
 
-    public static final String FSM = "fsm";
+    public static final String PATH = "fsm";
     public static final String G_ID = "gid";
     public static final String POS_X = "pos_x";
     public static final String POS_Y = "pos_y";
@@ -73,7 +73,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             .add(RATING, ValueType.DOUBLE);
 
         for (var i = 0; i < config.maxIterations(); i++) {
-            schema.add(FSM + i, ValueType.LONG_ARRAY); // every step has its own FSM
+            schema.add(PATH + i, ValueType.LONG_ARRAY); // every step has its own PATH
         }
 
         return schema.build();
@@ -103,7 +103,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         }
 
         long[] empty_fsm_array = {};
-        context.setNodeValue(FSM, empty_fsm_array);
+        context.setNodeValue(PATH, empty_fsm_array);
     }
 
     /* Called for each node in every superstep */
@@ -112,17 +112,17 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         var nodeId = context.nodeId();
         var nodeOriginalId = context.toOriginalId(); // for showing correct IDs in the output
         int superstep = context.superstep();
-        var stepKey = FSM + superstep;
+        var stepKey = PATH + superstep;
 
         // First superstep
         if (context.isInitialSuperstep()) {
             context.setNodeValue(stepKey, new long[] {nodeOriginalId, IDENTIFIER});
         } 
         else {
-            // iterate over all messages (coming from all the neighbors) and add them all to FSM 
+            // iterate over all messages (coming from all the neighbors) and add them all to PATH 
             // (NOTE: each superstep is separated via some unique identifier)
 
-            var previousKey = FSM + (superstep - 1);
+            var previousKey = PATH + (superstep - 1);
             
             HashMap<Long, ArrayList<Long>> messages_map = new HashMap<Long, ArrayList<Long>>();
             
