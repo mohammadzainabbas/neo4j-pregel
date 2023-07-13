@@ -52,7 +52,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
         long result2 = result & 0xFFFFFFFFL;
         return new long[] {result1, result2};
     }
-
+    
     public long[] arrayListToNativeArray(ArrayList<Long> arrayList) {
         return arrayList.stream().mapToLong(Long::longValue).toArray();
     }
