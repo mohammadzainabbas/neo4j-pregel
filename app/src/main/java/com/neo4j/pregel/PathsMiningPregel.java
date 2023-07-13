@@ -178,7 +178,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             }
         }
 
-        if (newMessage) {
+        if (new_path.isEmpty()) {
             // convert ArrayList<Long> back to long[]
             long[] new_paths = arrayListToNativeArray(new_path);
             context.setNodeValue(stepKey, new_paths); // update paths internally (for each node)
