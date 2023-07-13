@@ -176,17 +176,9 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
                         temp.clear();
                         continue;
                     }
-                    
-                }
 
-
-
-
-
-                
+                }                
                 fsm_buffer.add(previous_message);
-                
-                
                 if (previous_message == IDENTIFIER) {
                     new_fsm.addAll(fsm_buffer);
                     fsm_buffer.clear();
