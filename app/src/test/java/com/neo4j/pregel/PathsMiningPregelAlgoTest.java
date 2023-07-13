@@ -16,12 +16,12 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import static com.neo4j.pregel.PathsMiningMiningPregel.FSM;
+import static com.neo4j.pregel.PathsMiningPregel.FSM;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @GdlExtension
-class PathsMiningMiningPregelAlgoTest {
+class PathsMiningPregelAlgoTest {
 
     public enum TestingGraph {
         DUMMY_GRAPH {
@@ -60,11 +60,11 @@ class PathsMiningMiningPregelAlgoTest {
     private TestGraph graph;
 
     @Test
-    void runPathsMiningMiningPregel() {
+    void runPathsMiningPregel() {
         int maxIterations = 10;
         boolean withRepeition = false;
 
-        var config = ImmutablePathsMiningMiningPregelConfig.builder()
+        var config = ImmutablePathsMiningPregelConfig.builder()
             .maxIterations(maxIterations)
             .withRepeition(withRepeition)
             .build();
@@ -72,7 +72,7 @@ class PathsMiningMiningPregelAlgoTest {
         var pregelJob = Pregel.create(
             graph,
             config,
-            new PathsMiningMiningPregel(),
+            new PathsMiningPregel(),
             Pools.DEFAULT,
             ProgressTracker.NULL_TRACKER
         );
