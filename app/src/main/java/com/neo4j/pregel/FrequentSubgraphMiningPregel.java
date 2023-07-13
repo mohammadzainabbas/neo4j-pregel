@@ -153,7 +153,6 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
 
             for (int i = 0; i < previous_messages.length; i++) {
                 long[] previous_message = decode(previous_messages[i]);
-
                 
 
                 
