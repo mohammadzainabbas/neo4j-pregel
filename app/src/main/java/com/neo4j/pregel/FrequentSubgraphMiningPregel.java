@@ -113,11 +113,6 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
         var nodeOriginalId = context.toOriginalId(); // for showing correct IDs in the output
         int superstep = context.superstep();
         var stepKey = FSM + superstep;
-
-        // long[] fsms = context.longArrayNodeValue(FSM);
-        // // long[] to ArrayList<Long> (for dynamic array)
-        // ArrayList<Long> new_fsm = Arrays.stream(fsms).boxed().collect(Collectors.toCollection(ArrayList::new));
-        
         // First superstep
         if (context.isInitialSuperstep()) {
             context.setNodeValue(stepKey, new long[] {nodeOriginalId, IDENTIFIER});
@@ -137,7 +132,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
             
             var messages_list = new ArrayList<Long>();
             for (var message: messages) { // @TODO: recheck this logic (to build the correct message list)
-                long[] message = decode(message.length);
+                long[] message = decode(message.longValue());
                 var from_node_id = message[0];
                 var to_node_id = message[1];
                 
