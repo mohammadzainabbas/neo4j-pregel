@@ -150,7 +150,11 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
             var new_fsm = new ArrayList<Long>();
             var previous_messages = context.longArrayNodeValue(previousKey);
 
-            for (var previous_message_node: previous_messages) {
+            for (var previous_message: previous_messages) {
+
+
+
+
                 var message_list = messages_map.get(previous_message_node);
                 if (message_list != null) {
                     messages_list.addAll(message_list);
