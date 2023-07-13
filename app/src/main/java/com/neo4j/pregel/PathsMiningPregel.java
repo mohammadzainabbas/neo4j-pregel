@@ -117,7 +117,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         var stepKey = PATH + superstep;
 
         // First superstep
-        if (context.isInitialSuperstep()) {
+        if (context.isInitialSuperstep() && superstep == PathFindingPhase.INIT_PATH.step) {
             context.setNodeValue(stepKey, new long[] {nodeOriginalId, IDENTIFIER});
             context.sendToNeighbors(nodeOriginalId); // send node_id to all neighbors (to let them know where they got this message from)
         } 
