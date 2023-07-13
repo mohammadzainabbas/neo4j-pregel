@@ -62,8 +62,6 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
     public ArrayList<Long> nativeArrayToArrayList(long[] nativeArray) {
         return Arrays.stream(nativeArray).boxed().collect(Collectors.toCollection(ArrayList::new));
     }
-
-        
     
     /* Each node will have this value-schema during pregel computation */
     @Override
