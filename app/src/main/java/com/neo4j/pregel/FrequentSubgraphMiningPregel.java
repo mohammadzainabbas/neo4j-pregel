@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -135,12 +136,14 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
                 previous_message_nodes.add(previous_message[i - 1]);
             }
 
+            HashMap<Long, ArrayList<Long>> messages_map = new HashMap<Long, ArrayList<Long>>();
+
             var messages_list = new ArrayList<Long>();
             for (var msg: messages) { // @TODO: recheck this logic (to build the correct message list)
                 long[] message = decode(msg);
                 var from_node_id = message[0];
                 var to_node_id = message[1];
-                
+
 
 
 
