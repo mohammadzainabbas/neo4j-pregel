@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-@PregelProcedure(name = "esilv.pregel.find_paths", modes = { GDSMode.STREAM, GDSMode.MUTATE }, description = "Path Mining with Pregel - Frequent Pattern Mining :: Neo4j")
+@PregelProcedure(name = "esilv.pregel.fsm", modes = { GDSMode.STREAM, GDSMode.MUTATE }, description = "Frequent Pattern Mining :: Neo4j - Approximate Frequent Subgraph Mining with Pregel")
 public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig> {
 
     public static final String FSM = "fsm";
@@ -173,7 +173,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
                     new_fsm.addAll(fsm_buffer);
                     fsm_buffer.clear();
                 }
-            }
+        }
 
         if (newMessage) {
             // convert ArrayList<Long> back to long[]
