@@ -72,18 +72,6 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
             .add(RATING, ValueType.DOUBLE);
 
         return schema.build();
-
-
-        // TODO: extend ComputeContext so you can get any long/double value by providing a node_id
-        return new PregelSchema.Builder()
-                .add(FSM, ValueType.LONG_ARRAY)
-                .add(NODE_INFO, ValueType.LONG_ARRAY) // [degree, orginal_id] 
-                .add(NODE_INFO, ValueType.LONG_ARRAY) // [degree, orginal_id] 
-                .add(G_ID, ValueType.LONG)
-                .add(POS_X, ValueType.DOUBLE)
-                .add(POS_Y, ValueType.DOUBLE)
-                .add(RATING, ValueType.DOUBLE)
-                .build();
     }
     
     /* Called in the beginning of the first superstep of the Pregel computation and allows initializing node values */
