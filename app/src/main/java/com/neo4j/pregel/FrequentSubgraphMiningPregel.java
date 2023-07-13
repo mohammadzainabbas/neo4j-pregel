@@ -129,7 +129,7 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
             // (NOTE: each superstep is separated via some unique identifier)
 
             var previousKey = FSM + (superstep - 1);
-            var previous_message = context.longArrayNodeValue(previousKey);
+            var previous_messages = context.longArrayNodeValue(previousKey);
             var previous_message_nodes = new ArrayList<Long>();
             for (var i = 0; i < previous_message.length; i++) {
                 if (previous_message[i] == IDENTIFIER) { continue; } // skip the unique identifier (or should we skip it ?)
