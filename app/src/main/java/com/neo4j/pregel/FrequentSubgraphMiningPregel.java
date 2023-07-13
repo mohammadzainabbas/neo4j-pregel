@@ -134,8 +134,14 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
                 if (previous_message[i] == IDENTIFIER) { continue; } // skip the unique identifier
                 previous_message_nodes.add(previous_message[i - 1]);
             }
-            }
 
+
+
+
+
+
+
+        
 
 
 
