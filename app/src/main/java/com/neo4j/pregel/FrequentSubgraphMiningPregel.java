@@ -129,27 +129,28 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
             // (NOTE: each superstep is separated via some unique identifier)
 
             var previousKey = FSM + (superstep - 1);
-            var previous_messages = context.longArrayNodeValue(previousKey);
-            var previous_message_nodes = new ArrayList<Long>();
-            for (var i = 0; i < previous_message.length; i++) {
-                if (previous_message[i] == IDENTIFIER) { continue; } // skip the unique identifier (or should we skip it ?)
-                previous_message_nodes.add(previous_message[i]);
-            }
-
+            // var previous_messages = context.longArrayNodeValue(previousKey);
+            // var previous_message_nodes = new ArrayList<Long>();
+            // for (var i = 0; i < previous_message.length; i++) {
+            //     if (previous_message[i] == IDENTIFIER) { continue; } // skip the unique identifier (or should we skip it ?)
+            //     previous_message_nodes.add(previous_message[i]);
+            // }
+            
             HashMap<Long, ArrayList<Long>> messages_map = new HashMap<Long, ArrayList<Long>>();
-
+            
             var messages_list = new ArrayList<Long>();
             for (var msg: messages) { // @TODO: recheck this logic (to build the correct message list)
                 long[] message = decode(msg);
                 var from_node_id = message[0];
                 var to_node_id = message[1];
-
+                
                 messages_map.computeIfAbsent(from_node_id, k -> new ArrayList<Long>()).add(to_node_id); // add to the hashmap's array list against the key
             }
-
             
+            
+            var previous_messages = context.longArrayNodeValue(previousKey);
 
-            for (var previous_message_node: previous_message_nodes) {
+            for (var previous_message_node: previous_messages) {
                 var message_list = messages_map.get(previous_message_node);
                 if (message_list != null) {
                     messages_list.addAll(message_list);
