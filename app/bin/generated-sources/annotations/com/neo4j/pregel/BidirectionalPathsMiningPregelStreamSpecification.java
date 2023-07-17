@@ -17,7 +17,7 @@ import org.neo4j.gds.pregel.proc.PregelStreamResult;
 @GdsCallable(
         name = "esilv.pregel.bi_find_paths.stream",
         executionMode = ExecutionMode.STREAM,
-        description = "Paths Mining with Pregel (find all paths of length 'max_iteration') - Frequent Pattern Mining :: Neo4j"
+        description = "Bi-directional Paths Mining with Pregel (find all paths of length 'max_iteration') - Frequent Pattern Mining :: Neo4j"
 )
 @Generated("org.neo4j.gds.pregel.PregelProcessor")
 public final class BidirectionalPathsMiningPregelStreamSpecification implements AlgorithmSpec<BidirectionalPathsMiningPregelAlgorithm, PregelResult, BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig, Stream<PregelStreamResult>, BidirectionalPathsMiningPregelAlgorithmFactory> {

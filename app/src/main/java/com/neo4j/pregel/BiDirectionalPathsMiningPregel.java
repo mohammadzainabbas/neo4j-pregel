@@ -33,7 +33,7 @@ import java.util.Optional;
 import java.util.function.LongConsumer;
 import java.util.stream.Collectors;
 
-@PregelProcedure(name = "esilv.pregel.bi_find_paths", modes = { GDSMode.STREAM, GDSMode.MUTATE }, description = "Paths Mining with Pregel (find all paths of length 'max_iteration') - Frequent Pattern Mining :: Neo4j")
+@PregelProcedure(name = "esilv.pregel.bi_find_paths", modes = { GDSMode.STREAM, GDSMode.MUTATE }, description = "Bi-directional Paths Mining with Pregel (find all paths of length 'max_iteration') - Frequent Pattern Mining :: Neo4j")
 public class BidirectionalPathsMiningPregel implements BidirectionalPregelComputation<BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig> {
 
     // INTERNALS
@@ -46,7 +46,6 @@ public class BidirectionalPathsMiningPregel implements BidirectionalPregelComput
     
     public static final long IDENTIFIER = -1;
 
-    
     /*
      * Combine the two longs into one
      */
