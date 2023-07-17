@@ -64,6 +64,8 @@ class BidirectionalPathsMiningPregelAlgoTest {
         int maxIterations = 10;
         boolean withRepeition = false;
 
+        var con = ImmutableBidirectionalPathsMiningPregelConfig.builder().build();
+
         var config = ImmutableBidirectionalPathsMiningPregelConfig.builder()
             .maxIterations(maxIterations)
             .withRepeition(withRepeition)
