@@ -16,7 +16,7 @@ import org.neo4j.procedure.Procedure;
 @Generated("org.neo4j.gds.pregel.PregelProcessor")
 public final class PathsMiningPregelMutateProc extends BaseProc {
     @Procedure(
-            name = "esilv.pregel.find_paths.mutate",
+            name = "esilv.pregel.bi_find_paths.mutate",
             mode = Mode.READ
     )
     @Description("Paths Mining with Pregel (find all paths of length 'max_iteration') - Frequent Pattern Mining :: Neo4j")
@@ -28,7 +28,7 @@ public final class PathsMiningPregelMutateProc extends BaseProc {
     }
 
     @Procedure(
-            name = "esilv.pregel.find_paths.mutate.estimate",
+            name = "esilv.pregel.bi_find_paths.mutate.estimate",
             mode = Mode.READ
     )
     @Description(BaseProc.ESTIMATE_DESCRIPTION)
