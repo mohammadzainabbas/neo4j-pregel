@@ -147,7 +147,9 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
                 return;
             }
 
-            
+            for (var msg: messages_list) {
+                context.sendToNeighbors(msg);
+            }
 
             messages_list.add(IDENTIFIER);
             var messages_array = arrayListToNativeArray(messages_list);
