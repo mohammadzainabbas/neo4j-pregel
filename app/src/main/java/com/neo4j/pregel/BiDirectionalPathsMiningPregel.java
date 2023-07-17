@@ -119,7 +119,7 @@ public class BidirectionalPathsMiningPregel implements BidirectionalPregelComput
     
     /* Called in the beginning of the first superstep of the Pregel computation and allows initializing node values */
     @Override
-    public void init(InitContext<BidirectionalPathsMiningPregelConfig> context) {
+    public void init(<BidirectionalPathsMiningPregelConfig> context) {
 
         long[] nodeInfo = {context.degree(), context.toOriginalId()};
         context.setNodeValue(NODE_INFO, nodeInfo);
