@@ -142,14 +142,14 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         int superstep = context.superstep();
         var stepKey = PATH + superstep;
 
-        var neighborsOfA = new LongHashSet(context.degree());
-        context.forEachDistinctNeighbor(neighborsOfA::add);
+        var neighbors = new LongHashSet(context.degree());
+        context.forEachDistinctNeighbor(neighbors::add);
 
         // First superstep
         if (context.isInitialSuperstep() && superstep == PathFindingPhase.INIT_PATH.step) {
             context.setNodeValue(stepKey, new long[] {nodeOriginalId, IDENTIFIER});
 
-            neighborsOfA.forEach((LongProcedure) nodeB -> context.sendTo(nodeB, nodeOriginalId));
+            neighbors.forEach((LongProcedure) nodeB -> context.sendTo(nodeB, nodeOriginalId));
 
 
 
