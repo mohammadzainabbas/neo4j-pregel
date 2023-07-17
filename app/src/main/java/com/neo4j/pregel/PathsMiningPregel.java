@@ -142,7 +142,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         int superstep = context.superstep();
         var stepKey = PATH + superstep;
 
-        var neighbors = new LongHashSet(context.degree());
+        var neighbors = new ArrayList<Long>();
         context.forEachDistinctNeighbor(neighbors::add);
 
         // First superstep
@@ -150,8 +150,8 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             context.setNodeValue(stepKey, new long[] {nodeOriginalId, IDENTIFIER});
 
             // unique messages (to avoid duplicate paths)
-            neighbors.forEach((LongProcedure) neighbor_node_id -> context.sendTo(neighbor_node_id, nodeOriginalId));
-            // context.sendToNeighbors(nodeOriginalId); // send node_id to all neighbors (to let them know where they got this message from)
+            // neighbors.forEach((LongProcedure) neighbor_node_id -> context.sendTo(neighbor_node_id, nodeOriginalId));
+            context.sendToNeighbors(nodeOriginalId); // send node_id to all neighbors (to let them know where they got this message from)
         } 
         else if (superstep == PathFindingPhase.CONNECT_NEIGHBORS_PATH.step) {
             var messages_list = new ArrayList<Long>();
