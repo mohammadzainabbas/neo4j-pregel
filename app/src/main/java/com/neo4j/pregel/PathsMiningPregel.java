@@ -151,10 +151,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
 
             // unique messages (to avoid duplicate paths)
             neighbors.forEach((LongProcedure) neighbor_node_id -> context.sendTo(neighbor_node_id, nodeOriginalId));
-
-
-
-            context.sendToNeighbors(nodeOriginalId); // send node_id to all neighbors (to let them know where they got this message from)
+            // context.sendToNeighbors(nodeOriginalId); // send node_id to all neighbors (to let them know where they got this message from)
         } 
         else if (superstep == PathFindingPhase.CONNECT_NEIGHBORS_PATH.step) {
             var messages_list = new ArrayList<Long>();
