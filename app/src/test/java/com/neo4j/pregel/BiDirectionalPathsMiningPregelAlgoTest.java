@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import static com.neo4j.pregel.PathsMiningPregel.PATH;
+import static com.neo4j.pregel.BidirectionalPathsMiningPregel.PATH;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -60,11 +60,11 @@ class BidirectionalPathsMiningPregelAlgoTest {
     private TestGraph graph;
 
     @Test
-    void runPathsMiningPregel() {
+    void runBidirectionalPathsMiningPregel() {
         int maxIterations = 10;
         boolean withRepeition = false;
 
-        var config = ImmutablePathsMiningPregelConfig.builder()
+        var config = ImmutableBidirectionalPathsMiningPregelConfig.builder()
             .maxIterations(maxIterations)
             .withRepeition(withRepeition)
             .build();
