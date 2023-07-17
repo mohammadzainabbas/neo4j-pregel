@@ -149,6 +149,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
 
             for (var msg: messages) {
                 long message = msg.longValue();
+                _messages.add(msg.doubleValue());
                 var from_node_id = message;
                 var to_node_id = nodeOriginalId;
 
