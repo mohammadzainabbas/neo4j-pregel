@@ -151,7 +151,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         var stepKey = PATH + superstep;
 
         var neighbors = new ArrayList<Long>();
-        context.forEachDistinctNeighbor(neighbors::add);
+        context.forEachNeighbor(neighbors::add);
         neighbors = removeDuplicates(neighbors);
 
         // First superstep
