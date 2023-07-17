@@ -42,11 +42,11 @@ fi
 
 # Copy the plugin to the plugins directory
 log "Copying the plugin to the Neo4j plugins directory ..."
-if cp app/build/libs/*.jar "$PLUGINS_DIR"; then
-    log "Plugin copied successfully."
-else
-    error "Failed to copy the plugin. Exiting ..."
-    exit 1
-fi
+# if cp app/build/libs/*.jar "$PLUGINS_DIR"; then
+#     log "Plugin copied successfully."
+# else
+#     error "Failed to copy the plugin. Exiting ..."
+#     exit 1
+# fi
 
 log "'Build & Copy' script completed."
