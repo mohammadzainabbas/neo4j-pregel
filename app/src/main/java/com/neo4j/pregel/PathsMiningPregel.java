@@ -130,6 +130,11 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
                 long message = msg.longValue();
                 var from_node_id = message;
                 var to_node_id = nodeOriginalId;
+
+                // disable self-loops
+                if (from_node_id == to_node_id && !context.config().withRepeition()) {
+                    continue;
+                }
                 
                 messages_map.computeIfAbsent(from_node_id, k -> new ArrayList<Long>()).add(to_node_id); // add to the hashmap's array list against the key
             }
