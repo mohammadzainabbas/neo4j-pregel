@@ -45,8 +45,10 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         return (value1 << 32) | (value2 & 0xFFFFFFFFL);  
     }
     
+    /*
+    * Extract the two longs
+    */
     public long[] decode(long result) {
-        // Extract the two longs
         long result1 = result >> 32;
         long result2 = result & 0xFFFFFFFFL;
         return new long[] {result1, result2};
