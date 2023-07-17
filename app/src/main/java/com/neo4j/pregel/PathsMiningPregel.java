@@ -92,8 +92,8 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
      * Remove duplicates from ArrayList<T>
      */
     public <T> ArrayList<T> removeDuplicates(ArrayList<T> list) {
-        return 
-            list.stream().distinct().collect(Collectors.toCollection(ArrayList::new));
+        return list.stream().distinct().collect(Collectors.toCollection(ArrayList::new));
+        return list.stream().distinct().collect(Collectors.toList());
     }
      
     /* Each node will have this value-schema during pregel computation */
