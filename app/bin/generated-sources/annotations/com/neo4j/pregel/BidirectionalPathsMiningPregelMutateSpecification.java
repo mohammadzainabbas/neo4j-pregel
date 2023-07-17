@@ -13,20 +13,21 @@ import org.neo4j.gds.pregel.proc.PregelMutateComputationResultConsumer;
 import org.neo4j.gds.pregel.proc.PregelMutateResult;
 
 @GdsCallable(
-        name = "esilv.pregel.find_paths.mutate",
+        name = "esilv.pregel.bi_find_paths.mutate",
         executionMode = ExecutionMode.MUTATE_NODE_PROPERTY,
         description = "Paths Mining with Pregel (find all paths of length 'max_iteration') - Frequent Pattern Mining :: Neo4j"
 )
 @Generated("org.neo4j.gds.pregel.PregelProcessor")
-public final class PathsMiningPregelMutateSpecification implements AlgorithmSpec<PathsMiningPregelAlgorithm, PregelResult, PathsMiningPregel.PathsMiningPregelConfig, Stream<PregelMutateResult>, PathsMiningPregelAlgorithmFactory> {
+public final class BidirectionalPathsMiningPregelMutateSpecification implements AlgorithmSpec<BidirectionalPathsMiningPregelAlgorithm, PregelResult, PathsMiningPregel.PathsMiningPregelConfig, Stream<PregelMutateResult>, BidirectionalPathsMiningPregelAlgorithmFactory> {
     @Override
     public String name() {
-        return PathsMiningPregelAlgorithm.class.getSimpleName();
+        return BidirectionalPathsMiningPregelAlgorithm.class.getSimpleName();
     }
 
     @Override
-    public PathsMiningPregelAlgorithmFactory algorithmFactory(ExecutionContext executionContext) {
-        return new PathsMiningPregelAlgorithmFactory();
+    public BidirectionalPathsMiningPregelAlgorithmFactory algorithmFactory(
+            ExecutionContext executionContext) {
+        return new BidirectionalPathsMiningPregelAlgorithmFactory();
     }
 
     @Override
@@ -35,7 +36,7 @@ public final class PathsMiningPregelMutateSpecification implements AlgorithmSpec
     }
 
     @Override
-    public ComputationResultConsumer<PathsMiningPregelAlgorithm, PregelResult, PathsMiningPregel.PathsMiningPregelConfig, Stream<PregelMutateResult>> computationResultConsumer(
+    public ComputationResultConsumer<BidirectionalPathsMiningPregelAlgorithm, PregelResult, PathsMiningPregel.PathsMiningPregelConfig, Stream<PregelMutateResult>> computationResultConsumer(
             ) {
         return new PregelMutateComputationResultConsumer<>();
     }

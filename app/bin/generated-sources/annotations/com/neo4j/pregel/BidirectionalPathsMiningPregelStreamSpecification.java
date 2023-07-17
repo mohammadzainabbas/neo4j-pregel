@@ -13,20 +13,21 @@ import org.neo4j.gds.pregel.proc.PregelStreamComputationResultConsumer;
 import org.neo4j.gds.pregel.proc.PregelStreamResult;
 
 @GdsCallable(
-        name = "esilv.pregel.find_paths.stream",
+        name = "esilv.pregel.bi_find_paths.stream",
         executionMode = ExecutionMode.STREAM,
         description = "Paths Mining with Pregel (find all paths of length 'max_iteration') - Frequent Pattern Mining :: Neo4j"
 )
 @Generated("org.neo4j.gds.pregel.PregelProcessor")
-public final class PathsMiningPregelStreamSpecification implements AlgorithmSpec<PathsMiningPregelAlgorithm, PregelResult, PathsMiningPregel.PathsMiningPregelConfig, Stream<PregelStreamResult>, PathsMiningPregelAlgorithmFactory> {
+public final class BidirectionalPathsMiningPregelStreamSpecification implements AlgorithmSpec<BidirectionalPathsMiningPregelAlgorithm, PregelResult, PathsMiningPregel.PathsMiningPregelConfig, Stream<PregelStreamResult>, BidirectionalPathsMiningPregelAlgorithmFactory> {
     @Override
     public String name() {
-        return PathsMiningPregelAlgorithm.class.getSimpleName();
+        return BidirectionalPathsMiningPregelAlgorithm.class.getSimpleName();
     }
 
     @Override
-    public PathsMiningPregelAlgorithmFactory algorithmFactory(ExecutionContext executionContext) {
-        return new PathsMiningPregelAlgorithmFactory();
+    public BidirectionalPathsMiningPregelAlgorithmFactory algorithmFactory(
+            ExecutionContext executionContext) {
+        return new BidirectionalPathsMiningPregelAlgorithmFactory();
     }
 
     @Override
@@ -35,7 +36,7 @@ public final class PathsMiningPregelStreamSpecification implements AlgorithmSpec
     }
 
     @Override
-    public ComputationResultConsumer<PathsMiningPregelAlgorithm, PregelResult, PathsMiningPregel.PathsMiningPregelConfig, Stream<PregelStreamResult>> computationResultConsumer(
+    public ComputationResultConsumer<BidirectionalPathsMiningPregelAlgorithm, PregelResult, PathsMiningPregel.PathsMiningPregelConfig, Stream<PregelStreamResult>> computationResultConsumer(
             ) {
         return new PregelStreamComputationResultConsumer<>();
     }
