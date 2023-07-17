@@ -158,6 +158,8 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
                 if (from_node_id == to_node_id) {
                     continue;
                 }
+
+                // @TODO: remove duplicate messages (multiple links between two nodes)
                 
                 var value = encode(from_node_id, to_node_id);
                 messages_list.add(value);
