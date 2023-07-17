@@ -122,10 +122,6 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             context.sendToNeighbors(nodeOriginalId); // send node_id to all neighbors (to let them know where they got this message from)
         } 
         else if (superstep == PathFindingPhase.CONNECT_NEIGHBORS_PATH.step) {
-
-            var previousKey = PATH + (superstep - 1);
-            HashMap<Long, ArrayList<Long>> messages_map = new HashMap<Long, ArrayList<Long>>();
-
             var messages_list = new ArrayList<Long>();
 
             for (var msg: messages) {
