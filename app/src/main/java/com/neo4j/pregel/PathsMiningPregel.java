@@ -40,8 +40,10 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
     public static final long IDENTIFIER = -1;
 
     
+    /*
+     * Combine the two longs into one
+     */
     public long encode(long value1, long value2) {
-        // Combine the two longs into one
         return (value1 << 32) | (value2 & 0xFFFFFFFFL);  
     }
     
