@@ -53,6 +53,11 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
     }
 
     public boolean sameEncodedValue(long value1, long value2) {
+
+        long[] decoded_value1 = decode(value1); 
+        long[] decoded_value2 = decode(value2); 
+
+
         return (value1 >> 32) == (value2 >> 32);
     }
     
