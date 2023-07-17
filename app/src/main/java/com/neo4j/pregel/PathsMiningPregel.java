@@ -87,7 +87,20 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
     public ArrayList<Long> nativeArrayToArrayList(long[] nativeArray) {
         return Arrays.stream(nativeArray).boxed().collect(Collectors.toCollection(ArrayList::new));
     }
-    
+
+    /*
+     * Remove duplicates from ArrayList<T>
+     */
+    public <T> ArrayList<T> removeDuplicates(ArrayList<T> list) {
+        ArrayList<T> newList = new ArrayList<T>();
+        for (T element : list) {
+            if (!newList.contains(element)) {
+                newList.add(element);
+            }
+        }
+        return newList;
+    }
+     
     /* Each node will have this value-schema during pregel computation */
     @Override
     public PregelSchema schema(PathsMiningPregelConfig config) {
