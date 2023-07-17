@@ -70,12 +70,16 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         return exactly_same || exchanged_same; // (0_1) == (0_1) || (0_1) == (1_0)
     }
     
-    // convert ArrayList<Long> back to long[]
+    /*
+     * Convert ArrayList<Long> to long[]
+     */
     public long[] arrayListToNativeArray(ArrayList<Long> arrayList) {
         return arrayList.stream().mapToLong(Long::longValue).toArray();
     }
 
-    // long[] to ArrayList<Long> (for dynamic array)
+    /*
+     * Convert long[] to ArrayList<Long> (for dynamic array)
+     */
     public ArrayList<Long> nativeArrayToArrayList(long[] nativeArray) {
         return Arrays.stream(nativeArray).boxed().collect(Collectors.toCollection(ArrayList::new));
     }
