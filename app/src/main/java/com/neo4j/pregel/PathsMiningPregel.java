@@ -149,6 +149,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         if (context.isInitialSuperstep() && superstep == PathFindingPhase.INIT_PATH.step) {
             context.setNodeValue(stepKey, new long[] {nodeOriginalId, IDENTIFIER});
 
+            // unique messages (to avoid duplicate paths)
             neighbors.forEach((LongProcedure) neighbor_node_id -> context.sendTo(neighbor_node_id, nodeOriginalId));
 
 
