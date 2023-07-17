@@ -51,6 +51,10 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         long result2 = result & 0xFFFFFFFFL;
         return new long[] {result1, result2};
     }
+
+    public boolean sameEncodedValue(long value1, long value2) {
+        return (value1 >> 32) == (value2 >> 32);
+    }
     
     // convert ArrayList<Long> back to long[]
     public long[] arrayListToNativeArray(ArrayList<Long> arrayList) {
