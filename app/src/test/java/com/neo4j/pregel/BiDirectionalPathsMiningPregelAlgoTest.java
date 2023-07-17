@@ -21,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @GdlExtension
-class PathsMiningPregelAlgoTest {
+class BidirectionalPathsMiningPregelAlgoTest {
 
     public enum TestingGraph {
         DUMMY_GRAPH {
