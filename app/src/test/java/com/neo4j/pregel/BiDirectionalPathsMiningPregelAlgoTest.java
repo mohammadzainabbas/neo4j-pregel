@@ -72,7 +72,7 @@ class BidirectionalPathsMiningPregelAlgoTest {
         var pregelJob = Pregel.create(
             graph,
             config,
-            new PathsMiningPregel(),
+            new BidirectionalPathsMiningPregel(),
             Pools.DEFAULT,
             ProgressTracker.NULL_TRACKER
         );
