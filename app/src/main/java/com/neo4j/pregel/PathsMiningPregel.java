@@ -126,6 +126,9 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             var previousKey = PATH + (superstep - 1);
             HashMap<Long, ArrayList<Long>> messages_map = new HashMap<Long, ArrayList<Long>>();
 
+            var messages_list = new ArrayList<Long>();
+            
+
             for (var msg: messages) {
                 long message = msg.longValue();
                 var from_node_id = message;
@@ -136,6 +139,9 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
                     continue;
                 }
                 
+                var value = encode(from_node_id, to_node_id);
+
+
                 messages_map.computeIfAbsent(from_node_id, k -> new ArrayList<Long>()).add(to_node_id); // add to the hashmap's array list against the key
             }
 
