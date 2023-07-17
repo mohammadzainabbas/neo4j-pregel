@@ -32,7 +32,7 @@ import java.util.function.LongConsumer;
 import java.util.stream.Collectors;
 
 @PregelProcedure(name = "esilv.pregel.bi_find_paths", modes = { GDSMode.STREAM, GDSMode.MUTATE }, description = "Paths Mining with Pregel (find all paths of length 'max_iteration') - Frequent Pattern Mining :: Neo4j")
-public class BidirectionalPathsMiningPregel implements PregelComputation<BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig> {
+public class BidirectionalPathsMiningPregel implements BidirectionalPregelComputation<BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig> {
 
     // INTERNALS
     public static final String PATH = "path_";

@@ -9,6 +9,8 @@ import org.neo4j.gds.executor.ExecutionContext;
 import org.neo4j.gds.executor.ExecutionMode;
 import org.neo4j.gds.executor.GdsCallable;
 import org.neo4j.gds.executor.NewConfigFunction;
+import org.neo4j.gds.executor.validation.ValidationConfiguration;
+import org.neo4j.gds.pregel.proc.PregelBaseProc;
 import org.neo4j.gds.pregel.proc.PregelStreamComputationResultConsumer;
 import org.neo4j.gds.pregel.proc.PregelStreamResult;
 
@@ -40,5 +42,11 @@ public final class BidirectionalPathsMiningPregelStreamSpecification implements 
     public ComputationResultConsumer<BidirectionalPathsMiningPregelAlgorithm, PregelResult, BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig, Stream<PregelStreamResult>> computationResultConsumer(
             ) {
         return new PregelStreamComputationResultConsumer<>();
+    }
+
+    @Override
+    public ValidationConfiguration<BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig> validationConfig(
+            ExecutionContext executionContext) {
+        return PregelBaseProc.ensureIndexValidation(executionContext.log(), executionContext.taskRegistryFactory());
     }
 }
