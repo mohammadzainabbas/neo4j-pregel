@@ -13,9 +13,9 @@ import org.neo4j.gds.pregel.proc.PregelMutateComputationResultConsumer;
 import org.neo4j.gds.pregel.proc.PregelMutateResult;
 
 @GdsCallable(
-        name = "esilv.pregel.find_paths.mutate",
+        name = "esilv.pregel.fsm.mutate",
         executionMode = ExecutionMode.MUTATE_NODE_PROPERTY,
-        description = "Paths Mining with Pregel (find all paths of length 'max_iteration') - Frequent Pattern Mining :: Neo4j"
+        description = "Frequent Pattern Mining :: Neo4j - Approximate Frequent Subgraph Mining with Pregel"
 )
 @Generated("org.neo4j.gds.pregel.PregelProcessor")
 public final class FrequentSubgraphMiningPregelMutateSpecification implements AlgorithmSpec<FrequentSubgraphMiningPregelAlgorithm, PregelResult, FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig, Stream<PregelMutateResult>, FrequentSubgraphMiningPregelAlgorithmFactory> {

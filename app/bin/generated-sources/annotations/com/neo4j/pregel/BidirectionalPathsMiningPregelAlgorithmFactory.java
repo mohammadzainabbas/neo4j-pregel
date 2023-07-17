@@ -9,10 +9,10 @@ import org.neo4j.gds.core.utils.progress.tasks.ProgressTracker;
 import org.neo4j.gds.core.utils.progress.tasks.Task;
 
 @Generated("org.neo4j.gds.pregel.PregelProcessor")
-public final class BidirectionalPathsMiningPregelAlgorithmFactory extends GraphAlgorithmFactory<BidirectionalPathsMiningPregelAlgorithm, PathsMiningPregel.PathsMiningPregelConfig> {
+public final class BidirectionalPathsMiningPregelAlgorithmFactory extends GraphAlgorithmFactory<BidirectionalPathsMiningPregelAlgorithm, BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig> {
     @Override
     public BidirectionalPathsMiningPregelAlgorithm build(Graph graph,
-            PathsMiningPregel.PathsMiningPregelConfig configuration,
+            BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig configuration,
             ProgressTracker progressTracker) {
         return new BidirectionalPathsMiningPregelAlgorithm(graph, configuration, progressTracker);
     }
@@ -23,13 +23,14 @@ public final class BidirectionalPathsMiningPregelAlgorithmFactory extends GraphA
     }
 
     @Override
-    public Task progressTask(Graph graph, PathsMiningPregel.PathsMiningPregelConfig configuration) {
+    public Task progressTask(Graph graph,
+            BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig configuration) {
         return Pregel.progressTask(graph, configuration);
     }
 
     @Override
     public MemoryEstimation memoryEstimation(
-            PathsMiningPregel.PathsMiningPregelConfig configuration) {
+            BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig configuration) {
         var computation = new BidirectionalPathsMiningPregel();
         return Pregel.memoryEstimation(computation.schema(configuration), computation.reducer().isEmpty(), configuration.isAsynchronous());
     }

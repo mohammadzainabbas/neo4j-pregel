@@ -11,10 +11,10 @@ import org.neo4j.gds.core.utils.progress.tasks.ProgressTracker;
 
 @Generated("org.neo4j.gds.pregel.PregelProcessor")
 public final class BidirectionalPathsMiningPregelAlgorithm extends Algorithm<PregelResult> {
-    private final Pregel<PathsMiningPregel.PathsMiningPregelConfig> pregelJob;
+    private final Pregel<BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig> pregelJob;
 
     BidirectionalPathsMiningPregelAlgorithm(Graph graph,
-            PathsMiningPregel.PathsMiningPregelConfig configuration,
+            BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig configuration,
             ProgressTracker progressTracker) {
         super(progressTracker);
         var computation = new BidirectionalPathsMiningPregel();

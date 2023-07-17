@@ -18,7 +18,7 @@ import org.neo4j.gds.pregel.proc.PregelMutateResult;
         description = "Paths Mining with Pregel (find all paths of length 'max_iteration') - Frequent Pattern Mining :: Neo4j"
 )
 @Generated("org.neo4j.gds.pregel.PregelProcessor")
-public final class BidirectionalPathsMiningPregelMutateSpecification implements AlgorithmSpec<BidirectionalPathsMiningPregelAlgorithm, PregelResult, PathsMiningPregel.PathsMiningPregelConfig, Stream<PregelMutateResult>, BidirectionalPathsMiningPregelAlgorithmFactory> {
+public final class BidirectionalPathsMiningPregelMutateSpecification implements AlgorithmSpec<BidirectionalPathsMiningPregelAlgorithm, PregelResult, BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig, Stream<PregelMutateResult>, BidirectionalPathsMiningPregelAlgorithmFactory> {
     @Override
     public String name() {
         return BidirectionalPathsMiningPregelAlgorithm.class.getSimpleName();
@@ -31,12 +31,13 @@ public final class BidirectionalPathsMiningPregelMutateSpecification implements 
     }
 
     @Override
-    public NewConfigFunction<PathsMiningPregel.PathsMiningPregelConfig> newConfigFunction() {
-        return (__, userInput) -> PathsMiningPregel.PathsMiningPregelConfig.of(userInput);
+    public NewConfigFunction<BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig> newConfigFunction(
+            ) {
+        return (__, userInput) -> BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig.of(userInput);
     }
 
     @Override
-    public ComputationResultConsumer<BidirectionalPathsMiningPregelAlgorithm, PregelResult, PathsMiningPregel.PathsMiningPregelConfig, Stream<PregelMutateResult>> computationResultConsumer(
+    public ComputationResultConsumer<BidirectionalPathsMiningPregelAlgorithm, PregelResult, BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig, Stream<PregelMutateResult>> computationResultConsumer(
             ) {
         return new PregelMutateComputationResultConsumer<>();
     }

@@ -31,7 +31,7 @@ import java.util.function.LongConsumer;
 import java.util.stream.Collectors;
 
 @PregelProcedure(name = "esilv.pregel.bi_find_paths", modes = { GDSMode.STREAM, GDSMode.MUTATE }, description = "Paths Mining with Pregel (find all paths of length 'max_iteration') - Frequent Pattern Mining :: Neo4j")
-public class BidirectionalPathsMiningPregel implements PregelComputation<PathsMiningPregel.PathsMiningPregelConfig> {
+public class BidirectionalPathsMiningPregel implements PregelComputation<BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig> {
 
     // INTERNALS
     public static final String PATH = "path_";
@@ -98,7 +98,7 @@ public class BidirectionalPathsMiningPregel implements PregelComputation<PathsMi
      
     /* Each node will have this value-schema during pregel computation */
     @Override
-    public PregelSchema schema(PathsMiningPregelConfig config) {
+    public PregelSchema schema(BidirectionalPathsMiningPregelConfig config) {
 
         var schema = new PregelSchema.Builder()
             .add(NODE_INFO, ValueType.LONG_ARRAY) // [degree, orginal_id] 
@@ -116,7 +116,7 @@ public class BidirectionalPathsMiningPregel implements PregelComputation<PathsMi
     
     /* Called in the beginning of the first superstep of the Pregel computation and allows initializing node values */
     @Override
-    public void init(InitContext<PathsMiningPregelConfig> context) {
+    public void init(InitContext<BidirectionalPathsMiningPregelConfig> context) {
 
         long[] nodeInfo = {context.degree(), context.toOriginalId()};
         context.setNodeValue(NODE_INFO, nodeInfo);
@@ -144,7 +144,7 @@ public class BidirectionalPathsMiningPregel implements PregelComputation<PathsMi
 
     /* Called for each node in every superstep */
     @Override
-    public void compute(ComputeContext<PathsMiningPregelConfig> context, Messages messages) {
+    public void compute(ComputeContext<BidirectionalPathsMiningPregelConfig> context, Messages messages) {
         var nodeId = context.nodeId();
         var nodeOriginalId = context.toOriginalId(); // for showing correct IDs in the output
         int superstep = context.superstep();
@@ -270,7 +270,7 @@ public class BidirectionalPathsMiningPregel implements PregelComputation<PathsMi
     // }
 
     @Override
-    public boolean masterCompute(MasterComputeContext<PathsMiningPregel.PathsMiningPregelConfig> context) {
+    public boolean masterCompute(MasterComputeContext<BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig> context) {
         return context.superstep() >= 2; // stop after 2 supersteps
     }
 
@@ -287,9 +287,9 @@ public class BidirectionalPathsMiningPregel implements PregelComputation<PathsMi
     }
 
     @ValueClass
-    @Configuration("PathsMiningPregelConfigImpl")
+    @Configuration("BidirectionalPathsMiningPregelConfigImpl")
     @SuppressWarnings("immutables:subtype")
-    public interface PathsMiningPregelConfig extends PregelProcedureConfig, SeedConfig {
+    public interface BidirectionalPathsMiningPregelConfig extends PregelProcedureConfig, SeedConfig {
 
         @Override
         default boolean isAsynchronous() {
@@ -308,8 +308,8 @@ public class BidirectionalPathsMiningPregel implements PregelComputation<PathsMi
             return false;
         }
 
-        static PathsMiningPregelConfig of(CypherMapWrapper userInput) {
-            return new PathsMiningPregelConfigImpl(userInput);
+        static BidirectionalPathsMiningPregelConfig of(CypherMapWrapper userInput) {
+            return new BidirectionalPathsMiningPregelConfigImpl(userInput);
         }
     }
 }
