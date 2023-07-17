@@ -57,7 +57,8 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         long[] decoded_value1 = decode(value1);
         long[] decoded_value2 = decode(value2);
 
-        boolean same_value1 = decoded_value1[0] == decoded_value2[0] && decoded_value1[1] == decoded_value2[1];
+        boolean exactly_same = decoded_value1[0] == decoded_value2[0] && decoded_value1[1] == decoded_value2[1];
+        boolean exchanged_same = decoded_value1[1] == decoded_value2[0] && decoded_value1[0] == decoded_value2[1];
 
 
 
