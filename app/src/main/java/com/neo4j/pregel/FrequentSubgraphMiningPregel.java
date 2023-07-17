@@ -127,8 +127,8 @@ public class FrequentSubgraphMiningPregel implements PregelComputation<FrequentS
             HashMap<Long, ArrayList<Long>> messages_map = new HashMap<Long, ArrayList<Long>>();
             
             var messages_list = new ArrayList<Long>();
-            for (var message: messages) { // @TODO: recheck this logic (to build the correct message list)
-                long[] message = decode(message.longValue());
+            for (var msg: messages) { // @TODO: recheck this logic (to build the correct message list)
+                long[] message = decode(msg.longValue());
                 var from_node_id = message[0];
                 var to_node_id = message[1];
                 
