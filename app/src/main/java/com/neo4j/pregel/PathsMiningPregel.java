@@ -147,6 +147,8 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
                 return;
             }
 
+            
+
             messages_list.add(IDENTIFIER);
             var messages_array = arrayListToNativeArray(messages_list);
             context.setNodeValue(stepKey, messages_array); // update paths internally (for each node)
