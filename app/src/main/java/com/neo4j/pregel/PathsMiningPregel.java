@@ -145,16 +145,17 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         } 
         else if (superstep == PathFindingPhase.CONNECT_NEIGHBORS_PATH.step) {
             var messages_list = new ArrayList<Long>();
-            var _messages = new ArrayList<Double>();
+            var _messages = new ArrayList<Long>();
 
             for (var msg: messages) {
                 long message = msg.longValue();
-                _messages.add(msg.doubleValue());
+                _messages.add(message);
                 var from_node_id = message;
                 var to_node_id = nodeOriginalId;
 
                 // disable self-loops
-                if (from_node_id == to_node_id && !context.config().withRepeition()) {
+                // if (from_node_id == to_node_id && !context.config().withRepeition()) {
+                if (from_node_id == to_node_id) {
                     continue;
                 }
                 
