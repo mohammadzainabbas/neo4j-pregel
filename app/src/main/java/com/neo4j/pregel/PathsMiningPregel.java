@@ -26,6 +26,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Optional;
+import java.util.function.LongConsumer;
 import java.util.stream.Collectors;
 
 @PregelProcedure(name = "esilv.pregel.find_paths", modes = { GDSMode.STREAM, GDSMode.MUTATE }, description = "Paths Mining with Pregel (find all paths of length 'max_iteration') - Frequent Pattern Mining :: Neo4j")
@@ -147,7 +148,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         if (context.isInitialSuperstep() && superstep == PathFindingPhase.INIT_PATH.step) {
             context.setNodeValue(stepKey, new long[] {nodeOriginalId, IDENTIFIER});
 
-            neighborsOfA.forEach(nodeB -> context.sendTo(nodeB, nodeOriginalId));
+            neighborsOfA.forEach((LongConsumer) nodeB -> context.sendTo(nodeB, nodeOriginalId));
 
 
             context.sendToNeighbors(nodeOriginalId); // send node_id to all neighbors (to let them know where they got this message from)
