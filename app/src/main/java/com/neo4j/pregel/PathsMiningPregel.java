@@ -127,7 +127,6 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             HashMap<Long, ArrayList<Long>> messages_map = new HashMap<Long, ArrayList<Long>>();
 
             var messages_list = new ArrayList<Long>();
-            
 
             for (var msg: messages) {
                 long message = msg.longValue();
@@ -150,7 +149,6 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
 
             messages_list.add(IDENTIFIER);
             var messages_array = arrayListToNativeArray(messages_list);
-
             context.setNodeValue(stepKey, messages_array); // update paths internally (for each node)
 
 
