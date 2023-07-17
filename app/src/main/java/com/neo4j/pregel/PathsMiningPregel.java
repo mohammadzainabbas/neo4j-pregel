@@ -18,6 +18,8 @@ import org.neo4j.gds.beta.pregel.context.MasterComputeContext;
 import org.neo4j.gds.config.SeedConfig;
 import org.neo4j.gds.core.CypherMapWrapper;
 
+import com.carrotsearch.hppc.LongHashSet;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Arrays;
@@ -137,6 +139,9 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         var nodeOriginalId = context.toOriginalId(); // for showing correct IDs in the output
         int superstep = context.superstep();
         var stepKey = PATH + superstep;
+
+        var neighborsOfA = new LongHashSet(context.degree());
+        context.forEachDistinctNeighbor(neighborsOfA::add);
 
         // First superstep
         if (context.isInitialSuperstep() && superstep == PathFindingPhase.INIT_PATH.step) {
