@@ -60,9 +60,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         boolean exactly_same = decoded_value1[0] == decoded_value2[0] && decoded_value1[1] == decoded_value2[1];
         boolean exchanged_same = decoded_value1[1] == decoded_value2[0] && decoded_value1[0] == decoded_value2[1];
 
-
-
-        return (value1 >> 32) == (value2 >> 32);
+        return exactly_same || exchanged_same;
     }
     
     // convert ArrayList<Long> back to long[]
