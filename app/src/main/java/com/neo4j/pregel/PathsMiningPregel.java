@@ -19,6 +19,7 @@ import org.neo4j.gds.config.SeedConfig;
 import org.neo4j.gds.core.CypherMapWrapper;
 
 import com.carrotsearch.hppc.LongHashSet;
+import com.carrotsearch.hppc.procedures.LongProcedure;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +27,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Optional;
+import java.util.function.LongConsumer;
 import java.util.stream.Collectors;
 
 @PregelProcedure(name = "esilv.pregel.find_paths", modes = { GDSMode.STREAM, GDSMode.MUTATE }, description = "Paths Mining with Pregel (find all paths of length 'max_iteration') - Frequent Pattern Mining :: Neo4j")
@@ -148,9 +150,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             context.setNodeValue(stepKey, new long[] {nodeOriginalId, IDENTIFIER});
 
             neighborsOfA.forEach((LongProcedure) nodeB -> {
-                if (nodeB > node_id) {
-                    context.sendTo(nodeB, nodeOriginalId);
-                }
+                context.sendTo(nodeB, nodeOriginalId);
             });
 
 
