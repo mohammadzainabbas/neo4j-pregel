@@ -57,8 +57,8 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
     }
 
     /*
-    * Compare two encoded values
-    */ 
+     * Compare two encoded values
+     */
     public boolean sameEncodedValue(long value1, long value2) {
 
         long[] decoded_value1 = decode(value1);
