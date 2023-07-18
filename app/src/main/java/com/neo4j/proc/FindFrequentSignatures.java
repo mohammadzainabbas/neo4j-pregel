@@ -81,7 +81,7 @@ public class FindFrequentSignatures {
             // Convert each Map.Entry to a SignatureCount and add it to the result list
             List<SignatureResult> resultList = new ArrayList<>();
             for (Map.Entry<String, Long> entry : entryList) {
-                resultList.add(new SignatureCount(entry.getKey(), entry.getValue()));
+                resultList.add(new SignatureResult(entry.getKey(), entry.getValue()));
             }
 
             // // Create a new LinkedHashMap to preserve the sorted order
@@ -92,7 +92,7 @@ public class FindFrequentSignatures {
             //     sortedMap.put(entry.getKey(), entry.getValue());
             // }
 
-            return entryList;
+            return resultList;
         }
     }
 }
