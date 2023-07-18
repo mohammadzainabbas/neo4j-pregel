@@ -307,7 +307,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
 
         @Override
         default boolean isAsynchronous() {
-            return true;
+            return false;
         }
 
         @Value.Default
