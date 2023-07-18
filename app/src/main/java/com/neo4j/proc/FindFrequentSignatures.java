@@ -29,6 +29,18 @@ public class FindFrequentSignatures {
         
         @UserAggregationUpdate
         public void aggregate(@Name(value = "paths", defaultValue = "[1, -1]") List<Long> paths) {
+            for (Long path : paths) {
+                String signature = path.toString();
+                if (signature_count_map.containsKey(signature)) {
+                    signature_count_map.put(signature, signature_count_map.get(signature) + 1);
+                } else {
+                    signature_count_map.put(signature, 1L);
+                }
+            }
+        }
+        
+        public void aggregates(@Name(value = "paths", defaultValue = "[1, -1]") List<Long> paths) {
+
             if (value != null) {
                 if (doubles != null) {
                     doubles.recordValue(value.doubleValue());
