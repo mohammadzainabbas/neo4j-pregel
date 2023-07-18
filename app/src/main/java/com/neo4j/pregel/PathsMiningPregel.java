@@ -209,8 +209,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             sentToAllNeighbors(context, messages_list);
 
             messages_list.add(IDENTIFIER);
-            var messages_array = arrayListToNativeArray(messages_list);
-            context.setNodeValue(stepKey, messages_array); // update paths internally (for each node)
+            context.setNodeValue(stepKey, arrayListToNativeArray(messages_list)); // update paths internally (for each node)
         } else if (superstep >= PathFindingPhase.COMPUTE_PATH.step) {
             // iterate over all messages (coming from all the neighbors) and add them all to PATH 
             // (NOTE: each superstep is separated via some unique identifier)
