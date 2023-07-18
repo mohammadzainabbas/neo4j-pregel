@@ -210,11 +210,9 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
 
             if (isEncodedOutput) {
                 for (var neighbor_id: neighbors) {
-                    var decoded_message = decode(message);
-                    var from_node_id = decoded_message[0];
-                    var to_node_id = decoded_message[1];
-                    var value = encode(from_node_id, to_node_id);
-                    path_list.add(value);
+                    var from_node_id = nodeId;
+                    var to_node_id = neighbor_id;
+                    path_list.add(encode(from_node_id, to_node_id));
                 }
 
             } else {
