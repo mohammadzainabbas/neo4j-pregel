@@ -226,10 +226,12 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             // (NOTE: each superstep is separated via some unique identifier)
             var _messages = new ArrayList<Long>();
             for (var msg: messages) { _messages.add(msg.longValue()); }
-
+            //@TODO: do we have to remove the duplicates here as well?
             sentToAllNeighbors(context, _messages); // forward all messages that you received to all neighbors
 
             
+
+
 
 
 
