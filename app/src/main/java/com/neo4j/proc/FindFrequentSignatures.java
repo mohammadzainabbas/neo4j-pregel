@@ -14,7 +14,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class FindFrequentSignatures {
-    
+    @Context
+    public Log log;
 
     @Procedure(value = "esilv.proc.find_signatures", mode = Mode.READ)
     @Description("Returns the frequency for all the signatures found in the given paths.")
