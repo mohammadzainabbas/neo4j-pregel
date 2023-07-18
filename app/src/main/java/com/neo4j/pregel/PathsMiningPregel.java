@@ -214,7 +214,8 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
                     var to_node_id = neighbor_id;
                     path_list.add(encode(from_node_id, to_node_id));
                 }
-
+                // separate each message (path) with a unique identifier
+                path_list = path_list.stream().flatMap(n -> Stream.of(n, IDENTIFIER)).collect(Collectors.toCollection(ArrayList::new));
             } else {
 
             }
@@ -234,8 +235,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             }
 
             sentToAllNeighbors(context, neighbors);
-            // separate each message (path) with a unique identifier
-            path_list = path_list.stream().flatMap(n -> Stream.of(n, IDENTIFIER)).collect(Collectors.toCollection(ArrayList::new));
+
             context.setNodeValue(PATHS, arrayListToNativeArray(path_list)); // update paths internally (for each node)
         } else if (superstep >= PathFindingPhase.COMPUTE_PATH.step) {
             // if no message is received, then halt
