@@ -58,7 +58,7 @@ public final class ImmutablePathsMiningPregelConfig
   private final String mutateProperty;
   private final String writeProperty;
   private final @Nullable String seedProperty;
-  private final boolean useOriginalIds;
+  private final boolean encodedOutput;
   private final long identifier;
 
   @SuppressWarnings("unchecked") // safe covariant cast
@@ -75,7 +75,7 @@ public final class ImmutablePathsMiningPregelConfig
       String mutateProperty,
       String writeProperty,
       @Nullable String seedProperty,
-      boolean useOriginalIds,
+      boolean encodedOutput,
       long identifier) {
     initShim.concurrency(concurrency);
     initShim.minBatchSize(minBatchSize);
@@ -89,7 +89,7 @@ public final class ImmutablePathsMiningPregelConfig
     initShim.mutateProperty(Objects.requireNonNull(mutateProperty, "mutateProperty"));
     initShim.writeProperty(Objects.requireNonNull(writeProperty, "writeProperty"));
     initShim.seedProperty(seedProperty);
-    initShim.useOriginalIds(useOriginalIds);
+    initShim.encodedOutput(encodedOutput);
     initShim.identifier(identifier);
     this.usernameOverride = null;
     this.configKeys = initShim.configKeys();
@@ -108,7 +108,7 @@ public final class ImmutablePathsMiningPregelConfig
     this.mutateProperty = initShim.mutateProperty();
     this.writeProperty = initShim.writeProperty();
     this.seedProperty = initShim.seedProperty();
-    this.useOriginalIds = initShim.useOriginalIds();
+    this.encodedOutput = initShim.encodedOutput();
     this.identifier = initShim.identifier();
     this.initShim = null;
   }
@@ -127,7 +127,7 @@ public final class ImmutablePathsMiningPregelConfig
       String mutateProperty,
       String writeProperty,
       @Nullable String seedProperty,
-      boolean useOriginalIds,
+      boolean encodedOutput,
       long identifier) {
     initShim.concurrency(concurrency);
     initShim.minBatchSize(minBatchSize);
@@ -141,7 +141,7 @@ public final class ImmutablePathsMiningPregelConfig
     initShim.mutateProperty(Objects.requireNonNull(mutateProperty, "mutateProperty"));
     initShim.writeProperty(Objects.requireNonNull(writeProperty, "writeProperty"));
     initShim.seedProperty(seedProperty);
-    initShim.useOriginalIds(useOriginalIds);
+    initShim.encodedOutput(encodedOutput);
     initShim.identifier(identifier);
     this.usernameOverride = null;
     this.configKeys = initShim.configKeys();
@@ -160,7 +160,7 @@ public final class ImmutablePathsMiningPregelConfig
     this.mutateProperty = initShim.mutateProperty();
     this.writeProperty = initShim.writeProperty();
     this.seedProperty = initShim.seedProperty();
-    this.useOriginalIds = initShim.useOriginalIds();
+    this.encodedOutput = initShim.encodedOutput();
     this.identifier = initShim.identifier();
     this.initShim = null;
   }
@@ -209,8 +209,8 @@ public final class ImmutablePathsMiningPregelConfig
     if (builder.seedPropertyIsSet()) {
       initShim.seedProperty(builder.seedProperty);
     }
-    if (builder.useOriginalIdsIsSet()) {
-      initShim.useOriginalIds(builder.useOriginalIds);
+    if (builder.encodedOutputIsSet()) {
+      initShim.encodedOutput(builder.encodedOutput);
     }
     if (builder.identifierIsSet()) {
       initShim.identifier(builder.identifier);
@@ -231,7 +231,7 @@ public final class ImmutablePathsMiningPregelConfig
     this.mutateProperty = initShim.mutateProperty();
     this.writeProperty = initShim.writeProperty();
     this.seedProperty = initShim.seedProperty();
-    this.useOriginalIds = initShim.useOriginalIds();
+    this.encodedOutput = initShim.encodedOutput();
     this.identifier = initShim.identifier();
     this.initShim = null;
   }
@@ -254,7 +254,7 @@ public final class ImmutablePathsMiningPregelConfig
       String mutateProperty,
       String writeProperty,
       @Nullable String seedProperty,
-      boolean useOriginalIds,
+      boolean encodedOutput,
       long identifier) {
     initShim.configKeys(configKeys);
     initShim.logProgress(logProgress);
@@ -273,7 +273,7 @@ public final class ImmutablePathsMiningPregelConfig
     initShim.mutateProperty(mutateProperty);
     initShim.writeProperty(writeProperty);
     initShim.seedProperty(seedProperty);
-    initShim.useOriginalIds(useOriginalIds);
+    initShim.encodedOutput(encodedOutput);
     initShim.identifier(identifier);
     this.configKeys = initShim.configKeys();
     this.logProgress = initShim.logProgress();
@@ -291,7 +291,7 @@ public final class ImmutablePathsMiningPregelConfig
     this.mutateProperty = initShim.mutateProperty();
     this.writeProperty = initShim.writeProperty();
     this.seedProperty = initShim.seedProperty();
-    this.useOriginalIds = initShim.useOriginalIds();
+    this.encodedOutput = initShim.encodedOutput();
     this.identifier = initShim.identifier();
     this.initShim = null;
   }
@@ -576,22 +576,22 @@ public final class ImmutablePathsMiningPregelConfig
       seedPropertyBuildStage = STAGE_INITIALIZED;
     }
 
-    private byte useOriginalIdsBuildStage = STAGE_UNINITIALIZED;
-    private boolean useOriginalIds;
+    private byte encodedOutputBuildStage = STAGE_UNINITIALIZED;
+    private boolean encodedOutput;
 
-    boolean useOriginalIds() {
-      if (useOriginalIdsBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
-      if (useOriginalIdsBuildStage == STAGE_UNINITIALIZED) {
-        useOriginalIdsBuildStage = STAGE_INITIALIZING;
-        this.useOriginalIds = useOriginalIdsInitialize();
-        useOriginalIdsBuildStage = STAGE_INITIALIZED;
+    boolean encodedOutput() {
+      if (encodedOutputBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+      if (encodedOutputBuildStage == STAGE_UNINITIALIZED) {
+        encodedOutputBuildStage = STAGE_INITIALIZING;
+        this.encodedOutput = encodedOutputInitialize();
+        encodedOutputBuildStage = STAGE_INITIALIZED;
       }
-      return this.useOriginalIds;
+      return this.encodedOutput;
     }
 
-    void useOriginalIds(boolean useOriginalIds) {
-      this.useOriginalIds = useOriginalIds;
-      useOriginalIdsBuildStage = STAGE_INITIALIZED;
+    void encodedOutput(boolean encodedOutput) {
+      this.encodedOutput = encodedOutput;
+      encodedOutputBuildStage = STAGE_INITIALIZED;
     }
 
     private byte identifierBuildStage = STAGE_UNINITIALIZED;
@@ -630,7 +630,7 @@ public final class ImmutablePathsMiningPregelConfig
       if (mutatePropertyBuildStage == STAGE_INITIALIZING) attributes.add("mutateProperty");
       if (writePropertyBuildStage == STAGE_INITIALIZING) attributes.add("writeProperty");
       if (seedPropertyBuildStage == STAGE_INITIALIZING) attributes.add("seedProperty");
-      if (useOriginalIdsBuildStage == STAGE_INITIALIZING) attributes.add("useOriginalIds");
+      if (encodedOutputBuildStage == STAGE_INITIALIZING) attributes.add("encodedOutput");
       if (identifierBuildStage == STAGE_INITIALIZING) attributes.add("identifier");
       return "Cannot build PathsMiningPregelConfig, attribute initializers form cycle " + attributes;
     }
@@ -700,8 +700,8 @@ public final class ImmutablePathsMiningPregelConfig
     return PathsMiningPregel.PathsMiningPregelConfig.super.seedProperty();
   }
 
-  private boolean useOriginalIdsInitialize() {
-    return PathsMiningPregel.PathsMiningPregelConfig.super.useOriginalIds();
+  private boolean encodedOutputInitialize() {
+    return PathsMiningPregel.PathsMiningPregelConfig.super.encodedOutput();
   }
 
   private long identifierInitialize() {
@@ -917,14 +917,14 @@ public final class ImmutablePathsMiningPregelConfig
   }
 
   /**
-   * @return The value of the {@code useOriginalIds} attribute
+   * @return The value of the {@code encodedOutput} attribute
    */
   @Override
-  public boolean useOriginalIds() {
+  public boolean encodedOutput() {
     InitShim shim = this.initShim;
     return shim != null
-        ? shim.useOriginalIds()
-        : this.useOriginalIds;
+        ? shim.encodedOutput()
+        : this.encodedOutput;
   }
 
   /**
@@ -965,7 +965,7 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.useOriginalIds,
+        this.encodedOutput,
         this.identifier));
   }
 
@@ -995,7 +995,7 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.useOriginalIds,
+        this.encodedOutput,
         this.identifier));
   }
 
@@ -1025,7 +1025,7 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.useOriginalIds,
+        this.encodedOutput,
         this.identifier));
   }
 
@@ -1055,7 +1055,7 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.useOriginalIds,
+        this.encodedOutput,
         this.identifier));
   }
 
@@ -1086,7 +1086,7 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.useOriginalIds,
+        this.encodedOutput,
         this.identifier));
   }
 
@@ -1116,7 +1116,7 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.useOriginalIds,
+        this.encodedOutput,
         this.identifier));
   }
 
@@ -1146,7 +1146,7 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.useOriginalIds,
+        this.encodedOutput,
         this.identifier));
   }
 
@@ -1177,7 +1177,7 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.useOriginalIds,
+        this.encodedOutput,
         this.identifier));
   }
 
@@ -1206,7 +1206,7 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.useOriginalIds,
+        this.encodedOutput,
         this.identifier));
   }
 
@@ -1237,7 +1237,7 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.useOriginalIds,
+        this.encodedOutput,
         this.identifier));
   }
 
@@ -1266,7 +1266,7 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.useOriginalIds,
+        this.encodedOutput,
         this.identifier));
   }
 
@@ -1297,7 +1297,7 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.useOriginalIds,
+        this.encodedOutput,
         this.identifier));
   }
 
@@ -1327,7 +1327,7 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.useOriginalIds,
+        this.encodedOutput,
         this.identifier));
   }
 
@@ -1358,7 +1358,7 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.useOriginalIds,
+        this.encodedOutput,
         this.identifier));
   }
 
@@ -1388,7 +1388,7 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.useOriginalIds,
+        this.encodedOutput,
         this.identifier));
   }
 
@@ -1420,7 +1420,7 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.useOriginalIds,
+        this.encodedOutput,
         this.identifier));
   }
 
@@ -1450,7 +1450,7 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.useOriginalIds,
+        this.encodedOutput,
         this.identifier));
   }
 
@@ -1482,7 +1482,7 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.useOriginalIds,
+        this.encodedOutput,
         this.identifier));
   }
 
@@ -1512,7 +1512,7 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.useOriginalIds,
+        this.encodedOutput,
         this.identifier));
   }
 
@@ -1543,7 +1543,7 @@ public final class ImmutablePathsMiningPregelConfig
         newValue,
         this.writeProperty,
         this.seedProperty,
-        this.useOriginalIds,
+        this.encodedOutput,
         this.identifier));
   }
 
@@ -1574,7 +1574,7 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         newValue,
         this.seedProperty,
-        this.useOriginalIds,
+        this.encodedOutput,
         this.identifier));
   }
 
@@ -1604,18 +1604,18 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         value,
-        this.useOriginalIds,
+        this.encodedOutput,
         this.identifier));
   }
 
   /**
-   * Copy the current immutable object by setting a value for the {@link PathsMiningPregel.PathsMiningPregelConfig#useOriginalIds() useOriginalIds} attribute.
+   * Copy the current immutable object by setting a value for the {@link PathsMiningPregel.PathsMiningPregelConfig#encodedOutput() encodedOutput} attribute.
    * A value equality check is used to prevent copying of the same value by returning {@code this}.
-   * @param value A new value for useOriginalIds
+   * @param value A new value for encodedOutput
    * @return A modified copy of the {@code this} object
    */
-  public final ImmutablePathsMiningPregelConfig withUseOriginalIds(boolean value) {
-    if (this.useOriginalIds == value) return this;
+  public final ImmutablePathsMiningPregelConfig withEncodedOutput(boolean value) {
+    if (this.encodedOutput == value) return this;
     return validate(new ImmutablePathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
@@ -1664,7 +1664,7 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.useOriginalIds,
+        this.encodedOutput,
         value));
   }
 
@@ -1698,12 +1698,12 @@ public final class ImmutablePathsMiningPregelConfig
         && mutateProperty.equals(another.mutateProperty)
         && writeProperty.equals(another.writeProperty)
         && Objects.equals(seedProperty, another.seedProperty)
-        && useOriginalIds == another.useOriginalIds
+        && encodedOutput == another.encodedOutput
         && identifier == another.identifier;
   }
 
   /**
-   * Computes a hash code from attributes: {@code logProgress}, {@code sudo}, {@code usernameOverride}, {@code concurrency}, {@code minBatchSize}, {@code jobId}, {@code nodeLabels}, {@code relationshipTypes}, {@code hasRelationshipWeightProperty}, {@code relationshipWeightProperty}, {@code maxIterations}, {@code partitioning}, {@code useForkJoin}, {@code arrowConnectionInfo}, {@code writeConcurrency}, {@code mutateProperty}, {@code writeProperty}, {@code seedProperty}, {@code useOriginalIds}, {@code identifier}.
+   * Computes a hash code from attributes: {@code logProgress}, {@code sudo}, {@code usernameOverride}, {@code concurrency}, {@code minBatchSize}, {@code jobId}, {@code nodeLabels}, {@code relationshipTypes}, {@code hasRelationshipWeightProperty}, {@code relationshipWeightProperty}, {@code maxIterations}, {@code partitioning}, {@code useForkJoin}, {@code arrowConnectionInfo}, {@code writeConcurrency}, {@code mutateProperty}, {@code writeProperty}, {@code seedProperty}, {@code encodedOutput}, {@code identifier}.
    * @return hashCode value
    */
   @Override
@@ -1727,7 +1727,7 @@ public final class ImmutablePathsMiningPregelConfig
     h += (h << 5) + mutateProperty.hashCode();
     h += (h << 5) + writeProperty.hashCode();
     h += (h << 5) + Objects.hashCode(seedProperty);
-    h += (h << 5) + Boolean.hashCode(useOriginalIds);
+    h += (h << 5) + Boolean.hashCode(encodedOutput);
     h += (h << 5) + Long.hashCode(identifier);
     return h;
   }
@@ -1784,7 +1784,7 @@ public final class ImmutablePathsMiningPregelConfig
       builder.append("seedProperty=").append(seedProperty);
     }
     builder.append(", ");
-    builder.append("useOriginalIds=").append(useOriginalIds);
+    builder.append("encodedOutput=").append(encodedOutput);
     builder.append(", ");
     builder.append("identifier=").append(identifier);
     return builder.append("}").toString();
@@ -1804,12 +1804,12 @@ public final class ImmutablePathsMiningPregelConfig
    * @param mutateProperty The value for the {@code mutateProperty} attribute
    * @param writeProperty The value for the {@code writeProperty} attribute
    * @param seedProperty The value for the {@code seedProperty} attribute
-   * @param useOriginalIds The value for the {@code useOriginalIds} attribute
+   * @param encodedOutput The value for the {@code encodedOutput} attribute
    * @param identifier The value for the {@code identifier} attribute
    * @return An immutable PathsMiningPregelConfig instance
    */
-  public static PathsMiningPregel.PathsMiningPregelConfig of(int concurrency, int minBatchSize, List<String> nodeLabels, List<String> relationshipTypes, Optional<String> relationshipWeightProperty, int maxIterations, Partitioning partitioning, Optional<WriteConfig.ArrowConnectionInfo> arrowConnectionInfo, int writeConcurrency, String mutateProperty, String writeProperty, @Nullable String seedProperty, boolean useOriginalIds, long identifier) {
-    return of(concurrency, minBatchSize, (Iterable<String>) nodeLabels, (Iterable<String>) relationshipTypes, relationshipWeightProperty, maxIterations, partitioning, arrowConnectionInfo, writeConcurrency, mutateProperty, writeProperty, seedProperty, useOriginalIds, identifier);
+  public static PathsMiningPregel.PathsMiningPregelConfig of(int concurrency, int minBatchSize, List<String> nodeLabels, List<String> relationshipTypes, Optional<String> relationshipWeightProperty, int maxIterations, Partitioning partitioning, Optional<WriteConfig.ArrowConnectionInfo> arrowConnectionInfo, int writeConcurrency, String mutateProperty, String writeProperty, @Nullable String seedProperty, boolean encodedOutput, long identifier) {
+    return of(concurrency, minBatchSize, (Iterable<String>) nodeLabels, (Iterable<String>) relationshipTypes, relationshipWeightProperty, maxIterations, partitioning, arrowConnectionInfo, writeConcurrency, mutateProperty, writeProperty, seedProperty, encodedOutput, identifier);
   }
 
   /**
@@ -1826,12 +1826,12 @@ public final class ImmutablePathsMiningPregelConfig
    * @param mutateProperty The value for the {@code mutateProperty} attribute
    * @param writeProperty The value for the {@code writeProperty} attribute
    * @param seedProperty The value for the {@code seedProperty} attribute
-   * @param useOriginalIds The value for the {@code useOriginalIds} attribute
+   * @param encodedOutput The value for the {@code encodedOutput} attribute
    * @param identifier The value for the {@code identifier} attribute
    * @return An immutable PathsMiningPregelConfig instance
    */
-  public static PathsMiningPregel.PathsMiningPregelConfig of(int concurrency, int minBatchSize, Iterable<String> nodeLabels, Iterable<String> relationshipTypes, Optional<String> relationshipWeightProperty, int maxIterations, Partitioning partitioning, Optional<? extends WriteConfig.ArrowConnectionInfo> arrowConnectionInfo, int writeConcurrency, String mutateProperty, String writeProperty, @Nullable String seedProperty, boolean useOriginalIds, long identifier) {
-    return validate(new ImmutablePathsMiningPregelConfig(concurrency, minBatchSize, nodeLabels, relationshipTypes, relationshipWeightProperty, maxIterations, partitioning, arrowConnectionInfo, writeConcurrency, mutateProperty, writeProperty, seedProperty, useOriginalIds, identifier));
+  public static PathsMiningPregel.PathsMiningPregelConfig of(int concurrency, int minBatchSize, Iterable<String> nodeLabels, Iterable<String> relationshipTypes, Optional<String> relationshipWeightProperty, int maxIterations, Partitioning partitioning, Optional<? extends WriteConfig.ArrowConnectionInfo> arrowConnectionInfo, int writeConcurrency, String mutateProperty, String writeProperty, @Nullable String seedProperty, boolean encodedOutput, long identifier) {
+    return validate(new ImmutablePathsMiningPregelConfig(concurrency, minBatchSize, nodeLabels, relationshipTypes, relationshipWeightProperty, maxIterations, partitioning, arrowConnectionInfo, writeConcurrency, mutateProperty, writeProperty, seedProperty, encodedOutput, identifier));
   }
 
   /**
@@ -1848,12 +1848,12 @@ public final class ImmutablePathsMiningPregelConfig
    * @param mutateProperty The value for the {@code mutateProperty} attribute
    * @param writeProperty The value for the {@code writeProperty} attribute
    * @param seedProperty The value for the {@code seedProperty} attribute
-   * @param useOriginalIds The value for the {@code useOriginalIds} attribute
+   * @param encodedOutput The value for the {@code encodedOutput} attribute
    * @param identifier The value for the {@code identifier} attribute
    * @return An immutable PathsMiningPregelConfig instance
    */
-  public static PathsMiningPregel.PathsMiningPregelConfig of(int concurrency, int minBatchSize, Iterable<String> nodeLabels, Iterable<String> relationshipTypes, String relationshipWeightProperty, int maxIterations, Partitioning partitioning, WriteConfig.ArrowConnectionInfo arrowConnectionInfo, int writeConcurrency, String mutateProperty, String writeProperty, @Nullable String seedProperty, boolean useOriginalIds, long identifier) {
-    return validate(new ImmutablePathsMiningPregelConfig(concurrency, minBatchSize, nodeLabels, relationshipTypes, relationshipWeightProperty, maxIterations, partitioning, arrowConnectionInfo, writeConcurrency, mutateProperty, writeProperty, seedProperty, useOriginalIds, identifier));
+  public static PathsMiningPregel.PathsMiningPregelConfig of(int concurrency, int minBatchSize, Iterable<String> nodeLabels, Iterable<String> relationshipTypes, String relationshipWeightProperty, int maxIterations, Partitioning partitioning, WriteConfig.ArrowConnectionInfo arrowConnectionInfo, int writeConcurrency, String mutateProperty, String writeProperty, @Nullable String seedProperty, boolean encodedOutput, long identifier) {
+    return validate(new ImmutablePathsMiningPregelConfig(concurrency, minBatchSize, nodeLabels, relationshipTypes, relationshipWeightProperty, maxIterations, partitioning, arrowConnectionInfo, writeConcurrency, mutateProperty, writeProperty, seedProperty, encodedOutput, identifier));
   }
 
   private static ImmutablePathsMiningPregelConfig validate(ImmutablePathsMiningPregelConfig instance) {
@@ -1900,7 +1900,7 @@ public final class ImmutablePathsMiningPregelConfig
    *    .mutateProperty(String) // optional {@link PathsMiningPregel.PathsMiningPregelConfig#mutateProperty() mutateProperty}
    *    .writeProperty(String) // optional {@link PathsMiningPregel.PathsMiningPregelConfig#writeProperty() writeProperty}
    *    .seedProperty(String | null) // nullable {@link PathsMiningPregel.PathsMiningPregelConfig#seedProperty() seedProperty}
-   *    .useOriginalIds(boolean) // optional {@link PathsMiningPregel.PathsMiningPregelConfig#useOriginalIds() useOriginalIds}
+   *    .encodedOutput(boolean) // optional {@link PathsMiningPregel.PathsMiningPregelConfig#encodedOutput() encodedOutput}
    *    .identifier(long) // optional {@link PathsMiningPregel.PathsMiningPregelConfig#identifier() identifier}
    *    .build();
    * </pre>
@@ -1928,7 +1928,7 @@ public final class ImmutablePathsMiningPregelConfig
     private static final long OPT_BIT_RELATIONSHIP_TYPES = 0x20L;
     private static final long OPT_BIT_WRITE_CONCURRENCY = 0x40L;
     private static final long OPT_BIT_SEED_PROPERTY = 0x80L;
-    private static final long OPT_BIT_USE_ORIGINAL_IDS = 0x100L;
+    private static final long OPT_BIT_ENCODED_OUTPUT = 0x100L;
     private static final long OPT_BIT_IDENTIFIER = 0x200L;
     private long initBits = 0x1L;
     private long optBits;
@@ -1950,7 +1950,7 @@ public final class ImmutablePathsMiningPregelConfig
     private String mutateProperty;
     private String writeProperty;
     private String seedProperty;
-    private boolean useOriginalIds;
+    private boolean encodedOutput;
     private long identifier;
 
     private Builder() {
@@ -2118,8 +2118,8 @@ public final class ImmutablePathsMiningPregelConfig
       }
       if (object instanceof PathsMiningPregel.PathsMiningPregelConfig) {
         PathsMiningPregel.PathsMiningPregelConfig instance = (PathsMiningPregel.PathsMiningPregelConfig) object;
+        encodedOutput(instance.encodedOutput());
         identifier(instance.identifier());
-        useOriginalIds(instance.useOriginalIds());
       }
       if (object instanceof PregelProcedureConfig) {
         PregelProcedureConfig instance = (PregelProcedureConfig) object;
@@ -2502,14 +2502,14 @@ public final class ImmutablePathsMiningPregelConfig
     }
 
     /**
-     * Initializes the value for the {@link PathsMiningPregel.PathsMiningPregelConfig#useOriginalIds() useOriginalIds} attribute.
-     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link PathsMiningPregel.PathsMiningPregelConfig#useOriginalIds() useOriginalIds}.</em>
-     * @param useOriginalIds The value for useOriginalIds 
+     * Initializes the value for the {@link PathsMiningPregel.PathsMiningPregelConfig#encodedOutput() encodedOutput} attribute.
+     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link PathsMiningPregel.PathsMiningPregelConfig#encodedOutput() encodedOutput}.</em>
+     * @param encodedOutput The value for encodedOutput 
      * @return {@code this} builder for use in a chained invocation
      */
-    public final Builder useOriginalIds(boolean useOriginalIds) {
-      this.useOriginalIds = useOriginalIds;
-      optBits |= OPT_BIT_USE_ORIGINAL_IDS;
+    public final Builder encodedOutput(boolean encodedOutput) {
+      this.encodedOutput = encodedOutput;
+      optBits |= OPT_BIT_ENCODED_OUTPUT;
       return this;
     }
 
@@ -2553,7 +2553,7 @@ public final class ImmutablePathsMiningPregelConfig
       this.mutateProperty = null;
       this.writeProperty = null;
       this.seedProperty = null;
-      this.useOriginalIds = false;
+      this.encodedOutput = false;
       this.identifier = 0;
       return this;
     }
@@ -2602,8 +2602,8 @@ public final class ImmutablePathsMiningPregelConfig
       return (optBits & OPT_BIT_SEED_PROPERTY) != 0;
     }
 
-    private boolean useOriginalIdsIsSet() {
-      return (optBits & OPT_BIT_USE_ORIGINAL_IDS) != 0;
+    private boolean encodedOutputIsSet() {
+      return (optBits & OPT_BIT_ENCODED_OUTPUT) != 0;
     }
 
     private boolean identifierIsSet() {

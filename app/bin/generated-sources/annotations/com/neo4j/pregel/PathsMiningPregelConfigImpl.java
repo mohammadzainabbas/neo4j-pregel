@@ -27,7 +27,7 @@ import org.neo4j.gds.core.utils.progress.JobId;
 public final class PathsMiningPregelConfigImpl implements PathsMiningPregel.PathsMiningPregelConfig {
     private boolean isAsynchronous;
 
-    private boolean useOriginalIds;
+    private boolean encodedOutput;
 
     private long identifier;
 
@@ -69,7 +69,7 @@ public final class PathsMiningPregelConfigImpl implements PathsMiningPregel.Path
             errors.add(e);
         }
         try {
-            this.useOriginalIds = config.getBool("encodedOutput", PathsMiningPregel.PathsMiningPregelConfig.super.useOriginalIds());
+            this.encodedOutput = config.getBool("encodedOutput", PathsMiningPregel.PathsMiningPregelConfig.super.encodedOutput());
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
@@ -190,8 +190,8 @@ public final class PathsMiningPregelConfigImpl implements PathsMiningPregel.Path
     }
 
     @Override
-    public boolean useOriginalIds() {
-        return this.useOriginalIds;
+    public boolean encodedOutput() {
+        return this.encodedOutput;
     }
 
     @Override
@@ -289,7 +289,7 @@ public final class PathsMiningPregelConfigImpl implements PathsMiningPregel.Path
     public Map<String, Object> toMap() {
         Map<String, Object> map = new LinkedHashMap<>();
         map.put("isAsynchronous", isAsynchronous());
-        map.put("encodedOutput", useOriginalIds());
+        map.put("encodedOutput", encodedOutput());
         map.put("identifier", identifier());
         map.put("mutateProperty", mutateProperty());
         map.put("writeProperty", writeProperty());
@@ -364,7 +364,7 @@ public final class PathsMiningPregelConfigImpl implements PathsMiningPregel.Path
                 PathsMiningPregel.PathsMiningPregelConfig baseConfig) {
             var builder = new PathsMiningPregelConfigImpl.Builder();
             builder.isAsynchronous(baseConfig.isAsynchronous());
-            builder.useOriginalIds(baseConfig.useOriginalIds());
+            builder.encodedOutput(baseConfig.encodedOutput());
             builder.identifier(baseConfig.identifier());
             builder.mutateProperty(baseConfig.mutateProperty());
             builder.writeProperty(baseConfig.writeProperty());
@@ -389,8 +389,8 @@ public final class PathsMiningPregelConfigImpl implements PathsMiningPregel.Path
             return this;
         }
 
-        public PathsMiningPregelConfigImpl.Builder useOriginalIds(boolean useOriginalIds) {
-            this.config.put("encodedOutput", useOriginalIds);
+        public PathsMiningPregelConfigImpl.Builder encodedOutput(boolean encodedOutput) {
+            this.config.put("encodedOutput", encodedOutput);
             return this;
         }
 

@@ -313,7 +313,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
 
         @Value.Default
         @Configuration.Key("encodedOutput")
-        default boolean useOriginalIds() {
+        default boolean encodedOutput() {
             return false;
         }
         
