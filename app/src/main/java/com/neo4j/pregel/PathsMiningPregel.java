@@ -98,14 +98,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
     /* Called in the beginning of the first superstep of the Pregel computation and allows initializing node values */
     @Override
     public void init(InitContext<PathsMiningPregelConfig> context) {
-        
-        if (context.nodeProperties(G_ID) != null) {
-            context.setNodeValue(G_ID, context.nodeProperties(G_ID).longValue(nodeId));
-        }
-
-        for (var i = 0; i < context.config().maxIterations(); i++) {
-            context.setNodeValue(PATH + i, new long[]{}); // initialize all paths to empty array
-        }
+        context.setNodeValue(PATHS, new long[]{});
         context.setNodeValue(NEIGHBORS_IDS, new long[]{});
     }
 
