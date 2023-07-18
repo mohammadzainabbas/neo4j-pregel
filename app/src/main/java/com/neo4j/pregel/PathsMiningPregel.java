@@ -302,49 +302,48 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
                     new_path.addAll(temp);
                     temp.clear();
                 }
-                
             }
 
-            for (int i = 0; i < previous_messages.length; i++) {
-                long previous_message = previous_messages[i];
-                path_buffer.add(previous_message);
-                if (previous_messages[i + 1] == IDENTIFIER) {
-                    long[] decoded_previous_message = decode(previous_message);
-                    long previous_message_from_node = decoded_previous_message[0];
-                    long previous_message_to_node = decoded_previous_message[1];
+            // for (int i = 0; i < previous_messages.length; i++) {
+            //     long previous_message = previous_messages[i];
+            //     path_buffer.add(previous_message);
+            //     if (previous_messages[i + 1] == IDENTIFIER) {
+            //         long[] decoded_previous_message = decode(previous_message);
+            //         long previous_message_from_node = decoded_previous_message[0];
+            //         long previous_message_to_node = decoded_previous_message[1];
 
-                    var message_list = messages_map.get(previous_message_to_node);
-                    if (message_list != null) {
-                        message_list = removeDuplicates(message_list); // remove duplicates (same neighbor info)
+            //         var message_list = messages_map.get(previous_message_to_node);
+            //         if (message_list != null) {
+            //             message_list = removeDuplicates(message_list); // remove duplicates (same neighbor info)
                         
-                        var temp = new ArrayList<Long>();
+            //             var temp = new ArrayList<Long>();
                         
-                        for (var message: message_list) {
+            //             for (var message: message_list) {
                             
-                            // A-B-A => disallow this path since this doesn't make any sense for a pattern p.o.v
-                            if (message == previous_message_from_node) { 
-                                continue;
-                            }
+            //                 // A-B-A => disallow this path since this doesn't make any sense for a pattern p.o.v
+            //                 if (message == previous_message_from_node) { 
+            //                     continue;
+            //                 }
 
-                            temp.addAll(path_buffer);
+            //                 temp.addAll(path_buffer);
 
-                            long value = encode(previous_message_to_node, message);
+            //                 long value = encode(previous_message_to_node, message);
 
-                            temp.add(value);
-                            temp.add(IDENTIFIER);
-                        }
+            //                 temp.add(value);
+            //                 temp.add(IDENTIFIER);
+            //             }
 
-                        new_path.addAll(temp);
-                        path_buffer.clear();
-                        temp.clear();
-                        continue;
-                    }
-                }
-                if (previous_message == IDENTIFIER) {
-                    new_path.addAll(path_buffer);
-                    path_buffer.clear();
-                }
-            }
+            //             new_path.addAll(temp);
+            //             path_buffer.clear();
+            //             temp.clear();
+            //             continue;
+            //         }
+            //     }
+            //     if (previous_message == IDENTIFIER) {
+            //         new_path.addAll(path_buffer);
+            //         path_buffer.clear();
+            //     }
+            // }
 
             if (!new_path.isEmpty()) {
                 long[] new_paths = arrayListToNativeArray(new_path);
