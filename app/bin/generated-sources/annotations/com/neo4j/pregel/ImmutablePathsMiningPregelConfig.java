@@ -58,7 +58,6 @@ public final class ImmutablePathsMiningPregelConfig
   private final String mutateProperty;
   private final String writeProperty;
   private final @Nullable String seedProperty;
-  private final long maxRepeatNodes;
   private final boolean withRepeition;
   private final boolean useOriginalIds;
   private final long identifier;
@@ -77,7 +76,6 @@ public final class ImmutablePathsMiningPregelConfig
       String mutateProperty,
       String writeProperty,
       @Nullable String seedProperty,
-      long maxRepeatNodes,
       boolean withRepeition,
       boolean useOriginalIds,
       long identifier) {
@@ -93,7 +91,6 @@ public final class ImmutablePathsMiningPregelConfig
     initShim.mutateProperty(Objects.requireNonNull(mutateProperty, "mutateProperty"));
     initShim.writeProperty(Objects.requireNonNull(writeProperty, "writeProperty"));
     initShim.seedProperty(seedProperty);
-    initShim.maxRepeatNodes(maxRepeatNodes);
     initShim.withRepeition(withRepeition);
     initShim.useOriginalIds(useOriginalIds);
     initShim.identifier(identifier);
@@ -114,7 +111,6 @@ public final class ImmutablePathsMiningPregelConfig
     this.mutateProperty = initShim.mutateProperty();
     this.writeProperty = initShim.writeProperty();
     this.seedProperty = initShim.seedProperty();
-    this.maxRepeatNodes = initShim.maxRepeatNodes();
     this.withRepeition = initShim.withRepeition();
     this.useOriginalIds = initShim.useOriginalIds();
     this.identifier = initShim.identifier();
@@ -135,7 +131,6 @@ public final class ImmutablePathsMiningPregelConfig
       String mutateProperty,
       String writeProperty,
       @Nullable String seedProperty,
-      long maxRepeatNodes,
       boolean withRepeition,
       boolean useOriginalIds,
       long identifier) {
@@ -151,7 +146,6 @@ public final class ImmutablePathsMiningPregelConfig
     initShim.mutateProperty(Objects.requireNonNull(mutateProperty, "mutateProperty"));
     initShim.writeProperty(Objects.requireNonNull(writeProperty, "writeProperty"));
     initShim.seedProperty(seedProperty);
-    initShim.maxRepeatNodes(maxRepeatNodes);
     initShim.withRepeition(withRepeition);
     initShim.useOriginalIds(useOriginalIds);
     initShim.identifier(identifier);
@@ -172,7 +166,6 @@ public final class ImmutablePathsMiningPregelConfig
     this.mutateProperty = initShim.mutateProperty();
     this.writeProperty = initShim.writeProperty();
     this.seedProperty = initShim.seedProperty();
-    this.maxRepeatNodes = initShim.maxRepeatNodes();
     this.withRepeition = initShim.withRepeition();
     this.useOriginalIds = initShim.useOriginalIds();
     this.identifier = initShim.identifier();
@@ -223,9 +216,6 @@ public final class ImmutablePathsMiningPregelConfig
     if (builder.seedPropertyIsSet()) {
       initShim.seedProperty(builder.seedProperty);
     }
-    if (builder.maxRepeatNodesIsSet()) {
-      initShim.maxRepeatNodes(builder.maxRepeatNodes);
-    }
     if (builder.withRepeitionIsSet()) {
       initShim.withRepeition(builder.withRepeition);
     }
@@ -251,7 +241,6 @@ public final class ImmutablePathsMiningPregelConfig
     this.mutateProperty = initShim.mutateProperty();
     this.writeProperty = initShim.writeProperty();
     this.seedProperty = initShim.seedProperty();
-    this.maxRepeatNodes = initShim.maxRepeatNodes();
     this.withRepeition = initShim.withRepeition();
     this.useOriginalIds = initShim.useOriginalIds();
     this.identifier = initShim.identifier();
@@ -276,7 +265,6 @@ public final class ImmutablePathsMiningPregelConfig
       String mutateProperty,
       String writeProperty,
       @Nullable String seedProperty,
-      long maxRepeatNodes,
       boolean withRepeition,
       boolean useOriginalIds,
       long identifier) {
@@ -297,7 +285,6 @@ public final class ImmutablePathsMiningPregelConfig
     initShim.mutateProperty(mutateProperty);
     initShim.writeProperty(writeProperty);
     initShim.seedProperty(seedProperty);
-    initShim.maxRepeatNodes(maxRepeatNodes);
     initShim.withRepeition(withRepeition);
     initShim.useOriginalIds(useOriginalIds);
     initShim.identifier(identifier);
@@ -317,7 +304,6 @@ public final class ImmutablePathsMiningPregelConfig
     this.mutateProperty = initShim.mutateProperty();
     this.writeProperty = initShim.writeProperty();
     this.seedProperty = initShim.seedProperty();
-    this.maxRepeatNodes = initShim.maxRepeatNodes();
     this.withRepeition = initShim.withRepeition();
     this.useOriginalIds = initShim.useOriginalIds();
     this.identifier = initShim.identifier();
@@ -604,24 +590,6 @@ public final class ImmutablePathsMiningPregelConfig
       seedPropertyBuildStage = STAGE_INITIALIZED;
     }
 
-    private byte maxRepeatNodesBuildStage = STAGE_UNINITIALIZED;
-    private long maxRepeatNodes;
-
-    long maxRepeatNodes() {
-      if (maxRepeatNodesBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
-      if (maxRepeatNodesBuildStage == STAGE_UNINITIALIZED) {
-        maxRepeatNodesBuildStage = STAGE_INITIALIZING;
-        this.maxRepeatNodes = maxRepeatNodesInitialize();
-        maxRepeatNodesBuildStage = STAGE_INITIALIZED;
-      }
-      return this.maxRepeatNodes;
-    }
-
-    void maxRepeatNodes(long maxRepeatNodes) {
-      this.maxRepeatNodes = maxRepeatNodes;
-      maxRepeatNodesBuildStage = STAGE_INITIALIZED;
-    }
-
     private byte withRepeitionBuildStage = STAGE_UNINITIALIZED;
     private boolean withRepeition;
 
@@ -694,7 +662,6 @@ public final class ImmutablePathsMiningPregelConfig
       if (mutatePropertyBuildStage == STAGE_INITIALIZING) attributes.add("mutateProperty");
       if (writePropertyBuildStage == STAGE_INITIALIZING) attributes.add("writeProperty");
       if (seedPropertyBuildStage == STAGE_INITIALIZING) attributes.add("seedProperty");
-      if (maxRepeatNodesBuildStage == STAGE_INITIALIZING) attributes.add("maxRepeatNodes");
       if (withRepeitionBuildStage == STAGE_INITIALIZING) attributes.add("withRepeition");
       if (useOriginalIdsBuildStage == STAGE_INITIALIZING) attributes.add("useOriginalIds");
       if (identifierBuildStage == STAGE_INITIALIZING) attributes.add("identifier");
@@ -764,10 +731,6 @@ public final class ImmutablePathsMiningPregelConfig
 
   private @Nullable String seedPropertyInitialize() {
     return PathsMiningPregel.PathsMiningPregelConfig.super.seedProperty();
-  }
-
-  private long maxRepeatNodesInitialize() {
-    return PathsMiningPregel.PathsMiningPregelConfig.super.maxRepeatNodes();
   }
 
   private boolean withRepeitionInitialize() {
@@ -991,17 +954,6 @@ public final class ImmutablePathsMiningPregelConfig
   }
 
   /**
-   * @return The value of the {@code maxRepeatNodes} attribute
-   */
-  @Override
-  public long maxRepeatNodes() {
-    InitShim shim = this.initShim;
-    return shim != null
-        ? shim.maxRepeatNodes()
-        : this.maxRepeatNodes;
-  }
-
-  /**
    * @return The value of the {@code withRepeition} attribute
    */
   @Override
@@ -1061,7 +1013,6 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes,
         this.withRepeition,
         this.useOriginalIds,
         this.identifier));
@@ -1093,7 +1044,6 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes,
         this.withRepeition,
         this.useOriginalIds,
         this.identifier));
@@ -1125,7 +1075,6 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes,
         this.withRepeition,
         this.useOriginalIds,
         this.identifier));
@@ -1157,7 +1106,6 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes,
         this.withRepeition,
         this.useOriginalIds,
         this.identifier));
@@ -1190,7 +1138,6 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes,
         this.withRepeition,
         this.useOriginalIds,
         this.identifier));
@@ -1222,7 +1169,6 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes,
         this.withRepeition,
         this.useOriginalIds,
         this.identifier));
@@ -1254,7 +1200,6 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes,
         this.withRepeition,
         this.useOriginalIds,
         this.identifier));
@@ -1287,7 +1232,6 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes,
         this.withRepeition,
         this.useOriginalIds,
         this.identifier));
@@ -1318,7 +1262,6 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes,
         this.withRepeition,
         this.useOriginalIds,
         this.identifier));
@@ -1351,7 +1294,6 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes,
         this.withRepeition,
         this.useOriginalIds,
         this.identifier));
@@ -1382,7 +1324,6 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes,
         this.withRepeition,
         this.useOriginalIds,
         this.identifier));
@@ -1415,7 +1356,6 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes,
         this.withRepeition,
         this.useOriginalIds,
         this.identifier));
@@ -1447,7 +1387,6 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes,
         this.withRepeition,
         this.useOriginalIds,
         this.identifier));
@@ -1480,7 +1419,6 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes,
         this.withRepeition,
         this.useOriginalIds,
         this.identifier));
@@ -1512,7 +1450,6 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes,
         this.withRepeition,
         this.useOriginalIds,
         this.identifier));
@@ -1546,7 +1483,6 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes,
         this.withRepeition,
         this.useOriginalIds,
         this.identifier));
@@ -1578,7 +1514,6 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes,
         this.withRepeition,
         this.useOriginalIds,
         this.identifier));
@@ -1612,7 +1547,6 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes,
         this.withRepeition,
         this.useOriginalIds,
         this.identifier));
@@ -1644,7 +1578,6 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes,
         this.withRepeition,
         this.useOriginalIds,
         this.identifier));
@@ -1677,7 +1610,6 @@ public final class ImmutablePathsMiningPregelConfig
         newValue,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes,
         this.withRepeition,
         this.useOriginalIds,
         this.identifier));
@@ -1710,7 +1642,6 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         newValue,
         this.seedProperty,
-        this.maxRepeatNodes,
         this.withRepeition,
         this.useOriginalIds,
         this.identifier));
@@ -1741,39 +1672,6 @@ public final class ImmutablePathsMiningPregelConfig
         this.writeConcurrency,
         this.mutateProperty,
         this.writeProperty,
-        value,
-        this.maxRepeatNodes,
-        this.withRepeition,
-        this.useOriginalIds,
-        this.identifier));
-  }
-
-  /**
-   * Copy the current immutable object by setting a value for the {@link PathsMiningPregel.PathsMiningPregelConfig#maxRepeatNodes() maxRepeatNodes} attribute.
-   * A value equality check is used to prevent copying of the same value by returning {@code this}.
-   * @param value A new value for maxRepeatNodes
-   * @return A modified copy of the {@code this} object
-   */
-  public final ImmutablePathsMiningPregelConfig withMaxRepeatNodes(long value) {
-    if (this.maxRepeatNodes == value) return this;
-    return validate(new ImmutablePathsMiningPregelConfig(
-        this.configKeys,
-        this.logProgress,
-        this.sudo,
-        this.usernameOverride,
-        this.concurrency,
-        this.minBatchSize,
-        this.jobId,
-        this.nodeLabels,
-        this.relationshipTypes,
-        this.relationshipWeightProperty,
-        this.maxIterations,
-        this.partitioning,
-        this.arrowConnectionInfo,
-        this.writeConcurrency,
-        this.mutateProperty,
-        this.writeProperty,
-        this.seedProperty,
         value,
         this.withRepeition,
         this.useOriginalIds,
@@ -1806,7 +1704,6 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes,
         value,
         this.useOriginalIds,
         this.identifier));
@@ -1838,7 +1735,6 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes,
         this.withRepeition,
         value,
         this.identifier));
@@ -1870,7 +1766,6 @@ public final class ImmutablePathsMiningPregelConfig
         this.mutateProperty,
         this.writeProperty,
         this.seedProperty,
-        this.maxRepeatNodes,
         this.withRepeition,
         this.useOriginalIds,
         value));
@@ -1906,14 +1801,13 @@ public final class ImmutablePathsMiningPregelConfig
         && mutateProperty.equals(another.mutateProperty)
         && writeProperty.equals(another.writeProperty)
         && Objects.equals(seedProperty, another.seedProperty)
-        && maxRepeatNodes == another.maxRepeatNodes
         && withRepeition == another.withRepeition
         && useOriginalIds == another.useOriginalIds
         && identifier == another.identifier;
   }
 
   /**
-   * Computes a hash code from attributes: {@code logProgress}, {@code sudo}, {@code usernameOverride}, {@code concurrency}, {@code minBatchSize}, {@code jobId}, {@code nodeLabels}, {@code relationshipTypes}, {@code hasRelationshipWeightProperty}, {@code relationshipWeightProperty}, {@code maxIterations}, {@code partitioning}, {@code useForkJoin}, {@code arrowConnectionInfo}, {@code writeConcurrency}, {@code mutateProperty}, {@code writeProperty}, {@code seedProperty}, {@code maxRepeatNodes}, {@code withRepeition}, {@code useOriginalIds}, {@code identifier}.
+   * Computes a hash code from attributes: {@code logProgress}, {@code sudo}, {@code usernameOverride}, {@code concurrency}, {@code minBatchSize}, {@code jobId}, {@code nodeLabels}, {@code relationshipTypes}, {@code hasRelationshipWeightProperty}, {@code relationshipWeightProperty}, {@code maxIterations}, {@code partitioning}, {@code useForkJoin}, {@code arrowConnectionInfo}, {@code writeConcurrency}, {@code mutateProperty}, {@code writeProperty}, {@code seedProperty}, {@code withRepeition}, {@code useOriginalIds}, {@code identifier}.
    * @return hashCode value
    */
   @Override
@@ -1937,7 +1831,6 @@ public final class ImmutablePathsMiningPregelConfig
     h += (h << 5) + mutateProperty.hashCode();
     h += (h << 5) + writeProperty.hashCode();
     h += (h << 5) + Objects.hashCode(seedProperty);
-    h += (h << 5) + Long.hashCode(maxRepeatNodes);
     h += (h << 5) + Boolean.hashCode(withRepeition);
     h += (h << 5) + Boolean.hashCode(useOriginalIds);
     h += (h << 5) + Long.hashCode(identifier);
@@ -1996,8 +1889,6 @@ public final class ImmutablePathsMiningPregelConfig
       builder.append("seedProperty=").append(seedProperty);
     }
     builder.append(", ");
-    builder.append("maxRepeatNodes=").append(maxRepeatNodes);
-    builder.append(", ");
     builder.append("withRepeition=").append(withRepeition);
     builder.append(", ");
     builder.append("useOriginalIds=").append(useOriginalIds);
@@ -2020,14 +1911,13 @@ public final class ImmutablePathsMiningPregelConfig
    * @param mutateProperty The value for the {@code mutateProperty} attribute
    * @param writeProperty The value for the {@code writeProperty} attribute
    * @param seedProperty The value for the {@code seedProperty} attribute
-   * @param maxRepeatNodes The value for the {@code maxRepeatNodes} attribute
    * @param withRepeition The value for the {@code withRepeition} attribute
    * @param useOriginalIds The value for the {@code useOriginalIds} attribute
    * @param identifier The value for the {@code identifier} attribute
    * @return An immutable PathsMiningPregelConfig instance
    */
-  public static PathsMiningPregel.PathsMiningPregelConfig of(int concurrency, int minBatchSize, List<String> nodeLabels, List<String> relationshipTypes, Optional<String> relationshipWeightProperty, int maxIterations, Partitioning partitioning, Optional<WriteConfig.ArrowConnectionInfo> arrowConnectionInfo, int writeConcurrency, String mutateProperty, String writeProperty, @Nullable String seedProperty, long maxRepeatNodes, boolean withRepeition, boolean useOriginalIds, long identifier) {
-    return of(concurrency, minBatchSize, (Iterable<String>) nodeLabels, (Iterable<String>) relationshipTypes, relationshipWeightProperty, maxIterations, partitioning, arrowConnectionInfo, writeConcurrency, mutateProperty, writeProperty, seedProperty, maxRepeatNodes, withRepeition, useOriginalIds, identifier);
+  public static PathsMiningPregel.PathsMiningPregelConfig of(int concurrency, int minBatchSize, List<String> nodeLabels, List<String> relationshipTypes, Optional<String> relationshipWeightProperty, int maxIterations, Partitioning partitioning, Optional<WriteConfig.ArrowConnectionInfo> arrowConnectionInfo, int writeConcurrency, String mutateProperty, String writeProperty, @Nullable String seedProperty, boolean withRepeition, boolean useOriginalIds, long identifier) {
+    return of(concurrency, minBatchSize, (Iterable<String>) nodeLabels, (Iterable<String>) relationshipTypes, relationshipWeightProperty, maxIterations, partitioning, arrowConnectionInfo, writeConcurrency, mutateProperty, writeProperty, seedProperty, withRepeition, useOriginalIds, identifier);
   }
 
   /**
@@ -2044,14 +1934,13 @@ public final class ImmutablePathsMiningPregelConfig
    * @param mutateProperty The value for the {@code mutateProperty} attribute
    * @param writeProperty The value for the {@code writeProperty} attribute
    * @param seedProperty The value for the {@code seedProperty} attribute
-   * @param maxRepeatNodes The value for the {@code maxRepeatNodes} attribute
    * @param withRepeition The value for the {@code withRepeition} attribute
    * @param useOriginalIds The value for the {@code useOriginalIds} attribute
    * @param identifier The value for the {@code identifier} attribute
    * @return An immutable PathsMiningPregelConfig instance
    */
-  public static PathsMiningPregel.PathsMiningPregelConfig of(int concurrency, int minBatchSize, Iterable<String> nodeLabels, Iterable<String> relationshipTypes, Optional<String> relationshipWeightProperty, int maxIterations, Partitioning partitioning, Optional<? extends WriteConfig.ArrowConnectionInfo> arrowConnectionInfo, int writeConcurrency, String mutateProperty, String writeProperty, @Nullable String seedProperty, long maxRepeatNodes, boolean withRepeition, boolean useOriginalIds, long identifier) {
-    return validate(new ImmutablePathsMiningPregelConfig(concurrency, minBatchSize, nodeLabels, relationshipTypes, relationshipWeightProperty, maxIterations, partitioning, arrowConnectionInfo, writeConcurrency, mutateProperty, writeProperty, seedProperty, maxRepeatNodes, withRepeition, useOriginalIds, identifier));
+  public static PathsMiningPregel.PathsMiningPregelConfig of(int concurrency, int minBatchSize, Iterable<String> nodeLabels, Iterable<String> relationshipTypes, Optional<String> relationshipWeightProperty, int maxIterations, Partitioning partitioning, Optional<? extends WriteConfig.ArrowConnectionInfo> arrowConnectionInfo, int writeConcurrency, String mutateProperty, String writeProperty, @Nullable String seedProperty, boolean withRepeition, boolean useOriginalIds, long identifier) {
+    return validate(new ImmutablePathsMiningPregelConfig(concurrency, minBatchSize, nodeLabels, relationshipTypes, relationshipWeightProperty, maxIterations, partitioning, arrowConnectionInfo, writeConcurrency, mutateProperty, writeProperty, seedProperty, withRepeition, useOriginalIds, identifier));
   }
 
   /**
@@ -2068,14 +1957,13 @@ public final class ImmutablePathsMiningPregelConfig
    * @param mutateProperty The value for the {@code mutateProperty} attribute
    * @param writeProperty The value for the {@code writeProperty} attribute
    * @param seedProperty The value for the {@code seedProperty} attribute
-   * @param maxRepeatNodes The value for the {@code maxRepeatNodes} attribute
    * @param withRepeition The value for the {@code withRepeition} attribute
    * @param useOriginalIds The value for the {@code useOriginalIds} attribute
    * @param identifier The value for the {@code identifier} attribute
    * @return An immutable PathsMiningPregelConfig instance
    */
-  public static PathsMiningPregel.PathsMiningPregelConfig of(int concurrency, int minBatchSize, Iterable<String> nodeLabels, Iterable<String> relationshipTypes, String relationshipWeightProperty, int maxIterations, Partitioning partitioning, WriteConfig.ArrowConnectionInfo arrowConnectionInfo, int writeConcurrency, String mutateProperty, String writeProperty, @Nullable String seedProperty, long maxRepeatNodes, boolean withRepeition, boolean useOriginalIds, long identifier) {
-    return validate(new ImmutablePathsMiningPregelConfig(concurrency, minBatchSize, nodeLabels, relationshipTypes, relationshipWeightProperty, maxIterations, partitioning, arrowConnectionInfo, writeConcurrency, mutateProperty, writeProperty, seedProperty, maxRepeatNodes, withRepeition, useOriginalIds, identifier));
+  public static PathsMiningPregel.PathsMiningPregelConfig of(int concurrency, int minBatchSize, Iterable<String> nodeLabels, Iterable<String> relationshipTypes, String relationshipWeightProperty, int maxIterations, Partitioning partitioning, WriteConfig.ArrowConnectionInfo arrowConnectionInfo, int writeConcurrency, String mutateProperty, String writeProperty, @Nullable String seedProperty, boolean withRepeition, boolean useOriginalIds, long identifier) {
+    return validate(new ImmutablePathsMiningPregelConfig(concurrency, minBatchSize, nodeLabels, relationshipTypes, relationshipWeightProperty, maxIterations, partitioning, arrowConnectionInfo, writeConcurrency, mutateProperty, writeProperty, seedProperty, withRepeition, useOriginalIds, identifier));
   }
 
   private static ImmutablePathsMiningPregelConfig validate(ImmutablePathsMiningPregelConfig instance) {
@@ -2122,7 +2010,6 @@ public final class ImmutablePathsMiningPregelConfig
    *    .mutateProperty(String) // optional {@link PathsMiningPregel.PathsMiningPregelConfig#mutateProperty() mutateProperty}
    *    .writeProperty(String) // optional {@link PathsMiningPregel.PathsMiningPregelConfig#writeProperty() writeProperty}
    *    .seedProperty(String | null) // nullable {@link PathsMiningPregel.PathsMiningPregelConfig#seedProperty() seedProperty}
-   *    .maxRepeatNodes(long) // optional {@link PathsMiningPregel.PathsMiningPregelConfig#maxRepeatNodes() maxRepeatNodes}
    *    .withRepeition(boolean) // optional {@link PathsMiningPregel.PathsMiningPregelConfig#withRepeition() withRepeition}
    *    .useOriginalIds(boolean) // optional {@link PathsMiningPregel.PathsMiningPregelConfig#useOriginalIds() useOriginalIds}
    *    .identifier(long) // optional {@link PathsMiningPregel.PathsMiningPregelConfig#identifier() identifier}
@@ -2152,10 +2039,9 @@ public final class ImmutablePathsMiningPregelConfig
     private static final long OPT_BIT_RELATIONSHIP_TYPES = 0x20L;
     private static final long OPT_BIT_WRITE_CONCURRENCY = 0x40L;
     private static final long OPT_BIT_SEED_PROPERTY = 0x80L;
-    private static final long OPT_BIT_MAX_REPEAT_NODES = 0x100L;
-    private static final long OPT_BIT_WITH_REPEITION = 0x200L;
-    private static final long OPT_BIT_USE_ORIGINAL_IDS = 0x400L;
-    private static final long OPT_BIT_IDENTIFIER = 0x800L;
+    private static final long OPT_BIT_WITH_REPEITION = 0x100L;
+    private static final long OPT_BIT_USE_ORIGINAL_IDS = 0x200L;
+    private static final long OPT_BIT_IDENTIFIER = 0x400L;
     private long initBits = 0x1L;
     private long optBits;
 
@@ -2176,7 +2062,6 @@ public final class ImmutablePathsMiningPregelConfig
     private String mutateProperty;
     private String writeProperty;
     private String seedProperty;
-    private long maxRepeatNodes;
     private boolean withRepeition;
     private boolean useOriginalIds;
     private long identifier;
@@ -2348,7 +2233,6 @@ public final class ImmutablePathsMiningPregelConfig
         PathsMiningPregel.PathsMiningPregelConfig instance = (PathsMiningPregel.PathsMiningPregelConfig) object;
         withRepeition(instance.withRepeition());
         identifier(instance.identifier());
-        maxRepeatNodes(instance.maxRepeatNodes());
         useOriginalIds(instance.useOriginalIds());
       }
       if (object instanceof PregelProcedureConfig) {
@@ -2732,18 +2616,6 @@ public final class ImmutablePathsMiningPregelConfig
     }
 
     /**
-     * Initializes the value for the {@link PathsMiningPregel.PathsMiningPregelConfig#maxRepeatNodes() maxRepeatNodes} attribute.
-     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link PathsMiningPregel.PathsMiningPregelConfig#maxRepeatNodes() maxRepeatNodes}.</em>
-     * @param maxRepeatNodes The value for maxRepeatNodes 
-     * @return {@code this} builder for use in a chained invocation
-     */
-    public final Builder maxRepeatNodes(long maxRepeatNodes) {
-      this.maxRepeatNodes = maxRepeatNodes;
-      optBits |= OPT_BIT_MAX_REPEAT_NODES;
-      return this;
-    }
-
-    /**
      * Initializes the value for the {@link PathsMiningPregel.PathsMiningPregelConfig#withRepeition() withRepeition} attribute.
      * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link PathsMiningPregel.PathsMiningPregelConfig#withRepeition() withRepeition}.</em>
      * @param withRepeition The value for withRepeition 
@@ -2807,7 +2679,6 @@ public final class ImmutablePathsMiningPregelConfig
       this.mutateProperty = null;
       this.writeProperty = null;
       this.seedProperty = null;
-      this.maxRepeatNodes = 0;
       this.withRepeition = false;
       this.useOriginalIds = false;
       this.identifier = 0;
@@ -2856,10 +2727,6 @@ public final class ImmutablePathsMiningPregelConfig
 
     private boolean seedPropertyIsSet() {
       return (optBits & OPT_BIT_SEED_PROPERTY) != 0;
-    }
-
-    private boolean maxRepeatNodesIsSet() {
-      return (optBits & OPT_BIT_MAX_REPEAT_NODES) != 0;
     }
 
     private boolean withRepeitionIsSet() {

@@ -333,12 +333,6 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         }
 
         @Value.Default
-        @Configuration.Key("maxRepeatNodes")
-        default long maxRepeatNodes() {
-            return 0;
-        }
-
-        @Value.Default
         @Configuration.Key("withRepeition")
         default boolean withRepeition() {
             return false;
