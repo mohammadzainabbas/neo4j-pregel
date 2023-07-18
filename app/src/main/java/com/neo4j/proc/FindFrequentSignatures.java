@@ -42,7 +42,12 @@ public class FindFrequentSignatures {
             for (Long el: paths) {
 
                 if (el == identifier) {
-                    
+                    String signature = toSignature(_paths);
+                    if (signature_count_map.containsKey(signature)) {
+                        signature_count_map.put(signature, signature_count_map.get(signature) + 1);
+                    } else {
+                        signature_count_map.put(signature, 1L);
+                    }
                     _paths.clear();
                 } else {
                     _paths.add(el);
@@ -51,12 +56,7 @@ public class FindFrequentSignatures {
 
 
 
-                String signature = toSignature(subPaths);
-                if (signature_count_map.containsKey(signature)) {
-                    signature_count_map.put(signature, signature_count_map.get(signature) + 1);
-                } else {
-                    signature_count_map.put(signature, 1L);
-                }
+
             }
         }
 
