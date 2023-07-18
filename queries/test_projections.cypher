@@ -29,3 +29,12 @@ RETURN g.graphName as graph_name, g.nodeCount as nodes, g.relationshipCount as r
 CALL gds.graph.export("countries_2018", { dbName: "temp" });
 CREATE DATABASE temp IF NOT EXISTS;
 // -------
+
+WITH -1 as identifier
+CALL esilv.pregel.find_paths.stream("countries_2018", {maxIterations: 8, identifier: identifier})
+YIELD nodeId, values
+UNWIND values.paths AS paths
+WITH collect(paths) as path, identifier
+CALL esilv.proc.find_signatures(path, identifier) YIELD signature, count
+RETURN signature, count
+ORDER BY count DESC
