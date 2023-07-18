@@ -126,6 +126,10 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         return previous_paths;
     }
 
+    public void convertToOriginalIds(ComputeContext<PathsMiningPregelConfig> context) {
+        
+    }
+
     public ArrayList<String> printEncodedMessageList(ArrayList<Long> messageList, long identifier) {
         var _messageList = new ArrayList<String>();
         String temp = "";
