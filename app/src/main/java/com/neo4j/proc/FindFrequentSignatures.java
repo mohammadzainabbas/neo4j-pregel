@@ -27,7 +27,7 @@ public class FindFrequentSignatures {
 
         private final ConcurrentHashMap<String, Long> signature_count_map = new ConcurrentHashMap<String, Long>();
         
-        public String toSignature(List<Long> path) {
+        public String toSignature(ArrayList<Long> path) {
             String signature = "";
             for (Long node : path) {
                 signature += node.toString();
