@@ -139,8 +139,8 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             var from_node_id = decoded_path[0];
             var to_node_id = decoded_path[1];
 
-            var from_node_original_id = context.toOriginalId(from_node_id);
-            var to_node_original_id = context.toOriginalId(to_node_id);
+            var from_node_original_id = useOriginalIds ? context.toOriginalId(from_node_id) : from_node_id;
+            var to_node_original_id = useOriginalIds ? context.toOriginalId(to_node_id) : to_node_id;
             var value = encode(from_node_original_id, to_node_original_id);
             paths_list.add(value);
         }
