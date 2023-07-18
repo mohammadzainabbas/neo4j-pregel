@@ -14,6 +14,7 @@ import static java.util.Arrays.asList;
 import static org.mockito.Answers.values;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class FindFrequentSignatures {
 
