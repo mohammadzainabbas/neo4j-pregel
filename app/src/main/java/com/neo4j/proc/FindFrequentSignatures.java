@@ -22,7 +22,9 @@ public class FindFrequentSignatures {
     public Stream<SignatureCount> find_signatures(@Name("paths") List<List<Long>> paths, @Name("identifier") Long identifier) {
         log.info("find_signatures called");
         FindFrequentSignaturesFunction function = new FindFrequentSignaturesFunction();
-        function.aggregate(paths, identifier);
+        for (List<Long> path : paths) {
+            function.aggregate(path, identifier);
+        }
         return function.result().stream();
     }
 
