@@ -69,7 +69,7 @@ public final class PathsMiningPregelConfigImpl implements PathsMiningPregel.Path
             errors.add(e);
         }
         try {
-            this.useOriginalIds = config.getBool("useOriginalIds", PathsMiningPregel.PathsMiningPregelConfig.super.useOriginalIds());
+            this.useOriginalIds = config.getBool("encodedOutput", PathsMiningPregel.PathsMiningPregelConfig.super.useOriginalIds());
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
@@ -272,7 +272,7 @@ public final class PathsMiningPregelConfigImpl implements PathsMiningPregel.Path
 
     @Override
     public Collection<String> configKeys() {
-        return Arrays.asList("isAsynchronous", "useOriginalIds", "identifier", "mutateProperty", "writeProperty", "partitioning", "nodeLabels", "relationshipTypes", "logProgress", "sudo", "username", "concurrency", "jobId", "relationshipWeightProperty", "maxIterations", "arrowConnectionInfo", "writeConcurrency", "seedProperty");
+        return Arrays.asList("isAsynchronous", "encodedOutput", "identifier", "mutateProperty", "writeProperty", "partitioning", "nodeLabels", "relationshipTypes", "logProgress", "sudo", "username", "concurrency", "jobId", "relationshipWeightProperty", "maxIterations", "arrowConnectionInfo", "writeConcurrency", "seedProperty");
     }
 
     @Override
@@ -289,7 +289,7 @@ public final class PathsMiningPregelConfigImpl implements PathsMiningPregel.Path
     public Map<String, Object> toMap() {
         Map<String, Object> map = new LinkedHashMap<>();
         map.put("isAsynchronous", isAsynchronous());
-        map.put("useOriginalIds", useOriginalIds());
+        map.put("encodedOutput", useOriginalIds());
         map.put("identifier", identifier());
         map.put("mutateProperty", mutateProperty());
         map.put("writeProperty", writeProperty());
@@ -390,7 +390,7 @@ public final class PathsMiningPregelConfigImpl implements PathsMiningPregel.Path
         }
 
         public PathsMiningPregelConfigImpl.Builder useOriginalIds(boolean useOriginalIds) {
-            this.config.put("useOriginalIds", useOriginalIds);
+            this.config.put("encodedOutput", useOriginalIds);
             return this;
         }
 
