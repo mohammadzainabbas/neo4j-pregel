@@ -62,12 +62,12 @@ class PathsMiningPregelAlgoTest {
     @Test
     void runPathsMiningPregel() {
         int maxIterations = 10;
-        boolean useOriginalIds = false;
+        boolean encodedOutput = false;
         long identifier = -1;
 
         var config = ImmutablePathsMiningPregelConfig.builder()
             .maxIterations(maxIterations)
-            .useOriginalIds(useOriginalIds)
+            .encodedOutput(encodedOutput)
             .identifier(identifier)
             .build();
 
