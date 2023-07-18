@@ -5,8 +5,8 @@ import org.neo4j.procedure.Procedure;
 
 public class PathsToSignatures {
 
-    @Procedure("esilv.pathsToSignatures")
-    public Stream<PathResult> cycles(@Name("nodes") List<Node> nodes, @Name(value = "config",defaultValue = "{}") Map<String, Object> config) {
+    @Procedure("esilv.proc.find_signatures")
+    public Stream<PathResult> find_signatures(@Name("nodes") List<Node> nodes, @Name(value = "config",defaultValue = "{}") Map<String, Object> config) {
      
     
 }
