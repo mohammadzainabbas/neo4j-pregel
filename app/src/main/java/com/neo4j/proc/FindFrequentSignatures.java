@@ -14,13 +14,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class FindFrequentSignatures {
-    @Context
-    public Log log;
+    // @Context
+    // public Log log;
 
     @Procedure(value = "esilv.proc.find_signatures", mode = Mode.READ)
     @Description("Returns the frequency for all the signatures found in the given paths.")
     public Stream<SignatureCount> find_signatures(@Name("paths") List<Long> paths, @Name("identifier") Long identifier) {
-        log.debug("find_signatures called");
         FindFrequentSignaturesFunction function = new FindFrequentSignaturesFunction();
         function.aggregate(paths, identifier);
         return function.result().stream();
