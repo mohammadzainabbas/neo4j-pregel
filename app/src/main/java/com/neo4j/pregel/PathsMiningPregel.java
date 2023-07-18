@@ -198,7 +198,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
 
             for (var msg: messages_list) {
                 // send encoded (from_node_id, to_node_id) to all neighbors (to let them know where they got this message from
-                context.sendToNeighbors(msg); 
+                context.sendToNeighbors(msg);
             }
 
             messages_list.add(IDENTIFIER);
