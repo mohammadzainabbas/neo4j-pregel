@@ -166,6 +166,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             if (previous_message == IDENTIFIER && !path_buffer.isEmpty()) {
                 previous_paths.add(path_buffer);
                 path_buffer.clear();
+                continue;
             }
             path_buffer.add(previous_message);
         }
