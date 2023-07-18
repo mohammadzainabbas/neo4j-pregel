@@ -50,7 +50,7 @@ import java.util.stream.StreamSupport;
 public class PathsToSignatures {
 
     @Procedure("esilv.proc.find_signatures")
-    public Stream<PathResult> find_signatures(@Name("nodes") List<Node> nodes, @Name(value = "config",defaultValue = "{}") Map<String, Object> config) {
+    public Stream<String> find_signatures(@Name("nodes") List<Node> nodes, @Name(value = "config",defaultValue = "{}") Map<String, Object> config) {
      
     
 }
