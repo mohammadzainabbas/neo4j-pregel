@@ -16,11 +16,14 @@ public class FindFrequentSignatures {
     @UserAggregationFunction("esilv.proc.find_frequent_signatures")
     @Description("Returns the frequency for all the signatures found in the given paths.")
     public FindFrequentSignaturesFunction find_signatures() {
-        return new StatisticsFunction();
+        return new FindFrequentSignaturesFunction();
     }
 
 
     public static class FindFrequentSignaturesFunction {
+        
+
+
     }
 
     
