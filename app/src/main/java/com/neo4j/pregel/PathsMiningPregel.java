@@ -207,6 +207,14 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             // Remove duplicate messages (multiple links between two nodes i.e: 0 -> 1, 0 -> 1)
             // Add only one link in case of duplicate links (since duplicate links doesn't effect the path)
             // _messages = removeDuplicates(_messages);
+
+            if (isEncodedOutput) {
+                var _messages_list = printEncodedMessageList(_messages, IDENTIFIER);
+                System.out.println("Node: " + nodeId + " | Messages: " + _messages_list);
+            } else {
+                System.out.println("Node: " + nodeId + " | Messages: " + _messages);
+            }
+
             for (var neighbor_id: neighbors) {
                 var from_node_id = nodeId;
                 var to_node_id = neighbor_id;
