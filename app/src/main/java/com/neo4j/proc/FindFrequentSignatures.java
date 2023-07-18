@@ -8,8 +8,11 @@ import org.neo4j.procedure.*;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import static java.util.Arrays.asList;
+
+import java.util.ArrayList;
 
 public class FindFrequentSignatures {
 
@@ -22,7 +25,8 @@ public class FindFrequentSignatures {
 
     public static class FindFrequentSignaturesFunction {
 
-        private 
+        private final ConcurrentHashMap<String, ArrayList<Long>> neighbors_map = new ConcurrentHashMap<Long, ArrayList<Long>>();
+
 
 
         private Histogram values = new Histogram(3);
