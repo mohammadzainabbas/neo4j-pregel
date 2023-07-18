@@ -213,7 +213,6 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             //@TODO: do we have to remove the duplicates here as well?
             sentToAllNeighbors(context, _messages); // simply forward all messages that you received to all neighbors
 
-            var previousKey = PATH + (superstep - 1);
             HashMap<Long, ArrayList<Long>> messages_map = new HashMap<Long, ArrayList<Long>>(); // to keep track of [where this message was sent from] -> [to which node]
             
             for (var msg: _messages) {
