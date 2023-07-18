@@ -312,10 +312,10 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         }
     }
 
-    @Override
-    public boolean masterCompute(MasterComputeContext<PathsMiningPregel.PathsMiningPregelConfig> context) {
-        return context.superstep() >= 4; // stop after 2 supersteps
-    }
+    // @Override
+    // public boolean masterCompute(MasterComputeContext<PathsMiningPregel.PathsMiningPregelConfig> context) {
+    //     return context.superstep() >= 4; // stop after 2 supersteps
+    // }
 
     enum PathFindingPhase {
         INIT_PATH(0),
