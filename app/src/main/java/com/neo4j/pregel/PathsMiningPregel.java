@@ -224,7 +224,6 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
                 }
             }
 
-
             if (messages_list.isEmpty()) { // no neighbors
                 context.voteToHalt();
                 return;
