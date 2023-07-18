@@ -202,11 +202,8 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             neighbors.removeIf(neighbor_node_id -> neighbor_node_id == nodeId); // remove self-loop
 
             neighbors_map.put(nodeId, neighbors); // save all neighbors (incoming + outgoing) in a hashmap
-
+            
             var path_list = new ArrayList<Long>();
-            // Remove duplicate messages (multiple links between two nodes i.e: 0 -> 1, 0 -> 1)
-            // Add only one link in case of duplicate links (since duplicate links doesn't effect the path)
-            // _messages = removeDuplicates(_messages);
             if (IS_ENCODED_OUTPUT) {
                 for (var neighbor_id: neighbors) {
                     var from_node_id = nodeId;
