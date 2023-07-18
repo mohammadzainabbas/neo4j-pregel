@@ -292,9 +292,8 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
                             var message = context.toOriginalId(msg);
                             // A-B-A => disallow this path since this doesn't make any sense for a pattern p.o.v
                             if (message == second_last_element) { continue; }
-                            long value = encode(last_element_to_node, message);
                             temp.addAll(previous_path);
-                            temp.add(value);
+                            temp.add(message);
                             temp.add(IDENTIFIER);
                         }
     
