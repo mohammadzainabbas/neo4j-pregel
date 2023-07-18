@@ -159,7 +159,10 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         }
     }
 
-    public 
+    public ArrayList<String> printEncodedMessageList(ArrayList<Long> messageList) {
+        
+
+    }
 
     /* Called for each node in every superstep */
     @Override
