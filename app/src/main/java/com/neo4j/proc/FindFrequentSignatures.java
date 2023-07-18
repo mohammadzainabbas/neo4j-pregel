@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 import static java.util.Arrays.asList;
+import static org.mockito.Answers.values;
 
 import java.util.ArrayList;
 
@@ -27,12 +28,24 @@ public class FindFrequentSignatures {
 
         private final ConcurrentHashMap<String, Long> signature_count_map = new ConcurrentHashMap<String, Long>();
         
-        public String toSignature(ArrayList<Long> path) {
-            String signature = "";
-            for (Long node : path) {
-                signature += node.toString();
+        public static String convertToSignature(ArrayList<Long> array) {
+            // Map to store each number and its corresponding character.
+            HashMap<Long, Character> map = new HashMap<>();
+            char currentChar = 'A';
+            StringBuilder signature = new StringBuilder();
+
+            for (long number : array) {
+                // If the number is not already in the map, add it with the current character
+                // as its value, and increment the current character.
+                if (!map.containsKey(number)) {
+                    map.put(number, currentChar);
+                    currentChar++;
+                }
+                // Append the character corresponding to this number to the signature.
+                signature.append(map.get(number));
             }
-            return signature;
+
+            return signature.toString();
         }
 
         @UserAggregationUpdate
@@ -40,7 +53,7 @@ public class FindFrequentSignatures {
             ArrayList<Long> _paths = new ArrayList<Long>();
             for (Long el: paths) {
                 if (el == identifier) {
-                    String signature = toSignature(_paths);
+                    String signature = convertToSignature(_paths);
                     if (signature_count_map.containsKey(signature)) {
                         signature_count_map.put(signature, signature_count_map.get(signature) + 1);
                     } else {
