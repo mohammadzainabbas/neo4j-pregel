@@ -66,7 +66,6 @@ class PathsMiningPregelAlgoTest {
 
         var config = ImmutablePathsMiningPregelConfig.builder()
             .maxIterations(maxIterations)
-            .withRepeition(withRepeition)
             .build();
 
         var pregelJob = Pregel.create(
