@@ -2,6 +2,8 @@ package com.neo4j.proc;
 
 import org.neo4j.procedure.*;
 
+import org.neo4j.logging.Log;
+
 import java.util.stream.Stream;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -12,6 +14,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class FindFrequentSignatures {
+    
 
     @Procedure(value = "esilv.proc.find_signatures", mode = Mode.READ)
     @Description("Returns the frequency for all the signatures found in the given paths.")
