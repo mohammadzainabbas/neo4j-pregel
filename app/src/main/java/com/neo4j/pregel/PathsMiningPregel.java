@@ -224,13 +224,12 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
                 }
             }
 
-            if (messages_list.isEmpty()) { // no neighbors
+            if (neighbors.isEmpty()) { // no neighbors
                 context.voteToHalt();
                 return;
             }
 
             sentToAllNeighbors(context, neighbors);
-
             context.setNodeValue(PATHS, arrayListToNativeArray(path_list)); // update paths internally (for each node)
         } else if (superstep >= PathFindingPhase.COMPUTE_PATH.step) {
             // if no message is received, then halt
