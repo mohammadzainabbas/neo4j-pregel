@@ -176,9 +176,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         var nodeId = context.nodeId();
         var nodeOriginalId = context.toOriginalId(); // for showing correct IDs in the output
         int superstep = context.superstep();
-        var stepKey = PATHS;
         var IDENTIFIER = context.config().identifier();
-        var USE_ORIGINAL_IDS = context.config().useOriginalIds();
         var IS_ENCODED_OUTPUT = context.config().isEncodedOutput();
 
         // First superstep
