@@ -240,7 +240,6 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
                 messages_map.computeIfAbsent(to_node_id, k -> new ArrayList<Long>()).add(from_node_id); // add to the hashmap's array list against the key
             }
             
-            
             var new_path = new ArrayList<Long>();
             var path_buffer = new ArrayList<Long>();
             var previous_messages = context.longArrayNodeValue(previousKey);
