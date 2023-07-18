@@ -218,7 +218,9 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
                 path_list = path_list.stream().flatMap(n -> Stream.of(n, IDENTIFIER)).collect(Collectors.toCollection(ArrayList::new));
             } else {
                 for (var neighbor_id: neighbors) {
-                    path_list.addAll(new ArrayList<Long>({nodeId, neighbor_id, IDENTIFIER}));
+                    path_list.add(nodeId);
+                    path_list.add(neighbor_id);
+                    path_list.add(IDENTIFIER);
                 }
                 
             }
