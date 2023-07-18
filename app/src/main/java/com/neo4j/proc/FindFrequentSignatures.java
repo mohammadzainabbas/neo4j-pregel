@@ -10,8 +10,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import static java.util.Arrays.asList;
-import static org.mockito.Answers.values;
 
 import java.util.ArrayList;
 import java.util.HashMap;
