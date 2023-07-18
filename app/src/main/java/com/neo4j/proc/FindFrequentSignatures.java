@@ -27,16 +27,6 @@ public class FindFrequentSignatures {
 
         private final ConcurrentHashMap<String, Long> signature_count_map = new ConcurrentHashMap<String, Long>();
         
-
-
-
-        private Histogram values = new Histogram(3);
-        private DoubleHistogram doubles;
-        private List<Double> percentiles = asList(0.5D, 0.75D, 0.9D, 0.95D, 0.9D, 0.99D);
-        private Number minValue;
-        private Number maxValue;
-
-
         @UserAggregationUpdate
         public void aggregate(@Name("value") Number value, @Name(value = "percentiles", defaultValue = "[0.5,0.75,0.9,0.95,0.99]") List<Double> percentiles) {
             if (value != null) {
