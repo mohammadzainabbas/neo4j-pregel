@@ -171,13 +171,8 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             var decoded_message = decode(message);
             temp += decoded_message[1];
             temp += decoded_message[0];
-
-
-            
-            _messageList.add("(" + decoded_message[0] + ", " + decoded_message[1] + ")");
         }
         return _messageList;
-
     }
 
     /* Called for each node in every superstep */
