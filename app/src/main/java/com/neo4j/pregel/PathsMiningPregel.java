@@ -216,7 +216,6 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             messages_list = messages_list.stream().flatMap(n -> Stream.of(n, IDENTIFIER)).collect(Collectors.toCollection(ArrayList::new));
 
 
-
             context.setNodeValue(stepKey, arrayListToNativeArray(messages_list)); // update paths internally (for each node)
         } else if (superstep >= PathFindingPhase.COMPUTE_PATH.step) {
             // if no message is received, then halt
