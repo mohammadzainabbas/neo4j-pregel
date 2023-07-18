@@ -144,10 +144,12 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
     }
 
     public void sentToAllNeighbors(ComputeContext<PathsMiningPregelConfig> context, ArrayList<Long> messages) {
-        var neighbors = new ArrayList<Long>();
-        context.forEachNeighbor(neighbors::add);
+        long[] neighbors = context.longArrayNodeValue(NEIGHBORS_IDS);
+
         for (var neighbor: neighbors) {
-            context.sendTo(neighbor, messages);
+            for (var message: messages) {
+                context.sendTo(neighbor, message);
+            }
         }
     }
 
