@@ -183,15 +183,9 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             // Add only one link in case of duplicate links (since duplicate links doesn't effect the path)
             // _messages = removeDuplicates(_messages);
 
-            for (var neighbor: neighbors) {
+            for (var neighbor_id: neighbors) {
                 var from_node_id = context.toOriginalId(neighbor_id);
                 var to_node_id = nodeOriginalId;
-
-                // disable self-loops
-                // if (from_node_id == to_node_id && !context.config().withRepeition()) {
-                if (from_node_id == to_node_id) {
-                    continue;
-                }
 
                 var value = encode(from_node_id, to_node_id);
                 messages_list.add(value);
