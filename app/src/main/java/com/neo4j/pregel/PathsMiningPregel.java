@@ -218,21 +218,12 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
                 path_list = path_list.stream().flatMap(n -> Stream.of(n, IDENTIFIER)).collect(Collectors.toCollection(ArrayList::new));
             } else {
                 for (var neighbor_id: neighbors) {
-                    path_list.add(nodeId);
-                    path_list.add(neighbor_id);
+                    path_list.add(nodeOriginalId);
+                    path_list.add(context.toOriginalId(neighbor_id));
                     path_list.add(IDENTIFIER);
                 }
-                
             }
 
-            for (var neighbor_id: neighbors) {
-                var from_node_id = nodeId;
-                var to_node_id = neighbor_id;
-
-                var value = isEncodedOutput ? encode(from_node_id, to_node_id) : to_node_id;
-                path_list.add(value);
-                messages_list.add(neighbor_id);
-            }
 
             if (messages_list.isEmpty()) { // no neighbors
                 context.voteToHalt();
