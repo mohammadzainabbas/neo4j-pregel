@@ -1,4 +1,4 @@
-package com.neo4j.proc;
+package com.neo4j.pregel;
 
 import org.neo4j.procedure.*;
 
