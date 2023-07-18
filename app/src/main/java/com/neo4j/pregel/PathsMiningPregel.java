@@ -272,7 +272,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
 
                     var message_list = messages_map.get(previous_message_to_node);
                     if (message_list != null) {
-                        message_list = removeDuplicates(message_list); // remove duplicates
+                        message_list = removeDuplicates(message_list); // remove duplicates (same neighbor info)
                         
                         var temp = new ArrayList<Long>();
                         
