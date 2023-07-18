@@ -30,6 +30,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
     public static final String PATHS = "paths";
     public static final String NEIGHBORS_IDS = "neighbor_ids"; // to save all neighbors (incoming + outgoing)
 
+    // to keep track of [where this message was sent from] -> [to which node]
     private final ConcurrentHashMap<Long, ArrayList<Long>> neighbors_map = new ConcurrentHashMap<Long, ArrayList<Long>>();
     
     //@TODO: maybe add one check for CONTAIN_SELF_LOOP and one variable for NO_OF_SELF_LOOPS
@@ -242,7 +243,8 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             //@TODO: do we have to remove the duplicates here as well?
             sentToAllNeighbors(context, _messages); // simply forward all messages that you received to all neighbors
 
-            HashMap<Long, ArrayList<Long>> messages_map = new HashMap<Long, ArrayList<Long>>(); // to keep track of [where this message was sent from] -> [to which node]
+            HashMap<Long, ArrayList<Long>> messages_map = new HashMap<Long, ArrayList<Long>>();
+            
             
             for (var msg: _messages) {
                 long[] message = decode(msg);
