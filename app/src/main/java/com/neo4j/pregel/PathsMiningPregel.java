@@ -293,11 +293,8 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
                     for (var message: message_list) {
                         // A-B-A => disallow this path since this doesn't make any sense for a pattern p.o.v
                         if (message == last_element_from_node) { continue; }
-
                         temp.addAll(path_buffer);
-
-                        long value = encode(previous_message_to_node, message);
-
+                        long value = encode(last_element_to_node, message);
                         temp.add(value);
                         temp.add(IDENTIFIER);
                     }
