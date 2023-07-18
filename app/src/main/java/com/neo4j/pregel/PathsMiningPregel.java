@@ -279,7 +279,8 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
                         
                         for (var message: message_list) {
                             
-                            if (message == previous_message_from_node) { // A-B-A => not allowed 
+                            // A-B-A => disable this since this doesn't make any sense for a pattern  
+                            if (message == previous_message_from_node) { 
                                 continue;
                             }
 
