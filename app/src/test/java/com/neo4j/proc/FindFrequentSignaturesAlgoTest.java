@@ -13,16 +13,5 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FindFrequentSignaturesAlgoTest {
 
-    private GraphDatabaseService db;
-
-    @BeforeEach
-    void setUp() {
-        db = new TestGraphDatabaseFactory().newImpermanentDatabase();
-    }
-
-    @AfterEach
-    void tearDown() {
-        db.shutdown();
-    }
     
 }
