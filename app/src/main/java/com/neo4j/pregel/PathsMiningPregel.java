@@ -275,8 +275,11 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             } else {
                 for (var previous_path: previous_paths) {
                     
+                    if (previous_path.size() < 2) {continue;} // invalid path
+
                     var last_element = previous_path.get(previous_path.size() - 1);
                     var second_last_element = previous_path.get(previous_path.size() - 2);
+
                     long[] decoded_last_element = decode(last_element);
                     long last_element_from_node = decoded_last_element[0];
                     long last_element_to_node = decoded_last_element[1];
