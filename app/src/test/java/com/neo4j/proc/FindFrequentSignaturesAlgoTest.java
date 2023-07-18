@@ -84,6 +84,8 @@ class FindFrequentSignaturesAlgoTest {
 
         var result = pregelJob.run();
 
+        var __graph = graph.innerGraph();
+
         // assertTrue(result.didConverge(), "Algorithm did not converge.");
         // assertEquals(0, result.ranIterations());
 
