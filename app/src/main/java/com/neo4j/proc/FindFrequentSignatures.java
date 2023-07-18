@@ -69,6 +69,23 @@ public class FindFrequentSignatures {
 
         @UserAggregationResult
         public Map<String, Number> result() {
+
+            // Convert the ConcurrentHashMap to a list of Map.Entry
+            List<Map.Entry<String, Long>> entryList = new ArrayList<>(signature_count_map.entrySet());
+
+            // Sort the entryList based on values using a Comparator
+            entryList.sort(Map.Entry.comparingByValue());
+
+            // Create a new LinkedHashMap to preserve the sorted order
+            LinkedHashMap<String, Long> sortedMap = new LinkedHashMap<>();
+
+            // Populate the sortedMap with sorted entries
+            for (Map.Entry<String, Long> entry : entryList) {
+                sortedMap.put(entry.getKey(), entry.getValue());
+            }
+
+
+
             long totalCount = values != null ? values.getTotalCount() : doubles.getTotalCount();
             boolean empty = totalCount == 0;
             Map<String, Number> result = new LinkedHashMap<>(percentiles.size() + 6);
