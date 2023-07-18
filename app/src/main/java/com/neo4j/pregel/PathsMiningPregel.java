@@ -195,7 +195,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             // _messages = removeDuplicates(_messages);
             for (var neighbor_id: neighbors) {
                 var from_node_id = USE_ORIGINAL_IDS ? context.toOriginalId(neighbor_id) : neighbor_id;
-                var to_node_id = USE_ORIGINAL_IDS ? nodeOriginalId : node_id;
+                var to_node_id = USE_ORIGINAL_IDS ? nodeOriginalId : nodeId;
 
                 var value = encode(from_node_id, to_node_id);
                 messages_list.add(value);
