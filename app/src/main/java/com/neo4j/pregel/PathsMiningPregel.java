@@ -279,7 +279,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             var path_buffer = new ArrayList<Long>();
 
             for (var previous_path: previous_paths) {
-                path_buffer.addAll(previous_path);
+                // path_buffer.addAll(previous_path);
 
                 var last_element = previous_path.get(previous_path.size() - 1);
                 long[] decoded_last_element = decode(last_element);
@@ -287,6 +287,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
                 long last_element_to_node = decoded_last_element[1];
 
                 var message_list = messages_map.get(last_element_to_node);
+                if (message_list == null) { continue; } // key doesn't exist in the hashmap
                 if (message_list != null) {
                     message_list = removeDuplicates(message_list); // remove duplicates (same neighbor info)
                     var temp = new ArrayList<Long>();                    
