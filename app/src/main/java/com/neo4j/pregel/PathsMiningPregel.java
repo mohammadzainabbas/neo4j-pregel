@@ -227,7 +227,9 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             var _messages = new ArrayList<Long>();
             for (var msg: messages) { _messages.add(msg.longValue()); }
 
-            
+            sentToAllNeighbors(context, _messages);
+
+
 
 
 
