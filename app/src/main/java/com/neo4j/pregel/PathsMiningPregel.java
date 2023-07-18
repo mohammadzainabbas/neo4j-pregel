@@ -301,14 +301,8 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
 
                     new_path.addAll(temp);
                     temp.clear();
-                    continue;
                 }
                 
-
-
-
-
-
             }
 
             for (int i = 0; i < previous_messages.length; i++) {
