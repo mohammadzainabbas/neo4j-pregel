@@ -20,7 +20,7 @@ public class FindFrequentSignatures {
     @Procedure(value = "esilv.proc.find_signatures", mode = Mode.READ)
     @Description("Returns the frequency for all the signatures found in the given paths.")
     public Stream<SignatureCount> find_signatures(@Name("paths") List<Long> paths, @Name("identifier") Long identifier) {
-        log.info("find_signatures called");
+        log.debug("find_signatures called");
         FindFrequentSignaturesFunction function = new FindFrequentSignaturesFunction();
         function.aggregate(paths, identifier);
         return function.result().stream();
