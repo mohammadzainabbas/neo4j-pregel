@@ -85,33 +85,6 @@ public class FindFrequentSignatures {
             // }
 
             return entryList;
-
-
-
-
-            long totalCount = values != null ? values.getTotalCount() : doubles.getTotalCount();
-            boolean empty = totalCount == 0;
-            Map<String, Number> result = new LinkedHashMap<>(percentiles.size() + 6);
-            result.put("min", minValue);
-            result.put("minNonZero", values != null ? values.getMinNonZeroValue() : doubles.getMinNonZeroValue());
-            result.put("max", maxValue);
-            result.put("total", totalCount);
-            result.put("mean", values != null ? values.getMean() : doubles.getMean());
-            result.put("stdev", values != null ? values.getStdDeviation() : doubles.getStdDeviation());
-
-            for (Double percentile : percentiles) {
-                if (percentile != null && !empty) {
-                    if (values != null) {
-                        result.put(percentile.toString(), values.getValueAtPercentile(percentile * 100D));
-                    } else {
-                        result.put(percentile.toString(), doubles.getValueAtPercentile(percentile * 100D));
-                    }
-                }
-            }
-            return result;
         }
-
     }
-
-    
 }
