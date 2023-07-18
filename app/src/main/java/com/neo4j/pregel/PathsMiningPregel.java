@@ -129,27 +129,27 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         return previous_paths;
     }
 
-    public void convertToOriginalIds(ComputeContext<PathsMiningPregelConfig> context) {
-        var paths = context.longArrayNodeValue(PATHS);
-        boolean useOriginalIds = context.config().useOriginalIds();
-        var nodeId = useOriginalIds ? context.toOriginalId() : context.nodeId();
-        var paths_list = new ArrayList<Long>();
-        paths_list.add(nodeId);
-        for (var el: paths) {
-            if (el == context.config().identifier()) { 
-                paths_list.add(el);
-                paths_list.add(nodeId);
-                continue;
-            }
-            var decoded_path = decode(el);
-            var to_node_id = decoded_path[1];
-            var to_node_original_id = useOriginalIds ? context.toOriginalId(to_node_id) : to_node_id;
-            paths_list.add(to_node_original_id);
-        }
-        // remove last element (since it's the node_id of the current node)
-        paths_list.remove(paths_list.size() - 1);
-        context.setNodeValue(PATHS, arrayListToNativeArray(paths_list));
-    }
+    // public void convertToOriginalIds(ComputeContext<PathsMiningPregelConfig> context) {
+    //     var paths = context.longArrayNodeValue(PATHS);
+    //     boolean useOriginalIds = context.config().useOriginalIds();
+    //     var nodeId = useOriginalIds ? context.toOriginalId() : context.nodeId();
+    //     var paths_list = new ArrayList<Long>();
+    //     paths_list.add(nodeId);
+    //     for (var el: paths) {
+    //         if (el == context.config().identifier()) { 
+    //             paths_list.add(el);
+    //             paths_list.add(nodeId);
+    //             continue;
+    //         }
+    //         var decoded_path = decode(el);
+    //         var to_node_id = decoded_path[1];
+    //         var to_node_original_id = useOriginalIds ? context.toOriginalId(to_node_id) : to_node_id;
+    //         paths_list.add(to_node_original_id);
+    //     }
+    //     // remove last element (since it's the node_id of the current node)
+    //     paths_list.remove(paths_list.size() - 1);
+    //     context.setNodeValue(PATHS, arrayListToNativeArray(paths_list));
+    // }
 
     public ArrayList<String> printEncodedMessageList(ArrayList<Long> messageList, long identifier) {
         var _messageList = new ArrayList<String>();
