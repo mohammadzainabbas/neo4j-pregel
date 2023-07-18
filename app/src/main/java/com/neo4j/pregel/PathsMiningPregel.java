@@ -304,6 +304,13 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
                 }
             }
 
+            if (new_path.isEmpty()) {
+                context.voteToHalt();
+                return;
+            }
+
+            context.setNodeValue(stepKey, arrayListToNativeArray(new_path)); // update paths internally (for each node)
+
             // for (int i = 0; i < previous_messages.length; i++) {
             //     long previous_message = previous_messages[i];
             //     path_buffer.add(previous_message);
@@ -344,12 +351,6 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             //         path_buffer.clear();
             //     }
             // }
-
-            if (!new_path.isEmpty()) {
-                context.setNodeValue(stepKey, arrayListToNativeArray(new_path)); // update paths internally (for each node)
-            } else {
-                context.voteToHalt();
-            }
         }
     }
 
