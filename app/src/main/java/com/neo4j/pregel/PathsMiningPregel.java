@@ -40,10 +40,9 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
     public static final String POS_Y = "pos_y";
     public static final String RATING = "rating";
     public static final String NODE_INFO = "node_info";
+    public static final String NEIGHBORS_IDS = "neighbor_ids"; // to save all neighbors (incoming + outgoing)
     
     public static final long IDENTIFIER = -1;
-
-    
     /*
      * Combine the two longs into one
      */
@@ -105,7 +104,8 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             .add(G_ID, ValueType.LONG)
             .add(POS_X, ValueType.DOUBLE)
             .add(POS_Y, ValueType.DOUBLE)
-            .add(RATING, ValueType.DOUBLE);
+            .add(RATING, ValueType.DOUBLE)
+            .add(NEIGHBORS_IDS, ValueType.LONG_ARRAY);
 
         for (var i = 0; i < config.maxIterations(); i++) {
             schema.add(PATH + i, ValueType.LONG_ARRAY); // every step has its own PATH
@@ -140,6 +140,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         for (var i = 0; i < context.config().maxIterations(); i++) {
             context.setNodeValue(PATH + i, new long[]{}); // initialize all paths to empty array
         }
+        context.setNodeValue(NEIGHBORS_IDS, new long[]{});
     }
 
     /* Called for each node in every superstep */
@@ -150,26 +151,42 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         int superstep = context.superstep();
         var stepKey = PATH + superstep;
 
-        var neighbors = new ArrayList<Long>();
-        context.forEachNeighbor(neighbors::add);
-        var neighborsWithoutDuplicates = removeDuplicates(neighbors);
-
         // First superstep
         if (context.isInitialSuperstep() && superstep == PathFindingPhase.INIT_PATH.step) {
             context.setNodeValue(stepKey, new long[] {nodeOriginalId, IDENTIFIER});
 
             // unique messages (to avoid duplicate paths)
             // neighbors.forEach((LongProcedure) neighbor_node_id -> context.sendTo(neighbor_node_id, nodeOriginalId));
-            context.sendToNeighbors(nodeOriginalId); // send node_id to all neighbors (to let them know where they got this message from)
+            context.sendToNeighbors(nodeId); // send node_id to all neighbors (to let them know where they got this message from)
         } 
         else if (superstep == PathFindingPhase.CONNECT_NEIGHBORS_PATH.step) {
-            var messages_list = new ArrayList<Long>();
-            var _messages = new ArrayList<Long>();
 
-            for (var msg: messages) {
-                long message = msg.longValue();
-                _messages.add(message);
-                var from_node_id = message;
+            var _messages = new ArrayList<Long>();
+            for (var msg: messages) { _messages.add(msg.longValue()); }
+            // _messages = removeDuplicates(_messages);
+
+            var outGoingNeighbors = new ArrayList<Long>(); // outgoing neighbors
+            context.forEachNeighbor(outGoingNeighbors::add);
+            var incomingNeighbors = _messages.stream().map(Long::valueOf).collect(Collectors.toCollection(ArrayList::new)); // incoming neighbors
+            
+            var neighbors = new ArrayList<Long>(); // all neighbors
+            neighbors.addAll(outGoingNeighbors);
+            neighbors.addAll(incomingNeighbors);
+
+            neighbors = removeDuplicates(neighbors);
+
+            be
+
+
+            context.setNodeValue(NEIGHBORS_IDS, arrayListToNativeArray(neighbors)); // save all neighbors (incoming + outgoing)
+
+            var messages_list = new ArrayList<Long>();
+            // Remove duplicate messages (multiple links between two nodes i.e: 0 -> 1, 0 -> 1)
+            // Add only one link in case of duplicate links (since duplicate links doesn't effect the path)
+            // _messages = removeDuplicates(_messages);
+
+            for (var neighbor_id: neighbors) {
+                var from_node_id = context.toOriginalId(neighbor_id);
                 var to_node_id = nodeOriginalId;
 
                 // disable self-loops
@@ -178,8 +195,6 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
                     continue;
                 }
 
-                // @TODO: remove duplicate messages (multiple links between two nodes i.e: 0 -> 1, 0 -> 1)
-                // Add only one link in case of duplicate links (since duplicate links doesn't effect the path)
                 var value = encode(from_node_id, to_node_id);
                 messages_list.add(value);
             }
