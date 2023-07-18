@@ -214,9 +214,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             // send encoded (from_node_id, to_node_id) to all neighbors (to let them know where they got this message from
             sentToAllNeighbors(context, messages_list);
 
-            messages_list = messages_list.stream()
-            .flatMap(n -> Stream.of(n, IDENTIFIER))
-            .collect(Collectors.toCollection(ArrayList::new));
+            messages_list = messages_list.stream().flatMap(n -> Stream.of(n, IDENTIFIER)).collect(Collectors.toCollection(ArrayList::new));
 
 
             context.setNodeValue(stepKey, arrayListToNativeArray(messages_list)); // update paths internally (for each node)
