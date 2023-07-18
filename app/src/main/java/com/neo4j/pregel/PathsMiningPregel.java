@@ -243,16 +243,6 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             for (var msg: messages) { _messages.add(msg.longValue()); }
             //@TODO: do we have to remove the duplicates here as well?
             sentToAllNeighbors(context, _messages); // simply forward all messages that you received to all neighbors
-
-            
-            
-            for (var msg: _messages) {
-                long[] message = decode(msg);
-                var from_node_id = message[0];
-                var to_node_id = message[1];
-                
-                messages_map.computeIfAbsent(from_node_id, k -> new ArrayList<Long>()).add(to_node_id); // add to the hashmap's array list against the key
-            }
             
             var previous_messages = context.longArrayNodeValue(PATHS);
             var previous_paths = extractPreviousPaths(previous_messages, IDENTIFIER);
