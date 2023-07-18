@@ -159,6 +159,8 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         }
     }
 
+    public 
+
     /* Called for each node in every superstep */
     @Override
     public void compute(ComputeContext<PathsMiningPregelConfig> context, Messages messages) {
