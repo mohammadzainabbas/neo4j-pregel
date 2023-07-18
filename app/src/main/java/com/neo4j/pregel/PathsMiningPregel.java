@@ -30,7 +30,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
     public static final String PATHS = "paths";
     public static final String NEIGHBORS_IDS = "neighbor_ids"; // to save all neighbors (incoming + outgoing)
 
-    ConcurrentHashMap;
+    ConcurrentHashMap<Long, ArrayList<Long>> messages_map = new ConcurrentHashMap<Long, ArrayList<Long>>();
     
     //@TODO: maybe add one check for CONTAIN_SELF_LOOP and one variable for NO_OF_SELF_LOOPS
     // Might be helpful to add this (self-loop) info at the end when we make the paths
