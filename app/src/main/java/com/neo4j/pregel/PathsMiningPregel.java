@@ -90,7 +90,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
 
         var schema = new PregelSchema.Builder()
             .add(PATHS, ValueType.LONG_ARRAY)
-            .add(NEIGHBORS_IDS, ValueType.LONG_ARRAY, PregelSchema.Visibility.PRIVATE);
+            .add(NEIGHBORS_IDS, ValueType.LONG_ARRAY);
 
         return schema.build();
     }
