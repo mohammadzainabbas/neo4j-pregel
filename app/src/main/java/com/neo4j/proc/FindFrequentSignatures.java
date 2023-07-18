@@ -42,8 +42,9 @@ public class FindFrequentSignatures {
             for (Long el: paths) {
 
                 if (el == identifier) {
+                    
+                } else {
                     _paths.add(el);
-                    continue;
                 }
 
 
