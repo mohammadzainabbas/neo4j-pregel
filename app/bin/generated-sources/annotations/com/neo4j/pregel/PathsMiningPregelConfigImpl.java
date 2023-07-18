@@ -27,7 +27,7 @@ import org.neo4j.gds.core.utils.progress.JobId;
 public final class PathsMiningPregelConfigImpl implements PathsMiningPregel.PathsMiningPregelConfig {
     private boolean isAsynchronous;
 
-    private boolean encodedOutput;
+    private boolean isEncodedOutput;
 
     private long identifier;
 
@@ -69,7 +69,7 @@ public final class PathsMiningPregelConfigImpl implements PathsMiningPregel.Path
             errors.add(e);
         }
         try {
-            this.encodedOutput = config.getBool("encodedOutput", PathsMiningPregel.PathsMiningPregelConfig.super.encodedOutput());
+            this.isEncodedOutput = config.getBool("isEncodedOutput", PathsMiningPregel.PathsMiningPregelConfig.super.isEncodedOutput());
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
@@ -190,8 +190,8 @@ public final class PathsMiningPregelConfigImpl implements PathsMiningPregel.Path
     }
 
     @Override
-    public boolean encodedOutput() {
-        return this.encodedOutput;
+    public boolean isEncodedOutput() {
+        return this.isEncodedOutput;
     }
 
     @Override
@@ -272,7 +272,7 @@ public final class PathsMiningPregelConfigImpl implements PathsMiningPregel.Path
 
     @Override
     public Collection<String> configKeys() {
-        return Arrays.asList("isAsynchronous", "encodedOutput", "identifier", "mutateProperty", "writeProperty", "partitioning", "nodeLabels", "relationshipTypes", "logProgress", "sudo", "username", "concurrency", "jobId", "relationshipWeightProperty", "maxIterations", "arrowConnectionInfo", "writeConcurrency", "seedProperty");
+        return Arrays.asList("isAsynchronous", "isEncodedOutput", "identifier", "mutateProperty", "writeProperty", "partitioning", "nodeLabels", "relationshipTypes", "logProgress", "sudo", "username", "concurrency", "jobId", "relationshipWeightProperty", "maxIterations", "arrowConnectionInfo", "writeConcurrency", "seedProperty");
     }
 
     @Override
@@ -289,7 +289,7 @@ public final class PathsMiningPregelConfigImpl implements PathsMiningPregel.Path
     public Map<String, Object> toMap() {
         Map<String, Object> map = new LinkedHashMap<>();
         map.put("isAsynchronous", isAsynchronous());
-        map.put("encodedOutput", encodedOutput());
+        map.put("isEncodedOutput", isEncodedOutput());
         map.put("identifier", identifier());
         map.put("mutateProperty", mutateProperty());
         map.put("writeProperty", writeProperty());
@@ -364,7 +364,7 @@ public final class PathsMiningPregelConfigImpl implements PathsMiningPregel.Path
                 PathsMiningPregel.PathsMiningPregelConfig baseConfig) {
             var builder = new PathsMiningPregelConfigImpl.Builder();
             builder.isAsynchronous(baseConfig.isAsynchronous());
-            builder.encodedOutput(baseConfig.encodedOutput());
+            builder.isEncodedOutput(baseConfig.isEncodedOutput());
             builder.identifier(baseConfig.identifier());
             builder.mutateProperty(baseConfig.mutateProperty());
             builder.writeProperty(baseConfig.writeProperty());
@@ -389,8 +389,8 @@ public final class PathsMiningPregelConfigImpl implements PathsMiningPregel.Path
             return this;
         }
 
-        public PathsMiningPregelConfigImpl.Builder encodedOutput(boolean encodedOutput) {
-            this.config.put("encodedOutput", encodedOutput);
+        public PathsMiningPregelConfigImpl.Builder isEncodedOutput(boolean isEncodedOutput) {
+            this.config.put("isEncodedOutput", isEncodedOutput);
             return this;
         }
 

@@ -309,8 +309,8 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         }
 
         @Value.Default
-        @Configuration.Key("encodedOutput")
-        default boolean encodedOutput() {
+        @Configuration.Key("isEncodedOutput")
+        default boolean isEncodedOutput() {
             return false;
         }
         
