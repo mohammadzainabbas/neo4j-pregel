@@ -12,7 +12,7 @@ import java.util.HashMap;
 
 public class FindFrequentSignatures {
 
-    @UserAggregationFunction("esilv.pregel.find_signatures")
+    @UserAggregationFunction("esilv.proc.find_signatures")
     @Description("Returns the frequency for all the signatures found in the given paths.")
     public FindFrequentSignaturesFunction find_signatures() {
         return new FindFrequentSignaturesFunction();
