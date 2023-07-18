@@ -26,6 +26,7 @@ public class FindFrequentSignatures {
     public static class FindFrequentSignaturesFunction {
 
         private final ConcurrentHashMap<String, Long> signature_count_map = new ConcurrentHashMap<String, Long>();
+        
 
 
 
