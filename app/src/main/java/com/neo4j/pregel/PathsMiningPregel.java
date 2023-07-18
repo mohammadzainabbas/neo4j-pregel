@@ -303,7 +303,6 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
                 }
             }
 
-
             if (new_path.isEmpty()) {
                 context.voteToHalt();
                 return;
