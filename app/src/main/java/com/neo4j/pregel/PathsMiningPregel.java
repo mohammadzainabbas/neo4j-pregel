@@ -164,13 +164,13 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         String temp = "";
         for (var message: messageList) {
             if (message == IDENTIFIER) {
-                _messageList.add(temp + ", ");
+                _messageList.add(temp + ", -1, ");
                 temp = "";
                 continue;
             }
             var decoded_message = decode(message);
-            temp += decoded_message[1];
             temp += decoded_message[0];
+            temp += decoded_message[1];
         }
         return _messageList;
     }
