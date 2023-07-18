@@ -163,7 +163,6 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         else if (superstep == PathFindingPhase.CONNECT_NEIGHBORS_PATH.step) {
             var _messages = new ArrayList<Long>();
             for (var msg: messages) { _messages.add(msg.longValue()); }
-            // _messages = removeDuplicates(_messages);
 
             var outGoingNeighbors = new ArrayList<Long>(); // outgoing neighbors
             context.forEachNeighbor(outGoingNeighbors::add);
