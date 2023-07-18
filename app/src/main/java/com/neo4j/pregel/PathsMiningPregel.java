@@ -31,7 +31,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
     public static final String NEIGHBORS_IDS = "neighbor_ids"; // to save all neighbors (incoming + outgoing)
 
     // to keep track of [where this message was sent from] -> [to which node]
-    // which neighbor is connected to whom ?
+    // tells neighbors given a node_id 
     private final ConcurrentHashMap<Long, ArrayList<Long>> neighbors_map = new ConcurrentHashMap<Long, ArrayList<Long>>();
     
     //@TODO: maybe add one check for CONTAIN_SELF_LOOP and one variable for NO_OF_SELF_LOOPS
