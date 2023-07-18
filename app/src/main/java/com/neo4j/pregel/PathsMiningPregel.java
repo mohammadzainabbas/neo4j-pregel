@@ -162,6 +162,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
     public ArrayList<String> printEncodedMessageList(ArrayList<Long> messageList) {
         var _messageList = new ArrayList<String>();
         String temp = "";
+        boolean isIdentifier = false;
         for (var message: messageList) {
             if (message == IDENTIFIER) {
                 _messageList.add(temp + ", -1, ");
