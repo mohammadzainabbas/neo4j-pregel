@@ -267,7 +267,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
                 long last_element_from_node = decoded_last_element[0];
                 long last_element_to_node = decoded_last_element[1];
                 
-                var message_list = messages_map.get(last_element_to_node);
+                var message_list = neighbors_map.get(last_element_to_node);
                 if (message_list != null) {
                     message_list = removeDuplicates(message_list); // remove duplicates (same neighbor info)
                     
