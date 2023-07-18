@@ -298,11 +298,9 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
                         temp.addAll(previous_path);
                         temp.add(value);
                         temp.add(IDENTIFIER);
-                        new_path_added = true;
                     }
 
                     new_path.addAll(temp);
-                    path_buffer.clear();
                     temp.clear();
                     continue;
                 }
