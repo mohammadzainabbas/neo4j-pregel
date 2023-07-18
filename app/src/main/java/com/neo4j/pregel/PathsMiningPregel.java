@@ -260,7 +260,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
                 return;
             }
 
-            context.setNodeValue(stepKey, arrayListToNativeArray(new_path)); // update paths internally (for each node)
+            context.setNodeValue(PATHS, arrayListToNativeArray(new_path)); // update paths internally (for each node)
         }
     }
 
