@@ -297,8 +297,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
                         temp.clear();
                         continue;
                     }
-                }                
-                path_buffer.add(previous_message);
+                }
                 if (previous_message == IDENTIFIER) {
                     new_path.addAll(path_buffer);
                     path_buffer.clear();
