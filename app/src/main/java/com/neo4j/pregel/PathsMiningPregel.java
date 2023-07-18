@@ -275,7 +275,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             } else {
                 for (var previous_path: previous_paths) {
                     
-                    if (previous_path.size() < 2) {continue;} // invalid path
+                    if (previous_path.size() < 2) {continue;} // invalid path -> at least, it should contain 2 elements 
 
                     var last_element = previous_path.get(previous_path.size() - 1);
                     var second_last_element = previous_path.get(previous_path.size() - 2);
