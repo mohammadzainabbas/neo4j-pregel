@@ -151,13 +151,13 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         var nodeId = context.nodeId();
         var nodeOriginalId = context.toOriginalId(); // for showing correct IDs in the output
         int superstep = context.superstep();
-        var stepKey = PATH + superstep;
+        var stepKey = PATHS;
         var IDENTIFIER = context.config().identifier();
         var USE_ORIGINAL_IDS = context.config().useOriginalIds();
 
         // First superstep
         if (context.isInitialSuperstep() && superstep == PathFindingPhase.INIT_PATH.step) {
-            context.setNodeValue(stepKey, new long[] {nodeOriginalId, IDENTIFIER});
+            context.setNodeValue(PATHS, new long[] {nodeOriginalId, IDENTIFIER});
 
             // unique messages (to avoid duplicate paths)
             // neighbors.forEach((LongProcedure) neighbor_node_id -> context.sendTo(neighbor_node_id, nodeOriginalId));
