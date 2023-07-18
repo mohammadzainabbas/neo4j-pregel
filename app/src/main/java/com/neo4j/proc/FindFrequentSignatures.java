@@ -1,15 +1,11 @@
 package com.neo4j.proc;
 
-import org.neo4j.gds.paths.PathResult;
-import org.HdrHistogram.DoubleHistogram;
-import org.HdrHistogram.Histogram;
 import org.neo4j.procedure.*;
 
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-
 
 import java.util.ArrayList;
 import java.util.HashMap;
