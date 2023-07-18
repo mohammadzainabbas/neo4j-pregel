@@ -28,8 +28,8 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
 
     // INTERNALS
     public static final String PATHS = "paths";
-    public static final String NEIGHBORS_IDS = "neighbor_ids"; // to save all neighbors (incoming + outgoing)
-
+    
+    // to save all neighbors (incoming + outgoing)
     // to keep track of [where this message was sent from] -> [to which node]
     // tells neighbors given a node_id 
     private final ConcurrentHashMap<Long, ArrayList<Long>> neighbors_map = new ConcurrentHashMap<Long, ArrayList<Long>>();
@@ -94,8 +94,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
     public PregelSchema schema(PathsMiningPregelConfig config) {
 
         var schema = new PregelSchema.Builder()
-            .add(PATHS, ValueType.LONG_ARRAY)
-            .add(NEIGHBORS_IDS, ValueType.LONG_ARRAY);
+            .add(PATHS, ValueType.LONG_ARRAY);
 
         return schema.build();
     }
@@ -104,7 +103,6 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
     @Override
     public void init(InitContext<PathsMiningPregelConfig> context) {
         context.setNodeValue(PATHS, new long[]{});
-        context.setNodeValue(NEIGHBORS_IDS, new long[]{});
     }
 
     public void sentToAllNeighbors(ComputeContext<PathsMiningPregelConfig> context, ArrayList<Long> messages) {
@@ -201,7 +199,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
 
             neighbors = removeDuplicates(neighbors);
             neighbors.removeIf(neighbor_node_id -> neighbor_node_id == nodeId); // remove self-loop
-            
+
             neighbors_map.put(nodeId, neighbors); // save all neighbors (incoming + outgoing) in a hashmap
 
             var messages_list = new ArrayList<Long>();
