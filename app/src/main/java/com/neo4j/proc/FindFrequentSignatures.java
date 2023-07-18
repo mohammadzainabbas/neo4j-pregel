@@ -84,6 +84,8 @@ public class FindFrequentSignatures {
                 sortedMap.put(entry.getKey(), entry.getValue());
             }
 
+            
+
 
 
             long totalCount = values != null ? values.getTotalCount() : doubles.getTotalCount();
