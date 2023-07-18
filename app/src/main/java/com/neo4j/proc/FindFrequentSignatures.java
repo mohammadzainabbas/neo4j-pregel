@@ -24,9 +24,7 @@ public class FindFrequentSignatures {
         return new FindFrequentSignaturesFunction();
     }
 
-
     public static class FindFrequentSignaturesFunction {
-
         private final ConcurrentHashMap<String, Long> signature_count_map = new ConcurrentHashMap<String, Long>();
         
         public static String convertToSignature(ArrayList<Long> array) {
