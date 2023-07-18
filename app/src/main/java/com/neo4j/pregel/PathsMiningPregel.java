@@ -209,10 +209,16 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             // _messages = removeDuplicates(_messages);
 
             if (isEncodedOutput) {
-                var _messages_list = printEncodedMessageList(_messages, IDENTIFIER);
-                System.out.println("Node: " + nodeId + " | Messages: " + _messages_list);
+                for (var neighbor_id: neighbors) {
+                    var decoded_message = decode(message);
+                    var from_node_id = decoded_message[0];
+                    var to_node_id = decoded_message[1];
+                    var value = encode(from_node_id, to_node_id);
+                    path_list.add(value);
+                }
+
             } else {
-                System.out.println("Node: " + nodeId + " | Messages: " + _messages);
+
             }
 
             for (var neighbor_id: neighbors) {
