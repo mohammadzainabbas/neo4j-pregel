@@ -90,7 +90,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
 
         var schema = new PregelSchema.Builder()
             .add(PATHS, ValueType.LONG_ARRAY)
-            .add(NEIGHBORS_IDS, ValueType.LONG_ARRAY);
+            .add(NEIGHBORS_IDS, ValueType.LONG_ARRAY, PregelSchema.Visibility.PRIVATE);
 
         return schema.build();
     }
@@ -98,21 +98,6 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
     /* Called in the beginning of the first superstep of the Pregel computation and allows initializing node values */
     @Override
     public void init(InitContext<PathsMiningPregelConfig> context) {
-
-        long[] nodeInfo = {context.degree(), context.toOriginalId()};
-        context.setNodeValue(NODE_INFO, nodeInfo);
-        
-        var nodeId = context.nodeId();
-        var nodeProperties = new String[] { "pos_x", "pos_y", "rating" };
-        
-        for (var property: nodeProperties) {
-            var _property = context.nodeProperties(property);
-            if (_property == null) {
-                context.logMessage("Property '" + property + "' not found");
-                continue;
-            }
-            context.setNodeValue(property, _property.doubleValue(nodeId));
-        }
         
         if (context.nodeProperties(G_ID) != null) {
             context.setNodeValue(G_ID, context.nodeProperties(G_ID).longValue(nodeId));
