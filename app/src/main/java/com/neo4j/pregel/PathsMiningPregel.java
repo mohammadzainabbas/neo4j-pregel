@@ -168,6 +168,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
                 temp = "";
                 continue;
             }
+            temp += message;
 
             var decoded_message = decode(message);
             
