@@ -18,17 +18,17 @@ public class FindFrequentSignatures {
         return new FindFrequentSignaturesFunction();
     }
 
-    public class SignatureResult {
-        public String signature;
-        public long count;
-    
-        public SignatureResult(String signature, long count) {
-            this.signature = signature;
-            this.count = count;
-        }
-    }    
-
     public static class FindFrequentSignaturesFunction {
+        public class SignatureResult {
+            public String signature;
+            public long count;
+        
+            public SignatureResult(String signature, long count) {
+                this.signature = signature;
+                this.count = count;
+            }
+        }
+        
         private final ConcurrentHashMap<String, Long> signature_count_map = new ConcurrentHashMap<String, Long>();
         
         public static String convertToSignature(ArrayList<Long> array) {
