@@ -27,8 +27,6 @@ import org.neo4j.gds.core.utils.progress.JobId;
 public final class PathsMiningPregelConfigImpl implements PathsMiningPregel.PathsMiningPregelConfig {
     private boolean isAsynchronous;
 
-    private boolean withRepeition;
-
     private boolean useOriginalIds;
 
     private long identifier;
@@ -67,11 +65,6 @@ public final class PathsMiningPregelConfigImpl implements PathsMiningPregel.Path
         ArrayList<IllegalArgumentException> errors = new ArrayList<>();
         try {
             this.isAsynchronous = config.getBool("isAsynchronous", PathsMiningPregel.PathsMiningPregelConfig.super.isAsynchronous());
-        } catch (IllegalArgumentException e) {
-            errors.add(e);
-        }
-        try {
-            this.withRepeition = config.getBool("withRepeition", PathsMiningPregel.PathsMiningPregelConfig.super.withRepeition());
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
@@ -197,11 +190,6 @@ public final class PathsMiningPregelConfigImpl implements PathsMiningPregel.Path
     }
 
     @Override
-    public boolean withRepeition() {
-        return this.withRepeition;
-    }
-
-    @Override
     public boolean useOriginalIds() {
         return this.useOriginalIds;
     }
@@ -284,7 +272,7 @@ public final class PathsMiningPregelConfigImpl implements PathsMiningPregel.Path
 
     @Override
     public Collection<String> configKeys() {
-        return Arrays.asList("isAsynchronous", "withRepeition", "useOriginalIds", "identifier", "mutateProperty", "writeProperty", "partitioning", "nodeLabels", "relationshipTypes", "logProgress", "sudo", "username", "concurrency", "jobId", "relationshipWeightProperty", "maxIterations", "arrowConnectionInfo", "writeConcurrency", "seedProperty");
+        return Arrays.asList("isAsynchronous", "useOriginalIds", "identifier", "mutateProperty", "writeProperty", "partitioning", "nodeLabels", "relationshipTypes", "logProgress", "sudo", "username", "concurrency", "jobId", "relationshipWeightProperty", "maxIterations", "arrowConnectionInfo", "writeConcurrency", "seedProperty");
     }
 
     @Override
@@ -301,7 +289,6 @@ public final class PathsMiningPregelConfigImpl implements PathsMiningPregel.Path
     public Map<String, Object> toMap() {
         Map<String, Object> map = new LinkedHashMap<>();
         map.put("isAsynchronous", isAsynchronous());
-        map.put("withRepeition", withRepeition());
         map.put("useOriginalIds", useOriginalIds());
         map.put("identifier", identifier());
         map.put("mutateProperty", mutateProperty());
@@ -377,7 +364,6 @@ public final class PathsMiningPregelConfigImpl implements PathsMiningPregel.Path
                 PathsMiningPregel.PathsMiningPregelConfig baseConfig) {
             var builder = new PathsMiningPregelConfigImpl.Builder();
             builder.isAsynchronous(baseConfig.isAsynchronous());
-            builder.withRepeition(baseConfig.withRepeition());
             builder.useOriginalIds(baseConfig.useOriginalIds());
             builder.identifier(baseConfig.identifier());
             builder.mutateProperty(baseConfig.mutateProperty());
@@ -400,11 +386,6 @@ public final class PathsMiningPregelConfigImpl implements PathsMiningPregel.Path
 
         public PathsMiningPregelConfigImpl.Builder isAsynchronous(boolean isAsynchronous) {
             this.config.put("isAsynchronous", isAsynchronous);
-            return this;
-        }
-
-        public PathsMiningPregelConfigImpl.Builder withRepeition(boolean withRepeition) {
-            this.config.put("withRepeition", withRepeition);
             return this;
         }
 

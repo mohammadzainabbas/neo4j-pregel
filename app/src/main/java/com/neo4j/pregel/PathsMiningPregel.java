@@ -333,12 +333,6 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         }
 
         @Value.Default
-        @Configuration.Key("withRepeition")
-        default boolean withRepeition() {
-            return false;
-        }
-
-        @Value.Default
         @Configuration.Key("useOriginalIds")
         default boolean useOriginalIds() {
             return false;
