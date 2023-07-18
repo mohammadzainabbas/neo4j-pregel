@@ -179,6 +179,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         var stepKey = PATHS;
         var IDENTIFIER = context.config().identifier();
         var USE_ORIGINAL_IDS = context.config().useOriginalIds();
+        var ENCODED = context.config().encodedOutput();
 
         // First superstep
         if (context.isInitialSuperstep() && superstep == PathFindingPhase.INIT_PATH.step) {
