@@ -164,7 +164,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         var path_buffer = new ArrayList<Long>();
         for (var previous_message: previous_messages) {
             if (previous_message == IDENTIFIER && !path_buffer.isEmpty()) {
-                previous_paths.add(path_buffer);
+                previous_paths.add(path_buffer.stream().collect(Collectors.toCollection(ArrayList::new)));
                 path_buffer.clear();
                 continue;
             }
