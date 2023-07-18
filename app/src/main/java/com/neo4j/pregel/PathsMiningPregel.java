@@ -148,12 +148,12 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
     /* Called for each node in every superstep */
     @Override
     public void compute(ComputeContext<PathsMiningPregelConfig> context, Messages messages) {
+        var nodeId = context.nodeId();
+        var nodeOriginalId = context.toOriginalId(); // for showing correct IDs in the output
         int superstep = context.superstep();
         var stepKey = PATHS;
         var IDENTIFIER = context.config().identifier();
         var USE_ORIGINAL_IDS = context.config().useOriginalIds();
-        var nodeId = USE_ORIGINAL_IDS ? context.toOriginalId() : context.nodeId();
-        var nodeOriginalId = context.toOriginalId(); // for showing correct IDs in the output
 
         // First superstep
         if (context.isInitialSuperstep() && superstep == PathFindingPhase.INIT_PATH.step) {
