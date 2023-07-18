@@ -203,7 +203,6 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
 
             neighbors_map.put(nodeId, neighbors); // save all neighbors (incoming + outgoing) in a hashmap
 
-            var messages_list = new ArrayList<Long>();
             var path_list = new ArrayList<Long>();
             // Remove duplicate messages (multiple links between two nodes i.e: 0 -> 1, 0 -> 1)
             // Add only one link in case of duplicate links (since duplicate links doesn't effect the path)
