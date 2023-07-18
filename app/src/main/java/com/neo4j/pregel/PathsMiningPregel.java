@@ -323,12 +323,6 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             return -1;
         }
         
-        @Value.Default
-        @Configuration.Key("useOriginalIds")
-        default boolean useOriginalIds() {
-            return false;
-        }
-
         static PathsMiningPregelConfig of(CypherMapWrapper userInput) {
             return new PathsMiningPregelConfigImpl(userInput);
         }
