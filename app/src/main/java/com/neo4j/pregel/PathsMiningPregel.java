@@ -129,7 +129,11 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
     public void convertToOriginalIds(ComputeContext<PathsMiningPregelConfig> context) {
         var paths = context.longArrayNodeValue(PATHS);
         var paths_list = new ArrayList<Long>();
-        for (var path: paths) {
+        for (var el: paths) {
+            if (el == context.config().identifier()) { 
+                paths_list.add(el);
+                continue;
+            }
             var decoded_path = decode(path);
             var from_node_id = decoded_path[0];
             var to_node_id = decoded_path[1];
