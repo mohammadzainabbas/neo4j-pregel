@@ -246,31 +246,60 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             
             var new_path = new ArrayList<Long>();
 
-            for (var previous_path: previous_paths) {
-                
-                var last_element = previous_path.get(previous_path.size() - 1);
-                long[] decoded_last_element = decode(last_element);
-                long last_element_from_node = decoded_last_element[0];
-                long last_element_to_node = decoded_last_element[1];
-                
-                var message_list = neighbors_map.get(last_element_to_node);
-                if (message_list != null) {
+            if (IS_ENCODED_OUTPUT) {
+                for (var previous_path: previous_paths) {
                     
-                    var temp = new ArrayList<Long>();
+                    var last_element = previous_path.get(previous_path.size() - 1);
+                    long[] decoded_last_element = decode(last_element);
+                    long last_element_from_node = decoded_last_element[0];
+                    long last_element_to_node = decoded_last_element[1];
                     
-                    for (var message: message_list) {
-                        // A-B-A => disallow this path since this doesn't make any sense for a pattern p.o.v
-                        if (message == last_element_from_node) { continue; }
-                        long value = encode(last_element_to_node, message);
-                        temp.addAll(previous_path);
-                        temp.add(value);
-                        temp.add(IDENTIFIER);
+                    var message_list = neighbors_map.get(last_element_to_node);
+                    if (message_list != null) {
+                        
+                        var temp = new ArrayList<Long>();
+                        
+                        for (var message: message_list) {
+                            // A-B-A => disallow this path since this doesn't make any sense for a pattern p.o.v
+                            if (message == last_element_from_node) { continue; }
+                            long value = encode(last_element_to_node, message);
+                            temp.addAll(previous_path);
+                            temp.add(value);
+                            temp.add(IDENTIFIER);
+                        }
+    
+                        new_path.addAll(temp);
+                        temp.clear();
                     }
-
-                    new_path.addAll(temp);
-                    temp.clear();
+                }
+            } else {
+                for (var previous_path: previous_paths) {
+                    
+                    var last_element = previous_path.get(previous_path.size() - 1);
+                    long[] decoded_last_element = decode(last_element);
+                    long last_element_from_node = decoded_last_element[0];
+                    long last_element_to_node = decoded_last_element[1];
+                    
+                    var message_list = neighbors_map.get(last_element_to_node);
+                    if (message_list != null) {
+                        
+                        var temp = new ArrayList<Long>();
+                        
+                        for (var message: message_list) {
+                            // A-B-A => disallow this path since this doesn't make any sense for a pattern p.o.v
+                            if (message == last_element_from_node) { continue; }
+                            long value = encode(last_element_to_node, message);
+                            temp.addAll(previous_path);
+                            temp.add(value);
+                            temp.add(IDENTIFIER);
+                        }
+    
+                        new_path.addAll(temp);
+                        temp.clear();
+                    }
                 }
             }
+
 
             if (new_path.isEmpty()) {
                 context.voteToHalt();
