@@ -230,7 +230,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             sentToAllNeighbors(context, _messages); // simply forward all messages that you received to all neighbors
 
             var previousKey = PATH + (superstep - 1);
-            HashMap<Long, ArrayList<Long>> messages_map = new HashMap<Long, ArrayList<Long>>(); // to keep track of []
+            HashMap<Long, ArrayList<Long>> messages_map = new HashMap<Long, ArrayList<Long>>(); // to keep track of [where this message was sent from] -> [to which node]
             
             for (var msg: messages) {
                 long[] message = decode(msg.longValue());
@@ -239,6 +239,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
                 
                 messages_map.computeIfAbsent(to_node_id, k -> new ArrayList<Long>()).add(from_node_id); // add to the hashmap's array list against the key
             }
+            
             
             var new_path = new ArrayList<Long>();
             var path_buffer = new ArrayList<Long>();
