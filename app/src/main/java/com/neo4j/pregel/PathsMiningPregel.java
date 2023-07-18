@@ -281,6 +281,13 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             for (var previous_path: previous_paths) {
                 path_buffer.addAll(previous_path);
                 var last_element = previous_path.get(previous_path.size() - 1);
+                long[] decoded_previous_message = decode(last_element);
+                long previous_message_from_node = decoded_previous_message[0];
+                long previous_message_to_node = decoded_previous_message[1];
+
+                var message_list = messages_map.get(previous_message_to_node);
+
+                
 
 
 
