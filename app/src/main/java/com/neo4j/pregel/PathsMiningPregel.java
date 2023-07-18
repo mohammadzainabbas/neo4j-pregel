@@ -232,7 +232,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             var previousKey = PATH + (superstep - 1);
             HashMap<Long, ArrayList<Long>> messages_map = new HashMap<Long, ArrayList<Long>>();
             
-            for (var msg: messages) { // @TODO: recheck this logic (to build the correct message list)
+            for (var msg: messages) {
                 long[] message = decode(msg.longValue());
                 var from_node_id = message[0];
                 var to_node_id = message[1];
