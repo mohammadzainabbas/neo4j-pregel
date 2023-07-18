@@ -35,7 +35,7 @@ import java.util.stream.Stream;
 public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.PathsMiningPregelConfig> {
 
     // INTERNALS
-    public static final boolean USE_ORIGINAL_IDS = true;
+    public static final boolean USE_ORIGINAL_IDS = false;
     public static final String PATH = "path_";
     public static final String G_ID = "gid";
     public static final String POS_X = "pos_x";
