@@ -291,11 +291,8 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
                     message_list = removeDuplicates(message_list); // remove duplicates (same neighbor info)
                     var temp = new ArrayList<Long>();                    
                     for (var message: message_list) {
-                        
                         // A-B-A => disallow this path since this doesn't make any sense for a pattern p.o.v
-                        if (message == last_element_from_node) { 
-                            continue;
-                        }
+                        if (message == last_element_from_node) { continue; }
 
                         temp.addAll(path_buffer);
 
