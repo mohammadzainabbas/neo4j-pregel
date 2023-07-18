@@ -18,11 +18,11 @@ public class FindFrequentSignatures {
         return new FindFrequentSignaturesFunction();
     }
 
-    public class Result {
+    public class SignatureResult {
         public String signature;
         public long count;
     
-        public Result(String signature, long count) {
+        public SignatureResult(String signature, long count) {
             this.signature = signature;
             this.count = count;
         }
@@ -70,7 +70,7 @@ public class FindFrequentSignatures {
         }
 
         @UserAggregationResult
-        public List<Result> result() {
+        public List<SignatureResult> result() {
 
             // Convert the ConcurrentHashMap to a list of Map.Entry
             List<Map.Entry<String, Long>> entryList = new ArrayList<>(signature_count_map.entrySet());
