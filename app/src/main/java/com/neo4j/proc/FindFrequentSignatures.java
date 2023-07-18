@@ -38,28 +38,6 @@ public class FindFrequentSignatures {
                 }
             }
         }
-        
-        public void aggregates(@Name(value = "paths", defaultValue = "[1, -1]") List<Long> paths) {
-
-            if (value != null) {
-                if (doubles != null) {
-                    doubles.recordValue(value.doubleValue());
-                } else if (value instanceof Double || value instanceof Float) {
-                    this.doubles = HistogramUtil.toDoubleHistogram(values, 5);
-                    doubles.recordValue(value.doubleValue());
-                    values = null;
-                } else {
-                    values.recordValue(value.longValue());
-                }
-                if (minValue == null || minValue.doubleValue() > value.doubleValue()) {
-                    minValue = value;
-                }
-                if (maxValue == null || maxValue.doubleValue() < value.doubleValue()) {
-                    maxValue = value;
-                }
-            }
-            this.percentiles = percentiles;
-        }
 
         @UserAggregationResult
         public Map<String, Number> result() {
