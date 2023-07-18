@@ -251,8 +251,8 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             var previousKey = PATH + (superstep - 1);
             HashMap<Long, ArrayList<Long>> messages_map = new HashMap<Long, ArrayList<Long>>(); // to keep track of [where this message was sent from] -> [to which node]
             
-            for (var msg: messages) {
-                long[] message = decode(msg.longValue());
+            for (var msg: _messages) {
+                long[] message = decode(msg);
                 var from_node_id = message[0];
                 var to_node_id = message[1];
                 
