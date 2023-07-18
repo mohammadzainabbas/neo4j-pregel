@@ -162,12 +162,12 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         return previous_paths;
     }
 
-    public ArrayList<String> printEncodedMessageList(ArrayList<Long> messageList) {
+    public ArrayList<String> printEncodedMessageList(ArrayList<Long> messageList, long identifier) {
         var _messageList = new ArrayList<String>();
         String temp = "";
         boolean isIdentifier = false;
         for (var message: messageList) {
-            if (message == IDENTIFIER) {
+            if (message == identifier) {
                 _messageList.add(temp + ", -1, ");
                 temp = "";
                 isIdentifier = true;
@@ -265,7 +265,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             }
             
             var previous_messages = context.longArrayNodeValue(previousKey);
-            var previous_paths = extractPreviousPaths(previous_messages);
+            var previous_paths = extractPreviousPaths(previous_messages, IDENTIFIER);
             
             var new_path = new ArrayList<Long>();
 
