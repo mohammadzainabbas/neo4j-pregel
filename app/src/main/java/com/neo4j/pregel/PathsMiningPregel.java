@@ -238,7 +238,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             // (NOTE: each superstep is separated via some unique identifier)
             var _messages = new ArrayList<Long>();
             for (var msg: messages) { _messages.add(msg.longValue()); }
-            //@TODO: do we have to remove the duplicates here as well?
+            //@TODO: do we have to remove the duplicates here as well? I don't think so !!!
             sentToAllNeighbors(context, _messages); // simply forward all messages that you received to all neighbors
             
             var previous_messages = context.longArrayNodeValue(PATHS);
