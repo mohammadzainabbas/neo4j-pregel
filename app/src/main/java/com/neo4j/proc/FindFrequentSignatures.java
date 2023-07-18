@@ -37,6 +37,7 @@ public class FindFrequentSignatures {
 
         @UserAggregationUpdate
         public void aggregate(@Name(value = "paths", defaultValue = "[1, -1]") List<Long> paths) {
+            ArrayList<Long> path = new ArrayList<Long>();
             for (Long subPaths : paths) {
                 String signature = toSignature(subPaths);
                 if (signature_count_map.containsKey(signature)) {
