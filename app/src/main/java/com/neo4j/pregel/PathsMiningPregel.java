@@ -143,6 +143,8 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             var to_node_original_id = useOriginalIds ? context.toOriginalId(to_node_id) : to_node_id;
             paths_list.add(to_node_original_id);
         }
+        // remove last element (since it's the node_id of the current node)
+        paths_list.remove(paths_list.size() - 1);
         context.setNodeValue(PATHS, arrayListToNativeArray(paths_list));
     }
 
