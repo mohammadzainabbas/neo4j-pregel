@@ -217,7 +217,10 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
                 // separate each message (path) with a unique identifier
                 path_list = path_list.stream().flatMap(n -> Stream.of(n, IDENTIFIER)).collect(Collectors.toCollection(ArrayList::new));
             } else {
-
+                for (var neighbor_id: neighbors) {
+                    path_list.addAll(new long[] {nodeId, neighbor_id, IDENTIFIER});
+                }
+                
             }
 
             for (var neighbor_id: neighbors) {
