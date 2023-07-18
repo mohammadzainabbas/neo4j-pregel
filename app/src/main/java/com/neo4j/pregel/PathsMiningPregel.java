@@ -163,11 +163,11 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         var previous_paths = new ArrayList<ArrayList<Long>>();
         var path_buffer = new ArrayList<Long>();
         for (var previous_message: previous_messages) {
-            path_buffer.add(previous_message);
             if (previous_message == IDENTIFIER) {
                 previous_paths.add(path_buffer);
                 path_buffer.clear();
             }
+            path_buffer.add(previous_message);
         }
         return previous_paths;
     }
