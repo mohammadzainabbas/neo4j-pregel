@@ -131,9 +131,11 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         boolean useOriginalIds = context.config().useOriginalIds();
         var nodeId = useOriginalIds ? context.toOriginalId() : context.nodeId();
         var paths_list = new ArrayList<Long>();
+        paths_list.add(nodeId);
         for (var el: paths) {
             if (el == context.config().identifier()) { 
                 paths_list.add(el);
+                paths_list.add(nodeId);
                 continue;
             }
             var decoded_path = decode(el);
