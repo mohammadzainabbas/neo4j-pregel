@@ -28,7 +28,7 @@ public class FindFrequentSignatures {
         private final ConcurrentHashMap<String, Long> signature_count_map = new ConcurrentHashMap<String, Long>();
         
         @UserAggregationUpdate
-        public void aggregate(@Name("value") Number value, @Name(value = "percentiles", defaultValue = "[0.5,0.75,0.9,0.95,0.99]") List<Double> percentiles) {
+        public void aggregate(@Name("value") ArrayList<Long> value, @Name(value = "percentiles", defaultValue = "[0.5,0.75,0.9,0.95,0.99]") List<Double> percentiles) {
             if (value != null) {
                 if (doubles != null) {
                     doubles.recordValue(value.doubleValue());
