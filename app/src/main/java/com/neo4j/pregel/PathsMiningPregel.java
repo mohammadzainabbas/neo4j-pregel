@@ -279,6 +279,10 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
                         
                         for (var message: message_list) {
                             
+                            if (message == previous_message_from_node) { // self-loop A-B-A
+                                continue;
+                            }
+
                             temp.addAll(path_buffer);
 
                             long value = encode(previous_message_to_node, message);
