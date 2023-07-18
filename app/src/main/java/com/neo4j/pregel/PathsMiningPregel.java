@@ -285,6 +285,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
                 long[] decoded_last_element = decode(last_element);
                 long last_element_from_node = decoded_last_element[0];
                 long last_element_to_node = decoded_last_element[1];
+                boolean new_path_added = false;
 
                 var message_list = messages_map.get(last_element_to_node);
                 if (message_list != null) {
@@ -296,6 +297,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
                         temp.addAll(path_buffer);
                         long value = encode(last_element_to_node, message);
                         temp.add(value);
+                        new_path_added = true;
                         temp.add(IDENTIFIER);
                     }
 
