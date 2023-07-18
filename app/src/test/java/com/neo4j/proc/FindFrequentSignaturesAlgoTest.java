@@ -19,7 +19,7 @@ class FindFrequentSignaturesTest {
 
     @BeforeEach
     void setUp() {
-        db = new TestGraphDatabaseFactory().newImpermanentDatabase();
+        db = new TestDatabaseManagementServiceFactory().newImpermanentDatabase();
     }
 
     @AfterEach
