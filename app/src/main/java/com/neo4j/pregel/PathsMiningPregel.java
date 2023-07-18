@@ -16,16 +16,9 @@ import org.neo4j.gds.beta.pregel.context.MasterComputeContext;
 import org.neo4j.gds.config.SeedConfig;
 import org.neo4j.gds.core.CypherMapWrapper;
 
-import com.carrotsearch.hppc.LongHashSet;
-import com.carrotsearch.hppc.procedures.LongProcedure;
-
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.Optional;
-import java.util.function.LongConsumer;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
