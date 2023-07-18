@@ -353,7 +353,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         @Value.Default
         @Configuration.Key("identifier")
         default long identifier() {
-            return false;
+            return -1;
         }
 
         static PathsMiningPregelConfig of(CypherMapWrapper userInput) {
