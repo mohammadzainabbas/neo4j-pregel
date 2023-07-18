@@ -2,6 +2,7 @@ package com.neo4j.proc;
 
 import org.neo4j.gds.paths.PathResult;
 import org.neo4j.procedure.Procedure;
+import org.neo4j.procedure.Name;
 
 public class PathsToSignatures {
 
