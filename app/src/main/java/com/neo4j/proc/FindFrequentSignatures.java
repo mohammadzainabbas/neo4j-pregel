@@ -27,6 +27,14 @@ public class FindFrequentSignatures {
 
         private final ConcurrentHashMap<String, Long> signature_count_map = new ConcurrentHashMap<String, Long>();
         
+        public String toSignature(List<Long> path) {
+            String signature = "";
+            for (Long node : path) {
+                signature += node.toString();
+            }
+            return signature;
+        }
+
         @UserAggregationUpdate
         public void aggregate(@Name(value = "paths", defaultValue = "[1, -1]") List<Long> paths) {
             for (Long path : paths) {
