@@ -60,7 +60,7 @@ class FindFrequentSignaturesAlgoTest {
     private TestGraph graph;
 
     @Test
-    void runPathsMiningPregel() {
+    void runFindSignatures() {
         int maxIterations = 10;
         boolean isEncodedOutput = false;
         long identifier = -1;
