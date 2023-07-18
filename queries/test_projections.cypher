@@ -38,3 +38,16 @@ WITH collect(paths) as path, identifier
 CALL esilv.proc.find_signatures(path, identifier) YIELD signature, count
 RETURN signature, count
 ORDER BY count DESC
+
+//------------
+
+WITH -1 as identifier
+CALL esilv.pregel.find_paths.stream("countries_2018_small", {maxIterations: 4, identifier: identifier})
+YIELD nodeId, values
+WITH nodeId, values.paths AS paths
+LIMIT 10
+UNWIND paths AS _paths
+WITH collect(_paths) as path, -1 as identifier
+CALL esilv.proc.find_signatures(path, identifier) YIELD signature, count
+RETURN signature, count
+ORDER BY count DESC
