@@ -174,9 +174,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             temp += decoded_message[0];
             temp += decoded_message[1];
         }
-        if (!isIdentifier) {
-            _messageList.add(temp);
-        }
+        if (!isIdentifier) {_messageList.add(temp);}
         return _messageList;
     }
 
