@@ -43,6 +43,9 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
     public static final String NODE_INFO = "node_info";
     public static final String NEIGHBORS_IDS = "neighbor_ids"; // to save all neighbors (incoming + outgoing)
     
+    //@TODO: maybe add one check for CONTAIN_SELF_LOOP and one variable for NO_OF_SELF_LOOPS
+    // Might be helpful to add this (self-loop) info at the end when we make the paths
+
     public static final long IDENTIFIER = -1;
     /*
      * Combine the two longs into one
