@@ -286,7 +286,6 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
                 temp.clear();
             }
 
-
             for (int i = 0; i < previous_messages.length; i++) {
                 long previous_message = previous_messages[i];
                 path_buffer.add(previous_message);
