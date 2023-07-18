@@ -5,7 +5,6 @@ import org.neo4j.procedure.Procedure;
 import org.neo4j.procedure.Name;
 import org.HdrHistogram.DoubleHistogram;
 import org.HdrHistogram.Histogram;
-import org.HdrHistogram.HistogramUtil;
 import org.neo4j.procedure.*;
 
 import java.util.LinkedHashMap;
