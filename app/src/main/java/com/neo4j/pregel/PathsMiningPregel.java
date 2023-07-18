@@ -148,11 +148,11 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         }
     }
 
-    public ArrayList<ArrayList<Long>> extractPreviousPaths(long[] previous_messages) {
+    public ArrayList<ArrayList<Long>> extractPreviousPaths(long[] previous_messages, long identifier) {
         var previous_paths = new ArrayList<ArrayList<Long>>();
         var path_buffer = new ArrayList<Long>();
         for (var previous_message: previous_messages) {
-            if (previous_message == IDENTIFIER && !path_buffer.isEmpty()) {
+            if (previous_message == identifier && !path_buffer.isEmpty()) {
                 previous_paths.add(path_buffer.stream().collect(Collectors.toCollection(ArrayList::new)));
                 path_buffer.clear();
                 continue;
