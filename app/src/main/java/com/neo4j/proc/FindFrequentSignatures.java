@@ -36,10 +36,10 @@ public class FindFrequentSignatures {
         }
 
         @UserAggregationUpdate
-        public void aggregate(@Name(value = "paths", defaultValue = "[1, -1]") List<Long> paths) {
+        public void aggregate(@Name(value = "paths", defaultValue = "[1, -1]") List<Long> paths, @Name(value = "identifier", defaultValue = "-1") List<Long> subPaths) {
             ArrayList<Long> _paths = new ArrayList<Long>();
             for (Long el: paths) {
-                
+
 
 
 
