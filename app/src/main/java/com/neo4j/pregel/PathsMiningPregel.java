@@ -176,7 +176,6 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             context.sendToNeighbors(nodeId); // send node_id to all neighbors (to let them know where they got this message from)
         } 
         else if (superstep == PathFindingPhase.CONNECT_NEIGHBORS_PATH.step) {
-
             var _messages = new ArrayList<Long>();
             for (var msg: messages) { _messages.add(msg.longValue()); }
             // _messages = removeDuplicates(_messages);
