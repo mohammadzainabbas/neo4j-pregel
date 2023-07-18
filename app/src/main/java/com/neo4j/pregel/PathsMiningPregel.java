@@ -279,6 +279,8 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             var path_buffer = new ArrayList<Long>();
 
             for (var previous_path: previous_paths) {
+                path_buffer.addAll(previous_path);
+                
                 var temp = new ArrayList<Long>();
                 temp.addAll(previous_path);
                 temp.add(IDENTIFIER);
