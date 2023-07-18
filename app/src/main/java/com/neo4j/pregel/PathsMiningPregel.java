@@ -279,7 +279,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             var path_buffer = new ArrayList<Long>();
 
             for (var previous_path: previous_paths) {
-                // path_buffer.addAll(previous_path);
+                path_buffer.addAll(previous_path);
 
                 var last_element = previous_path.get(previous_path.size() - 1);
                 long[] decoded_last_element = decode(last_element);
