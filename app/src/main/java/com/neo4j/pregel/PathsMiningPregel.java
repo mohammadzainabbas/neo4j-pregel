@@ -214,7 +214,8 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
                 var to_node_id = neighbor_id;
 
                 var value = encode(from_node_id, to_node_id);
-                messages_list.add(value);
+                path_list.add(value);
+                messages_list.add(neighbor_id);
             }
 
             if (messages_list.isEmpty()) { // no neighbors
