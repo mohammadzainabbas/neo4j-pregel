@@ -216,14 +216,21 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             messages_list.add(IDENTIFIER);
             context.setNodeValue(stepKey, arrayListToNativeArray(messages_list)); // update paths internally (for each node)
         } else if (superstep >= PathFindingPhase.COMPUTE_PATH.step) {
-            // iterate over all messages (coming from all the neighbors) and add them all to PATH 
-            // (NOTE: each superstep is separated via some unique identifier)
-
             // if no message is received, then halt
             if (messages.isEmpty()) {
                 context.voteToHalt();
                 return;
             }
+
+            // iterate over all messages (coming from all the neighbors) and add them all to PATH 
+            // (NOTE: each superstep is separated via some unique identifier)
+            var _messages = new ArrayList<Long>();
+            for (var msg: messages) { _messages.add(msg.longValue()); }
+
+            
+
+
+
 
             var previousKey = PATH + (superstep - 1);
             HashMap<Long, ArrayList<Long>> messages_map = new HashMap<Long, ArrayList<Long>>();
