@@ -265,7 +265,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
 
             for (int i = 0; i < previous_messages.length; i++) {
                 long previous_message = previous_messages[i];
-                
+                path_buffer.add(previous_message);
                 if (previous_messages[i + 1] == IDENTIFIER) {
                     long[] decoded_previous_message = decode(previous_message);
                     long previous_message_from_node = decoded_previous_message[0];
