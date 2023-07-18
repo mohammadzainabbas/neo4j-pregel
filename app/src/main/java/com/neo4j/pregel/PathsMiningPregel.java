@@ -26,7 +26,6 @@ import java.util.stream.Stream;
 public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.PathsMiningPregelConfig> {
 
     // INTERNALS
-    public static final boolean USE_ORIGINAL_IDS = false;
     public static final String PATH = "path_";
     public static final String G_ID = "gid";
     public static final String POS_X = "pos_x";
@@ -38,7 +37,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
     //@TODO: maybe add one check for CONTAIN_SELF_LOOP and one variable for NO_OF_SELF_LOOPS
     // Might be helpful to add this (self-loop) info at the end when we make the paths
     // Can be done in master-compute function
-    
+
     /*
      * Combine the two longs into one
      */
@@ -190,6 +189,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         int superstep = context.superstep();
         var stepKey = PATH + superstep;
         var IDENTIFIER = context.config().identifier();
+        var USE_ORIGINAL_IDS = context.config().useOriginalIds();
 
         // First superstep
         if (context.isInitialSuperstep() && superstep == PathFindingPhase.INIT_PATH.step) {
