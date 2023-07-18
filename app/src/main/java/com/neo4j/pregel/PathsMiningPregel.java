@@ -280,7 +280,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
                     var last_element = previous_path.get(previous_path.size() - 1);
                     var second_last_element = previous_path.get(previous_path.size() - 2);
 
-                    var message_list = neighbors_map.get(last_element);
+                    var message_list = neighbors_map.get(context.toInternalId(last_element));
 
 
                     
