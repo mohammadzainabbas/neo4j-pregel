@@ -25,7 +25,7 @@ public class FindFrequentSignatures {
 
     public static class FindFrequentSignaturesFunction {
 
-        private final ConcurrentHashMap<String, ArrayList<Long>> neighbors_map = new ConcurrentHashMap<Long, ArrayList<Long>>();
+        private final ConcurrentHashMap<String, Long> signature_map = new ConcurrentHashMap<String, Long>();
 
 
 
