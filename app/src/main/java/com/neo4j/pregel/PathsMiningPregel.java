@@ -89,16 +89,8 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
     public PregelSchema schema(PathsMiningPregelConfig config) {
 
         var schema = new PregelSchema.Builder()
-            .add(NODE_INFO, ValueType.LONG_ARRAY) // [degree, orginal_id] 
-            .add(G_ID, ValueType.LONG)
-            .add(POS_X, ValueType.DOUBLE)
-            .add(POS_Y, ValueType.DOUBLE)
-            .add(RATING, ValueType.DOUBLE)
+            .add(PATHS, ValueType.LONG_ARRAY)
             .add(NEIGHBORS_IDS, ValueType.LONG_ARRAY);
-
-        for (var i = 0; i < config.maxIterations(); i++) {
-            schema.add(PATH + i, ValueType.LONG_ARRAY); // every step has its own PATH
-        }
 
         return schema.build();
     }
