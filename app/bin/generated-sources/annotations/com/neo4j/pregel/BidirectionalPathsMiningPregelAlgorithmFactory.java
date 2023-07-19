@@ -9,29 +9,29 @@ import org.neo4j.gds.core.utils.progress.tasks.ProgressTracker;
 import org.neo4j.gds.core.utils.progress.tasks.Task;
 
 @Generated("org.neo4j.gds.pregel.PregelProcessor")
-public final class FrequentSubgraphMiningPregelAlgorithmFactory extends GraphAlgorithmFactory<FrequentSubgraphMiningPregelAlgorithm, FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig> {
+public final class BidirectionalPathsMiningPregelAlgorithmFactory extends GraphAlgorithmFactory<BidirectionalPathsMiningPregelAlgorithm, BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig> {
     @Override
-    public FrequentSubgraphMiningPregelAlgorithm build(Graph graph,
-            FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig configuration,
+    public BidirectionalPathsMiningPregelAlgorithm build(Graph graph,
+            BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig configuration,
             ProgressTracker progressTracker) {
-        return new FrequentSubgraphMiningPregelAlgorithm(graph, configuration, progressTracker);
+        return new BidirectionalPathsMiningPregelAlgorithm(graph, configuration, progressTracker);
     }
 
     @Override
     public String taskName() {
-        return FrequentSubgraphMiningPregelAlgorithm.class.getSimpleName();
+        return BidirectionalPathsMiningPregelAlgorithm.class.getSimpleName();
     }
 
     @Override
     public Task progressTask(Graph graph,
-            FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig configuration) {
+            BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig configuration) {
         return Pregel.progressTask(graph, configuration);
     }
 
     @Override
     public MemoryEstimation memoryEstimation(
-            FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig configuration) {
-        var computation = new FrequentSubgraphMiningPregel();
+            BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig configuration) {
+        var computation = new BidirectionalPathsMiningPregel();
         return Pregel.memoryEstimation(computation.schema(configuration), computation.reducer().isEmpty(), configuration.isAsynchronous());
     }
 }

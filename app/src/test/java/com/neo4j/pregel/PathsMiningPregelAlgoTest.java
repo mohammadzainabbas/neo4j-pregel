@@ -16,12 +16,12 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import static com.neo4j.pregel.FindTrianglesPregel.FSM;
+import static com.neo4j.pregel.PathsMiningPregel.PATHS;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @GdlExtension
-class FindTrianglesPregelAlgoTest {
+class PathsMiningPregelAlgoTest {
 
     public enum TestingGraph {
         DUMMY_GRAPH {
@@ -42,7 +42,7 @@ class FindTrianglesPregelAlgoTest {
     }
     
     static String PATH = "/Users/mohammadzainabbas/Masters/Thesis/Experiments/neo4j-pregel/queries/";
-    static String FILE_NAME = TestingGraph.BIG_GRAPH.toString();
+    static String FILE_NAME = TestingGraph.SMALL_GRAPH.toString();
 
     @GdlGraph
     private static final String MY_TEST_GRAPH;
@@ -60,19 +60,21 @@ class FindTrianglesPregelAlgoTest {
     private TestGraph graph;
 
     @Test
-    void runFindTrianglesPregel() {
+    void runPathsMiningPregel() {
         int maxIterations = 10;
-        boolean withRepeition = false;
+        boolean isEncodedOutput = false;
+        long identifier = -1;
 
-        var config = ImmutableFindTrianglesPregelConfig.builder()
+        var config = ImmutablePathsMiningPregelConfig.builder()
             .maxIterations(maxIterations)
-            .withRepeition(withRepeition)
+            .isEncodedOutput(isEncodedOutput)
+            .identifier(identifier)
             .build();
 
         var pregelJob = Pregel.create(
             graph,
             config,
-            new FindTrianglesPregel(),
+            new PathsMiningPregel(),
             Pools.DEFAULT,
             ProgressTracker.NULL_TRACKER
         );

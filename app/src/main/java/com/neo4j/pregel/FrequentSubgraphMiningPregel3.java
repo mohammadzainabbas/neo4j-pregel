@@ -22,7 +22,6 @@
 // import java.util.List;
 // import java.util.Arrays;
 // import java.util.Collections;
-// import java.util.HashMap;
 // import java.util.Optional;
 // import java.util.stream.Collectors;
 
@@ -38,45 +37,34 @@
     
 //     public static final long IDENTIFIER = -1;
 
-    
-//     public long encode(long value1, long value2) {
+//     public double encode(long value1, long value2) {
 //         // Combine the two longs into one
-//         return (value1 << 32) | (value2 & 0xFFFFFFFFL);  
+//         long combined = (value1 << 32) | (value2 & 0xFFFFFFFFL);
+//         // Convert to double
+//         return Double.longBitsToDouble(combined);        
 //     }
     
-//     public long[] decode(long result) {
+//     public long[] decode(double value) {
+//         // Convert back to long
+//         long result = Double.doubleToLongBits(value);
 //         // Extract the two longs
 //         long result1 = result >> 32;
 //         long result2 = result & 0xFFFFFFFFL;
 //         return new long[] {result1, result2};
 //     }
     
-//     // convert ArrayList<Long> back to long[]
-//     public long[] arrayListToNativeArray(ArrayList<Long> arrayList) {
-//         return arrayList.stream().mapToLong(Long::longValue).toArray();
-//     }
-
-//     // long[] to ArrayList<Long> (for dynamic array)
-//     public ArrayList<Long> nativeArrayToArrayList(long[] nativeArray) {
-//         return Arrays.stream(nativeArray).boxed().collect(Collectors.toCollection(ArrayList::new));
-//     }
-    
 //     /* Each node will have this value-schema during pregel computation */
 //     @Override
 //     public PregelSchema schema(FrequentSubgraphMiningPregelConfig config) {
-
-//         var schema = new PregelSchema.Builder()
-//             .add(NODE_INFO, ValueType.LONG_ARRAY) // [degree, orginal_id] 
-//             .add(G_ID, ValueType.LONG)
-//             .add(POS_X, ValueType.DOUBLE)
-//             .add(POS_Y, ValueType.DOUBLE)
-//             .add(RATING, ValueType.DOUBLE);
-
-//         for (var i = 0; i < config.maxIterations(); i++) {
-//             schema.add(FSM + i, ValueType.LONG_ARRAY); // every step has its own FSM
-//         }
-
-//         return schema.build();
+//         // TODO: extend ComputeContext so you can get any long/double value by providing a node_id
+//         return new PregelSchema.Builder()
+//                 .add(FSM, ValueType.LONG_ARRAY)
+//                 .add(NODE_INFO, ValueType.LONG_ARRAY) // [degree, orginal_id] 
+//                 .add(G_ID, ValueType.LONG)
+//                 .add(POS_X, ValueType.DOUBLE)
+//                 .add(POS_Y, ValueType.DOUBLE)
+//                 .add(RATING, ValueType.DOUBLE)
+//                 .build();
 //     }
     
 //     /* Called in the beginning of the first superstep of the Pregel computation and allows initializing node values */
@@ -111,77 +99,53 @@
 //     public void compute(ComputeContext<FrequentSubgraphMiningPregelConfig> context, Messages messages) {
 //         var nodeId = context.nodeId();
 //         var nodeOriginalId = context.toOriginalId(); // for showing correct IDs in the output
-//         int superstep = context.superstep();
-//         var stepKey = FSM + superstep;
+//         boolean newMessage = false;
 
+//         long[] fsms = context.longArrayNodeValue(FSM);
+//         // long[] to ArrayList<Long> (for dynamic array)
+//         ArrayList<Long> new_fsm = Arrays.stream(fsms).boxed().collect(Collectors.toCollection(ArrayList::new));
+        
 //         // First superstep
 //         if (context.isInitialSuperstep()) {
-//             context.setNodeValue(stepKey, new long[] {nodeOriginalId, IDENTIFIER});
-//         } 
-//         else {
+//             // long[] new_fsms = new long[fsms.length + 1];
+//             // System.arraycopy(fsms, 0, new_fsms, 0, fsms.length); // copy existing nodeIds
+//             // new_fsms[fsms.length] = nodeOriginalId; // add the id that we want to insert
+//             new_fsm.add(nodeOriginalId); // add the id that we want to insert
+//             new_fsm.add(IDENTIFIER); // add the unique identifier to separate supersteps
+//             newMessage = true;
+//         } else {
 //             // iterate over all messages (coming from all the neighbors) and add them all to FSM 
 //             // (NOTE: each superstep is separated via some unique identifier)
-
-//             var previousKey = FSM + (superstep - 1);
-            
-//             HashMap<Long, ArrayList<Long>> messages_map = new HashMap<Long, ArrayList<Long>>();
-            
-//             var messages_list = new ArrayList<Long>();
-//             for (var msg: messages) { // @TODO: recheck this logic (to build the correct message list)
-//                 long[] message = decode(msg.longValue());
-//                 var from_node_id = message[0];
-//                 var to_node_id = message[1];
+//             ArrayList<Long> messages_list = new ArrayList<Long>();
+//             for (var message: messages) {
+//                 var from_node_id = message.longValue();
+//                 var from_node_info = context.longArrayNodeValue(NODE_INFO, from_node_id);
+//                 // var from_node_degree = from_node_info[0];
+//                 var from_node_original_id = from_node_info[1];
                 
-//                 messages_map.computeIfAbsent(from_node_id, k -> new ArrayList<Long>()).add(to_node_id); // add to the hashmap's array list against the key
+//                 if (from_node_original_id == nodeOriginalId && !context.config().withRepeition()) {
+//                     continue; // disallow self-loops
+//                 }
+                
+//                 messages_list.add(from_node_original_id);
+//             }
+
+//             if (!context.config().withRepeition()) {
+//                 // remove duplicates
+//                 messages_list = (ArrayList<Long>) messages_list.stream().distinct().collect(Collectors.toList());
 //             }
             
-//             var new_fsm = new ArrayList<Long>();
-//             var fsm_buffer = new ArrayList<Long>();
-//             var previous_messages = context.longArrayNodeValue(previousKey);
-
-//             for (int i = 0; i < previous_messages.length; i++) {
-//                 long previous_message = previous_messages[i];
-                
-//                 if (previous_messages[i + 1] == IDENTIFIER) {
-//                     long[] decoded_previous_message = decode(previous_message);
-//                     long previous_message_from_node = decoded_previous_message[0];
-//                     long previous_message_to_node = decoded_previous_message[1];
-
-//                     var message_list = messages_map.get(previous_message_to_node);
-//                     if (message_list != null) {
-                        
-//                         var temp = new ArrayList<Long>();
-                        
-//                         for (var message: message_list) {
-                            
-//                             temp.addAll(fsm_buffer);
-
-//                             long value = encode(previous_message_to_node, message);
-
-//                             temp.add(value);
-//                             temp.add(IDENTIFIER);
-//                         }
-
-//                         new_fsm.addAll(temp);
-//                         fsm_buffer.clear();
-//                         temp.clear();
-//                         continue;
-//                     }
-//                 }                
-//                 fsm_buffer.add(previous_message);
-//                 if (previous_message == IDENTIFIER) {
-//                     new_fsm.addAll(fsm_buffer);
-//                     fsm_buffer.clear();
-//                 }
+//             if (messages_list.size() > 0) { // if there are any messages
+//                 newMessage = true;
+//                 new_fsm.addAll(messages_list);
+//                 new_fsm.add(IDENTIFIER); // add the unique identifier to separate supersteps
+//             }
 //         }
 
 //         if (newMessage) {
 //             // convert ArrayList<Long> back to long[]
-//             long[] new_fsms = arrayListToNativeArray(new_fsm);
-//             context.setNodeValue(stepKey, new_fsms); // update paths internally (for each node)
-//             for (var message: new_fsms) {
-//                 context.sendToNeighbors(message); // send node_id to all neighbors (to let them know where they got this message from)
-//             }
+//             long[] new_fsms = new_fsm.stream().mapToLong(Long::longValue).toArray();
+//             context.setNodeValue(FSM, new_fsms); // update paths internally (for each node)
 //             context.sendToNeighbors(nodeId); // send node_id to all neighbors (to let them know where they got this message from)
 //         } 
 //         else {

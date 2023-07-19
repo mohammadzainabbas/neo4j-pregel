@@ -63,7 +63,9 @@ dependencies {
     testImplementation "org.neo4j.gds:proc-pregel:$gdsVersion"
     testImplementation "org.neo4j.gds:config-api:$gdsVersion"
     testImplementation "org.neo4j.gds:progress-tracking:$gdsVersion"
-
+    
+    testImplementation "org.neo4j.test:neo4j-harness:$neo4jVersion"
+    
     // Use JUnit Jupiter API for testing.
     testImplementation "org.junit.jupiter:junit-jupiter-api:$junit5Version"
 

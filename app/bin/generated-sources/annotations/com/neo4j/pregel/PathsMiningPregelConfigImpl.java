@@ -24,12 +24,12 @@ import org.neo4j.gds.core.CypherMapWrapper;
 import org.neo4j.gds.core.utils.progress.JobId;
 
 @Generated("org.neo4j.gds.proc.ConfigurationProcessor")
-public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig {
+public final class PathsMiningPregelConfigImpl implements PathsMiningPregel.PathsMiningPregelConfig {
     private boolean isAsynchronous;
 
-    private long maxRepeatNodes;
+    private boolean isEncodedOutput;
 
-    private boolean withRepeition;
+    private long identifier;
 
     private String mutateProperty;
 
@@ -61,55 +61,55 @@ public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSub
 
     private @Nullable String seedProperty;
 
-    public FrequentSubgraphMiningPregelConfigImpl(@NotNull CypherMapAccess config) {
+    public PathsMiningPregelConfigImpl(@NotNull CypherMapAccess config) {
         ArrayList<IllegalArgumentException> errors = new ArrayList<>();
         try {
-            this.isAsynchronous = config.getBool("isAsynchronous", FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.isAsynchronous());
+            this.isAsynchronous = config.getBool("isAsynchronous", PathsMiningPregel.PathsMiningPregelConfig.super.isAsynchronous());
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.maxRepeatNodes = config.getLong("maxRepeatNodes", FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.maxRepeatNodes());
+            this.isEncodedOutput = config.getBool("isEncodedOutput", PathsMiningPregel.PathsMiningPregelConfig.super.isEncodedOutput());
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.withRepeition = config.getBool("withRepeition", FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.withRepeition());
+            this.identifier = config.getLong("identifier", PathsMiningPregel.PathsMiningPregelConfig.super.identifier());
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.mutateProperty = CypherMapAccess.failOnNull("mutateProperty", config.getString("mutateProperty", FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.mutateProperty()));
+            this.mutateProperty = CypherMapAccess.failOnNull("mutateProperty", config.getString("mutateProperty", PathsMiningPregel.PathsMiningPregelConfig.super.mutateProperty()));
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.writeProperty = CypherMapAccess.failOnNull("writeProperty", config.getString("writeProperty", FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.writeProperty()));
+            this.writeProperty = CypherMapAccess.failOnNull("writeProperty", config.getString("writeProperty", PathsMiningPregel.PathsMiningPregelConfig.super.writeProperty()));
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.partitioning = CypherMapAccess.failOnNull("partitioning", Partitioning.parse(config.getChecked("partitioning", FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.partitioning(), Object.class)));
+            this.partitioning = CypherMapAccess.failOnNull("partitioning", Partitioning.parse(config.getChecked("partitioning", PathsMiningPregel.PathsMiningPregelConfig.super.partitioning(), Object.class)));
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.nodeLabels = CypherMapAccess.failOnNull("nodeLabels", config.getChecked("nodeLabels", FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.nodeLabels(), List.class));
+            this.nodeLabels = CypherMapAccess.failOnNull("nodeLabels", config.getChecked("nodeLabels", PathsMiningPregel.PathsMiningPregelConfig.super.nodeLabels(), List.class));
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.relationshipTypes = CypherMapAccess.failOnNull("relationshipTypes", config.getChecked("relationshipTypes", FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.relationshipTypes(), List.class));
+            this.relationshipTypes = CypherMapAccess.failOnNull("relationshipTypes", config.getChecked("relationshipTypes", PathsMiningPregel.PathsMiningPregelConfig.super.relationshipTypes(), List.class));
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.logProgress = config.getBool("logProgress", FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.logProgress());
+            this.logProgress = config.getBool("logProgress", PathsMiningPregel.PathsMiningPregelConfig.super.logProgress());
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.sudo = config.getBool("sudo", FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.sudo());
+            this.sudo = config.getBool("sudo", PathsMiningPregel.PathsMiningPregelConfig.super.sudo());
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
@@ -119,12 +119,12 @@ public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSub
             errors.add(e);
         }
         try {
-            this.concurrency = config.getInt("concurrency", FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.concurrency());
+            this.concurrency = config.getInt("concurrency", PathsMiningPregel.PathsMiningPregelConfig.super.concurrency());
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.jobId = CypherMapAccess.failOnNull("jobId", JobId.parse(config.getChecked("jobId", FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.jobId(), Object.class)));
+            this.jobId = CypherMapAccess.failOnNull("jobId", JobId.parse(config.getChecked("jobId", PathsMiningPregel.PathsMiningPregelConfig.super.jobId(), Object.class)));
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
@@ -145,12 +145,12 @@ public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSub
             errors.add(e);
         }
         try {
-            this.writeConcurrency = config.getInt("writeConcurrency", FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.writeConcurrency());
+            this.writeConcurrency = config.getInt("writeConcurrency", PathsMiningPregel.PathsMiningPregelConfig.super.writeConcurrency());
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.seedProperty = SeedConfig.validatePropertyName(config.getString("seedProperty", FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.seedProperty()));
+            this.seedProperty = SeedConfig.validatePropertyName(config.getString("seedProperty", PathsMiningPregel.PathsMiningPregelConfig.super.seedProperty()));
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
@@ -190,13 +190,13 @@ public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSub
     }
 
     @Override
-    public long maxRepeatNodes() {
-        return this.maxRepeatNodes;
+    public boolean isEncodedOutput() {
+        return this.isEncodedOutput;
     }
 
     @Override
-    public boolean withRepeition() {
-        return this.withRepeition;
+    public long identifier() {
+        return this.identifier;
     }
 
     @Override
@@ -272,7 +272,7 @@ public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSub
 
     @Override
     public Collection<String> configKeys() {
-        return Arrays.asList("isAsynchronous", "maxRepeatNodes", "withRepeition", "mutateProperty", "writeProperty", "partitioning", "nodeLabels", "relationshipTypes", "logProgress", "sudo", "username", "concurrency", "jobId", "relationshipWeightProperty", "maxIterations", "arrowConnectionInfo", "writeConcurrency", "seedProperty");
+        return Arrays.asList("isAsynchronous", "isEncodedOutput", "identifier", "mutateProperty", "writeProperty", "partitioning", "nodeLabels", "relationshipTypes", "logProgress", "sudo", "username", "concurrency", "jobId", "relationshipWeightProperty", "maxIterations", "arrowConnectionInfo", "writeConcurrency", "seedProperty");
     }
 
     @Override
@@ -289,8 +289,8 @@ public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSub
     public Map<String, Object> toMap() {
         Map<String, Object> map = new LinkedHashMap<>();
         map.put("isAsynchronous", isAsynchronous());
-        map.put("maxRepeatNodes", maxRepeatNodes());
-        map.put("withRepeition", withRepeition());
+        map.put("isEncodedOutput", isEncodedOutput());
+        map.put("identifier", identifier());
         map.put("mutateProperty", mutateProperty());
         map.put("writeProperty", writeProperty());
         map.put("partitioning", org.neo4j.gds.beta.pregel.Partitioning.toString(partitioning()));
@@ -349,8 +349,8 @@ public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSub
         return this.seedProperty;
     }
 
-    public static FrequentSubgraphMiningPregelConfigImpl.Builder builder() {
-        return new FrequentSubgraphMiningPregelConfigImpl.Builder();
+    public static PathsMiningPregelConfigImpl.Builder builder() {
+        return new PathsMiningPregelConfigImpl.Builder();
     }
 
     public static final class Builder {
@@ -360,12 +360,12 @@ public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSub
             this.config = new HashMap<>();
         }
 
-        public static FrequentSubgraphMiningPregelConfigImpl.Builder from(
-                FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig baseConfig) {
-            var builder = new FrequentSubgraphMiningPregelConfigImpl.Builder();
+        public static PathsMiningPregelConfigImpl.Builder from(
+                PathsMiningPregel.PathsMiningPregelConfig baseConfig) {
+            var builder = new PathsMiningPregelConfigImpl.Builder();
             builder.isAsynchronous(baseConfig.isAsynchronous());
-            builder.maxRepeatNodes(baseConfig.maxRepeatNodes());
-            builder.withRepeition(baseConfig.withRepeition());
+            builder.isEncodedOutput(baseConfig.isEncodedOutput());
+            builder.identifier(baseConfig.identifier());
             builder.mutateProperty(baseConfig.mutateProperty());
             builder.writeProperty(baseConfig.writeProperty());
             builder.partitioning(baseConfig.partitioning());
@@ -384,124 +384,119 @@ public final class FrequentSubgraphMiningPregelConfigImpl implements FrequentSub
             return builder;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder isAsynchronous(
-                boolean isAsynchronous) {
+        public PathsMiningPregelConfigImpl.Builder isAsynchronous(boolean isAsynchronous) {
             this.config.put("isAsynchronous", isAsynchronous);
             return this;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder maxRepeatNodes(long maxRepeatNodes) {
-            this.config.put("maxRepeatNodes", maxRepeatNodes);
+        public PathsMiningPregelConfigImpl.Builder isEncodedOutput(boolean isEncodedOutput) {
+            this.config.put("isEncodedOutput", isEncodedOutput);
             return this;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder withRepeition(boolean withRepeition) {
-            this.config.put("withRepeition", withRepeition);
+        public PathsMiningPregelConfigImpl.Builder identifier(long identifier) {
+            this.config.put("identifier", identifier);
             return this;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder mutateProperty(
-                String mutateProperty) {
+        public PathsMiningPregelConfigImpl.Builder mutateProperty(String mutateProperty) {
             this.config.put("mutateProperty", mutateProperty);
             return this;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder writeProperty(String writeProperty) {
+        public PathsMiningPregelConfigImpl.Builder writeProperty(String writeProperty) {
             this.config.put("writeProperty", writeProperty);
             return this;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder partitioning(Object partitioning) {
+        public PathsMiningPregelConfigImpl.Builder partitioning(Object partitioning) {
             this.config.put("partitioning", partitioning);
             return this;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder nodeLabels(List<String> nodeLabels) {
+        public PathsMiningPregelConfigImpl.Builder nodeLabels(List<String> nodeLabels) {
             this.config.put("nodeLabels", nodeLabels);
             return this;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder relationshipTypes(
+        public PathsMiningPregelConfigImpl.Builder relationshipTypes(
                 List<String> relationshipTypes) {
             this.config.put("relationshipTypes", relationshipTypes);
             return this;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder logProgress(boolean logProgress) {
+        public PathsMiningPregelConfigImpl.Builder logProgress(boolean logProgress) {
             this.config.put("logProgress", logProgress);
             return this;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder sudo(boolean sudo) {
+        public PathsMiningPregelConfigImpl.Builder sudo(boolean sudo) {
             this.config.put("sudo", sudo);
             return this;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder usernameOverride(
-                String usernameOverride) {
+        public PathsMiningPregelConfigImpl.Builder usernameOverride(String usernameOverride) {
             this.config.put("username", usernameOverride);
             return this;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder usernameOverride(
+        public PathsMiningPregelConfigImpl.Builder usernameOverride(
                 Optional<String> usernameOverride) {
             usernameOverride.ifPresent(actualusernameOverride -> this.config.put("username", actualusernameOverride));
             return this;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder concurrency(int concurrency) {
+        public PathsMiningPregelConfigImpl.Builder concurrency(int concurrency) {
             this.config.put("concurrency", concurrency);
             return this;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder jobId(Object jobId) {
+        public PathsMiningPregelConfigImpl.Builder jobId(Object jobId) {
             this.config.put("jobId", jobId);
             return this;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder relationshipWeightProperty(
+        public PathsMiningPregelConfigImpl.Builder relationshipWeightProperty(
                 String relationshipWeightProperty) {
             this.config.put("relationshipWeightProperty", relationshipWeightProperty);
             return this;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder relationshipWeightProperty(
+        public PathsMiningPregelConfigImpl.Builder relationshipWeightProperty(
                 Optional<String> relationshipWeightProperty) {
             relationshipWeightProperty.ifPresent(actualrelationshipWeightProperty -> this.config.put("relationshipWeightProperty", actualrelationshipWeightProperty));
             return this;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder maxIterations(int maxIterations) {
+        public PathsMiningPregelConfigImpl.Builder maxIterations(int maxIterations) {
             this.config.put("maxIterations", maxIterations);
             return this;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder arrowConnectionInfo(
-                Object arrowConnectionInfo) {
+        public PathsMiningPregelConfigImpl.Builder arrowConnectionInfo(Object arrowConnectionInfo) {
             this.config.put("arrowConnectionInfo", arrowConnectionInfo);
             return this;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder arrowConnectionInfo(
+        public PathsMiningPregelConfigImpl.Builder arrowConnectionInfo(
                 Optional<Object> arrowConnectionInfo) {
             arrowConnectionInfo.ifPresent(actualarrowConnectionInfo -> this.config.put("arrowConnectionInfo", actualarrowConnectionInfo));
             return this;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder writeConcurrency(
-                int writeConcurrency) {
+        public PathsMiningPregelConfigImpl.Builder writeConcurrency(int writeConcurrency) {
             this.config.put("writeConcurrency", writeConcurrency);
             return this;
         }
 
-        public FrequentSubgraphMiningPregelConfigImpl.Builder seedProperty(String seedProperty) {
+        public PathsMiningPregelConfigImpl.Builder seedProperty(String seedProperty) {
             this.config.put("seedProperty", seedProperty);
             return this;
         }
 
-        public FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig build() {
+        public PathsMiningPregel.PathsMiningPregelConfig build() {
             CypherMapWrapper config = CypherMapWrapper.create(this.config);
-            return new FrequentSubgraphMiningPregelConfigImpl(config);
+            return new PathsMiningPregelConfigImpl(config);
         }
     }
 }

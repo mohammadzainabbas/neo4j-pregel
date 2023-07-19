@@ -11,17 +11,16 @@
 // import org.neo4j.gds.extension.TestGraph;
 
 // import java.util.HashMap;
-// import java.io.File;
 // import java.io.IOException;
 // import java.nio.file.Files;
 // import java.nio.file.Paths;
 
-// import static com.neo4j.pregel.FrequentSubgraphMiningPregel.FSM;
+// import static com.neo4j.pregel.BidirectionalPathsMiningPregel.PATH;
 // import static org.junit.jupiter.api.Assertions.assertEquals;
 // import static org.junit.jupiter.api.Assertions.assertTrue;
 
 // @GdlExtension
-// class FrequentSubgraphMiningPregelAlgoTest {
+// class BidirectionalPathsMiningPregelAlgoTest {
 
 //     public enum TestingGraph {
 //         DUMMY_GRAPH {
@@ -60,11 +59,11 @@
 //     private TestGraph graph;
 
 //     @Test
-//     void runFrequentSubgraphMiningPregel() {
+//     void runBidirectionalPathsMiningPregel() {
 //         int maxIterations = 10;
 //         boolean withRepeition = false;
 
-//         var config = ImmutableFrequentSubgraphMiningPregelConfig.builder()
+//         var config = ImmutableBidirectionalPathsMiningPregelConfig.builder()
 //             .maxIterations(maxIterations)
 //             .withRepeition(withRepeition)
 //             .build();
@@ -72,14 +71,14 @@
 //         var pregelJob = Pregel.create(
 //             graph,
 //             config,
-//             new FrequentSubgraphMiningPregel(),
+//             new BidirectionalPathsMiningPregel(),
 //             Pools.DEFAULT,
 //             ProgressTracker.NULL_TRACKER
 //         );
 
 //         var result = pregelJob.run();
 
-//         assertTrue(result.didConverge(), "Algorithm did not converge.");
+//         // assertTrue(result.didConverge(), "Algorithm did not converge.");
 //         // assertEquals(0, result.ranIterations());
 
 //         var expected = new HashMap<String, Long>();

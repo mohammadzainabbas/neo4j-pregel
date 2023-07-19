@@ -26,18 +26,18 @@ import org.neo4j.gds.config.WritePropertyConfig;
 import org.neo4j.gds.core.utils.progress.JobId;
 
 /**
- * Immutable implementation of {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig}.
+ * Immutable implementation of {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig}.
  * <p>
  * Use the builder to create immutable instances:
- * {@code ImmutableFrequentSubgraphMiningPregelConfig.builder()}.
+ * {@code ImmutableBidirectionalPathsMiningPregelConfig.builder()}.
  * Use the static factory method to create immutable instances:
- * {@code ImmutableFrequentSubgraphMiningPregelConfig.of()}.
+ * {@code ImmutableBidirectionalPathsMiningPregelConfig.of()}.
  */
-@Generated(from = "FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig", generator = "Immutables")
+@Generated(from = "BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig", generator = "Immutables")
 @SuppressWarnings({"all"})
 @javax.annotation.processing.Generated("org.immutables.processor.ProxyProcessor")
-public final class ImmutableFrequentSubgraphMiningPregelConfig
-    implements FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig {
+public final class ImmutableBidirectionalPathsMiningPregelConfig
+    implements BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig {
   private final Collection<String> configKeys;
   private final boolean logProgress;
   private final boolean sudo;
@@ -62,7 +62,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
   private final boolean withRepeition;
 
   @SuppressWarnings("unchecked") // safe covariant cast
-  private ImmutableFrequentSubgraphMiningPregelConfig(
+  private ImmutableBidirectionalPathsMiningPregelConfig(
       int concurrency,
       int minBatchSize,
       Iterable<String> nodeLabels,
@@ -114,7 +114,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
   }
 
   @SuppressWarnings("unchecked") // safe covariant cast
-  private ImmutableFrequentSubgraphMiningPregelConfig(
+  private ImmutableBidirectionalPathsMiningPregelConfig(
       int concurrency,
       int minBatchSize,
       Iterable<String> nodeLabels,
@@ -165,7 +165,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     this.initShim = null;
   }
 
-  private ImmutableFrequentSubgraphMiningPregelConfig(ImmutableFrequentSubgraphMiningPregelConfig.Builder builder) {
+  private ImmutableBidirectionalPathsMiningPregelConfig(ImmutableBidirectionalPathsMiningPregelConfig.Builder builder) {
     this.usernameOverride = builder.usernameOverride;
     this.relationshipWeightProperty = builder.relationshipWeightProperty;
     this.maxIterations = builder.maxIterations;
@@ -236,7 +236,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     this.initShim = null;
   }
 
-  private ImmutableFrequentSubgraphMiningPregelConfig(
+  private ImmutableBidirectionalPathsMiningPregelConfig(
       Collection<String> configKeys,
       boolean logProgress,
       boolean sudo,
@@ -301,7 +301,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
   private static final byte STAGE_INITIALIZED = 1;
   private transient volatile InitShim initShim = new InitShim();
 
-  @Generated(from = "FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig", generator = "Immutables")
+  @Generated(from = "BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig", generator = "Immutables")
   private final class InitShim {
     private byte configKeysBuildStage = STAGE_UNINITIALIZED;
     private Collection<String> configKeys;
@@ -632,80 +632,80 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
       if (seedPropertyBuildStage == STAGE_INITIALIZING) attributes.add("seedProperty");
       if (maxRepeatNodesBuildStage == STAGE_INITIALIZING) attributes.add("maxRepeatNodes");
       if (withRepeitionBuildStage == STAGE_INITIALIZING) attributes.add("withRepeition");
-      return "Cannot build FrequentSubgraphMiningPregelConfig, attribute initializers form cycle " + attributes;
+      return "Cannot build BidirectionalPathsMiningPregelConfig, attribute initializers form cycle " + attributes;
     }
   }
 
   private Collection<String> configKeysInitialize() {
-    return FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.configKeys();
+    return BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig.super.configKeys();
   }
 
   private boolean logProgressInitialize() {
-    return FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.logProgress();
+    return BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig.super.logProgress();
   }
 
   private boolean sudoInitialize() {
-    return FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.sudo();
+    return BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig.super.sudo();
   }
 
   private Map<String, Object> toMapInitialize() {
-    return FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.toMap();
+    return BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig.super.toMap();
   }
 
   private int concurrencyInitialize() {
-    return FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.concurrency();
+    return BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig.super.concurrency();
   }
 
   private int minBatchSizeInitialize() {
-    return FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.minBatchSize();
+    return BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig.super.minBatchSize();
   }
 
   private JobId jobIdInitialize() {
-    return FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.jobId();
+    return BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig.super.jobId();
   }
 
   private List<String> nodeLabelsInitialize() {
-    return FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.nodeLabels();
+    return BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig.super.nodeLabels();
   }
 
   private List<String> relationshipTypesInitialize() {
-    return FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.relationshipTypes();
+    return BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig.super.relationshipTypes();
   }
 
   private boolean hasRelationshipWeightPropertyInitialize() {
-    return FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.hasRelationshipWeightProperty();
+    return BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig.super.hasRelationshipWeightProperty();
   }
 
   private Partitioning partitioningInitialize() {
-    return FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.partitioning();
+    return BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig.super.partitioning();
   }
 
   private boolean useForkJoinInitialize() {
-    return FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.useForkJoin();
+    return BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig.super.useForkJoin();
   }
 
   private int writeConcurrencyInitialize() {
-    return FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.writeConcurrency();
+    return BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig.super.writeConcurrency();
   }
 
   private String mutatePropertyInitialize() {
-    return FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.mutateProperty();
+    return BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig.super.mutateProperty();
   }
 
   private String writePropertyInitialize() {
-    return FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.writeProperty();
+    return BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig.super.writeProperty();
   }
 
   private @Nullable String seedPropertyInitialize() {
-    return FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.seedProperty();
+    return BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig.super.seedProperty();
   }
 
   private long maxRepeatNodesInitialize() {
-    return FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.maxRepeatNodes();
+    return BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig.super.maxRepeatNodes();
   }
 
   private boolean withRepeitionInitialize() {
-    return FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig.super.withRepeition();
+    return BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig.super.withRepeition();
   }
 
   /**
@@ -939,15 +939,15 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object by setting a value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#configKeys() configKeys} attribute.
+   * Copy the current immutable object by setting a value for the {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#configKeys() configKeys} attribute.
    * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
    * @param value A new value for configKeys
    * @return A modified copy of the {@code this} object
    */
-  public final ImmutableFrequentSubgraphMiningPregelConfig withConfigKeys(Collection<String> value) {
+  public final ImmutableBidirectionalPathsMiningPregelConfig withConfigKeys(Collection<String> value) {
     if (this.configKeys == value) return this;
     Collection<String> newValue = Objects.requireNonNull(value, "configKeys");
-    return validate(new ImmutableFrequentSubgraphMiningPregelConfig(
+    return validate(new ImmutableBidirectionalPathsMiningPregelConfig(
         newValue,
         this.logProgress,
         this.sudo,
@@ -970,14 +970,14 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object by setting a value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#logProgress() logProgress} attribute.
+   * Copy the current immutable object by setting a value for the {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#logProgress() logProgress} attribute.
    * A value equality check is used to prevent copying of the same value by returning {@code this}.
    * @param value A new value for logProgress
    * @return A modified copy of the {@code this} object
    */
-  public final ImmutableFrequentSubgraphMiningPregelConfig withLogProgress(boolean value) {
+  public final ImmutableBidirectionalPathsMiningPregelConfig withLogProgress(boolean value) {
     if (this.logProgress == value) return this;
-    return validate(new ImmutableFrequentSubgraphMiningPregelConfig(
+    return validate(new ImmutableBidirectionalPathsMiningPregelConfig(
         this.configKeys,
         value,
         this.sudo,
@@ -1000,14 +1000,14 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object by setting a value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#sudo() sudo} attribute.
+   * Copy the current immutable object by setting a value for the {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#sudo() sudo} attribute.
    * A value equality check is used to prevent copying of the same value by returning {@code this}.
    * @param value A new value for sudo
    * @return A modified copy of the {@code this} object
    */
-  public final ImmutableFrequentSubgraphMiningPregelConfig withSudo(boolean value) {
+  public final ImmutableBidirectionalPathsMiningPregelConfig withSudo(boolean value) {
     if (this.sudo == value) return this;
-    return validate(new ImmutableFrequentSubgraphMiningPregelConfig(
+    return validate(new ImmutableBidirectionalPathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         value,
@@ -1030,14 +1030,14 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object by setting a <i>present</i> value for the optional {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#usernameOverride() usernameOverride} attribute.
+   * Copy the current immutable object by setting a <i>present</i> value for the optional {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#usernameOverride() usernameOverride} attribute.
    * @param value The value for usernameOverride, {@code null} is accepted as {@code java.util.Optional.empty()}
    * @return A modified copy of {@code this} object
    */
-  public final ImmutableFrequentSubgraphMiningPregelConfig withUsernameOverride(String value) {
+  public final ImmutableBidirectionalPathsMiningPregelConfig withUsernameOverride(String value) {
     String newValue = value;
     if (Objects.equals(this.usernameOverride, newValue)) return this;
-    return validate(new ImmutableFrequentSubgraphMiningPregelConfig(
+    return validate(new ImmutableBidirectionalPathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         this.sudo,
@@ -1060,15 +1060,15 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object by setting an optional value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#usernameOverride() usernameOverride} attribute.
+   * Copy the current immutable object by setting an optional value for the {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#usernameOverride() usernameOverride} attribute.
    * An equality check is used on inner nullable value to prevent copying of the same value by returning {@code this}.
    * @param optional A value for usernameOverride
    * @return A modified copy of {@code this} object
    */
-  public final ImmutableFrequentSubgraphMiningPregelConfig withUsernameOverride(Optional<String> optional) {
+  public final ImmutableBidirectionalPathsMiningPregelConfig withUsernameOverride(Optional<String> optional) {
     String value = optional.orElse(null);
     if (Objects.equals(this.usernameOverride, value)) return this;
-    return validate(new ImmutableFrequentSubgraphMiningPregelConfig(
+    return validate(new ImmutableBidirectionalPathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         this.sudo,
@@ -1091,14 +1091,14 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object by setting a value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#concurrency() concurrency} attribute.
+   * Copy the current immutable object by setting a value for the {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#concurrency() concurrency} attribute.
    * A value equality check is used to prevent copying of the same value by returning {@code this}.
    * @param value A new value for concurrency
    * @return A modified copy of the {@code this} object
    */
-  public final ImmutableFrequentSubgraphMiningPregelConfig withConcurrency(int value) {
+  public final ImmutableBidirectionalPathsMiningPregelConfig withConcurrency(int value) {
     if (this.concurrency == value) return this;
-    return validate(new ImmutableFrequentSubgraphMiningPregelConfig(
+    return validate(new ImmutableBidirectionalPathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         this.sudo,
@@ -1121,14 +1121,14 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object by setting a value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#minBatchSize() minBatchSize} attribute.
+   * Copy the current immutable object by setting a value for the {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#minBatchSize() minBatchSize} attribute.
    * A value equality check is used to prevent copying of the same value by returning {@code this}.
    * @param value A new value for minBatchSize
    * @return A modified copy of the {@code this} object
    */
-  public final ImmutableFrequentSubgraphMiningPregelConfig withMinBatchSize(int value) {
+  public final ImmutableBidirectionalPathsMiningPregelConfig withMinBatchSize(int value) {
     if (this.minBatchSize == value) return this;
-    return validate(new ImmutableFrequentSubgraphMiningPregelConfig(
+    return validate(new ImmutableBidirectionalPathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         this.sudo,
@@ -1151,15 +1151,15 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object by setting a value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#jobId() jobId} attribute.
+   * Copy the current immutable object by setting a value for the {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#jobId() jobId} attribute.
    * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
    * @param value A new value for jobId
    * @return A modified copy of the {@code this} object
    */
-  public final ImmutableFrequentSubgraphMiningPregelConfig withJobId(JobId value) {
+  public final ImmutableBidirectionalPathsMiningPregelConfig withJobId(JobId value) {
     if (this.jobId == value) return this;
     JobId newValue = Objects.requireNonNull(value, "jobId");
-    return validate(new ImmutableFrequentSubgraphMiningPregelConfig(
+    return validate(new ImmutableBidirectionalPathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         this.sudo,
@@ -1182,13 +1182,13 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object with elements that replace the content of {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#nodeLabels() nodeLabels}.
+   * Copy the current immutable object with elements that replace the content of {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#nodeLabels() nodeLabels}.
    * @param elements The elements to set
    * @return A modified copy of {@code this} object
    */
-  public final ImmutableFrequentSubgraphMiningPregelConfig withNodeLabels(String... elements) {
+  public final ImmutableBidirectionalPathsMiningPregelConfig withNodeLabels(String... elements) {
     List<String> newValue = createUnmodifiableList(false, createSafeList(Arrays.asList(elements), true, false));
-    return validate(new ImmutableFrequentSubgraphMiningPregelConfig(
+    return validate(new ImmutableBidirectionalPathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         this.sudo,
@@ -1211,15 +1211,15 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object with elements that replace the content of {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#nodeLabels() nodeLabels}.
+   * Copy the current immutable object with elements that replace the content of {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#nodeLabels() nodeLabels}.
    * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
    * @param elements An iterable of nodeLabels elements to set
    * @return A modified copy of {@code this} object
    */
-  public final ImmutableFrequentSubgraphMiningPregelConfig withNodeLabels(Iterable<String> elements) {
+  public final ImmutableBidirectionalPathsMiningPregelConfig withNodeLabels(Iterable<String> elements) {
     if (this.nodeLabels == elements) return this;
     List<String> newValue = createUnmodifiableList(false, createSafeList(elements, true, false));
-    return validate(new ImmutableFrequentSubgraphMiningPregelConfig(
+    return validate(new ImmutableBidirectionalPathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         this.sudo,
@@ -1242,13 +1242,13 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object with elements that replace the content of {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#relationshipTypes() relationshipTypes}.
+   * Copy the current immutable object with elements that replace the content of {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#relationshipTypes() relationshipTypes}.
    * @param elements The elements to set
    * @return A modified copy of {@code this} object
    */
-  public final ImmutableFrequentSubgraphMiningPregelConfig withRelationshipTypes(String... elements) {
+  public final ImmutableBidirectionalPathsMiningPregelConfig withRelationshipTypes(String... elements) {
     List<String> newValue = createUnmodifiableList(false, createSafeList(Arrays.asList(elements), true, false));
-    return validate(new ImmutableFrequentSubgraphMiningPregelConfig(
+    return validate(new ImmutableBidirectionalPathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         this.sudo,
@@ -1271,15 +1271,15 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object with elements that replace the content of {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#relationshipTypes() relationshipTypes}.
+   * Copy the current immutable object with elements that replace the content of {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#relationshipTypes() relationshipTypes}.
    * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
    * @param elements An iterable of relationshipTypes elements to set
    * @return A modified copy of {@code this} object
    */
-  public final ImmutableFrequentSubgraphMiningPregelConfig withRelationshipTypes(Iterable<String> elements) {
+  public final ImmutableBidirectionalPathsMiningPregelConfig withRelationshipTypes(Iterable<String> elements) {
     if (this.relationshipTypes == elements) return this;
     List<String> newValue = createUnmodifiableList(false, createSafeList(elements, true, false));
-    return validate(new ImmutableFrequentSubgraphMiningPregelConfig(
+    return validate(new ImmutableBidirectionalPathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         this.sudo,
@@ -1302,14 +1302,14 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object by setting a <i>present</i> value for the optional {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#relationshipWeightProperty() relationshipWeightProperty} attribute.
+   * Copy the current immutable object by setting a <i>present</i> value for the optional {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#relationshipWeightProperty() relationshipWeightProperty} attribute.
    * @param value The value for relationshipWeightProperty, {@code null} is accepted as {@code java.util.Optional.empty()}
    * @return A modified copy of {@code this} object
    */
-  public final ImmutableFrequentSubgraphMiningPregelConfig withRelationshipWeightProperty(String value) {
+  public final ImmutableBidirectionalPathsMiningPregelConfig withRelationshipWeightProperty(String value) {
     String newValue = value;
     if (Objects.equals(this.relationshipWeightProperty, newValue)) return this;
-    return validate(new ImmutableFrequentSubgraphMiningPregelConfig(
+    return validate(new ImmutableBidirectionalPathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         this.sudo,
@@ -1332,15 +1332,15 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object by setting an optional value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#relationshipWeightProperty() relationshipWeightProperty} attribute.
+   * Copy the current immutable object by setting an optional value for the {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#relationshipWeightProperty() relationshipWeightProperty} attribute.
    * An equality check is used on inner nullable value to prevent copying of the same value by returning {@code this}.
    * @param optional A value for relationshipWeightProperty
    * @return A modified copy of {@code this} object
    */
-  public final ImmutableFrequentSubgraphMiningPregelConfig withRelationshipWeightProperty(Optional<String> optional) {
+  public final ImmutableBidirectionalPathsMiningPregelConfig withRelationshipWeightProperty(Optional<String> optional) {
     String value = optional.orElse(null);
     if (Objects.equals(this.relationshipWeightProperty, value)) return this;
-    return validate(new ImmutableFrequentSubgraphMiningPregelConfig(
+    return validate(new ImmutableBidirectionalPathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         this.sudo,
@@ -1363,14 +1363,14 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object by setting a value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#maxIterations() maxIterations} attribute.
+   * Copy the current immutable object by setting a value for the {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#maxIterations() maxIterations} attribute.
    * A value equality check is used to prevent copying of the same value by returning {@code this}.
    * @param value A new value for maxIterations
    * @return A modified copy of the {@code this} object
    */
-  public final ImmutableFrequentSubgraphMiningPregelConfig withMaxIterations(int value) {
+  public final ImmutableBidirectionalPathsMiningPregelConfig withMaxIterations(int value) {
     if (this.maxIterations == value) return this;
-    return validate(new ImmutableFrequentSubgraphMiningPregelConfig(
+    return validate(new ImmutableBidirectionalPathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         this.sudo,
@@ -1393,16 +1393,16 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object by setting a value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#partitioning() partitioning} attribute.
+   * Copy the current immutable object by setting a value for the {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#partitioning() partitioning} attribute.
    * A value equality check is used to prevent copying of the same value by returning {@code this}.
    * @param value A new value for partitioning
    * @return A modified copy of the {@code this} object
    */
-  public final ImmutableFrequentSubgraphMiningPregelConfig withPartitioning(Partitioning value) {
+  public final ImmutableBidirectionalPathsMiningPregelConfig withPartitioning(Partitioning value) {
     if (this.partitioning == value) return this;
     Partitioning newValue = Objects.requireNonNull(value, "partitioning");
     if (this.partitioning.equals(newValue)) return this;
-    return validate(new ImmutableFrequentSubgraphMiningPregelConfig(
+    return validate(new ImmutableBidirectionalPathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         this.sudo,
@@ -1425,14 +1425,14 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object by setting a <i>present</i> value for the optional {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#arrowConnectionInfo() arrowConnectionInfo} attribute.
+   * Copy the current immutable object by setting a <i>present</i> value for the optional {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#arrowConnectionInfo() arrowConnectionInfo} attribute.
    * @param value The value for arrowConnectionInfo, {@code null} is accepted as {@code java.util.Optional.empty()}
    * @return A modified copy of {@code this} object
    */
-  public final ImmutableFrequentSubgraphMiningPregelConfig withArrowConnectionInfo(WriteConfig.ArrowConnectionInfo value) {
+  public final ImmutableBidirectionalPathsMiningPregelConfig withArrowConnectionInfo(WriteConfig.ArrowConnectionInfo value) {
     WriteConfig.ArrowConnectionInfo newValue = value;
     if (this.arrowConnectionInfo == newValue) return this;
-    return validate(new ImmutableFrequentSubgraphMiningPregelConfig(
+    return validate(new ImmutableBidirectionalPathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         this.sudo,
@@ -1455,16 +1455,16 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object by setting an optional value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#arrowConnectionInfo() arrowConnectionInfo} attribute.
+   * Copy the current immutable object by setting an optional value for the {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#arrowConnectionInfo() arrowConnectionInfo} attribute.
    * A shallow reference equality check is used on unboxed optional value to prevent copying of the same value by returning {@code this}.
    * @param optional A value for arrowConnectionInfo
    * @return A modified copy of {@code this} object
    */
   @SuppressWarnings("unchecked") // safe covariant cast
-  public final ImmutableFrequentSubgraphMiningPregelConfig withArrowConnectionInfo(Optional<? extends WriteConfig.ArrowConnectionInfo> optional) {
+  public final ImmutableBidirectionalPathsMiningPregelConfig withArrowConnectionInfo(Optional<? extends WriteConfig.ArrowConnectionInfo> optional) {
     WriteConfig.ArrowConnectionInfo value = optional.orElse(null);
     if (this.arrowConnectionInfo == value) return this;
-    return validate(new ImmutableFrequentSubgraphMiningPregelConfig(
+    return validate(new ImmutableBidirectionalPathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         this.sudo,
@@ -1487,14 +1487,14 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object by setting a value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#writeConcurrency() writeConcurrency} attribute.
+   * Copy the current immutable object by setting a value for the {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#writeConcurrency() writeConcurrency} attribute.
    * A value equality check is used to prevent copying of the same value by returning {@code this}.
    * @param value A new value for writeConcurrency
    * @return A modified copy of the {@code this} object
    */
-  public final ImmutableFrequentSubgraphMiningPregelConfig withWriteConcurrency(int value) {
+  public final ImmutableBidirectionalPathsMiningPregelConfig withWriteConcurrency(int value) {
     if (this.writeConcurrency == value) return this;
-    return validate(new ImmutableFrequentSubgraphMiningPregelConfig(
+    return validate(new ImmutableBidirectionalPathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         this.sudo,
@@ -1517,15 +1517,15 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object by setting a value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#mutateProperty() mutateProperty} attribute.
+   * Copy the current immutable object by setting a value for the {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#mutateProperty() mutateProperty} attribute.
    * An equals check used to prevent copying of the same value by returning {@code this}.
    * @param value A new value for mutateProperty
    * @return A modified copy of the {@code this} object
    */
-  public final ImmutableFrequentSubgraphMiningPregelConfig withMutateProperty(String value) {
+  public final ImmutableBidirectionalPathsMiningPregelConfig withMutateProperty(String value) {
     String newValue = Objects.requireNonNull(value, "mutateProperty");
     if (this.mutateProperty.equals(newValue)) return this;
-    return validate(new ImmutableFrequentSubgraphMiningPregelConfig(
+    return validate(new ImmutableBidirectionalPathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         this.sudo,
@@ -1548,15 +1548,15 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object by setting a value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#writeProperty() writeProperty} attribute.
+   * Copy the current immutable object by setting a value for the {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#writeProperty() writeProperty} attribute.
    * An equals check used to prevent copying of the same value by returning {@code this}.
    * @param value A new value for writeProperty
    * @return A modified copy of the {@code this} object
    */
-  public final ImmutableFrequentSubgraphMiningPregelConfig withWriteProperty(String value) {
+  public final ImmutableBidirectionalPathsMiningPregelConfig withWriteProperty(String value) {
     String newValue = Objects.requireNonNull(value, "writeProperty");
     if (this.writeProperty.equals(newValue)) return this;
-    return validate(new ImmutableFrequentSubgraphMiningPregelConfig(
+    return validate(new ImmutableBidirectionalPathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         this.sudo,
@@ -1579,14 +1579,14 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object by setting a value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#seedProperty() seedProperty} attribute.
+   * Copy the current immutable object by setting a value for the {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#seedProperty() seedProperty} attribute.
    * An equals check used to prevent copying of the same value by returning {@code this}.
    * @param value A new value for seedProperty (can be {@code null})
    * @return A modified copy of the {@code this} object
    */
-  public final ImmutableFrequentSubgraphMiningPregelConfig withSeedProperty(@Nullable String value) {
+  public final ImmutableBidirectionalPathsMiningPregelConfig withSeedProperty(@Nullable String value) {
     if (Objects.equals(this.seedProperty, value)) return this;
-    return validate(new ImmutableFrequentSubgraphMiningPregelConfig(
+    return validate(new ImmutableBidirectionalPathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         this.sudo,
@@ -1609,14 +1609,14 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object by setting a value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#maxRepeatNodes() maxRepeatNodes} attribute.
+   * Copy the current immutable object by setting a value for the {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#maxRepeatNodes() maxRepeatNodes} attribute.
    * A value equality check is used to prevent copying of the same value by returning {@code this}.
    * @param value A new value for maxRepeatNodes
    * @return A modified copy of the {@code this} object
    */
-  public final ImmutableFrequentSubgraphMiningPregelConfig withMaxRepeatNodes(long value) {
+  public final ImmutableBidirectionalPathsMiningPregelConfig withMaxRepeatNodes(long value) {
     if (this.maxRepeatNodes == value) return this;
-    return validate(new ImmutableFrequentSubgraphMiningPregelConfig(
+    return validate(new ImmutableBidirectionalPathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         this.sudo,
@@ -1639,14 +1639,14 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object by setting a value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#withRepeition() withRepeition} attribute.
+   * Copy the current immutable object by setting a value for the {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#withRepeition() withRepeition} attribute.
    * A value equality check is used to prevent copying of the same value by returning {@code this}.
    * @param value A new value for withRepeition
    * @return A modified copy of the {@code this} object
    */
-  public final ImmutableFrequentSubgraphMiningPregelConfig withWithRepeition(boolean value) {
+  public final ImmutableBidirectionalPathsMiningPregelConfig withWithRepeition(boolean value) {
     if (this.withRepeition == value) return this;
-    return validate(new ImmutableFrequentSubgraphMiningPregelConfig(
+    return validate(new ImmutableBidirectionalPathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         this.sudo,
@@ -1669,17 +1669,17 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
   }
 
   /**
-   * This instance is equal to all instances of {@code ImmutableFrequentSubgraphMiningPregelConfig} that have equal attribute values.
+   * This instance is equal to all instances of {@code ImmutableBidirectionalPathsMiningPregelConfig} that have equal attribute values.
    * @return {@code true} if {@code this} is equal to {@code another} instance
    */
   @Override
   public boolean equals(Object another) {
     if (this == another) return true;
-    return another instanceof ImmutableFrequentSubgraphMiningPregelConfig
-        && equalTo((ImmutableFrequentSubgraphMiningPregelConfig) another);
+    return another instanceof ImmutableBidirectionalPathsMiningPregelConfig
+        && equalTo((ImmutableBidirectionalPathsMiningPregelConfig) another);
   }
 
-  private boolean equalTo(ImmutableFrequentSubgraphMiningPregelConfig another) {
+  private boolean equalTo(ImmutableBidirectionalPathsMiningPregelConfig another) {
     return logProgress == another.logProgress
         && sudo == another.sudo
         && Objects.equals(usernameOverride, another.usernameOverride)
@@ -1734,12 +1734,12 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
 
 
   /**
-   * Prints the immutable value {@code FrequentSubgraphMiningPregelConfig} with attribute values.
+   * Prints the immutable value {@code BidirectionalPathsMiningPregelConfig} with attribute values.
    * @return A string representation of the value
    */
   @Override
   public String toString() {
-    StringBuilder builder = new StringBuilder("FrequentSubgraphMiningPregelConfig{");
+    StringBuilder builder = new StringBuilder("BidirectionalPathsMiningPregelConfig{");
     builder.append("logProgress=").append(logProgress);
     builder.append(", ");
     builder.append("sudo=").append(sudo);
@@ -1791,7 +1791,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
   }
 
   /**
-   * Construct a new immutable {@code FrequentSubgraphMiningPregelConfig} instance.
+   * Construct a new immutable {@code BidirectionalPathsMiningPregelConfig} instance.
    * @param concurrency The value for the {@code concurrency} attribute
    * @param minBatchSize The value for the {@code minBatchSize} attribute
    * @param nodeLabels The value for the {@code nodeLabels} attribute
@@ -1806,14 +1806,14 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
    * @param seedProperty The value for the {@code seedProperty} attribute
    * @param maxRepeatNodes The value for the {@code maxRepeatNodes} attribute
    * @param withRepeition The value for the {@code withRepeition} attribute
-   * @return An immutable FrequentSubgraphMiningPregelConfig instance
+   * @return An immutable BidirectionalPathsMiningPregelConfig instance
    */
-  public static FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig of(int concurrency, int minBatchSize, List<String> nodeLabels, List<String> relationshipTypes, Optional<String> relationshipWeightProperty, int maxIterations, Partitioning partitioning, Optional<WriteConfig.ArrowConnectionInfo> arrowConnectionInfo, int writeConcurrency, String mutateProperty, String writeProperty, @Nullable String seedProperty, long maxRepeatNodes, boolean withRepeition) {
+  public static BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig of(int concurrency, int minBatchSize, List<String> nodeLabels, List<String> relationshipTypes, Optional<String> relationshipWeightProperty, int maxIterations, Partitioning partitioning, Optional<WriteConfig.ArrowConnectionInfo> arrowConnectionInfo, int writeConcurrency, String mutateProperty, String writeProperty, @Nullable String seedProperty, long maxRepeatNodes, boolean withRepeition) {
     return of(concurrency, minBatchSize, (Iterable<String>) nodeLabels, (Iterable<String>) relationshipTypes, relationshipWeightProperty, maxIterations, partitioning, arrowConnectionInfo, writeConcurrency, mutateProperty, writeProperty, seedProperty, maxRepeatNodes, withRepeition);
   }
 
   /**
-   * Construct a new immutable {@code FrequentSubgraphMiningPregelConfig} instance.
+   * Construct a new immutable {@code BidirectionalPathsMiningPregelConfig} instance.
    * @param concurrency The value for the {@code concurrency} attribute
    * @param minBatchSize The value for the {@code minBatchSize} attribute
    * @param nodeLabels The value for the {@code nodeLabels} attribute
@@ -1828,14 +1828,14 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
    * @param seedProperty The value for the {@code seedProperty} attribute
    * @param maxRepeatNodes The value for the {@code maxRepeatNodes} attribute
    * @param withRepeition The value for the {@code withRepeition} attribute
-   * @return An immutable FrequentSubgraphMiningPregelConfig instance
+   * @return An immutable BidirectionalPathsMiningPregelConfig instance
    */
-  public static FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig of(int concurrency, int minBatchSize, Iterable<String> nodeLabels, Iterable<String> relationshipTypes, Optional<String> relationshipWeightProperty, int maxIterations, Partitioning partitioning, Optional<? extends WriteConfig.ArrowConnectionInfo> arrowConnectionInfo, int writeConcurrency, String mutateProperty, String writeProperty, @Nullable String seedProperty, long maxRepeatNodes, boolean withRepeition) {
-    return validate(new ImmutableFrequentSubgraphMiningPregelConfig(concurrency, minBatchSize, nodeLabels, relationshipTypes, relationshipWeightProperty, maxIterations, partitioning, arrowConnectionInfo, writeConcurrency, mutateProperty, writeProperty, seedProperty, maxRepeatNodes, withRepeition));
+  public static BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig of(int concurrency, int minBatchSize, Iterable<String> nodeLabels, Iterable<String> relationshipTypes, Optional<String> relationshipWeightProperty, int maxIterations, Partitioning partitioning, Optional<? extends WriteConfig.ArrowConnectionInfo> arrowConnectionInfo, int writeConcurrency, String mutateProperty, String writeProperty, @Nullable String seedProperty, long maxRepeatNodes, boolean withRepeition) {
+    return validate(new ImmutableBidirectionalPathsMiningPregelConfig(concurrency, minBatchSize, nodeLabels, relationshipTypes, relationshipWeightProperty, maxIterations, partitioning, arrowConnectionInfo, writeConcurrency, mutateProperty, writeProperty, seedProperty, maxRepeatNodes, withRepeition));
   }
 
   /**
-   * Construct a new immutable {@code FrequentSubgraphMiningPregelConfig} instance.
+   * Construct a new immutable {@code BidirectionalPathsMiningPregelConfig} instance.
    * @param concurrency The value for the {@code concurrency} attribute
    * @param minBatchSize The value for the {@code minBatchSize} attribute
    * @param nodeLabels The value for the {@code nodeLabels} attribute
@@ -1850,13 +1850,13 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
    * @param seedProperty The value for the {@code seedProperty} attribute
    * @param maxRepeatNodes The value for the {@code maxRepeatNodes} attribute
    * @param withRepeition The value for the {@code withRepeition} attribute
-   * @return An immutable FrequentSubgraphMiningPregelConfig instance
+   * @return An immutable BidirectionalPathsMiningPregelConfig instance
    */
-  public static FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig of(int concurrency, int minBatchSize, Iterable<String> nodeLabels, Iterable<String> relationshipTypes, String relationshipWeightProperty, int maxIterations, Partitioning partitioning, WriteConfig.ArrowConnectionInfo arrowConnectionInfo, int writeConcurrency, String mutateProperty, String writeProperty, @Nullable String seedProperty, long maxRepeatNodes, boolean withRepeition) {
-    return validate(new ImmutableFrequentSubgraphMiningPregelConfig(concurrency, minBatchSize, nodeLabels, relationshipTypes, relationshipWeightProperty, maxIterations, partitioning, arrowConnectionInfo, writeConcurrency, mutateProperty, writeProperty, seedProperty, maxRepeatNodes, withRepeition));
+  public static BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig of(int concurrency, int minBatchSize, Iterable<String> nodeLabels, Iterable<String> relationshipTypes, String relationshipWeightProperty, int maxIterations, Partitioning partitioning, WriteConfig.ArrowConnectionInfo arrowConnectionInfo, int writeConcurrency, String mutateProperty, String writeProperty, @Nullable String seedProperty, long maxRepeatNodes, boolean withRepeition) {
+    return validate(new ImmutableBidirectionalPathsMiningPregelConfig(concurrency, minBatchSize, nodeLabels, relationshipTypes, relationshipWeightProperty, maxIterations, partitioning, arrowConnectionInfo, writeConcurrency, mutateProperty, writeProperty, seedProperty, maxRepeatNodes, withRepeition));
   }
 
-  private static ImmutableFrequentSubgraphMiningPregelConfig validate(ImmutableFrequentSubgraphMiningPregelConfig instance) {
+  private static ImmutableBidirectionalPathsMiningPregelConfig validate(ImmutableBidirectionalPathsMiningPregelConfig instance) {
     instance.validateWriteConcurrency();
     instance.validateRelationshipWeightProperty();
     instance.validateConcurrency();
@@ -1864,60 +1864,60 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
   }
 
   /**
-   * Creates an immutable copy of a {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig} value.
+   * Creates an immutable copy of a {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig} value.
    * Uses accessors to get values to initialize the new immutable instance.
    * If an instance is already immutable, it is returned as is.
    * @param instance The instance to copy
-   * @return A copied immutable FrequentSubgraphMiningPregelConfig instance
+   * @return A copied immutable BidirectionalPathsMiningPregelConfig instance
    */
-  public static FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig copyOf(FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig instance) {
-    if (instance instanceof ImmutableFrequentSubgraphMiningPregelConfig) {
-      return (ImmutableFrequentSubgraphMiningPregelConfig) instance;
+  public static BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig copyOf(BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig instance) {
+    if (instance instanceof ImmutableBidirectionalPathsMiningPregelConfig) {
+      return (ImmutableBidirectionalPathsMiningPregelConfig) instance;
     }
-    return ImmutableFrequentSubgraphMiningPregelConfig.builder()
+    return ImmutableBidirectionalPathsMiningPregelConfig.builder()
         .from(instance)
         .build();
   }
 
   /**
-   * Creates a builder for {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig FrequentSubgraphMiningPregelConfig}.
+   * Creates a builder for {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig BidirectionalPathsMiningPregelConfig}.
    * <pre>
-   * ImmutableFrequentSubgraphMiningPregelConfig.builder()
-   *    .configKeys(Collection&amp;lt;String&amp;gt;) // optional {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#configKeys() configKeys}
-   *    .logProgress(boolean) // optional {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#logProgress() logProgress}
-   *    .sudo(boolean) // optional {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#sudo() sudo}
-   *    .usernameOverride(String) // optional {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#usernameOverride() usernameOverride}
-   *    .concurrency(int) // optional {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#concurrency() concurrency}
-   *    .minBatchSize(int) // optional {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#minBatchSize() minBatchSize}
-   *    .jobId(org.neo4j.gds.core.utils.progress.JobId) // optional {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#jobId() jobId}
-   *    .addNodeLabel|addAllNodeLabels(String) // {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#nodeLabels() nodeLabels} elements
-   *    .addRelationshipType|addAllRelationshipTypes(String) // {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#relationshipTypes() relationshipTypes} elements
-   *    .relationshipWeightProperty(String) // optional {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#relationshipWeightProperty() relationshipWeightProperty}
-   *    .maxIterations(int) // required {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#maxIterations() maxIterations}
-   *    .partitioning(org.neo4j.gds.beta.pregel.Partitioning) // optional {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#partitioning() partitioning}
-   *    .arrowConnectionInfo(org.neo4j.gds.config.WriteConfig.ArrowConnectionInfo) // optional {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#arrowConnectionInfo() arrowConnectionInfo}
-   *    .writeConcurrency(int) // optional {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#writeConcurrency() writeConcurrency}
-   *    .mutateProperty(String) // optional {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#mutateProperty() mutateProperty}
-   *    .writeProperty(String) // optional {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#writeProperty() writeProperty}
-   *    .seedProperty(String | null) // nullable {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#seedProperty() seedProperty}
-   *    .maxRepeatNodes(long) // optional {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#maxRepeatNodes() maxRepeatNodes}
-   *    .withRepeition(boolean) // optional {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#withRepeition() withRepeition}
+   * ImmutableBidirectionalPathsMiningPregelConfig.builder()
+   *    .configKeys(Collection&amp;lt;String&amp;gt;) // optional {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#configKeys() configKeys}
+   *    .logProgress(boolean) // optional {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#logProgress() logProgress}
+   *    .sudo(boolean) // optional {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#sudo() sudo}
+   *    .usernameOverride(String) // optional {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#usernameOverride() usernameOverride}
+   *    .concurrency(int) // optional {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#concurrency() concurrency}
+   *    .minBatchSize(int) // optional {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#minBatchSize() minBatchSize}
+   *    .jobId(org.neo4j.gds.core.utils.progress.JobId) // optional {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#jobId() jobId}
+   *    .addNodeLabel|addAllNodeLabels(String) // {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#nodeLabels() nodeLabels} elements
+   *    .addRelationshipType|addAllRelationshipTypes(String) // {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#relationshipTypes() relationshipTypes} elements
+   *    .relationshipWeightProperty(String) // optional {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#relationshipWeightProperty() relationshipWeightProperty}
+   *    .maxIterations(int) // required {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#maxIterations() maxIterations}
+   *    .partitioning(org.neo4j.gds.beta.pregel.Partitioning) // optional {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#partitioning() partitioning}
+   *    .arrowConnectionInfo(org.neo4j.gds.config.WriteConfig.ArrowConnectionInfo) // optional {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#arrowConnectionInfo() arrowConnectionInfo}
+   *    .writeConcurrency(int) // optional {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#writeConcurrency() writeConcurrency}
+   *    .mutateProperty(String) // optional {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#mutateProperty() mutateProperty}
+   *    .writeProperty(String) // optional {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#writeProperty() writeProperty}
+   *    .seedProperty(String | null) // nullable {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#seedProperty() seedProperty}
+   *    .maxRepeatNodes(long) // optional {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#maxRepeatNodes() maxRepeatNodes}
+   *    .withRepeition(boolean) // optional {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#withRepeition() withRepeition}
    *    .build();
    * </pre>
-   * @return A new FrequentSubgraphMiningPregelConfig builder
+   * @return A new BidirectionalPathsMiningPregelConfig builder
    */
-  public static ImmutableFrequentSubgraphMiningPregelConfig.Builder builder() {
-    return new ImmutableFrequentSubgraphMiningPregelConfig.Builder();
+  public static ImmutableBidirectionalPathsMiningPregelConfig.Builder builder() {
+    return new ImmutableBidirectionalPathsMiningPregelConfig.Builder();
   }
 
   /**
-   * Builds instances of type {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig FrequentSubgraphMiningPregelConfig}.
+   * Builds instances of type {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig BidirectionalPathsMiningPregelConfig}.
    * Initialize attributes and then invoke the {@link #build()} method to create an
    * immutable instance.
    * <p><em>{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
    * but instead used immediately to create instances.</em>
    */
-  @Generated(from = "FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig", generator = "Immutables")
+  @Generated(from = "BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig", generator = "Immutables")
   public static final class Builder {
     private static final long INIT_BIT_MAX_ITERATIONS = 0x1L;
     private static final long OPT_BIT_LOG_PROGRESS = 0x1L;
@@ -2045,6 +2045,17 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     }
 
     /**
+     * Fill a builder with attribute values from the provided {@code com.neo4j.pregel.BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig} instance.
+     * @param instance The instance from which to copy values
+     * @return {@code this} builder for use in a chained invocation
+     */
+    public final Builder from(BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig instance) {
+      Objects.requireNonNull(instance, "instance");
+      from((Object) instance);
+      return this;
+    }
+
+    /**
      * Fill a builder with attribute values from the provided {@code org.neo4j.gds.config.RelationshipWeightConfig} instance.
      * @param instance The instance from which to copy values
      * @return {@code this} builder for use in a chained invocation
@@ -2072,17 +2083,6 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
      * @return {@code this} builder for use in a chained invocation
      */
     public final Builder from(ConcurrencyConfig instance) {
-      Objects.requireNonNull(instance, "instance");
-      from((Object) instance);
-      return this;
-    }
-
-    /**
-     * Fill a builder with attribute values from the provided {@code com.neo4j.pregel.FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig} instance.
-     * @param instance The instance from which to copy values
-     * @return {@code this} builder for use in a chained invocation
-     */
-    public final Builder from(FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig instance) {
       Objects.requireNonNull(instance, "instance");
       from((Object) instance);
       return this;
@@ -2160,6 +2160,11 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
           seedProperty(seedPropertyValue);
         }
       }
+      if (object instanceof BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig) {
+        BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig instance = (BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig) object;
+        withRepeition(instance.withRepeition());
+        maxRepeatNodes(instance.maxRepeatNodes());
+      }
       if (object instanceof RelationshipWeightConfig) {
         RelationshipWeightConfig instance = (RelationshipWeightConfig) object;
         Optional<String> relationshipWeightPropertyOptional = instance.relationshipWeightProperty();
@@ -2176,11 +2181,6 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
         minBatchSize(instance.minBatchSize());
         concurrency(instance.concurrency());
       }
-      if (object instanceof FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig) {
-        FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig instance = (FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig) object;
-        withRepeition(instance.withRepeition());
-        maxRepeatNodes(instance.maxRepeatNodes());
-      }
       if (object instanceof IterationsConfig) {
         IterationsConfig instance = (IterationsConfig) object;
         maxIterations(instance.maxIterations());
@@ -2188,8 +2188,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     }
 
     /**
-     * Initializes the value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#configKeys() configKeys} attribute.
-     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#configKeys() configKeys}.</em>
+     * Initializes the value for the {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#configKeys() configKeys} attribute.
+     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#configKeys() configKeys}.</em>
      * @param configKeys The value for configKeys 
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2199,8 +2199,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     }
 
     /**
-     * Initializes the value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#logProgress() logProgress} attribute.
-     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#logProgress() logProgress}.</em>
+     * Initializes the value for the {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#logProgress() logProgress} attribute.
+     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#logProgress() logProgress}.</em>
      * @param logProgress The value for logProgress 
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2211,8 +2211,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     }
 
     /**
-     * Initializes the value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#sudo() sudo} attribute.
-     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#sudo() sudo}.</em>
+     * Initializes the value for the {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#sudo() sudo} attribute.
+     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#sudo() sudo}.</em>
      * @param sudo The value for sudo 
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2223,7 +2223,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     }
 
     /**
-     * Initializes the optional value {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#usernameOverride() usernameOverride} to usernameOverride.
+     * Initializes the optional value {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#usernameOverride() usernameOverride} to usernameOverride.
      * @param usernameOverride The value for usernameOverride, {@code null} is accepted as {@code java.util.Optional.empty()}
      * @return {@code this} builder for chained invocation
      */
@@ -2233,7 +2233,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     }
 
     /**
-     * Initializes the optional value {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#usernameOverride() usernameOverride} to usernameOverride.
+     * Initializes the optional value {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#usernameOverride() usernameOverride} to usernameOverride.
      * @param usernameOverride The value for usernameOverride
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2243,8 +2243,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     }
 
     /**
-     * Initializes the value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#concurrency() concurrency} attribute.
-     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#concurrency() concurrency}.</em>
+     * Initializes the value for the {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#concurrency() concurrency} attribute.
+     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#concurrency() concurrency}.</em>
      * @param concurrency The value for concurrency 
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2255,8 +2255,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     }
 
     /**
-     * Initializes the value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#minBatchSize() minBatchSize} attribute.
-     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#minBatchSize() minBatchSize}.</em>
+     * Initializes the value for the {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#minBatchSize() minBatchSize} attribute.
+     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#minBatchSize() minBatchSize}.</em>
      * @param minBatchSize The value for minBatchSize 
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2267,8 +2267,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     }
 
     /**
-     * Initializes the value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#jobId() jobId} attribute.
-     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#jobId() jobId}.</em>
+     * Initializes the value for the {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#jobId() jobId} attribute.
+     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#jobId() jobId}.</em>
      * @param jobId The value for jobId 
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2278,7 +2278,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     }
 
     /**
-     * Adds one element to {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#nodeLabels() nodeLabels} list.
+     * Adds one element to {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#nodeLabels() nodeLabels} list.
      * @param element A nodeLabels element
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2292,7 +2292,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     }
 
     /**
-     * Adds elements to {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#nodeLabels() nodeLabels} list.
+     * Adds elements to {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#nodeLabels() nodeLabels} list.
      * @param elements An array of nodeLabels elements
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2309,7 +2309,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
 
 
     /**
-     * Sets or replaces all elements for {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#nodeLabels() nodeLabels} list.
+     * Sets or replaces all elements for {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#nodeLabels() nodeLabels} list.
      * @param elements An iterable of nodeLabels elements
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2319,7 +2319,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     }
 
     /**
-     * Adds elements to {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#nodeLabels() nodeLabels} list.
+     * Adds elements to {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#nodeLabels() nodeLabels} list.
      * @param elements An iterable of nodeLabels elements
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2336,7 +2336,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     }
 
     /**
-     * Adds one element to {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#relationshipTypes() relationshipTypes} list.
+     * Adds one element to {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#relationshipTypes() relationshipTypes} list.
      * @param element A relationshipTypes element
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2350,7 +2350,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     }
 
     /**
-     * Adds elements to {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#relationshipTypes() relationshipTypes} list.
+     * Adds elements to {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#relationshipTypes() relationshipTypes} list.
      * @param elements An array of relationshipTypes elements
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2367,7 +2367,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
 
 
     /**
-     * Sets or replaces all elements for {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#relationshipTypes() relationshipTypes} list.
+     * Sets or replaces all elements for {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#relationshipTypes() relationshipTypes} list.
      * @param elements An iterable of relationshipTypes elements
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2377,7 +2377,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     }
 
     /**
-     * Adds elements to {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#relationshipTypes() relationshipTypes} list.
+     * Adds elements to {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#relationshipTypes() relationshipTypes} list.
      * @param elements An iterable of relationshipTypes elements
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2394,7 +2394,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     }
 
     /**
-     * Initializes the optional value {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#relationshipWeightProperty() relationshipWeightProperty} to relationshipWeightProperty.
+     * Initializes the optional value {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#relationshipWeightProperty() relationshipWeightProperty} to relationshipWeightProperty.
      * @param relationshipWeightProperty The value for relationshipWeightProperty, {@code null} is accepted as {@code java.util.Optional.empty()}
      * @return {@code this} builder for chained invocation
      */
@@ -2404,7 +2404,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     }
 
     /**
-     * Initializes the optional value {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#relationshipWeightProperty() relationshipWeightProperty} to relationshipWeightProperty.
+     * Initializes the optional value {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#relationshipWeightProperty() relationshipWeightProperty} to relationshipWeightProperty.
      * @param relationshipWeightProperty The value for relationshipWeightProperty
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2414,7 +2414,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     }
 
     /**
-     * Initializes the value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#maxIterations() maxIterations} attribute.
+     * Initializes the value for the {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#maxIterations() maxIterations} attribute.
      * @param maxIterations The value for maxIterations 
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2425,8 +2425,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     }
 
     /**
-     * Initializes the value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#partitioning() partitioning} attribute.
-     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#partitioning() partitioning}.</em>
+     * Initializes the value for the {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#partitioning() partitioning} attribute.
+     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#partitioning() partitioning}.</em>
      * @param partitioning The value for partitioning 
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2436,7 +2436,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     }
 
     /**
-     * Initializes the optional value {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#arrowConnectionInfo() arrowConnectionInfo} to arrowConnectionInfo.
+     * Initializes the optional value {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#arrowConnectionInfo() arrowConnectionInfo} to arrowConnectionInfo.
      * @param arrowConnectionInfo The value for arrowConnectionInfo, {@code null} is accepted as {@code java.util.Optional.empty()}
      * @return {@code this} builder for chained invocation
      */
@@ -2446,7 +2446,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     }
 
     /**
-     * Initializes the optional value {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#arrowConnectionInfo() arrowConnectionInfo} to arrowConnectionInfo.
+     * Initializes the optional value {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#arrowConnectionInfo() arrowConnectionInfo} to arrowConnectionInfo.
      * @param arrowConnectionInfo The value for arrowConnectionInfo
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2456,8 +2456,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     }
 
     /**
-     * Initializes the value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#writeConcurrency() writeConcurrency} attribute.
-     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#writeConcurrency() writeConcurrency}.</em>
+     * Initializes the value for the {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#writeConcurrency() writeConcurrency} attribute.
+     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#writeConcurrency() writeConcurrency}.</em>
      * @param writeConcurrency The value for writeConcurrency 
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2468,8 +2468,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     }
 
     /**
-     * Initializes the value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#mutateProperty() mutateProperty} attribute.
-     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#mutateProperty() mutateProperty}.</em>
+     * Initializes the value for the {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#mutateProperty() mutateProperty} attribute.
+     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#mutateProperty() mutateProperty}.</em>
      * @param mutateProperty The value for mutateProperty 
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2479,8 +2479,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     }
 
     /**
-     * Initializes the value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#writeProperty() writeProperty} attribute.
-     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#writeProperty() writeProperty}.</em>
+     * Initializes the value for the {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#writeProperty() writeProperty} attribute.
+     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#writeProperty() writeProperty}.</em>
      * @param writeProperty The value for writeProperty 
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2490,8 +2490,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     }
 
     /**
-     * Initializes the value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#seedProperty() seedProperty} attribute.
-     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#seedProperty() seedProperty}.</em>
+     * Initializes the value for the {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#seedProperty() seedProperty} attribute.
+     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#seedProperty() seedProperty}.</em>
      * @param seedProperty The value for seedProperty (can be {@code null})
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2502,8 +2502,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     }
 
     /**
-     * Initializes the value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#maxRepeatNodes() maxRepeatNodes} attribute.
-     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#maxRepeatNodes() maxRepeatNodes}.</em>
+     * Initializes the value for the {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#maxRepeatNodes() maxRepeatNodes} attribute.
+     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#maxRepeatNodes() maxRepeatNodes}.</em>
      * @param maxRepeatNodes The value for maxRepeatNodes 
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2514,8 +2514,8 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     }
 
     /**
-     * Initializes the value for the {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#withRepeition() withRepeition} attribute.
-     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig#withRepeition() withRepeition}.</em>
+     * Initializes the value for the {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#withRepeition() withRepeition} attribute.
+     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig#withRepeition() withRepeition}.</em>
      * @param withRepeition The value for withRepeition 
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2559,15 +2559,15 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     }
 
     /**
-     * Builds a new {@link FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig FrequentSubgraphMiningPregelConfig}.
-     * @return An immutable instance of FrequentSubgraphMiningPregelConfig
+     * Builds a new {@link BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig BidirectionalPathsMiningPregelConfig}.
+     * @return An immutable instance of BidirectionalPathsMiningPregelConfig
      * @throws java.lang.IllegalStateException if any required attributes are missing
      */
-    public FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig build() {
+    public BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig build() {
       if (initBits != 0) {
         throw new IllegalStateException(formatRequiredAttributesMessage());
       }
-      return ImmutableFrequentSubgraphMiningPregelConfig.validate(new ImmutableFrequentSubgraphMiningPregelConfig(this));
+      return ImmutableBidirectionalPathsMiningPregelConfig.validate(new ImmutableBidirectionalPathsMiningPregelConfig(this));
     }
 
     private boolean logProgressIsSet() {
@@ -2613,7 +2613,7 @@ public final class ImmutableFrequentSubgraphMiningPregelConfig
     private String formatRequiredAttributesMessage() {
       List<String> attributes = new ArrayList<>();
       if ((initBits & INIT_BIT_MAX_ITERATIONS) != 0) attributes.add("maxIterations");
-      return "Cannot build FrequentSubgraphMiningPregelConfig, some of required attributes are not set " + attributes;
+      return "Cannot build BidirectionalPathsMiningPregelConfig, some of required attributes are not set " + attributes;
     }
   }
 

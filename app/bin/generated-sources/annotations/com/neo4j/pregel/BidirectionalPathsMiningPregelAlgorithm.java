@@ -10,14 +10,14 @@ import org.neo4j.gds.core.utils.TerminationFlag;
 import org.neo4j.gds.core.utils.progress.tasks.ProgressTracker;
 
 @Generated("org.neo4j.gds.pregel.PregelProcessor")
-public final class FrequentSubgraphMiningPregelAlgorithm extends Algorithm<PregelResult> {
-    private final Pregel<FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig> pregelJob;
+public final class BidirectionalPathsMiningPregelAlgorithm extends Algorithm<PregelResult> {
+    private final Pregel<BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig> pregelJob;
 
-    FrequentSubgraphMiningPregelAlgorithm(Graph graph,
-            FrequentSubgraphMiningPregel.FrequentSubgraphMiningPregelConfig configuration,
+    BidirectionalPathsMiningPregelAlgorithm(Graph graph,
+            BidirectionalPathsMiningPregel.BidirectionalPathsMiningPregelConfig configuration,
             ProgressTracker progressTracker) {
         super(progressTracker);
-        var computation = new FrequentSubgraphMiningPregel();
+        var computation = new BidirectionalPathsMiningPregel();
         this.pregelJob = Pregel.create(graph, configuration, computation, Pools.DEFAULT, progressTracker);
     }
 
