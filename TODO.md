@@ -1,0 +1,16 @@
+
+- Try to interpret the results in terms of tourism.
+- Compare with other approaches
+- Give sense to your work
+- Related work
+ - You can put more details about the papers
+- Background
+ - Explain in detail what you used
+ - Pregel
+ - GDS
+ - Neo4j
+- Technical details
+ - Different approaches that we did
+ - How you implemented it
+ - How you used the tools
+- Results
