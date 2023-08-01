@@ -170,7 +170,11 @@ public class WritePathsMiningPregel implements PregelComputation<WritePathsMinin
             context.setNodeValue(PATHS, new long[] {nodeOriginalId, IDENTIFIER});
             context.sendToNeighbors(nodeId); // send node_id to all neighbors (to let them know where they got this message from)
 
-            if (file.exists()) { file.delete(); } else { file.getParentFile().mkdirs(); file.createNewFile(); }
+            try {
+                if (file.exists()) { file.delete(); } else { file.getParentFile().mkdirs(); file.createNewFile(); }
+            } catch (IOException e) {
+                context.log().error("Error while creating file: " + e.getMessage());
+            }
 
 
         } 
