@@ -173,10 +173,8 @@ public class WritePathsMiningPregel implements PregelComputation<WritePathsMinin
             try {
                 if (file.exists()) { file.delete(); } else { file.getParentFile().mkdirs(); file.createNewFile(); }
             } catch (IOException e) {
-                context.logMessage("Error while creating file: " + e.getMessage());
+                context.logDebug("Error while creating file: " + e.getMessage());
             }
-
-
         } 
         else if (superstep == PathFindingPhase.CONNECT_NEIGHBORS_PATH.step) {
             var _messages = new ArrayList<Long>();
