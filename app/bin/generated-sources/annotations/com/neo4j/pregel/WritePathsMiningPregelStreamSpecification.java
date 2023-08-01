@@ -13,7 +13,7 @@ import org.neo4j.gds.pregel.proc.PregelStreamComputationResultConsumer;
 import org.neo4j.gds.pregel.proc.PregelStreamResult;
 
 @GdsCallable(
-        name = "esilv.pregel.find_paths.stream",
+        name = "esilv.pregel.find_paths_with_write.stream",
         executionMode = ExecutionMode.STREAM,
         description = "Paths Mining with Pregel (find all paths of length 'max_iteration') - Frequent Pattern Mining :: Neo4j"
 )

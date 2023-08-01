@@ -13,7 +13,7 @@ import org.neo4j.gds.pregel.proc.PregelMutateComputationResultConsumer;
 import org.neo4j.gds.pregel.proc.PregelMutateResult;
 
 @GdsCallable(
-        name = "esilv.pregel.find_paths.mutate",
+        name = "esilv.pregel.find_paths_with_write.mutate",
         executionMode = ExecutionMode.MUTATE_NODE_PROPERTY,
         description = "Paths Mining with Pregel (find all paths of length 'max_iteration') - Frequent Pattern Mining :: Neo4j"
 )
