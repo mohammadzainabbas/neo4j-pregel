@@ -157,16 +157,6 @@ public class WritePathsMiningPregel implements PregelComputation<WritePathsMinin
     }
 
     public void writeToFile(ComputeContext<WritePathsMiningPregelConfig> context, File file, long[] paths) {
-        try {
-            FileWriter fileWriter = new FileWriter(file, true);
-            for (var path: paths) {
-                fileWriter.write(context.toOriginalId(path) + " ");
-            }
-            fileWriter.write("\n");
-            fileWriter.close();
-        } catch (IOException e) {
-            context.logDebug("Error while writing to file: " + e.getMessage());
-        }
     }
 
     /* Called for each node in every superstep */
