@@ -9,10 +9,10 @@ import org.neo4j.gds.core.utils.progress.tasks.ProgressTracker;
 import org.neo4j.gds.core.utils.progress.tasks.Task;
 
 @Generated("org.neo4j.gds.pregel.PregelProcessor")
-public final class WritePathsMiningPregelAlgorithmFactory extends GraphAlgorithmFactory<WritePathsMiningPregelAlgorithm, WritePathsMiningPregel.PathsMiningPregelConfig> {
+public final class WritePathsMiningPregelAlgorithmFactory extends GraphAlgorithmFactory<WritePathsMiningPregelAlgorithm, WritePathsMiningPregel.WritePathsMiningPregelConfig> {
     @Override
     public WritePathsMiningPregelAlgorithm build(Graph graph,
-            WritePathsMiningPregel.PathsMiningPregelConfig configuration,
+            WritePathsMiningPregel.WritePathsMiningPregelConfig configuration,
             ProgressTracker progressTracker) {
         return new WritePathsMiningPregelAlgorithm(graph, configuration, progressTracker);
     }
@@ -24,13 +24,13 @@ public final class WritePathsMiningPregelAlgorithmFactory extends GraphAlgorithm
 
     @Override
     public Task progressTask(Graph graph,
-            WritePathsMiningPregel.PathsMiningPregelConfig configuration) {
+            WritePathsMiningPregel.WritePathsMiningPregelConfig configuration) {
         return Pregel.progressTask(graph, configuration);
     }
 
     @Override
     public MemoryEstimation memoryEstimation(
-            WritePathsMiningPregel.PathsMiningPregelConfig configuration) {
+            WritePathsMiningPregel.WritePathsMiningPregelConfig configuration) {
         var computation = new WritePathsMiningPregel();
         return Pregel.memoryEstimation(computation.schema(configuration), computation.reducer().isEmpty(), configuration.isAsynchronous());
     }

@@ -18,7 +18,7 @@ import org.neo4j.gds.pregel.proc.PregelStreamResult;
         description = "Paths Mining with Pregel (find all paths of length 'max_iteration') - Frequent Pattern Mining :: Neo4j"
 )
 @Generated("org.neo4j.gds.pregel.PregelProcessor")
-public final class WritePathsMiningPregelStreamSpecification implements AlgorithmSpec<WritePathsMiningPregelAlgorithm, PregelResult, WritePathsMiningPregel.PathsMiningPregelConfig, Stream<PregelStreamResult>, WritePathsMiningPregelAlgorithmFactory> {
+public final class WritePathsMiningPregelStreamSpecification implements AlgorithmSpec<WritePathsMiningPregelAlgorithm, PregelResult, WritePathsMiningPregel.WritePathsMiningPregelConfig, Stream<PregelStreamResult>, WritePathsMiningPregelAlgorithmFactory> {
     @Override
     public String name() {
         return WritePathsMiningPregelAlgorithm.class.getSimpleName();
@@ -31,12 +31,13 @@ public final class WritePathsMiningPregelStreamSpecification implements Algorith
     }
 
     @Override
-    public NewConfigFunction<WritePathsMiningPregel.PathsMiningPregelConfig> newConfigFunction() {
-        return (__, userInput) -> WritePathsMiningPregel.PathsMiningPregelConfig.of(userInput);
+    public NewConfigFunction<WritePathsMiningPregel.WritePathsMiningPregelConfig> newConfigFunction(
+            ) {
+        return (__, userInput) -> WritePathsMiningPregel.WritePathsMiningPregelConfig.of(userInput);
     }
 
     @Override
-    public ComputationResultConsumer<WritePathsMiningPregelAlgorithm, PregelResult, WritePathsMiningPregel.PathsMiningPregelConfig, Stream<PregelStreamResult>> computationResultConsumer(
+    public ComputationResultConsumer<WritePathsMiningPregelAlgorithm, PregelResult, WritePathsMiningPregel.WritePathsMiningPregelConfig, Stream<PregelStreamResult>> computationResultConsumer(
             ) {
         return new PregelStreamComputationResultConsumer<>();
     }

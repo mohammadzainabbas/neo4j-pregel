@@ -26,18 +26,18 @@ import org.neo4j.gds.config.WritePropertyConfig;
 import org.neo4j.gds.core.utils.progress.JobId;
 
 /**
- * Immutable implementation of {@link PathsMiningPregel.PathsMiningPregelConfig}.
+ * Immutable implementation of {@link WritePathsMiningPregel.WritePathsMiningPregelConfig}.
  * <p>
  * Use the builder to create immutable instances:
- * {@code ImmutablePathsMiningPregelConfig.builder()}.
+ * {@code ImmutableWritePathsMiningPregelConfig.builder()}.
  * Use the static factory method to create immutable instances:
- * {@code ImmutablePathsMiningPregelConfig.of()}.
+ * {@code ImmutableWritePathsMiningPregelConfig.of()}.
  */
-@Generated(from = "PathsMiningPregel.PathsMiningPregelConfig", generator = "Immutables")
+@Generated(from = "WritePathsMiningPregel.WritePathsMiningPregelConfig", generator = "Immutables")
 @SuppressWarnings({"all"})
 @javax.annotation.processing.Generated("org.immutables.processor.ProxyProcessor")
-public final class ImmutablePathsMiningPregelConfig
-    implements PathsMiningPregel.PathsMiningPregelConfig {
+public final class ImmutableWritePathsMiningPregelConfig
+    implements WritePathsMiningPregel.WritePathsMiningPregelConfig {
   private final Collection<String> configKeys;
   private final boolean logProgress;
   private final boolean sudo;
@@ -62,7 +62,7 @@ public final class ImmutablePathsMiningPregelConfig
   private final long identifier;
 
   @SuppressWarnings("unchecked") // safe covariant cast
-  private ImmutablePathsMiningPregelConfig(
+  private ImmutableWritePathsMiningPregelConfig(
       int concurrency,
       int minBatchSize,
       Iterable<String> nodeLabels,
@@ -114,7 +114,7 @@ public final class ImmutablePathsMiningPregelConfig
   }
 
   @SuppressWarnings("unchecked") // safe covariant cast
-  private ImmutablePathsMiningPregelConfig(
+  private ImmutableWritePathsMiningPregelConfig(
       int concurrency,
       int minBatchSize,
       Iterable<String> nodeLabels,
@@ -165,7 +165,7 @@ public final class ImmutablePathsMiningPregelConfig
     this.initShim = null;
   }
 
-  private ImmutablePathsMiningPregelConfig(ImmutablePathsMiningPregelConfig.Builder builder) {
+  private ImmutableWritePathsMiningPregelConfig(ImmutableWritePathsMiningPregelConfig.Builder builder) {
     this.usernameOverride = builder.usernameOverride;
     this.relationshipWeightProperty = builder.relationshipWeightProperty;
     this.maxIterations = builder.maxIterations;
@@ -236,7 +236,7 @@ public final class ImmutablePathsMiningPregelConfig
     this.initShim = null;
   }
 
-  private ImmutablePathsMiningPregelConfig(
+  private ImmutableWritePathsMiningPregelConfig(
       Collection<String> configKeys,
       boolean logProgress,
       boolean sudo,
@@ -301,7 +301,7 @@ public final class ImmutablePathsMiningPregelConfig
   private static final byte STAGE_INITIALIZED = 1;
   private transient volatile InitShim initShim = new InitShim();
 
-  @Generated(from = "PathsMiningPregel.PathsMiningPregelConfig", generator = "Immutables")
+  @Generated(from = "WritePathsMiningPregel.WritePathsMiningPregelConfig", generator = "Immutables")
   private final class InitShim {
     private byte configKeysBuildStage = STAGE_UNINITIALIZED;
     private Collection<String> configKeys;
@@ -632,80 +632,80 @@ public final class ImmutablePathsMiningPregelConfig
       if (seedPropertyBuildStage == STAGE_INITIALIZING) attributes.add("seedProperty");
       if (isEncodedOutputBuildStage == STAGE_INITIALIZING) attributes.add("isEncodedOutput");
       if (identifierBuildStage == STAGE_INITIALIZING) attributes.add("identifier");
-      return "Cannot build PathsMiningPregelConfig, attribute initializers form cycle " + attributes;
+      return "Cannot build WritePathsMiningPregelConfig, attribute initializers form cycle " + attributes;
     }
   }
 
   private Collection<String> configKeysInitialize() {
-    return PathsMiningPregel.PathsMiningPregelConfig.super.configKeys();
+    return WritePathsMiningPregel.WritePathsMiningPregelConfig.super.configKeys();
   }
 
   private boolean logProgressInitialize() {
-    return PathsMiningPregel.PathsMiningPregelConfig.super.logProgress();
+    return WritePathsMiningPregel.WritePathsMiningPregelConfig.super.logProgress();
   }
 
   private boolean sudoInitialize() {
-    return PathsMiningPregel.PathsMiningPregelConfig.super.sudo();
+    return WritePathsMiningPregel.WritePathsMiningPregelConfig.super.sudo();
   }
 
   private Map<String, Object> toMapInitialize() {
-    return PathsMiningPregel.PathsMiningPregelConfig.super.toMap();
+    return WritePathsMiningPregel.WritePathsMiningPregelConfig.super.toMap();
   }
 
   private int concurrencyInitialize() {
-    return PathsMiningPregel.PathsMiningPregelConfig.super.concurrency();
+    return WritePathsMiningPregel.WritePathsMiningPregelConfig.super.concurrency();
   }
 
   private int minBatchSizeInitialize() {
-    return PathsMiningPregel.PathsMiningPregelConfig.super.minBatchSize();
+    return WritePathsMiningPregel.WritePathsMiningPregelConfig.super.minBatchSize();
   }
 
   private JobId jobIdInitialize() {
-    return PathsMiningPregel.PathsMiningPregelConfig.super.jobId();
+    return WritePathsMiningPregel.WritePathsMiningPregelConfig.super.jobId();
   }
 
   private List<String> nodeLabelsInitialize() {
-    return PathsMiningPregel.PathsMiningPregelConfig.super.nodeLabels();
+    return WritePathsMiningPregel.WritePathsMiningPregelConfig.super.nodeLabels();
   }
 
   private List<String> relationshipTypesInitialize() {
-    return PathsMiningPregel.PathsMiningPregelConfig.super.relationshipTypes();
+    return WritePathsMiningPregel.WritePathsMiningPregelConfig.super.relationshipTypes();
   }
 
   private boolean hasRelationshipWeightPropertyInitialize() {
-    return PathsMiningPregel.PathsMiningPregelConfig.super.hasRelationshipWeightProperty();
+    return WritePathsMiningPregel.WritePathsMiningPregelConfig.super.hasRelationshipWeightProperty();
   }
 
   private Partitioning partitioningInitialize() {
-    return PathsMiningPregel.PathsMiningPregelConfig.super.partitioning();
+    return WritePathsMiningPregel.WritePathsMiningPregelConfig.super.partitioning();
   }
 
   private boolean useForkJoinInitialize() {
-    return PathsMiningPregel.PathsMiningPregelConfig.super.useForkJoin();
+    return WritePathsMiningPregel.WritePathsMiningPregelConfig.super.useForkJoin();
   }
 
   private int writeConcurrencyInitialize() {
-    return PathsMiningPregel.PathsMiningPregelConfig.super.writeConcurrency();
+    return WritePathsMiningPregel.WritePathsMiningPregelConfig.super.writeConcurrency();
   }
 
   private String mutatePropertyInitialize() {
-    return PathsMiningPregel.PathsMiningPregelConfig.super.mutateProperty();
+    return WritePathsMiningPregel.WritePathsMiningPregelConfig.super.mutateProperty();
   }
 
   private String writePropertyInitialize() {
-    return PathsMiningPregel.PathsMiningPregelConfig.super.writeProperty();
+    return WritePathsMiningPregel.WritePathsMiningPregelConfig.super.writeProperty();
   }
 
   private @Nullable String seedPropertyInitialize() {
-    return PathsMiningPregel.PathsMiningPregelConfig.super.seedProperty();
+    return WritePathsMiningPregel.WritePathsMiningPregelConfig.super.seedProperty();
   }
 
   private boolean isEncodedOutputInitialize() {
-    return PathsMiningPregel.PathsMiningPregelConfig.super.isEncodedOutput();
+    return WritePathsMiningPregel.WritePathsMiningPregelConfig.super.isEncodedOutput();
   }
 
   private long identifierInitialize() {
-    return PathsMiningPregel.PathsMiningPregelConfig.super.identifier();
+    return WritePathsMiningPregel.WritePathsMiningPregelConfig.super.identifier();
   }
 
   /**
@@ -939,15 +939,15 @@ public final class ImmutablePathsMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object by setting a value for the {@link PathsMiningPregel.PathsMiningPregelConfig#configKeys() configKeys} attribute.
+   * Copy the current immutable object by setting a value for the {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#configKeys() configKeys} attribute.
    * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
    * @param value A new value for configKeys
    * @return A modified copy of the {@code this} object
    */
-  public final ImmutablePathsMiningPregelConfig withConfigKeys(Collection<String> value) {
+  public final ImmutableWritePathsMiningPregelConfig withConfigKeys(Collection<String> value) {
     if (this.configKeys == value) return this;
     Collection<String> newValue = Objects.requireNonNull(value, "configKeys");
-    return validate(new ImmutablePathsMiningPregelConfig(
+    return validate(new ImmutableWritePathsMiningPregelConfig(
         newValue,
         this.logProgress,
         this.sudo,
@@ -970,14 +970,14 @@ public final class ImmutablePathsMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object by setting a value for the {@link PathsMiningPregel.PathsMiningPregelConfig#logProgress() logProgress} attribute.
+   * Copy the current immutable object by setting a value for the {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#logProgress() logProgress} attribute.
    * A value equality check is used to prevent copying of the same value by returning {@code this}.
    * @param value A new value for logProgress
    * @return A modified copy of the {@code this} object
    */
-  public final ImmutablePathsMiningPregelConfig withLogProgress(boolean value) {
+  public final ImmutableWritePathsMiningPregelConfig withLogProgress(boolean value) {
     if (this.logProgress == value) return this;
-    return validate(new ImmutablePathsMiningPregelConfig(
+    return validate(new ImmutableWritePathsMiningPregelConfig(
         this.configKeys,
         value,
         this.sudo,
@@ -1000,14 +1000,14 @@ public final class ImmutablePathsMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object by setting a value for the {@link PathsMiningPregel.PathsMiningPregelConfig#sudo() sudo} attribute.
+   * Copy the current immutable object by setting a value for the {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#sudo() sudo} attribute.
    * A value equality check is used to prevent copying of the same value by returning {@code this}.
    * @param value A new value for sudo
    * @return A modified copy of the {@code this} object
    */
-  public final ImmutablePathsMiningPregelConfig withSudo(boolean value) {
+  public final ImmutableWritePathsMiningPregelConfig withSudo(boolean value) {
     if (this.sudo == value) return this;
-    return validate(new ImmutablePathsMiningPregelConfig(
+    return validate(new ImmutableWritePathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         value,
@@ -1030,14 +1030,14 @@ public final class ImmutablePathsMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object by setting a <i>present</i> value for the optional {@link PathsMiningPregel.PathsMiningPregelConfig#usernameOverride() usernameOverride} attribute.
+   * Copy the current immutable object by setting a <i>present</i> value for the optional {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#usernameOverride() usernameOverride} attribute.
    * @param value The value for usernameOverride, {@code null} is accepted as {@code java.util.Optional.empty()}
    * @return A modified copy of {@code this} object
    */
-  public final ImmutablePathsMiningPregelConfig withUsernameOverride(String value) {
+  public final ImmutableWritePathsMiningPregelConfig withUsernameOverride(String value) {
     String newValue = value;
     if (Objects.equals(this.usernameOverride, newValue)) return this;
-    return validate(new ImmutablePathsMiningPregelConfig(
+    return validate(new ImmutableWritePathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         this.sudo,
@@ -1060,15 +1060,15 @@ public final class ImmutablePathsMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object by setting an optional value for the {@link PathsMiningPregel.PathsMiningPregelConfig#usernameOverride() usernameOverride} attribute.
+   * Copy the current immutable object by setting an optional value for the {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#usernameOverride() usernameOverride} attribute.
    * An equality check is used on inner nullable value to prevent copying of the same value by returning {@code this}.
    * @param optional A value for usernameOverride
    * @return A modified copy of {@code this} object
    */
-  public final ImmutablePathsMiningPregelConfig withUsernameOverride(Optional<String> optional) {
+  public final ImmutableWritePathsMiningPregelConfig withUsernameOverride(Optional<String> optional) {
     String value = optional.orElse(null);
     if (Objects.equals(this.usernameOverride, value)) return this;
-    return validate(new ImmutablePathsMiningPregelConfig(
+    return validate(new ImmutableWritePathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         this.sudo,
@@ -1091,14 +1091,14 @@ public final class ImmutablePathsMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object by setting a value for the {@link PathsMiningPregel.PathsMiningPregelConfig#concurrency() concurrency} attribute.
+   * Copy the current immutable object by setting a value for the {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#concurrency() concurrency} attribute.
    * A value equality check is used to prevent copying of the same value by returning {@code this}.
    * @param value A new value for concurrency
    * @return A modified copy of the {@code this} object
    */
-  public final ImmutablePathsMiningPregelConfig withConcurrency(int value) {
+  public final ImmutableWritePathsMiningPregelConfig withConcurrency(int value) {
     if (this.concurrency == value) return this;
-    return validate(new ImmutablePathsMiningPregelConfig(
+    return validate(new ImmutableWritePathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         this.sudo,
@@ -1121,14 +1121,14 @@ public final class ImmutablePathsMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object by setting a value for the {@link PathsMiningPregel.PathsMiningPregelConfig#minBatchSize() minBatchSize} attribute.
+   * Copy the current immutable object by setting a value for the {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#minBatchSize() minBatchSize} attribute.
    * A value equality check is used to prevent copying of the same value by returning {@code this}.
    * @param value A new value for minBatchSize
    * @return A modified copy of the {@code this} object
    */
-  public final ImmutablePathsMiningPregelConfig withMinBatchSize(int value) {
+  public final ImmutableWritePathsMiningPregelConfig withMinBatchSize(int value) {
     if (this.minBatchSize == value) return this;
-    return validate(new ImmutablePathsMiningPregelConfig(
+    return validate(new ImmutableWritePathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         this.sudo,
@@ -1151,15 +1151,15 @@ public final class ImmutablePathsMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object by setting a value for the {@link PathsMiningPregel.PathsMiningPregelConfig#jobId() jobId} attribute.
+   * Copy the current immutable object by setting a value for the {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#jobId() jobId} attribute.
    * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
    * @param value A new value for jobId
    * @return A modified copy of the {@code this} object
    */
-  public final ImmutablePathsMiningPregelConfig withJobId(JobId value) {
+  public final ImmutableWritePathsMiningPregelConfig withJobId(JobId value) {
     if (this.jobId == value) return this;
     JobId newValue = Objects.requireNonNull(value, "jobId");
-    return validate(new ImmutablePathsMiningPregelConfig(
+    return validate(new ImmutableWritePathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         this.sudo,
@@ -1182,13 +1182,13 @@ public final class ImmutablePathsMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object with elements that replace the content of {@link PathsMiningPregel.PathsMiningPregelConfig#nodeLabels() nodeLabels}.
+   * Copy the current immutable object with elements that replace the content of {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#nodeLabels() nodeLabels}.
    * @param elements The elements to set
    * @return A modified copy of {@code this} object
    */
-  public final ImmutablePathsMiningPregelConfig withNodeLabels(String... elements) {
+  public final ImmutableWritePathsMiningPregelConfig withNodeLabels(String... elements) {
     List<String> newValue = createUnmodifiableList(false, createSafeList(Arrays.asList(elements), true, false));
-    return validate(new ImmutablePathsMiningPregelConfig(
+    return validate(new ImmutableWritePathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         this.sudo,
@@ -1211,15 +1211,15 @@ public final class ImmutablePathsMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object with elements that replace the content of {@link PathsMiningPregel.PathsMiningPregelConfig#nodeLabels() nodeLabels}.
+   * Copy the current immutable object with elements that replace the content of {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#nodeLabels() nodeLabels}.
    * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
    * @param elements An iterable of nodeLabels elements to set
    * @return A modified copy of {@code this} object
    */
-  public final ImmutablePathsMiningPregelConfig withNodeLabels(Iterable<String> elements) {
+  public final ImmutableWritePathsMiningPregelConfig withNodeLabels(Iterable<String> elements) {
     if (this.nodeLabels == elements) return this;
     List<String> newValue = createUnmodifiableList(false, createSafeList(elements, true, false));
-    return validate(new ImmutablePathsMiningPregelConfig(
+    return validate(new ImmutableWritePathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         this.sudo,
@@ -1242,13 +1242,13 @@ public final class ImmutablePathsMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object with elements that replace the content of {@link PathsMiningPregel.PathsMiningPregelConfig#relationshipTypes() relationshipTypes}.
+   * Copy the current immutable object with elements that replace the content of {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#relationshipTypes() relationshipTypes}.
    * @param elements The elements to set
    * @return A modified copy of {@code this} object
    */
-  public final ImmutablePathsMiningPregelConfig withRelationshipTypes(String... elements) {
+  public final ImmutableWritePathsMiningPregelConfig withRelationshipTypes(String... elements) {
     List<String> newValue = createUnmodifiableList(false, createSafeList(Arrays.asList(elements), true, false));
-    return validate(new ImmutablePathsMiningPregelConfig(
+    return validate(new ImmutableWritePathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         this.sudo,
@@ -1271,15 +1271,15 @@ public final class ImmutablePathsMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object with elements that replace the content of {@link PathsMiningPregel.PathsMiningPregelConfig#relationshipTypes() relationshipTypes}.
+   * Copy the current immutable object with elements that replace the content of {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#relationshipTypes() relationshipTypes}.
    * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
    * @param elements An iterable of relationshipTypes elements to set
    * @return A modified copy of {@code this} object
    */
-  public final ImmutablePathsMiningPregelConfig withRelationshipTypes(Iterable<String> elements) {
+  public final ImmutableWritePathsMiningPregelConfig withRelationshipTypes(Iterable<String> elements) {
     if (this.relationshipTypes == elements) return this;
     List<String> newValue = createUnmodifiableList(false, createSafeList(elements, true, false));
-    return validate(new ImmutablePathsMiningPregelConfig(
+    return validate(new ImmutableWritePathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         this.sudo,
@@ -1302,14 +1302,14 @@ public final class ImmutablePathsMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object by setting a <i>present</i> value for the optional {@link PathsMiningPregel.PathsMiningPregelConfig#relationshipWeightProperty() relationshipWeightProperty} attribute.
+   * Copy the current immutable object by setting a <i>present</i> value for the optional {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#relationshipWeightProperty() relationshipWeightProperty} attribute.
    * @param value The value for relationshipWeightProperty, {@code null} is accepted as {@code java.util.Optional.empty()}
    * @return A modified copy of {@code this} object
    */
-  public final ImmutablePathsMiningPregelConfig withRelationshipWeightProperty(String value) {
+  public final ImmutableWritePathsMiningPregelConfig withRelationshipWeightProperty(String value) {
     String newValue = value;
     if (Objects.equals(this.relationshipWeightProperty, newValue)) return this;
-    return validate(new ImmutablePathsMiningPregelConfig(
+    return validate(new ImmutableWritePathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         this.sudo,
@@ -1332,15 +1332,15 @@ public final class ImmutablePathsMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object by setting an optional value for the {@link PathsMiningPregel.PathsMiningPregelConfig#relationshipWeightProperty() relationshipWeightProperty} attribute.
+   * Copy the current immutable object by setting an optional value for the {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#relationshipWeightProperty() relationshipWeightProperty} attribute.
    * An equality check is used on inner nullable value to prevent copying of the same value by returning {@code this}.
    * @param optional A value for relationshipWeightProperty
    * @return A modified copy of {@code this} object
    */
-  public final ImmutablePathsMiningPregelConfig withRelationshipWeightProperty(Optional<String> optional) {
+  public final ImmutableWritePathsMiningPregelConfig withRelationshipWeightProperty(Optional<String> optional) {
     String value = optional.orElse(null);
     if (Objects.equals(this.relationshipWeightProperty, value)) return this;
-    return validate(new ImmutablePathsMiningPregelConfig(
+    return validate(new ImmutableWritePathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         this.sudo,
@@ -1363,14 +1363,14 @@ public final class ImmutablePathsMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object by setting a value for the {@link PathsMiningPregel.PathsMiningPregelConfig#maxIterations() maxIterations} attribute.
+   * Copy the current immutable object by setting a value for the {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#maxIterations() maxIterations} attribute.
    * A value equality check is used to prevent copying of the same value by returning {@code this}.
    * @param value A new value for maxIterations
    * @return A modified copy of the {@code this} object
    */
-  public final ImmutablePathsMiningPregelConfig withMaxIterations(int value) {
+  public final ImmutableWritePathsMiningPregelConfig withMaxIterations(int value) {
     if (this.maxIterations == value) return this;
-    return validate(new ImmutablePathsMiningPregelConfig(
+    return validate(new ImmutableWritePathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         this.sudo,
@@ -1393,16 +1393,16 @@ public final class ImmutablePathsMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object by setting a value for the {@link PathsMiningPregel.PathsMiningPregelConfig#partitioning() partitioning} attribute.
+   * Copy the current immutable object by setting a value for the {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#partitioning() partitioning} attribute.
    * A value equality check is used to prevent copying of the same value by returning {@code this}.
    * @param value A new value for partitioning
    * @return A modified copy of the {@code this} object
    */
-  public final ImmutablePathsMiningPregelConfig withPartitioning(Partitioning value) {
+  public final ImmutableWritePathsMiningPregelConfig withPartitioning(Partitioning value) {
     if (this.partitioning == value) return this;
     Partitioning newValue = Objects.requireNonNull(value, "partitioning");
     if (this.partitioning.equals(newValue)) return this;
-    return validate(new ImmutablePathsMiningPregelConfig(
+    return validate(new ImmutableWritePathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         this.sudo,
@@ -1425,14 +1425,14 @@ public final class ImmutablePathsMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object by setting a <i>present</i> value for the optional {@link PathsMiningPregel.PathsMiningPregelConfig#arrowConnectionInfo() arrowConnectionInfo} attribute.
+   * Copy the current immutable object by setting a <i>present</i> value for the optional {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#arrowConnectionInfo() arrowConnectionInfo} attribute.
    * @param value The value for arrowConnectionInfo, {@code null} is accepted as {@code java.util.Optional.empty()}
    * @return A modified copy of {@code this} object
    */
-  public final ImmutablePathsMiningPregelConfig withArrowConnectionInfo(WriteConfig.ArrowConnectionInfo value) {
+  public final ImmutableWritePathsMiningPregelConfig withArrowConnectionInfo(WriteConfig.ArrowConnectionInfo value) {
     WriteConfig.ArrowConnectionInfo newValue = value;
     if (this.arrowConnectionInfo == newValue) return this;
-    return validate(new ImmutablePathsMiningPregelConfig(
+    return validate(new ImmutableWritePathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         this.sudo,
@@ -1455,16 +1455,16 @@ public final class ImmutablePathsMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object by setting an optional value for the {@link PathsMiningPregel.PathsMiningPregelConfig#arrowConnectionInfo() arrowConnectionInfo} attribute.
+   * Copy the current immutable object by setting an optional value for the {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#arrowConnectionInfo() arrowConnectionInfo} attribute.
    * A shallow reference equality check is used on unboxed optional value to prevent copying of the same value by returning {@code this}.
    * @param optional A value for arrowConnectionInfo
    * @return A modified copy of {@code this} object
    */
   @SuppressWarnings("unchecked") // safe covariant cast
-  public final ImmutablePathsMiningPregelConfig withArrowConnectionInfo(Optional<? extends WriteConfig.ArrowConnectionInfo> optional) {
+  public final ImmutableWritePathsMiningPregelConfig withArrowConnectionInfo(Optional<? extends WriteConfig.ArrowConnectionInfo> optional) {
     WriteConfig.ArrowConnectionInfo value = optional.orElse(null);
     if (this.arrowConnectionInfo == value) return this;
-    return validate(new ImmutablePathsMiningPregelConfig(
+    return validate(new ImmutableWritePathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         this.sudo,
@@ -1487,14 +1487,14 @@ public final class ImmutablePathsMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object by setting a value for the {@link PathsMiningPregel.PathsMiningPregelConfig#writeConcurrency() writeConcurrency} attribute.
+   * Copy the current immutable object by setting a value for the {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#writeConcurrency() writeConcurrency} attribute.
    * A value equality check is used to prevent copying of the same value by returning {@code this}.
    * @param value A new value for writeConcurrency
    * @return A modified copy of the {@code this} object
    */
-  public final ImmutablePathsMiningPregelConfig withWriteConcurrency(int value) {
+  public final ImmutableWritePathsMiningPregelConfig withWriteConcurrency(int value) {
     if (this.writeConcurrency == value) return this;
-    return validate(new ImmutablePathsMiningPregelConfig(
+    return validate(new ImmutableWritePathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         this.sudo,
@@ -1517,15 +1517,15 @@ public final class ImmutablePathsMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object by setting a value for the {@link PathsMiningPregel.PathsMiningPregelConfig#mutateProperty() mutateProperty} attribute.
+   * Copy the current immutable object by setting a value for the {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#mutateProperty() mutateProperty} attribute.
    * An equals check used to prevent copying of the same value by returning {@code this}.
    * @param value A new value for mutateProperty
    * @return A modified copy of the {@code this} object
    */
-  public final ImmutablePathsMiningPregelConfig withMutateProperty(String value) {
+  public final ImmutableWritePathsMiningPregelConfig withMutateProperty(String value) {
     String newValue = Objects.requireNonNull(value, "mutateProperty");
     if (this.mutateProperty.equals(newValue)) return this;
-    return validate(new ImmutablePathsMiningPregelConfig(
+    return validate(new ImmutableWritePathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         this.sudo,
@@ -1548,15 +1548,15 @@ public final class ImmutablePathsMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object by setting a value for the {@link PathsMiningPregel.PathsMiningPregelConfig#writeProperty() writeProperty} attribute.
+   * Copy the current immutable object by setting a value for the {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#writeProperty() writeProperty} attribute.
    * An equals check used to prevent copying of the same value by returning {@code this}.
    * @param value A new value for writeProperty
    * @return A modified copy of the {@code this} object
    */
-  public final ImmutablePathsMiningPregelConfig withWriteProperty(String value) {
+  public final ImmutableWritePathsMiningPregelConfig withWriteProperty(String value) {
     String newValue = Objects.requireNonNull(value, "writeProperty");
     if (this.writeProperty.equals(newValue)) return this;
-    return validate(new ImmutablePathsMiningPregelConfig(
+    return validate(new ImmutableWritePathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         this.sudo,
@@ -1579,14 +1579,14 @@ public final class ImmutablePathsMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object by setting a value for the {@link PathsMiningPregel.PathsMiningPregelConfig#seedProperty() seedProperty} attribute.
+   * Copy the current immutable object by setting a value for the {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#seedProperty() seedProperty} attribute.
    * An equals check used to prevent copying of the same value by returning {@code this}.
    * @param value A new value for seedProperty (can be {@code null})
    * @return A modified copy of the {@code this} object
    */
-  public final ImmutablePathsMiningPregelConfig withSeedProperty(@Nullable String value) {
+  public final ImmutableWritePathsMiningPregelConfig withSeedProperty(@Nullable String value) {
     if (Objects.equals(this.seedProperty, value)) return this;
-    return validate(new ImmutablePathsMiningPregelConfig(
+    return validate(new ImmutableWritePathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         this.sudo,
@@ -1609,14 +1609,14 @@ public final class ImmutablePathsMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object by setting a value for the {@link PathsMiningPregel.PathsMiningPregelConfig#isEncodedOutput() isEncodedOutput} attribute.
+   * Copy the current immutable object by setting a value for the {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#isEncodedOutput() isEncodedOutput} attribute.
    * A value equality check is used to prevent copying of the same value by returning {@code this}.
    * @param value A new value for isEncodedOutput
    * @return A modified copy of the {@code this} object
    */
-  public final ImmutablePathsMiningPregelConfig withIsEncodedOutput(boolean value) {
+  public final ImmutableWritePathsMiningPregelConfig withIsEncodedOutput(boolean value) {
     if (this.isEncodedOutput == value) return this;
-    return validate(new ImmutablePathsMiningPregelConfig(
+    return validate(new ImmutableWritePathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         this.sudo,
@@ -1639,14 +1639,14 @@ public final class ImmutablePathsMiningPregelConfig
   }
 
   /**
-   * Copy the current immutable object by setting a value for the {@link PathsMiningPregel.PathsMiningPregelConfig#identifier() identifier} attribute.
+   * Copy the current immutable object by setting a value for the {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#identifier() identifier} attribute.
    * A value equality check is used to prevent copying of the same value by returning {@code this}.
    * @param value A new value for identifier
    * @return A modified copy of the {@code this} object
    */
-  public final ImmutablePathsMiningPregelConfig withIdentifier(long value) {
+  public final ImmutableWritePathsMiningPregelConfig withIdentifier(long value) {
     if (this.identifier == value) return this;
-    return validate(new ImmutablePathsMiningPregelConfig(
+    return validate(new ImmutableWritePathsMiningPregelConfig(
         this.configKeys,
         this.logProgress,
         this.sudo,
@@ -1669,17 +1669,17 @@ public final class ImmutablePathsMiningPregelConfig
   }
 
   /**
-   * This instance is equal to all instances of {@code ImmutablePathsMiningPregelConfig} that have equal attribute values.
+   * This instance is equal to all instances of {@code ImmutableWritePathsMiningPregelConfig} that have equal attribute values.
    * @return {@code true} if {@code this} is equal to {@code another} instance
    */
   @Override
   public boolean equals(Object another) {
     if (this == another) return true;
-    return another instanceof ImmutablePathsMiningPregelConfig
-        && equalTo((ImmutablePathsMiningPregelConfig) another);
+    return another instanceof ImmutableWritePathsMiningPregelConfig
+        && equalTo((ImmutableWritePathsMiningPregelConfig) another);
   }
 
-  private boolean equalTo(ImmutablePathsMiningPregelConfig another) {
+  private boolean equalTo(ImmutableWritePathsMiningPregelConfig another) {
     return logProgress == another.logProgress
         && sudo == another.sudo
         && Objects.equals(usernameOverride, another.usernameOverride)
@@ -1734,12 +1734,12 @@ public final class ImmutablePathsMiningPregelConfig
 
 
   /**
-   * Prints the immutable value {@code PathsMiningPregelConfig} with attribute values.
+   * Prints the immutable value {@code WritePathsMiningPregelConfig} with attribute values.
    * @return A string representation of the value
    */
   @Override
   public String toString() {
-    StringBuilder builder = new StringBuilder("PathsMiningPregelConfig{");
+    StringBuilder builder = new StringBuilder("WritePathsMiningPregelConfig{");
     builder.append("logProgress=").append(logProgress);
     builder.append(", ");
     builder.append("sudo=").append(sudo);
@@ -1791,7 +1791,7 @@ public final class ImmutablePathsMiningPregelConfig
   }
 
   /**
-   * Construct a new immutable {@code PathsMiningPregelConfig} instance.
+   * Construct a new immutable {@code WritePathsMiningPregelConfig} instance.
    * @param concurrency The value for the {@code concurrency} attribute
    * @param minBatchSize The value for the {@code minBatchSize} attribute
    * @param nodeLabels The value for the {@code nodeLabels} attribute
@@ -1806,14 +1806,14 @@ public final class ImmutablePathsMiningPregelConfig
    * @param seedProperty The value for the {@code seedProperty} attribute
    * @param isEncodedOutput The value for the {@code isEncodedOutput} attribute
    * @param identifier The value for the {@code identifier} attribute
-   * @return An immutable PathsMiningPregelConfig instance
+   * @return An immutable WritePathsMiningPregelConfig instance
    */
-  public static PathsMiningPregel.PathsMiningPregelConfig of(int concurrency, int minBatchSize, List<String> nodeLabels, List<String> relationshipTypes, Optional<String> relationshipWeightProperty, int maxIterations, Partitioning partitioning, Optional<WriteConfig.ArrowConnectionInfo> arrowConnectionInfo, int writeConcurrency, String mutateProperty, String writeProperty, @Nullable String seedProperty, boolean isEncodedOutput, long identifier) {
+  public static WritePathsMiningPregel.WritePathsMiningPregelConfig of(int concurrency, int minBatchSize, List<String> nodeLabels, List<String> relationshipTypes, Optional<String> relationshipWeightProperty, int maxIterations, Partitioning partitioning, Optional<WriteConfig.ArrowConnectionInfo> arrowConnectionInfo, int writeConcurrency, String mutateProperty, String writeProperty, @Nullable String seedProperty, boolean isEncodedOutput, long identifier) {
     return of(concurrency, minBatchSize, (Iterable<String>) nodeLabels, (Iterable<String>) relationshipTypes, relationshipWeightProperty, maxIterations, partitioning, arrowConnectionInfo, writeConcurrency, mutateProperty, writeProperty, seedProperty, isEncodedOutput, identifier);
   }
 
   /**
-   * Construct a new immutable {@code PathsMiningPregelConfig} instance.
+   * Construct a new immutable {@code WritePathsMiningPregelConfig} instance.
    * @param concurrency The value for the {@code concurrency} attribute
    * @param minBatchSize The value for the {@code minBatchSize} attribute
    * @param nodeLabels The value for the {@code nodeLabels} attribute
@@ -1828,14 +1828,14 @@ public final class ImmutablePathsMiningPregelConfig
    * @param seedProperty The value for the {@code seedProperty} attribute
    * @param isEncodedOutput The value for the {@code isEncodedOutput} attribute
    * @param identifier The value for the {@code identifier} attribute
-   * @return An immutable PathsMiningPregelConfig instance
+   * @return An immutable WritePathsMiningPregelConfig instance
    */
-  public static PathsMiningPregel.PathsMiningPregelConfig of(int concurrency, int minBatchSize, Iterable<String> nodeLabels, Iterable<String> relationshipTypes, Optional<String> relationshipWeightProperty, int maxIterations, Partitioning partitioning, Optional<? extends WriteConfig.ArrowConnectionInfo> arrowConnectionInfo, int writeConcurrency, String mutateProperty, String writeProperty, @Nullable String seedProperty, boolean isEncodedOutput, long identifier) {
-    return validate(new ImmutablePathsMiningPregelConfig(concurrency, minBatchSize, nodeLabels, relationshipTypes, relationshipWeightProperty, maxIterations, partitioning, arrowConnectionInfo, writeConcurrency, mutateProperty, writeProperty, seedProperty, isEncodedOutput, identifier));
+  public static WritePathsMiningPregel.WritePathsMiningPregelConfig of(int concurrency, int minBatchSize, Iterable<String> nodeLabels, Iterable<String> relationshipTypes, Optional<String> relationshipWeightProperty, int maxIterations, Partitioning partitioning, Optional<? extends WriteConfig.ArrowConnectionInfo> arrowConnectionInfo, int writeConcurrency, String mutateProperty, String writeProperty, @Nullable String seedProperty, boolean isEncodedOutput, long identifier) {
+    return validate(new ImmutableWritePathsMiningPregelConfig(concurrency, minBatchSize, nodeLabels, relationshipTypes, relationshipWeightProperty, maxIterations, partitioning, arrowConnectionInfo, writeConcurrency, mutateProperty, writeProperty, seedProperty, isEncodedOutput, identifier));
   }
 
   /**
-   * Construct a new immutable {@code PathsMiningPregelConfig} instance.
+   * Construct a new immutable {@code WritePathsMiningPregelConfig} instance.
    * @param concurrency The value for the {@code concurrency} attribute
    * @param minBatchSize The value for the {@code minBatchSize} attribute
    * @param nodeLabels The value for the {@code nodeLabels} attribute
@@ -1850,13 +1850,13 @@ public final class ImmutablePathsMiningPregelConfig
    * @param seedProperty The value for the {@code seedProperty} attribute
    * @param isEncodedOutput The value for the {@code isEncodedOutput} attribute
    * @param identifier The value for the {@code identifier} attribute
-   * @return An immutable PathsMiningPregelConfig instance
+   * @return An immutable WritePathsMiningPregelConfig instance
    */
-  public static PathsMiningPregel.PathsMiningPregelConfig of(int concurrency, int minBatchSize, Iterable<String> nodeLabels, Iterable<String> relationshipTypes, String relationshipWeightProperty, int maxIterations, Partitioning partitioning, WriteConfig.ArrowConnectionInfo arrowConnectionInfo, int writeConcurrency, String mutateProperty, String writeProperty, @Nullable String seedProperty, boolean isEncodedOutput, long identifier) {
-    return validate(new ImmutablePathsMiningPregelConfig(concurrency, minBatchSize, nodeLabels, relationshipTypes, relationshipWeightProperty, maxIterations, partitioning, arrowConnectionInfo, writeConcurrency, mutateProperty, writeProperty, seedProperty, isEncodedOutput, identifier));
+  public static WritePathsMiningPregel.WritePathsMiningPregelConfig of(int concurrency, int minBatchSize, Iterable<String> nodeLabels, Iterable<String> relationshipTypes, String relationshipWeightProperty, int maxIterations, Partitioning partitioning, WriteConfig.ArrowConnectionInfo arrowConnectionInfo, int writeConcurrency, String mutateProperty, String writeProperty, @Nullable String seedProperty, boolean isEncodedOutput, long identifier) {
+    return validate(new ImmutableWritePathsMiningPregelConfig(concurrency, minBatchSize, nodeLabels, relationshipTypes, relationshipWeightProperty, maxIterations, partitioning, arrowConnectionInfo, writeConcurrency, mutateProperty, writeProperty, seedProperty, isEncodedOutput, identifier));
   }
 
-  private static ImmutablePathsMiningPregelConfig validate(ImmutablePathsMiningPregelConfig instance) {
+  private static ImmutableWritePathsMiningPregelConfig validate(ImmutableWritePathsMiningPregelConfig instance) {
     instance.validateWriteConcurrency();
     instance.validateRelationshipWeightProperty();
     instance.validateConcurrency();
@@ -1864,60 +1864,60 @@ public final class ImmutablePathsMiningPregelConfig
   }
 
   /**
-   * Creates an immutable copy of a {@link PathsMiningPregel.PathsMiningPregelConfig} value.
+   * Creates an immutable copy of a {@link WritePathsMiningPregel.WritePathsMiningPregelConfig} value.
    * Uses accessors to get values to initialize the new immutable instance.
    * If an instance is already immutable, it is returned as is.
    * @param instance The instance to copy
-   * @return A copied immutable PathsMiningPregelConfig instance
+   * @return A copied immutable WritePathsMiningPregelConfig instance
    */
-  public static PathsMiningPregel.PathsMiningPregelConfig copyOf(PathsMiningPregel.PathsMiningPregelConfig instance) {
-    if (instance instanceof ImmutablePathsMiningPregelConfig) {
-      return (ImmutablePathsMiningPregelConfig) instance;
+  public static WritePathsMiningPregel.WritePathsMiningPregelConfig copyOf(WritePathsMiningPregel.WritePathsMiningPregelConfig instance) {
+    if (instance instanceof ImmutableWritePathsMiningPregelConfig) {
+      return (ImmutableWritePathsMiningPregelConfig) instance;
     }
-    return ImmutablePathsMiningPregelConfig.builder()
+    return ImmutableWritePathsMiningPregelConfig.builder()
         .from(instance)
         .build();
   }
 
   /**
-   * Creates a builder for {@link PathsMiningPregel.PathsMiningPregelConfig PathsMiningPregelConfig}.
+   * Creates a builder for {@link WritePathsMiningPregel.WritePathsMiningPregelConfig WritePathsMiningPregelConfig}.
    * <pre>
-   * ImmutablePathsMiningPregelConfig.builder()
-   *    .configKeys(Collection&amp;lt;String&amp;gt;) // optional {@link PathsMiningPregel.PathsMiningPregelConfig#configKeys() configKeys}
-   *    .logProgress(boolean) // optional {@link PathsMiningPregel.PathsMiningPregelConfig#logProgress() logProgress}
-   *    .sudo(boolean) // optional {@link PathsMiningPregel.PathsMiningPregelConfig#sudo() sudo}
-   *    .usernameOverride(String) // optional {@link PathsMiningPregel.PathsMiningPregelConfig#usernameOverride() usernameOverride}
-   *    .concurrency(int) // optional {@link PathsMiningPregel.PathsMiningPregelConfig#concurrency() concurrency}
-   *    .minBatchSize(int) // optional {@link PathsMiningPregel.PathsMiningPregelConfig#minBatchSize() minBatchSize}
-   *    .jobId(org.neo4j.gds.core.utils.progress.JobId) // optional {@link PathsMiningPregel.PathsMiningPregelConfig#jobId() jobId}
-   *    .addNodeLabel|addAllNodeLabels(String) // {@link PathsMiningPregel.PathsMiningPregelConfig#nodeLabels() nodeLabels} elements
-   *    .addRelationshipType|addAllRelationshipTypes(String) // {@link PathsMiningPregel.PathsMiningPregelConfig#relationshipTypes() relationshipTypes} elements
-   *    .relationshipWeightProperty(String) // optional {@link PathsMiningPregel.PathsMiningPregelConfig#relationshipWeightProperty() relationshipWeightProperty}
-   *    .maxIterations(int) // required {@link PathsMiningPregel.PathsMiningPregelConfig#maxIterations() maxIterations}
-   *    .partitioning(org.neo4j.gds.beta.pregel.Partitioning) // optional {@link PathsMiningPregel.PathsMiningPregelConfig#partitioning() partitioning}
-   *    .arrowConnectionInfo(org.neo4j.gds.config.WriteConfig.ArrowConnectionInfo) // optional {@link PathsMiningPregel.PathsMiningPregelConfig#arrowConnectionInfo() arrowConnectionInfo}
-   *    .writeConcurrency(int) // optional {@link PathsMiningPregel.PathsMiningPregelConfig#writeConcurrency() writeConcurrency}
-   *    .mutateProperty(String) // optional {@link PathsMiningPregel.PathsMiningPregelConfig#mutateProperty() mutateProperty}
-   *    .writeProperty(String) // optional {@link PathsMiningPregel.PathsMiningPregelConfig#writeProperty() writeProperty}
-   *    .seedProperty(String | null) // nullable {@link PathsMiningPregel.PathsMiningPregelConfig#seedProperty() seedProperty}
-   *    .isEncodedOutput(boolean) // optional {@link PathsMiningPregel.PathsMiningPregelConfig#isEncodedOutput() isEncodedOutput}
-   *    .identifier(long) // optional {@link PathsMiningPregel.PathsMiningPregelConfig#identifier() identifier}
+   * ImmutableWritePathsMiningPregelConfig.builder()
+   *    .configKeys(Collection&amp;lt;String&amp;gt;) // optional {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#configKeys() configKeys}
+   *    .logProgress(boolean) // optional {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#logProgress() logProgress}
+   *    .sudo(boolean) // optional {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#sudo() sudo}
+   *    .usernameOverride(String) // optional {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#usernameOverride() usernameOverride}
+   *    .concurrency(int) // optional {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#concurrency() concurrency}
+   *    .minBatchSize(int) // optional {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#minBatchSize() minBatchSize}
+   *    .jobId(org.neo4j.gds.core.utils.progress.JobId) // optional {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#jobId() jobId}
+   *    .addNodeLabel|addAllNodeLabels(String) // {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#nodeLabels() nodeLabels} elements
+   *    .addRelationshipType|addAllRelationshipTypes(String) // {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#relationshipTypes() relationshipTypes} elements
+   *    .relationshipWeightProperty(String) // optional {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#relationshipWeightProperty() relationshipWeightProperty}
+   *    .maxIterations(int) // required {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#maxIterations() maxIterations}
+   *    .partitioning(org.neo4j.gds.beta.pregel.Partitioning) // optional {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#partitioning() partitioning}
+   *    .arrowConnectionInfo(org.neo4j.gds.config.WriteConfig.ArrowConnectionInfo) // optional {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#arrowConnectionInfo() arrowConnectionInfo}
+   *    .writeConcurrency(int) // optional {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#writeConcurrency() writeConcurrency}
+   *    .mutateProperty(String) // optional {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#mutateProperty() mutateProperty}
+   *    .writeProperty(String) // optional {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#writeProperty() writeProperty}
+   *    .seedProperty(String | null) // nullable {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#seedProperty() seedProperty}
+   *    .isEncodedOutput(boolean) // optional {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#isEncodedOutput() isEncodedOutput}
+   *    .identifier(long) // optional {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#identifier() identifier}
    *    .build();
    * </pre>
-   * @return A new PathsMiningPregelConfig builder
+   * @return A new WritePathsMiningPregelConfig builder
    */
-  public static ImmutablePathsMiningPregelConfig.Builder builder() {
-    return new ImmutablePathsMiningPregelConfig.Builder();
+  public static ImmutableWritePathsMiningPregelConfig.Builder builder() {
+    return new ImmutableWritePathsMiningPregelConfig.Builder();
   }
 
   /**
-   * Builds instances of type {@link PathsMiningPregel.PathsMiningPregelConfig PathsMiningPregelConfig}.
+   * Builds instances of type {@link WritePathsMiningPregel.WritePathsMiningPregelConfig WritePathsMiningPregelConfig}.
    * Initialize attributes and then invoke the {@link #build()} method to create an
    * immutable instance.
    * <p><em>{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
    * but instead used immediately to create instances.</em>
    */
-  @Generated(from = "PathsMiningPregel.PathsMiningPregelConfig", generator = "Immutables")
+  @Generated(from = "WritePathsMiningPregel.WritePathsMiningPregelConfig", generator = "Immutables")
   public static final class Builder {
     private static final long INIT_BIT_MAX_ITERATIONS = 0x1L;
     private static final long OPT_BIT_LOG_PROGRESS = 0x1L;
@@ -1957,6 +1957,17 @@ public final class ImmutablePathsMiningPregelConfig
     }
 
     /**
+     * Fill a builder with attribute values from the provided {@code com.neo4j.pregel.WritePathsMiningPregel.WritePathsMiningPregelConfig} instance.
+     * @param instance The instance from which to copy values
+     * @return {@code this} builder for use in a chained invocation
+     */
+    public final Builder from(WritePathsMiningPregel.WritePathsMiningPregelConfig instance) {
+      Objects.requireNonNull(instance, "instance");
+      from((Object) instance);
+      return this;
+    }
+
+    /**
      * Fill a builder with attribute values from the provided {@code org.neo4j.gds.config.WriteConfig} instance.
      * @param instance The instance from which to copy values
      * @return {@code this} builder for use in a chained invocation
@@ -1973,17 +1984,6 @@ public final class ImmutablePathsMiningPregelConfig
      * @return {@code this} builder for use in a chained invocation
      */
     public final Builder from(WritePropertyConfig instance) {
-      Objects.requireNonNull(instance, "instance");
-      from((Object) instance);
-      return this;
-    }
-
-    /**
-     * Fill a builder with attribute values from the provided {@code com.neo4j.pregel.PathsMiningPregel.PathsMiningPregelConfig} instance.
-     * @param instance The instance from which to copy values
-     * @return {@code this} builder for use in a chained invocation
-     */
-    public final Builder from(PathsMiningPregel.PathsMiningPregelConfig instance) {
       Objects.requireNonNull(instance, "instance");
       from((Object) instance);
       return this;
@@ -2101,6 +2101,11 @@ public final class ImmutablePathsMiningPregelConfig
 
     private void from(Object object) {
       long bits = 0;
+      if (object instanceof WritePathsMiningPregel.WritePathsMiningPregelConfig) {
+        WritePathsMiningPregel.WritePathsMiningPregelConfig instance = (WritePathsMiningPregel.WritePathsMiningPregelConfig) object;
+        identifier(instance.identifier());
+        isEncodedOutput(instance.isEncodedOutput());
+      }
       if (object instanceof WriteConfig) {
         WriteConfig instance = (WriteConfig) object;
         writeConcurrency(instance.writeConcurrency());
@@ -2115,11 +2120,6 @@ public final class ImmutablePathsMiningPregelConfig
           writeProperty(instance.writeProperty());
           bits |= 0x1L;
         }
-      }
-      if (object instanceof PathsMiningPregel.PathsMiningPregelConfig) {
-        PathsMiningPregel.PathsMiningPregelConfig instance = (PathsMiningPregel.PathsMiningPregelConfig) object;
-        identifier(instance.identifier());
-        isEncodedOutput(instance.isEncodedOutput());
       }
       if (object instanceof PregelProcedureConfig) {
         PregelProcedureConfig instance = (PregelProcedureConfig) object;
@@ -2188,8 +2188,8 @@ public final class ImmutablePathsMiningPregelConfig
     }
 
     /**
-     * Initializes the value for the {@link PathsMiningPregel.PathsMiningPregelConfig#configKeys() configKeys} attribute.
-     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link PathsMiningPregel.PathsMiningPregelConfig#configKeys() configKeys}.</em>
+     * Initializes the value for the {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#configKeys() configKeys} attribute.
+     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#configKeys() configKeys}.</em>
      * @param configKeys The value for configKeys 
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2199,8 +2199,8 @@ public final class ImmutablePathsMiningPregelConfig
     }
 
     /**
-     * Initializes the value for the {@link PathsMiningPregel.PathsMiningPregelConfig#logProgress() logProgress} attribute.
-     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link PathsMiningPregel.PathsMiningPregelConfig#logProgress() logProgress}.</em>
+     * Initializes the value for the {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#logProgress() logProgress} attribute.
+     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#logProgress() logProgress}.</em>
      * @param logProgress The value for logProgress 
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2211,8 +2211,8 @@ public final class ImmutablePathsMiningPregelConfig
     }
 
     /**
-     * Initializes the value for the {@link PathsMiningPregel.PathsMiningPregelConfig#sudo() sudo} attribute.
-     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link PathsMiningPregel.PathsMiningPregelConfig#sudo() sudo}.</em>
+     * Initializes the value for the {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#sudo() sudo} attribute.
+     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#sudo() sudo}.</em>
      * @param sudo The value for sudo 
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2223,7 +2223,7 @@ public final class ImmutablePathsMiningPregelConfig
     }
 
     /**
-     * Initializes the optional value {@link PathsMiningPregel.PathsMiningPregelConfig#usernameOverride() usernameOverride} to usernameOverride.
+     * Initializes the optional value {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#usernameOverride() usernameOverride} to usernameOverride.
      * @param usernameOverride The value for usernameOverride, {@code null} is accepted as {@code java.util.Optional.empty()}
      * @return {@code this} builder for chained invocation
      */
@@ -2233,7 +2233,7 @@ public final class ImmutablePathsMiningPregelConfig
     }
 
     /**
-     * Initializes the optional value {@link PathsMiningPregel.PathsMiningPregelConfig#usernameOverride() usernameOverride} to usernameOverride.
+     * Initializes the optional value {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#usernameOverride() usernameOverride} to usernameOverride.
      * @param usernameOverride The value for usernameOverride
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2243,8 +2243,8 @@ public final class ImmutablePathsMiningPregelConfig
     }
 
     /**
-     * Initializes the value for the {@link PathsMiningPregel.PathsMiningPregelConfig#concurrency() concurrency} attribute.
-     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link PathsMiningPregel.PathsMiningPregelConfig#concurrency() concurrency}.</em>
+     * Initializes the value for the {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#concurrency() concurrency} attribute.
+     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#concurrency() concurrency}.</em>
      * @param concurrency The value for concurrency 
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2255,8 +2255,8 @@ public final class ImmutablePathsMiningPregelConfig
     }
 
     /**
-     * Initializes the value for the {@link PathsMiningPregel.PathsMiningPregelConfig#minBatchSize() minBatchSize} attribute.
-     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link PathsMiningPregel.PathsMiningPregelConfig#minBatchSize() minBatchSize}.</em>
+     * Initializes the value for the {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#minBatchSize() minBatchSize} attribute.
+     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#minBatchSize() minBatchSize}.</em>
      * @param minBatchSize The value for minBatchSize 
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2267,8 +2267,8 @@ public final class ImmutablePathsMiningPregelConfig
     }
 
     /**
-     * Initializes the value for the {@link PathsMiningPregel.PathsMiningPregelConfig#jobId() jobId} attribute.
-     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link PathsMiningPregel.PathsMiningPregelConfig#jobId() jobId}.</em>
+     * Initializes the value for the {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#jobId() jobId} attribute.
+     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#jobId() jobId}.</em>
      * @param jobId The value for jobId 
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2278,7 +2278,7 @@ public final class ImmutablePathsMiningPregelConfig
     }
 
     /**
-     * Adds one element to {@link PathsMiningPregel.PathsMiningPregelConfig#nodeLabels() nodeLabels} list.
+     * Adds one element to {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#nodeLabels() nodeLabels} list.
      * @param element A nodeLabels element
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2292,7 +2292,7 @@ public final class ImmutablePathsMiningPregelConfig
     }
 
     /**
-     * Adds elements to {@link PathsMiningPregel.PathsMiningPregelConfig#nodeLabels() nodeLabels} list.
+     * Adds elements to {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#nodeLabels() nodeLabels} list.
      * @param elements An array of nodeLabels elements
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2309,7 +2309,7 @@ public final class ImmutablePathsMiningPregelConfig
 
 
     /**
-     * Sets or replaces all elements for {@link PathsMiningPregel.PathsMiningPregelConfig#nodeLabels() nodeLabels} list.
+     * Sets or replaces all elements for {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#nodeLabels() nodeLabels} list.
      * @param elements An iterable of nodeLabels elements
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2319,7 +2319,7 @@ public final class ImmutablePathsMiningPregelConfig
     }
 
     /**
-     * Adds elements to {@link PathsMiningPregel.PathsMiningPregelConfig#nodeLabels() nodeLabels} list.
+     * Adds elements to {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#nodeLabels() nodeLabels} list.
      * @param elements An iterable of nodeLabels elements
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2336,7 +2336,7 @@ public final class ImmutablePathsMiningPregelConfig
     }
 
     /**
-     * Adds one element to {@link PathsMiningPregel.PathsMiningPregelConfig#relationshipTypes() relationshipTypes} list.
+     * Adds one element to {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#relationshipTypes() relationshipTypes} list.
      * @param element A relationshipTypes element
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2350,7 +2350,7 @@ public final class ImmutablePathsMiningPregelConfig
     }
 
     /**
-     * Adds elements to {@link PathsMiningPregel.PathsMiningPregelConfig#relationshipTypes() relationshipTypes} list.
+     * Adds elements to {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#relationshipTypes() relationshipTypes} list.
      * @param elements An array of relationshipTypes elements
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2367,7 +2367,7 @@ public final class ImmutablePathsMiningPregelConfig
 
 
     /**
-     * Sets or replaces all elements for {@link PathsMiningPregel.PathsMiningPregelConfig#relationshipTypes() relationshipTypes} list.
+     * Sets or replaces all elements for {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#relationshipTypes() relationshipTypes} list.
      * @param elements An iterable of relationshipTypes elements
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2377,7 +2377,7 @@ public final class ImmutablePathsMiningPregelConfig
     }
 
     /**
-     * Adds elements to {@link PathsMiningPregel.PathsMiningPregelConfig#relationshipTypes() relationshipTypes} list.
+     * Adds elements to {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#relationshipTypes() relationshipTypes} list.
      * @param elements An iterable of relationshipTypes elements
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2394,7 +2394,7 @@ public final class ImmutablePathsMiningPregelConfig
     }
 
     /**
-     * Initializes the optional value {@link PathsMiningPregel.PathsMiningPregelConfig#relationshipWeightProperty() relationshipWeightProperty} to relationshipWeightProperty.
+     * Initializes the optional value {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#relationshipWeightProperty() relationshipWeightProperty} to relationshipWeightProperty.
      * @param relationshipWeightProperty The value for relationshipWeightProperty, {@code null} is accepted as {@code java.util.Optional.empty()}
      * @return {@code this} builder for chained invocation
      */
@@ -2404,7 +2404,7 @@ public final class ImmutablePathsMiningPregelConfig
     }
 
     /**
-     * Initializes the optional value {@link PathsMiningPregel.PathsMiningPregelConfig#relationshipWeightProperty() relationshipWeightProperty} to relationshipWeightProperty.
+     * Initializes the optional value {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#relationshipWeightProperty() relationshipWeightProperty} to relationshipWeightProperty.
      * @param relationshipWeightProperty The value for relationshipWeightProperty
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2414,7 +2414,7 @@ public final class ImmutablePathsMiningPregelConfig
     }
 
     /**
-     * Initializes the value for the {@link PathsMiningPregel.PathsMiningPregelConfig#maxIterations() maxIterations} attribute.
+     * Initializes the value for the {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#maxIterations() maxIterations} attribute.
      * @param maxIterations The value for maxIterations 
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2425,8 +2425,8 @@ public final class ImmutablePathsMiningPregelConfig
     }
 
     /**
-     * Initializes the value for the {@link PathsMiningPregel.PathsMiningPregelConfig#partitioning() partitioning} attribute.
-     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link PathsMiningPregel.PathsMiningPregelConfig#partitioning() partitioning}.</em>
+     * Initializes the value for the {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#partitioning() partitioning} attribute.
+     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#partitioning() partitioning}.</em>
      * @param partitioning The value for partitioning 
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2436,7 +2436,7 @@ public final class ImmutablePathsMiningPregelConfig
     }
 
     /**
-     * Initializes the optional value {@link PathsMiningPregel.PathsMiningPregelConfig#arrowConnectionInfo() arrowConnectionInfo} to arrowConnectionInfo.
+     * Initializes the optional value {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#arrowConnectionInfo() arrowConnectionInfo} to arrowConnectionInfo.
      * @param arrowConnectionInfo The value for arrowConnectionInfo, {@code null} is accepted as {@code java.util.Optional.empty()}
      * @return {@code this} builder for chained invocation
      */
@@ -2446,7 +2446,7 @@ public final class ImmutablePathsMiningPregelConfig
     }
 
     /**
-     * Initializes the optional value {@link PathsMiningPregel.PathsMiningPregelConfig#arrowConnectionInfo() arrowConnectionInfo} to arrowConnectionInfo.
+     * Initializes the optional value {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#arrowConnectionInfo() arrowConnectionInfo} to arrowConnectionInfo.
      * @param arrowConnectionInfo The value for arrowConnectionInfo
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2456,8 +2456,8 @@ public final class ImmutablePathsMiningPregelConfig
     }
 
     /**
-     * Initializes the value for the {@link PathsMiningPregel.PathsMiningPregelConfig#writeConcurrency() writeConcurrency} attribute.
-     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link PathsMiningPregel.PathsMiningPregelConfig#writeConcurrency() writeConcurrency}.</em>
+     * Initializes the value for the {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#writeConcurrency() writeConcurrency} attribute.
+     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#writeConcurrency() writeConcurrency}.</em>
      * @param writeConcurrency The value for writeConcurrency 
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2468,8 +2468,8 @@ public final class ImmutablePathsMiningPregelConfig
     }
 
     /**
-     * Initializes the value for the {@link PathsMiningPregel.PathsMiningPregelConfig#mutateProperty() mutateProperty} attribute.
-     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link PathsMiningPregel.PathsMiningPregelConfig#mutateProperty() mutateProperty}.</em>
+     * Initializes the value for the {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#mutateProperty() mutateProperty} attribute.
+     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#mutateProperty() mutateProperty}.</em>
      * @param mutateProperty The value for mutateProperty 
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2479,8 +2479,8 @@ public final class ImmutablePathsMiningPregelConfig
     }
 
     /**
-     * Initializes the value for the {@link PathsMiningPregel.PathsMiningPregelConfig#writeProperty() writeProperty} attribute.
-     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link PathsMiningPregel.PathsMiningPregelConfig#writeProperty() writeProperty}.</em>
+     * Initializes the value for the {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#writeProperty() writeProperty} attribute.
+     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#writeProperty() writeProperty}.</em>
      * @param writeProperty The value for writeProperty 
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2490,8 +2490,8 @@ public final class ImmutablePathsMiningPregelConfig
     }
 
     /**
-     * Initializes the value for the {@link PathsMiningPregel.PathsMiningPregelConfig#seedProperty() seedProperty} attribute.
-     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link PathsMiningPregel.PathsMiningPregelConfig#seedProperty() seedProperty}.</em>
+     * Initializes the value for the {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#seedProperty() seedProperty} attribute.
+     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#seedProperty() seedProperty}.</em>
      * @param seedProperty The value for seedProperty (can be {@code null})
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2502,8 +2502,8 @@ public final class ImmutablePathsMiningPregelConfig
     }
 
     /**
-     * Initializes the value for the {@link PathsMiningPregel.PathsMiningPregelConfig#isEncodedOutput() isEncodedOutput} attribute.
-     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link PathsMiningPregel.PathsMiningPregelConfig#isEncodedOutput() isEncodedOutput}.</em>
+     * Initializes the value for the {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#isEncodedOutput() isEncodedOutput} attribute.
+     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#isEncodedOutput() isEncodedOutput}.</em>
      * @param isEncodedOutput The value for isEncodedOutput 
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2514,8 +2514,8 @@ public final class ImmutablePathsMiningPregelConfig
     }
 
     /**
-     * Initializes the value for the {@link PathsMiningPregel.PathsMiningPregelConfig#identifier() identifier} attribute.
-     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link PathsMiningPregel.PathsMiningPregelConfig#identifier() identifier}.</em>
+     * Initializes the value for the {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#identifier() identifier} attribute.
+     * <p><em>If not set, this attribute will have a default value as returned by the initializer of {@link WritePathsMiningPregel.WritePathsMiningPregelConfig#identifier() identifier}.</em>
      * @param identifier The value for identifier 
      * @return {@code this} builder for use in a chained invocation
      */
@@ -2559,15 +2559,15 @@ public final class ImmutablePathsMiningPregelConfig
     }
 
     /**
-     * Builds a new {@link PathsMiningPregel.PathsMiningPregelConfig PathsMiningPregelConfig}.
-     * @return An immutable instance of PathsMiningPregelConfig
+     * Builds a new {@link WritePathsMiningPregel.WritePathsMiningPregelConfig WritePathsMiningPregelConfig}.
+     * @return An immutable instance of WritePathsMiningPregelConfig
      * @throws java.lang.IllegalStateException if any required attributes are missing
      */
-    public PathsMiningPregel.PathsMiningPregelConfig build() {
+    public WritePathsMiningPregel.WritePathsMiningPregelConfig build() {
       if (initBits != 0) {
         throw new IllegalStateException(formatRequiredAttributesMessage());
       }
-      return ImmutablePathsMiningPregelConfig.validate(new ImmutablePathsMiningPregelConfig(this));
+      return ImmutableWritePathsMiningPregelConfig.validate(new ImmutableWritePathsMiningPregelConfig(this));
     }
 
     private boolean logProgressIsSet() {
@@ -2613,7 +2613,7 @@ public final class ImmutablePathsMiningPregelConfig
     private String formatRequiredAttributesMessage() {
       List<String> attributes = new ArrayList<>();
       if ((initBits & INIT_BIT_MAX_ITERATIONS) != 0) attributes.add("maxIterations");
-      return "Cannot build PathsMiningPregelConfig, some of required attributes are not set " + attributes;
+      return "Cannot build WritePathsMiningPregelConfig, some of required attributes are not set " + attributes;
     }
   }
 

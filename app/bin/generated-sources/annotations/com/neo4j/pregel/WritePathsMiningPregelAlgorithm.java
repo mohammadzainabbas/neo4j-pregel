@@ -11,10 +11,10 @@ import org.neo4j.gds.core.utils.progress.tasks.ProgressTracker;
 
 @Generated("org.neo4j.gds.pregel.PregelProcessor")
 public final class WritePathsMiningPregelAlgorithm extends Algorithm<PregelResult> {
-    private final Pregel<WritePathsMiningPregel.PathsMiningPregelConfig> pregelJob;
+    private final Pregel<WritePathsMiningPregel.WritePathsMiningPregelConfig> pregelJob;
 
     WritePathsMiningPregelAlgorithm(Graph graph,
-            WritePathsMiningPregel.PathsMiningPregelConfig configuration,
+            WritePathsMiningPregel.WritePathsMiningPregelConfig configuration,
             ProgressTracker progressTracker) {
         super(progressTracker);
         var computation = new WritePathsMiningPregel();

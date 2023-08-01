@@ -24,7 +24,7 @@ import org.neo4j.gds.core.CypherMapWrapper;
 import org.neo4j.gds.core.utils.progress.JobId;
 
 @Generated("org.neo4j.gds.proc.ConfigurationProcessor")
-public final class PathsMiningPregelConfigImpl implements PathsMiningPregel.PathsMiningPregelConfig {
+public final class WritePathsMiningPregelConfigImpl implements WritePathsMiningPregel.WritePathsMiningPregelConfig {
     private boolean isAsynchronous;
 
     private boolean isEncodedOutput;
@@ -61,55 +61,55 @@ public final class PathsMiningPregelConfigImpl implements PathsMiningPregel.Path
 
     private @Nullable String seedProperty;
 
-    public PathsMiningPregelConfigImpl(@NotNull CypherMapAccess config) {
+    public WritePathsMiningPregelConfigImpl(@NotNull CypherMapAccess config) {
         ArrayList<IllegalArgumentException> errors = new ArrayList<>();
         try {
-            this.isAsynchronous = config.getBool("isAsynchronous", PathsMiningPregel.PathsMiningPregelConfig.super.isAsynchronous());
+            this.isAsynchronous = config.getBool("isAsynchronous", WritePathsMiningPregel.WritePathsMiningPregelConfig.super.isAsynchronous());
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.isEncodedOutput = config.getBool("isEncodedOutput", PathsMiningPregel.PathsMiningPregelConfig.super.isEncodedOutput());
+            this.isEncodedOutput = config.getBool("isEncodedOutput", WritePathsMiningPregel.WritePathsMiningPregelConfig.super.isEncodedOutput());
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.identifier = config.getLong("identifier", PathsMiningPregel.PathsMiningPregelConfig.super.identifier());
+            this.identifier = config.getLong("identifier", WritePathsMiningPregel.WritePathsMiningPregelConfig.super.identifier());
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.mutateProperty = CypherMapAccess.failOnNull("mutateProperty", config.getString("mutateProperty", PathsMiningPregel.PathsMiningPregelConfig.super.mutateProperty()));
+            this.mutateProperty = CypherMapAccess.failOnNull("mutateProperty", config.getString("mutateProperty", WritePathsMiningPregel.WritePathsMiningPregelConfig.super.mutateProperty()));
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.writeProperty = CypherMapAccess.failOnNull("writeProperty", config.getString("writeProperty", PathsMiningPregel.PathsMiningPregelConfig.super.writeProperty()));
+            this.writeProperty = CypherMapAccess.failOnNull("writeProperty", config.getString("writeProperty", WritePathsMiningPregel.WritePathsMiningPregelConfig.super.writeProperty()));
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.partitioning = CypherMapAccess.failOnNull("partitioning", Partitioning.parse(config.getChecked("partitioning", PathsMiningPregel.PathsMiningPregelConfig.super.partitioning(), Object.class)));
+            this.partitioning = CypherMapAccess.failOnNull("partitioning", Partitioning.parse(config.getChecked("partitioning", WritePathsMiningPregel.WritePathsMiningPregelConfig.super.partitioning(), Object.class)));
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.nodeLabels = CypherMapAccess.failOnNull("nodeLabels", config.getChecked("nodeLabels", PathsMiningPregel.PathsMiningPregelConfig.super.nodeLabels(), List.class));
+            this.nodeLabels = CypherMapAccess.failOnNull("nodeLabels", config.getChecked("nodeLabels", WritePathsMiningPregel.WritePathsMiningPregelConfig.super.nodeLabels(), List.class));
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.relationshipTypes = CypherMapAccess.failOnNull("relationshipTypes", config.getChecked("relationshipTypes", PathsMiningPregel.PathsMiningPregelConfig.super.relationshipTypes(), List.class));
+            this.relationshipTypes = CypherMapAccess.failOnNull("relationshipTypes", config.getChecked("relationshipTypes", WritePathsMiningPregel.WritePathsMiningPregelConfig.super.relationshipTypes(), List.class));
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.logProgress = config.getBool("logProgress", PathsMiningPregel.PathsMiningPregelConfig.super.logProgress());
+            this.logProgress = config.getBool("logProgress", WritePathsMiningPregel.WritePathsMiningPregelConfig.super.logProgress());
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.sudo = config.getBool("sudo", PathsMiningPregel.PathsMiningPregelConfig.super.sudo());
+            this.sudo = config.getBool("sudo", WritePathsMiningPregel.WritePathsMiningPregelConfig.super.sudo());
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
@@ -119,12 +119,12 @@ public final class PathsMiningPregelConfigImpl implements PathsMiningPregel.Path
             errors.add(e);
         }
         try {
-            this.concurrency = config.getInt("concurrency", PathsMiningPregel.PathsMiningPregelConfig.super.concurrency());
+            this.concurrency = config.getInt("concurrency", WritePathsMiningPregel.WritePathsMiningPregelConfig.super.concurrency());
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.jobId = CypherMapAccess.failOnNull("jobId", JobId.parse(config.getChecked("jobId", PathsMiningPregel.PathsMiningPregelConfig.super.jobId(), Object.class)));
+            this.jobId = CypherMapAccess.failOnNull("jobId", JobId.parse(config.getChecked("jobId", WritePathsMiningPregel.WritePathsMiningPregelConfig.super.jobId(), Object.class)));
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
@@ -145,12 +145,12 @@ public final class PathsMiningPregelConfigImpl implements PathsMiningPregel.Path
             errors.add(e);
         }
         try {
-            this.writeConcurrency = config.getInt("writeConcurrency", PathsMiningPregel.PathsMiningPregelConfig.super.writeConcurrency());
+            this.writeConcurrency = config.getInt("writeConcurrency", WritePathsMiningPregel.WritePathsMiningPregelConfig.super.writeConcurrency());
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.seedProperty = SeedConfig.validatePropertyName(config.getString("seedProperty", PathsMiningPregel.PathsMiningPregelConfig.super.seedProperty()));
+            this.seedProperty = SeedConfig.validatePropertyName(config.getString("seedProperty", WritePathsMiningPregel.WritePathsMiningPregelConfig.super.seedProperty()));
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
@@ -349,8 +349,8 @@ public final class PathsMiningPregelConfigImpl implements PathsMiningPregel.Path
         return this.seedProperty;
     }
 
-    public static PathsMiningPregelConfigImpl.Builder builder() {
-        return new PathsMiningPregelConfigImpl.Builder();
+    public static WritePathsMiningPregelConfigImpl.Builder builder() {
+        return new WritePathsMiningPregelConfigImpl.Builder();
     }
 
     public static final class Builder {
@@ -360,9 +360,9 @@ public final class PathsMiningPregelConfigImpl implements PathsMiningPregel.Path
             this.config = new HashMap<>();
         }
 
-        public static PathsMiningPregelConfigImpl.Builder from(
-                PathsMiningPregel.PathsMiningPregelConfig baseConfig) {
-            var builder = new PathsMiningPregelConfigImpl.Builder();
+        public static WritePathsMiningPregelConfigImpl.Builder from(
+                WritePathsMiningPregel.WritePathsMiningPregelConfig baseConfig) {
+            var builder = new WritePathsMiningPregelConfigImpl.Builder();
             builder.isAsynchronous(baseConfig.isAsynchronous());
             builder.isEncodedOutput(baseConfig.isEncodedOutput());
             builder.identifier(baseConfig.identifier());
@@ -384,119 +384,120 @@ public final class PathsMiningPregelConfigImpl implements PathsMiningPregel.Path
             return builder;
         }
 
-        public PathsMiningPregelConfigImpl.Builder isAsynchronous(boolean isAsynchronous) {
+        public WritePathsMiningPregelConfigImpl.Builder isAsynchronous(boolean isAsynchronous) {
             this.config.put("isAsynchronous", isAsynchronous);
             return this;
         }
 
-        public PathsMiningPregelConfigImpl.Builder isEncodedOutput(boolean isEncodedOutput) {
+        public WritePathsMiningPregelConfigImpl.Builder isEncodedOutput(boolean isEncodedOutput) {
             this.config.put("isEncodedOutput", isEncodedOutput);
             return this;
         }
 
-        public PathsMiningPregelConfigImpl.Builder identifier(long identifier) {
+        public WritePathsMiningPregelConfigImpl.Builder identifier(long identifier) {
             this.config.put("identifier", identifier);
             return this;
         }
 
-        public PathsMiningPregelConfigImpl.Builder mutateProperty(String mutateProperty) {
+        public WritePathsMiningPregelConfigImpl.Builder mutateProperty(String mutateProperty) {
             this.config.put("mutateProperty", mutateProperty);
             return this;
         }
 
-        public PathsMiningPregelConfigImpl.Builder writeProperty(String writeProperty) {
+        public WritePathsMiningPregelConfigImpl.Builder writeProperty(String writeProperty) {
             this.config.put("writeProperty", writeProperty);
             return this;
         }
 
-        public PathsMiningPregelConfigImpl.Builder partitioning(Object partitioning) {
+        public WritePathsMiningPregelConfigImpl.Builder partitioning(Object partitioning) {
             this.config.put("partitioning", partitioning);
             return this;
         }
 
-        public PathsMiningPregelConfigImpl.Builder nodeLabels(List<String> nodeLabels) {
+        public WritePathsMiningPregelConfigImpl.Builder nodeLabels(List<String> nodeLabels) {
             this.config.put("nodeLabels", nodeLabels);
             return this;
         }
 
-        public PathsMiningPregelConfigImpl.Builder relationshipTypes(
+        public WritePathsMiningPregelConfigImpl.Builder relationshipTypes(
                 List<String> relationshipTypes) {
             this.config.put("relationshipTypes", relationshipTypes);
             return this;
         }
 
-        public PathsMiningPregelConfigImpl.Builder logProgress(boolean logProgress) {
+        public WritePathsMiningPregelConfigImpl.Builder logProgress(boolean logProgress) {
             this.config.put("logProgress", logProgress);
             return this;
         }
 
-        public PathsMiningPregelConfigImpl.Builder sudo(boolean sudo) {
+        public WritePathsMiningPregelConfigImpl.Builder sudo(boolean sudo) {
             this.config.put("sudo", sudo);
             return this;
         }
 
-        public PathsMiningPregelConfigImpl.Builder usernameOverride(String usernameOverride) {
+        public WritePathsMiningPregelConfigImpl.Builder usernameOverride(String usernameOverride) {
             this.config.put("username", usernameOverride);
             return this;
         }
 
-        public PathsMiningPregelConfigImpl.Builder usernameOverride(
+        public WritePathsMiningPregelConfigImpl.Builder usernameOverride(
                 Optional<String> usernameOverride) {
             usernameOverride.ifPresent(actualusernameOverride -> this.config.put("username", actualusernameOverride));
             return this;
         }
 
-        public PathsMiningPregelConfigImpl.Builder concurrency(int concurrency) {
+        public WritePathsMiningPregelConfigImpl.Builder concurrency(int concurrency) {
             this.config.put("concurrency", concurrency);
             return this;
         }
 
-        public PathsMiningPregelConfigImpl.Builder jobId(Object jobId) {
+        public WritePathsMiningPregelConfigImpl.Builder jobId(Object jobId) {
             this.config.put("jobId", jobId);
             return this;
         }
 
-        public PathsMiningPregelConfigImpl.Builder relationshipWeightProperty(
+        public WritePathsMiningPregelConfigImpl.Builder relationshipWeightProperty(
                 String relationshipWeightProperty) {
             this.config.put("relationshipWeightProperty", relationshipWeightProperty);
             return this;
         }
 
-        public PathsMiningPregelConfigImpl.Builder relationshipWeightProperty(
+        public WritePathsMiningPregelConfigImpl.Builder relationshipWeightProperty(
                 Optional<String> relationshipWeightProperty) {
             relationshipWeightProperty.ifPresent(actualrelationshipWeightProperty -> this.config.put("relationshipWeightProperty", actualrelationshipWeightProperty));
             return this;
         }
 
-        public PathsMiningPregelConfigImpl.Builder maxIterations(int maxIterations) {
+        public WritePathsMiningPregelConfigImpl.Builder maxIterations(int maxIterations) {
             this.config.put("maxIterations", maxIterations);
             return this;
         }
 
-        public PathsMiningPregelConfigImpl.Builder arrowConnectionInfo(Object arrowConnectionInfo) {
+        public WritePathsMiningPregelConfigImpl.Builder arrowConnectionInfo(
+                Object arrowConnectionInfo) {
             this.config.put("arrowConnectionInfo", arrowConnectionInfo);
             return this;
         }
 
-        public PathsMiningPregelConfigImpl.Builder arrowConnectionInfo(
+        public WritePathsMiningPregelConfigImpl.Builder arrowConnectionInfo(
                 Optional<Object> arrowConnectionInfo) {
             arrowConnectionInfo.ifPresent(actualarrowConnectionInfo -> this.config.put("arrowConnectionInfo", actualarrowConnectionInfo));
             return this;
         }
 
-        public PathsMiningPregelConfigImpl.Builder writeConcurrency(int writeConcurrency) {
+        public WritePathsMiningPregelConfigImpl.Builder writeConcurrency(int writeConcurrency) {
             this.config.put("writeConcurrency", writeConcurrency);
             return this;
         }
 
-        public PathsMiningPregelConfigImpl.Builder seedProperty(String seedProperty) {
+        public WritePathsMiningPregelConfigImpl.Builder seedProperty(String seedProperty) {
             this.config.put("seedProperty", seedProperty);
             return this;
         }
 
-        public PathsMiningPregel.PathsMiningPregelConfig build() {
+        public WritePathsMiningPregel.WritePathsMiningPregelConfig build() {
             CypherMapWrapper config = CypherMapWrapper.create(this.config);
-            return new PathsMiningPregelConfigImpl(config);
+            return new WritePathsMiningPregelConfigImpl(config);
         }
     }
 }
