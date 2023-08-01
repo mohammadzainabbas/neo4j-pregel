@@ -190,6 +190,7 @@ public class WritePathsMiningPregel implements PregelComputation<WritePathsMinin
             int length = dis.readInt(); // Read the length of the array first
             for (int i = 0; i < length; i++) {
                 var value = dis.readLong();
+                if (value == context.config().identifier()) { count++; }
                 paths.add(dis.readLong());
             }
         } catch (IOException e) {
