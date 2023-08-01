@@ -270,7 +270,8 @@ public class WritePathsMiningPregel implements PregelComputation<WritePathsMinin
             //@TODO: do we have to remove the duplicates here as well? I don't think so !!!
             sentToAllNeighbors(context, _messages); // simply forward all messages that you received to all neighbors
             
-            var previous_messages = context.longArrayNodeValue(PATHS);
+            // var previous_messages = context.longArrayNodeValue(PATHS);
+            var previous_messages = readFromFile(context, file_name);
             var previous_paths = extractPreviousPaths(previous_messages, IDENTIFIER);
             
             var new_path = new ArrayList<Long>();
