@@ -16,6 +16,8 @@ import org.neo4j.gds.beta.pregel.context.MasterComputeContext;
 import org.neo4j.gds.config.SeedConfig;
 import org.neo4j.gds.core.CypherMapWrapper;
 
+import com.neo4j.Constants;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -423,7 +425,7 @@ public class WritePathsMiningPregel implements PregelComputation<WritePathsMinin
         @Value.Default
         @Configuration.Key("writePath")
         default String writePath() {
-            return "/Users/mohammadzainabbas/Desktop/paths";
+            return Constants.PATHS_DIR;
         }
         
         static WritePathsMiningPregelConfig of(CypherMapWrapper userInput) {
