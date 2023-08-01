@@ -48,7 +48,7 @@ public class WriteFindFrequentSignatures {
         private final ConcurrentHashMap<String, Long> signature_count_map = new ConcurrentHashMap<String, Long>();
 
         public ArrayList<Long> readFromFile(String filePath) {
-            var paths = ArrayList<Long>();
+            ArrayList<Long> paths = ArrayList<Long>();
             try (DataInputStream dis = new DataInputStream(new FileInputStream(filePath))) {
                 int length = dis.readInt(); // Read the length of the array first
                 paths = new long[length];
