@@ -208,7 +208,7 @@ public class WritePathsMiningPregel implements PregelComputation<WritePathsMinin
                 } else {
                     file.getParentFile().mkdirs();
                     file.createNewFile();
-                    writeToFile(context, file.getAbsolutePath(), new long[] {nodeOriginalId, IDENTIFIER});
+                    writeToFile(context, file_name, new long[] {nodeOriginalId, IDENTIFIER});
                 }
             } catch (IOException e) {
                 context.logDebug("Error while creating file: " + e.getMessage());
