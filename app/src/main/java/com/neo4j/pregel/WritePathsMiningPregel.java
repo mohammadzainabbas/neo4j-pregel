@@ -192,6 +192,7 @@ public class WritePathsMiningPregel implements PregelComputation<WritePathsMinin
                 var value = dis.readLong();
                 if (value == context.config().identifier()) { count++; }
                 paths.add(dis.readLong());
+                if (count >= context.config().outputPathsCount()) { break; }
             }
         } catch (IOException e) {
             context.logDebug("Error while reading from file: " + e.getMessage());
