@@ -1,7 +1,10 @@
 package com.neo4j.proc;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class ProcUtils {
-    public static String convertToSignature(ArrayList<Long> array) {
+    public String convertToSignature(ArrayList<Long> array) {
         HashMap<Long, Character> map = new HashMap<>();
         char currentChar = 'A';
         StringBuilder signature = new StringBuilder();
