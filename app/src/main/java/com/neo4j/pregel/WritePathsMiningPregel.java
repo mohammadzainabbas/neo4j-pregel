@@ -311,7 +311,7 @@ public class WritePathsMiningPregel implements PregelComputation<WritePathsMinin
     }
 
     // @Override
-    // public boolean masterCompute(MasterComputeContext<PathsMiningPregel.WritePathsMiningPregelConfig> context) {
+    // public boolean masterCompute(MasterComputeContext<WritePathsMiningPregel.WritePathsMiningPregelConfig> context) {
     //     return context.superstep() >= 4; // stop after 2 supersteps
     // }
 
