@@ -56,7 +56,7 @@ public class WriteFindFrequentSignatures {
                     paths[i] = dis.readLong();
                 }
             } catch (IOException e) {
-                context.logDebug("Error while reading from file: " + e.getMessage());
+                e.printStackTrace();
             }
             return paths;
         }
