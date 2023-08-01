@@ -43,6 +43,26 @@ public class WriteFindFrequentSignatures {
         private final ConcurrentHashMap<String, Long> signature_count_map = new ConcurrentHashMap<String, Long>();
 
         public void aggregate(List<Long> nodeIds, String pathDir, Long identifier) {
+
+            for (Long nodeId: nodeIds) {
+                String filePath = pathDir + File.separator + nodeId + ".txt";
+                File file = new File(filePath);
+                if (!file.exists()) {
+                    continue;
+                }
+                
+
+                String path = pathDir + "/" + nodeId + ".txt";
+                File file = new File(path);
+                if (!file.exists()) {
+                    continue;
+                }
+                ArrayList<Long> paths = ProcUtils.readPaths(path);
+                aggregatePaths(paths, identifier);
+            }
+
+
+
             ArrayList<Long> _paths = new ArrayList<Long>();
             for (Long el: paths) {
                 if (el.equals(identifier)) {
