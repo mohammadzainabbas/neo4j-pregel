@@ -277,7 +277,6 @@ public class WritePathsMiningPregel implements PregelComputation<WritePathsMinin
                 return;
             }
             var previous_paths = extractPreviousPaths(previous_messages, IDENTIFIER);
-            
             var new_path = new ArrayList<Long>();
 
             if (IS_ENCODED_OUTPUT) {
@@ -315,8 +314,6 @@ public class WritePathsMiningPregel implements PregelComputation<WritePathsMinin
                     var second_last_element = previous_path.get(previous_path.size() - 2);
 
                     var message_list = neighbors_map.get(context.toInternalId(last_element));
-
-
                     
                     if (message_list != null) {
                         
@@ -342,6 +339,7 @@ public class WritePathsMiningPregel implements PregelComputation<WritePathsMinin
                 return;
             }
 
+            writeToFile(context, file_name, arrayListToNativeArray(new_path));
             context.setNodeValue(PATHS, arrayListToNativeArray(new_path)); // update paths internally (for each node)
         }
     }
