@@ -209,7 +209,7 @@ public class WritePathsMiningPregel implements PregelComputation<WritePathsMinin
             
             File file = new File(file_name);
 
-            context.setNodeValue(PATHS, new long[] {nodeOriginalId, IDENTIFIER});
+            // context.setNodeValue(PATHS, new long[] {nodeOriginalId, IDENTIFIER});
             context.sendToNeighbors(nodeId); // send node_id to all neighbors (to let them know where they got this message from)
 
             try {
