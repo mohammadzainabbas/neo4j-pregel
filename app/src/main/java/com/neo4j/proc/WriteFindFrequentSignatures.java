@@ -27,7 +27,7 @@ public class WriteFindFrequentSignatures {
         String filePath = pathDir + File.separator + nodeId + ".txt";
 
         WriteFindFrequentSignaturesFunction function = new WriteFindFrequentSignaturesFunction();
-        function.aggregate(paths, identifier);
+        function.aggregate(nodeIds, pathDir, identifier);
         return function.result().stream();
     }
     public class SignatureCount {
@@ -43,7 +43,7 @@ public class WriteFindFrequentSignatures {
     public class WriteFindFrequentSignaturesFunction {
         private final ConcurrentHashMap<String, Long> signature_count_map = new ConcurrentHashMap<String, Long>();
 
-        public void aggregate(List<Long> paths, Long identifier) {
+        public void aggregate(List<Long> nodeIds, String pathDir, Long identifier) {
             ArrayList<Long> _paths = new ArrayList<Long>();
             for (Long el: paths) {
                 if (el.equals(identifier)) {
