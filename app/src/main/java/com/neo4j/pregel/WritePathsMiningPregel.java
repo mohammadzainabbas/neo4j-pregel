@@ -167,8 +167,6 @@ public class WritePathsMiningPregel implements PregelComputation<WritePathsMinin
         File file = new File(filePath);
 
 
-
-
         // First superstep
         if (context.isInitialSuperstep() && superstep == PathFindingPhase.INIT_PATH.step) {
             context.setNodeValue(PATHS, new long[] {nodeOriginalId, IDENTIFIER});
