@@ -346,7 +346,6 @@ public class WritePathsMiningPregel implements PregelComputation<WritePathsMinin
         if (superstep == context.config().maxIterations()) {
             context.voteToHalt();
         }
-
     }
 
     @Override
