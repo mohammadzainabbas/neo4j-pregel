@@ -61,7 +61,7 @@ class WritePathsMiningPregelAlgoTest {
 
     @Test
     void runWritePathsMiningPregel() {
-        int maxIterations = 1;
+        int maxIterations = 2;
         boolean isEncodedOutput = false;
         long identifier = -1;
 
