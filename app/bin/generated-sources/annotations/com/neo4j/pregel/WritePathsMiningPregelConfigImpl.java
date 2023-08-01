@@ -31,6 +31,8 @@ public final class WritePathsMiningPregelConfigImpl implements WritePathsMiningP
 
     private long identifier;
 
+    private long outputPathsCount;
+
     private String writePath;
 
     private String mutateProperty;
@@ -77,6 +79,11 @@ public final class WritePathsMiningPregelConfigImpl implements WritePathsMiningP
         }
         try {
             this.identifier = config.getLong("identifier", WritePathsMiningPregel.WritePathsMiningPregelConfig.super.identifier());
+        } catch (IllegalArgumentException e) {
+            errors.add(e);
+        }
+        try {
+            this.outputPathsCount = config.getLong("outputPathsCount", WritePathsMiningPregel.WritePathsMiningPregelConfig.super.outputPathsCount());
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
@@ -207,6 +214,11 @@ public final class WritePathsMiningPregelConfigImpl implements WritePathsMiningP
     }
 
     @Override
+    public long outputPathsCount() {
+        return this.outputPathsCount;
+    }
+
+    @Override
     public String writePath() {
         return this.writePath;
     }
@@ -284,7 +296,7 @@ public final class WritePathsMiningPregelConfigImpl implements WritePathsMiningP
 
     @Override
     public Collection<String> configKeys() {
-        return Arrays.asList("isAsynchronous", "isEncodedOutput", "identifier", "writePath", "mutateProperty", "writeProperty", "partitioning", "nodeLabels", "relationshipTypes", "logProgress", "sudo", "username", "concurrency", "jobId", "relationshipWeightProperty", "maxIterations", "arrowConnectionInfo", "writeConcurrency", "seedProperty");
+        return Arrays.asList("isAsynchronous", "isEncodedOutput", "identifier", "outputPathsCount", "writePath", "mutateProperty", "writeProperty", "partitioning", "nodeLabels", "relationshipTypes", "logProgress", "sudo", "username", "concurrency", "jobId", "relationshipWeightProperty", "maxIterations", "arrowConnectionInfo", "writeConcurrency", "seedProperty");
     }
 
     @Override
@@ -303,6 +315,7 @@ public final class WritePathsMiningPregelConfigImpl implements WritePathsMiningP
         map.put("isAsynchronous", isAsynchronous());
         map.put("isEncodedOutput", isEncodedOutput());
         map.put("identifier", identifier());
+        map.put("outputPathsCount", outputPathsCount());
         map.put("writePath", writePath());
         map.put("mutateProperty", mutateProperty());
         map.put("writeProperty", writeProperty());
@@ -379,6 +392,7 @@ public final class WritePathsMiningPregelConfigImpl implements WritePathsMiningP
             builder.isAsynchronous(baseConfig.isAsynchronous());
             builder.isEncodedOutput(baseConfig.isEncodedOutput());
             builder.identifier(baseConfig.identifier());
+            builder.outputPathsCount(baseConfig.outputPathsCount());
             builder.writePath(baseConfig.writePath());
             builder.mutateProperty(baseConfig.mutateProperty());
             builder.writeProperty(baseConfig.writeProperty());
@@ -410,6 +424,11 @@ public final class WritePathsMiningPregelConfigImpl implements WritePathsMiningP
 
         public WritePathsMiningPregelConfigImpl.Builder identifier(long identifier) {
             this.config.put("identifier", identifier);
+            return this;
+        }
+
+        public WritePathsMiningPregelConfigImpl.Builder outputPathsCount(long outputPathsCount) {
+            this.config.put("outputPathsCount", outputPathsCount);
             return this;
         }
 

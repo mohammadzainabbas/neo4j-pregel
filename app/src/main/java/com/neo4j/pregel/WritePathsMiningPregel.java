@@ -412,6 +412,12 @@ public class WritePathsMiningPregel implements PregelComputation<WritePathsMinin
         }
 
         @Value.Default
+        @Configuration.Key("outputPathsCount")
+        default long outputPathsCount() {
+            return 3;
+        }
+
+        @Value.Default
         @Configuration.Key("writePath")
         default String writePath() {
             return "/Users/mohammadzainabbas/Desktop/paths";
