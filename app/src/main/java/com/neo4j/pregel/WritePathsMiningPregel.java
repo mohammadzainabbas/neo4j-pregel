@@ -348,6 +348,12 @@ public class WritePathsMiningPregel implements PregelComputation<WritePathsMinin
         default long identifier() {
             return -1;
         }
+
+        @Value.Default
+        @Configuration.Key("writePath")
+        default String writePath() {
+            return "";
+        }
         
         static WritePathsMiningPregelConfig of(CypherMapWrapper userInput) {
             return new WritePathsMiningPregelConfigImpl(userInput);

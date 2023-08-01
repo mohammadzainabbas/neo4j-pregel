@@ -31,6 +31,8 @@ public final class WritePathsMiningPregelConfigImpl implements WritePathsMiningP
 
     private long identifier;
 
+    private String writePath;
+
     private String mutateProperty;
 
     private String writeProperty;
@@ -75,6 +77,11 @@ public final class WritePathsMiningPregelConfigImpl implements WritePathsMiningP
         }
         try {
             this.identifier = config.getLong("identifier", WritePathsMiningPregel.WritePathsMiningPregelConfig.super.identifier());
+        } catch (IllegalArgumentException e) {
+            errors.add(e);
+        }
+        try {
+            this.writePath = CypherMapAccess.failOnNull("writePath", config.getString("writePath", WritePathsMiningPregel.WritePathsMiningPregelConfig.super.writePath()));
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
@@ -200,6 +207,11 @@ public final class WritePathsMiningPregelConfigImpl implements WritePathsMiningP
     }
 
     @Override
+    public String writePath() {
+        return this.writePath;
+    }
+
+    @Override
     public String mutateProperty() {
         return this.mutateProperty;
     }
@@ -272,7 +284,7 @@ public final class WritePathsMiningPregelConfigImpl implements WritePathsMiningP
 
     @Override
     public Collection<String> configKeys() {
-        return Arrays.asList("isAsynchronous", "isEncodedOutput", "identifier", "mutateProperty", "writeProperty", "partitioning", "nodeLabels", "relationshipTypes", "logProgress", "sudo", "username", "concurrency", "jobId", "relationshipWeightProperty", "maxIterations", "arrowConnectionInfo", "writeConcurrency", "seedProperty");
+        return Arrays.asList("isAsynchronous", "isEncodedOutput", "identifier", "writePath", "mutateProperty", "writeProperty", "partitioning", "nodeLabels", "relationshipTypes", "logProgress", "sudo", "username", "concurrency", "jobId", "relationshipWeightProperty", "maxIterations", "arrowConnectionInfo", "writeConcurrency", "seedProperty");
     }
 
     @Override
@@ -291,6 +303,7 @@ public final class WritePathsMiningPregelConfigImpl implements WritePathsMiningP
         map.put("isAsynchronous", isAsynchronous());
         map.put("isEncodedOutput", isEncodedOutput());
         map.put("identifier", identifier());
+        map.put("writePath", writePath());
         map.put("mutateProperty", mutateProperty());
         map.put("writeProperty", writeProperty());
         map.put("partitioning", org.neo4j.gds.beta.pregel.Partitioning.toString(partitioning()));
@@ -366,6 +379,7 @@ public final class WritePathsMiningPregelConfigImpl implements WritePathsMiningP
             builder.isAsynchronous(baseConfig.isAsynchronous());
             builder.isEncodedOutput(baseConfig.isEncodedOutput());
             builder.identifier(baseConfig.identifier());
+            builder.writePath(baseConfig.writePath());
             builder.mutateProperty(baseConfig.mutateProperty());
             builder.writeProperty(baseConfig.writeProperty());
             builder.partitioning(baseConfig.partitioning());
@@ -396,6 +410,11 @@ public final class WritePathsMiningPregelConfigImpl implements WritePathsMiningP
 
         public WritePathsMiningPregelConfigImpl.Builder identifier(long identifier) {
             this.config.put("identifier", identifier);
+            return this;
+        }
+
+        public WritePathsMiningPregelConfigImpl.Builder writePath(String writePath) {
+            this.config.put("writePath", writePath);
             return this;
         }
 
