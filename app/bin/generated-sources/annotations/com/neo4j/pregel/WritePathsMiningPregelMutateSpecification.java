@@ -15,7 +15,7 @@ import org.neo4j.gds.pregel.proc.PregelMutateResult;
 @GdsCallable(
         name = "esilv.pregel.find_paths_with_write.mutate",
         executionMode = ExecutionMode.MUTATE_NODE_PROPERTY,
-        description = "Paths Mining with Pregel (find all paths of length 'max_iteration') - Frequent Pattern Mining :: Neo4j"
+        description = "Paths Mining with Pregel (find all paths of length 'max_iteration'). Write to disk while finding the paths - Frequent Pattern Mining :: Neo4j"
 )
 @Generated("org.neo4j.gds.pregel.PregelProcessor")
 public final class WritePathsMiningPregelMutateSpecification implements AlgorithmSpec<WritePathsMiningPregelAlgorithm, PregelResult, WritePathsMiningPregel.WritePathsMiningPregelConfig, Stream<PregelMutateResult>, WritePathsMiningPregelAlgorithmFactory> {
