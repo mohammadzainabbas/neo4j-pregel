@@ -254,6 +254,13 @@ public class WritePathsMiningPregel implements PregelComputation<WritePathsMinin
             }
 
             sentToAllNeighbors(context, neighbors);
+
+            writeToFile(context, file_name, arrayListToNativeArray(path_list));
+
+
+
+
+
             context.setNodeValue(PATHS, arrayListToNativeArray(path_list)); // update paths internally (for each node)
         } else if (superstep >= PathFindingPhase.COMPUTE_PATH.step) {
             // if no message is received, then halt
