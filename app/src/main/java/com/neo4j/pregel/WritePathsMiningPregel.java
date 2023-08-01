@@ -254,8 +254,8 @@ public class WritePathsMiningPregel implements PregelComputation<WritePathsMinin
             }
 
             sentToAllNeighbors(context, neighbors);
-
             writeToFile(context, file_name, arrayListToNativeArray(path_list));
+
 
 
 
