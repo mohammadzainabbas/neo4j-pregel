@@ -183,6 +183,11 @@ public class WritePathsMiningPregel implements PregelComputation<WritePathsMinin
         return paths;
     }
 
+    public void addOutputResults(ComputeContext<WritePathsMiningPregelConfig> context, String filePath) {
+        
+
+    }
+
     /* Called for each node in every superstep */
     @Override
     public void compute(ComputeContext<WritePathsMiningPregelConfig> context, Messages messages) {
