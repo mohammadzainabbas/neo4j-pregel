@@ -11,7 +11,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -23,8 +23,8 @@ public class WriteFindFrequentSignatures {
     @Description("Returns the frequency for all the signatures found in the given paths files.")
     public Stream<SignatureCount> find_signatures_with_write(@Name("nodeId") Long nodeId, @Name(value = "writePath") String writePath, @Name("identifier") Long identifier) {
 
-        String pathDir = writePath ? writePath : Constants.PATHS_DIR;
-
+        String pathDir = !writePath.isBlank() ? writePath : Constants.PATHS_DIR;
+        String path = pathDir + File.separator + nodeId + ".txt";
 
         WriteFindFrequentSignaturesFunction function = new WriteFindFrequentSignaturesFunction();
         function.aggregate(paths, identifier);
