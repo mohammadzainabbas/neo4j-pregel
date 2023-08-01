@@ -18,24 +18,25 @@ import org.neo4j.gds.pregel.proc.PregelMutateResult;
         description = "Paths Mining with Pregel (find all paths of length 'max_iteration') - Frequent Pattern Mining :: Neo4j"
 )
 @Generated("org.neo4j.gds.pregel.PregelProcessor")
-public final class PathsMiningPregelMutateSpecification implements AlgorithmSpec<PathsMiningPregelAlgorithm, PregelResult, PathsMiningPregel.PathsMiningPregelConfig, Stream<PregelMutateResult>, PathsMiningPregelAlgorithmFactory> {
+public final class WritePathsMiningPregelMutateSpecification implements AlgorithmSpec<WritePathsMiningPregelAlgorithm, PregelResult, WritePathsMiningPregel.PathsMiningPregelConfig, Stream<PregelMutateResult>, WritePathsMiningPregelAlgorithmFactory> {
     @Override
     public String name() {
-        return PathsMiningPregelAlgorithm.class.getSimpleName();
+        return WritePathsMiningPregelAlgorithm.class.getSimpleName();
     }
 
     @Override
-    public PathsMiningPregelAlgorithmFactory algorithmFactory(ExecutionContext executionContext) {
-        return new PathsMiningPregelAlgorithmFactory();
+    public WritePathsMiningPregelAlgorithmFactory algorithmFactory(
+            ExecutionContext executionContext) {
+        return new WritePathsMiningPregelAlgorithmFactory();
     }
 
     @Override
-    public NewConfigFunction<PathsMiningPregel.PathsMiningPregelConfig> newConfigFunction() {
-        return (__, userInput) -> PathsMiningPregel.PathsMiningPregelConfig.of(userInput);
+    public NewConfigFunction<WritePathsMiningPregel.PathsMiningPregelConfig> newConfigFunction() {
+        return (__, userInput) -> WritePathsMiningPregel.PathsMiningPregelConfig.of(userInput);
     }
 
     @Override
-    public ComputationResultConsumer<PathsMiningPregelAlgorithm, PregelResult, PathsMiningPregel.PathsMiningPregelConfig, Stream<PregelMutateResult>> computationResultConsumer(
+    public ComputationResultConsumer<WritePathsMiningPregelAlgorithm, PregelResult, WritePathsMiningPregel.PathsMiningPregelConfig, Stream<PregelMutateResult>> computationResultConsumer(
             ) {
         return new PregelMutateComputationResultConsumer<>();
     }

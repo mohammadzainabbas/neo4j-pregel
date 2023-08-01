@@ -24,7 +24,7 @@ import org.neo4j.gds.core.CypherMapWrapper;
 import org.neo4j.gds.core.utils.progress.JobId;
 
 @Generated("org.neo4j.gds.proc.ConfigurationProcessor")
-public final class PathsMiningPregelConfigImpl implements PathsMiningPregel.PathsMiningPregelConfig {
+public final class PathsMiningPregelConfigImpl implements WritePathsMiningPregel.PathsMiningPregelConfig {
     private boolean isAsynchronous;
 
     private boolean isEncodedOutput;
@@ -64,52 +64,52 @@ public final class PathsMiningPregelConfigImpl implements PathsMiningPregel.Path
     public PathsMiningPregelConfigImpl(@NotNull CypherMapAccess config) {
         ArrayList<IllegalArgumentException> errors = new ArrayList<>();
         try {
-            this.isAsynchronous = config.getBool("isAsynchronous", PathsMiningPregel.PathsMiningPregelConfig.super.isAsynchronous());
+            this.isAsynchronous = config.getBool("isAsynchronous", WritePathsMiningPregel.PathsMiningPregelConfig.super.isAsynchronous());
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.isEncodedOutput = config.getBool("isEncodedOutput", PathsMiningPregel.PathsMiningPregelConfig.super.isEncodedOutput());
+            this.isEncodedOutput = config.getBool("isEncodedOutput", WritePathsMiningPregel.PathsMiningPregelConfig.super.isEncodedOutput());
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.identifier = config.getLong("identifier", PathsMiningPregel.PathsMiningPregelConfig.super.identifier());
+            this.identifier = config.getLong("identifier", WritePathsMiningPregel.PathsMiningPregelConfig.super.identifier());
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.mutateProperty = CypherMapAccess.failOnNull("mutateProperty", config.getString("mutateProperty", PathsMiningPregel.PathsMiningPregelConfig.super.mutateProperty()));
+            this.mutateProperty = CypherMapAccess.failOnNull("mutateProperty", config.getString("mutateProperty", WritePathsMiningPregel.PathsMiningPregelConfig.super.mutateProperty()));
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.writeProperty = CypherMapAccess.failOnNull("writeProperty", config.getString("writeProperty", PathsMiningPregel.PathsMiningPregelConfig.super.writeProperty()));
+            this.writeProperty = CypherMapAccess.failOnNull("writeProperty", config.getString("writeProperty", WritePathsMiningPregel.PathsMiningPregelConfig.super.writeProperty()));
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.partitioning = CypherMapAccess.failOnNull("partitioning", Partitioning.parse(config.getChecked("partitioning", PathsMiningPregel.PathsMiningPregelConfig.super.partitioning(), Object.class)));
+            this.partitioning = CypherMapAccess.failOnNull("partitioning", Partitioning.parse(config.getChecked("partitioning", WritePathsMiningPregel.PathsMiningPregelConfig.super.partitioning(), Object.class)));
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.nodeLabels = CypherMapAccess.failOnNull("nodeLabels", config.getChecked("nodeLabels", PathsMiningPregel.PathsMiningPregelConfig.super.nodeLabels(), List.class));
+            this.nodeLabels = CypherMapAccess.failOnNull("nodeLabels", config.getChecked("nodeLabels", WritePathsMiningPregel.PathsMiningPregelConfig.super.nodeLabels(), List.class));
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.relationshipTypes = CypherMapAccess.failOnNull("relationshipTypes", config.getChecked("relationshipTypes", PathsMiningPregel.PathsMiningPregelConfig.super.relationshipTypes(), List.class));
+            this.relationshipTypes = CypherMapAccess.failOnNull("relationshipTypes", config.getChecked("relationshipTypes", WritePathsMiningPregel.PathsMiningPregelConfig.super.relationshipTypes(), List.class));
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.logProgress = config.getBool("logProgress", PathsMiningPregel.PathsMiningPregelConfig.super.logProgress());
+            this.logProgress = config.getBool("logProgress", WritePathsMiningPregel.PathsMiningPregelConfig.super.logProgress());
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.sudo = config.getBool("sudo", PathsMiningPregel.PathsMiningPregelConfig.super.sudo());
+            this.sudo = config.getBool("sudo", WritePathsMiningPregel.PathsMiningPregelConfig.super.sudo());
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
@@ -119,12 +119,12 @@ public final class PathsMiningPregelConfigImpl implements PathsMiningPregel.Path
             errors.add(e);
         }
         try {
-            this.concurrency = config.getInt("concurrency", PathsMiningPregel.PathsMiningPregelConfig.super.concurrency());
+            this.concurrency = config.getInt("concurrency", WritePathsMiningPregel.PathsMiningPregelConfig.super.concurrency());
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.jobId = CypherMapAccess.failOnNull("jobId", JobId.parse(config.getChecked("jobId", PathsMiningPregel.PathsMiningPregelConfig.super.jobId(), Object.class)));
+            this.jobId = CypherMapAccess.failOnNull("jobId", JobId.parse(config.getChecked("jobId", WritePathsMiningPregel.PathsMiningPregelConfig.super.jobId(), Object.class)));
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
@@ -145,12 +145,12 @@ public final class PathsMiningPregelConfigImpl implements PathsMiningPregel.Path
             errors.add(e);
         }
         try {
-            this.writeConcurrency = config.getInt("writeConcurrency", PathsMiningPregel.PathsMiningPregelConfig.super.writeConcurrency());
+            this.writeConcurrency = config.getInt("writeConcurrency", WritePathsMiningPregel.PathsMiningPregelConfig.super.writeConcurrency());
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
         try {
-            this.seedProperty = SeedConfig.validatePropertyName(config.getString("seedProperty", PathsMiningPregel.PathsMiningPregelConfig.super.seedProperty()));
+            this.seedProperty = SeedConfig.validatePropertyName(config.getString("seedProperty", WritePathsMiningPregel.PathsMiningPregelConfig.super.seedProperty()));
         } catch (IllegalArgumentException e) {
             errors.add(e);
         }
@@ -361,7 +361,7 @@ public final class PathsMiningPregelConfigImpl implements PathsMiningPregel.Path
         }
 
         public static PathsMiningPregelConfigImpl.Builder from(
-                PathsMiningPregel.PathsMiningPregelConfig baseConfig) {
+                WritePathsMiningPregel.PathsMiningPregelConfig baseConfig) {
             var builder = new PathsMiningPregelConfigImpl.Builder();
             builder.isAsynchronous(baseConfig.isAsynchronous());
             builder.isEncodedOutput(baseConfig.isEncodedOutput());
@@ -494,7 +494,7 @@ public final class PathsMiningPregelConfigImpl implements PathsMiningPregel.Path
             return this;
         }
 
-        public PathsMiningPregel.PathsMiningPregelConfig build() {
+        public WritePathsMiningPregel.PathsMiningPregelConfig build() {
             CypherMapWrapper config = CypherMapWrapper.create(this.config);
             return new PathsMiningPregelConfigImpl(config);
         }

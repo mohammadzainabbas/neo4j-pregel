@@ -10,13 +10,14 @@ import org.neo4j.gds.core.utils.TerminationFlag;
 import org.neo4j.gds.core.utils.progress.tasks.ProgressTracker;
 
 @Generated("org.neo4j.gds.pregel.PregelProcessor")
-public final class PathsMiningPregelAlgorithm extends Algorithm<PregelResult> {
-    private final Pregel<PathsMiningPregel.PathsMiningPregelConfig> pregelJob;
+public final class WritePathsMiningPregelAlgorithm extends Algorithm<PregelResult> {
+    private final Pregel<WritePathsMiningPregel.PathsMiningPregelConfig> pregelJob;
 
-    PathsMiningPregelAlgorithm(Graph graph, PathsMiningPregel.PathsMiningPregelConfig configuration,
+    WritePathsMiningPregelAlgorithm(Graph graph,
+            WritePathsMiningPregel.PathsMiningPregelConfig configuration,
             ProgressTracker progressTracker) {
         super(progressTracker);
-        var computation = new PathsMiningPregel();
+        var computation = new WritePathsMiningPregel();
         this.pregelJob = Pregel.create(graph, configuration, computation, Pools.DEFAULT, progressTracker);
     }
 

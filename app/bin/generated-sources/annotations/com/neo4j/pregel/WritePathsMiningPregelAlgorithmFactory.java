@@ -9,28 +9,29 @@ import org.neo4j.gds.core.utils.progress.tasks.ProgressTracker;
 import org.neo4j.gds.core.utils.progress.tasks.Task;
 
 @Generated("org.neo4j.gds.pregel.PregelProcessor")
-public final class PathsMiningPregelAlgorithmFactory extends GraphAlgorithmFactory<PathsMiningPregelAlgorithm, PathsMiningPregel.PathsMiningPregelConfig> {
+public final class WritePathsMiningPregelAlgorithmFactory extends GraphAlgorithmFactory<WritePathsMiningPregelAlgorithm, WritePathsMiningPregel.PathsMiningPregelConfig> {
     @Override
-    public PathsMiningPregelAlgorithm build(Graph graph,
-            PathsMiningPregel.PathsMiningPregelConfig configuration,
+    public WritePathsMiningPregelAlgorithm build(Graph graph,
+            WritePathsMiningPregel.PathsMiningPregelConfig configuration,
             ProgressTracker progressTracker) {
-        return new PathsMiningPregelAlgorithm(graph, configuration, progressTracker);
+        return new WritePathsMiningPregelAlgorithm(graph, configuration, progressTracker);
     }
 
     @Override
     public String taskName() {
-        return PathsMiningPregelAlgorithm.class.getSimpleName();
+        return WritePathsMiningPregelAlgorithm.class.getSimpleName();
     }
 
     @Override
-    public Task progressTask(Graph graph, PathsMiningPregel.PathsMiningPregelConfig configuration) {
+    public Task progressTask(Graph graph,
+            WritePathsMiningPregel.PathsMiningPregelConfig configuration) {
         return Pregel.progressTask(graph, configuration);
     }
 
     @Override
     public MemoryEstimation memoryEstimation(
-            PathsMiningPregel.PathsMiningPregelConfig configuration) {
-        var computation = new PathsMiningPregel();
+            WritePathsMiningPregel.PathsMiningPregelConfig configuration) {
+        var computation = new WritePathsMiningPregel();
         return Pregel.memoryEstimation(computation.schema(configuration), computation.reducer().isEmpty(), configuration.isAsynchronous());
     }
 }
