@@ -24,7 +24,7 @@ public class WriteFindFrequentSignatures {
     public Stream<SignatureCount> find_signatures_with_write(@Name("nodeId") Long nodeId, @Name(value = "writePath") String writePath, @Name("identifier") Long identifier) {
 
         String pathDir = !writePath.isBlank() ? writePath : Constants.PATHS_DIR;
-        String path = pathDir + File.separator + nodeId + ".txt";
+        String filePath = pathDir + File.separator + nodeId + ".txt";
 
         WriteFindFrequentSignaturesFunction function = new WriteFindFrequentSignaturesFunction();
         function.aggregate(paths, identifier);
