@@ -47,10 +47,8 @@ public class WriteFindFrequentSignatures {
             for (Long nodeId: nodeIds) {
                 String filePath = pathDir + File.separator + nodeId + ".txt";
                 File file = new File(filePath);
-                if (!file.exists()) {
-                    continue;
-                }
-                
+                if (!file.exists()) { continue; }
+
 
                 String path = pathDir + "/" + nodeId + ".txt";
                 File file = new File(path);
