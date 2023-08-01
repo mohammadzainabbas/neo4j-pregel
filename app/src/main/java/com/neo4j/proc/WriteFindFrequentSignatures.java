@@ -19,8 +19,6 @@ public class WriteFindFrequentSignatures {
     // @Context
     // public Log log;
 
-    final String path = Constants.PATHS_DIR;
-
     @Procedure(value = "esilv.proc.find_signatures_with_write", mode = Mode.READ)
     @Description("Returns the frequency for all the signatures found in the given paths files.")
     public Stream<SignatureCount> find_signatures_with_write(
