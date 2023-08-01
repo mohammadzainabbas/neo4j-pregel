@@ -156,7 +156,7 @@ public class WritePathsMiningPregel implements PregelComputation<WritePathsMinin
         return _messageList;
     }
 
-    public void writeToFile(ComputeContext<WritePathsMiningPregelConfig> context, long[] paths) {
+    public void writeToFile(ComputeContext<WritePathsMiningPregelConfig> context, String filePath, long[] paths) {
         try (DataOutputStream dos = new DataOutputStream(new FileOutputStream(filePath))) {
             dos.writeInt(paths.length); // Write the length of the array first
             for (long value : paths) {
@@ -177,6 +177,7 @@ public class WritePathsMiningPregel implements PregelComputation<WritePathsMinin
         var IS_ENCODED_OUTPUT = context.config().isEncodedOutput();
 
         File file = new File(context.config().writePath(), nodeId + ".txt");
+        file.toString()
 
         // First superstep
         if (context.isInitialSuperstep() && superstep == PathFindingPhase.INIT_PATH.step) {
