@@ -186,10 +186,15 @@ public class WritePathsMiningPregel implements PregelComputation<WritePathsMinin
     public void addOutputResults(ComputeContext<WritePathsMiningPregelConfig> context, String filePath) {
         var paths = readFromFile(context, filePath);
         if (paths == null) {
-            context.voteToHalt();
-            return;
+            context.setNodeValue(PATHS, new long[]{});
         }
-
+        else {
+            var previous_paths = context.longArrayNodeValue(PATHS);
+            var new_paths = new ArrayList<Long>();
+            new_paths.addAll(nativeArrayToArrayList(previous_paths));
+            new_paths.addAll(nativeArrayToArrayList(paths));
+            context.setNodeValue(PATHS, arrayListToNativeArray(new_paths));
+        }
     }
 
     /* Called for each node in every superstep */
