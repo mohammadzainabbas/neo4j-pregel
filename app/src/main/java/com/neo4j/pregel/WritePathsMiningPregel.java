@@ -200,7 +200,13 @@ public class WritePathsMiningPregel implements PregelComputation<WritePathsMinin
             context.sendToNeighbors(nodeId); // send node_id to all neighbors (to let them know where they got this message from)
 
             try {
-                if (file.exists()) { file.delete(); } else { file.getParentFile().mkdirs(); file.createNewFile(); }
+                if (file.exists()) {
+                    file.delete();
+                } else {
+                    file.getParentFile().mkdirs();
+                    file.createNewFile();
+                    writeToFile(context, file.getAbsolutePath(), new long[] {nodeOriginalId, IDENTIFIER});
+                }
             } catch (IOException e) {
                 context.logDebug("Error while creating file: " + e.getMessage());
             }
