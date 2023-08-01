@@ -61,28 +61,21 @@ public class WriteFindFrequentSignatures {
         }
 
         public void aggregate(List<Long> nodeIds, String pathDir, Long identifier) {
-
             for (Long nodeId: nodeIds) {
                 String filePath = pathDir + File.separator + nodeId + ".txt";
                 File file = new File(filePath);
                 if (!file.exists()) { continue; }
 
-                
-                
-                ArrayList<Long> paths = ProcUtils.readPaths(path);
-                aggregatePaths(paths, identifier);
-            }
-
-
-
-            ArrayList<Long> _paths = new ArrayList<Long>();
-            for (Long el: paths) {
-                if (el.equals(identifier)) {
-                    String signature = ProcUtils.convertToSignature(_paths);
-                    signature_count_map.put(signature, signature_count_map.getOrDefault(signature, 0L) + 1);
-                    _paths.clear();
-                } else {
-                    _paths.add(el);
+                var paths = readPathsFromFile(filePath);
+                ArrayList<Long> _paths = new ArrayList<Long>();
+                for (Long el: paths) {
+                    if (el.equals(identifier)) {
+                        String signature = ProcUtils.convertToSignature(_paths);
+                        signature_count_map.put(signature, signature_count_map.getOrDefault(signature, 0L) + 1);
+                        _paths.clear();
+                    } else {
+                        _paths.add(el);
+                    }
                 }
             }
         }
