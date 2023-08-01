@@ -56,7 +56,7 @@ public class WriteFindFrequentSignatures {
                     paths[i] = dis.readLong();
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+                // e.printStackTrace();
             }
             return paths;
         }
