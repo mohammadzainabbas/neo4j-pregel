@@ -192,6 +192,8 @@ public class WritePathsMiningPregel implements PregelComputation<WritePathsMinin
         var IDENTIFIER = context.config().identifier();
         var IS_ENCODED_OUTPUT = context.config().isEncodedOutput();
 
+        String file_name = context.config().writePath() + File.separator + nodeOriginalId + ".txt";
+
         
         // First superstep
         if (context.isInitialSuperstep() && superstep == PathFindingPhase.INIT_PATH.step) {
