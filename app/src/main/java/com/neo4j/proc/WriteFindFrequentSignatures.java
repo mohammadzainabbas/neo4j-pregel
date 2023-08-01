@@ -16,8 +16,8 @@ public class WriteFindFrequentSignatures {
     // public Log log;
 
     @Procedure(value = "esilv.proc.find_signatures_with_write", mode = Mode.READ)
-    @Description("Returns the frequency for all the signatures found in the given paths.")
-    public Stream<SignatureCount> find_signatures(@Name("paths") List<Long> paths, @Name("identifier") Long identifier) {
+    @Description("Returns the frequency for all the signatures found in the given paths files.")
+    public Stream<SignatureCount> find_signatures_with_write(@Name("paths") List<Long> paths, @Name("identifier") Long identifier) {
         // log.debug("find_signatures called");
         WriteFindFrequentSignaturesFunction function = new WriteFindFrequentSignaturesFunction();
         function.aggregate(paths, identifier);
