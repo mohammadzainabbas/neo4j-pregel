@@ -189,11 +189,7 @@ public class WritePathsMiningPregel implements PregelComputation<WritePathsMinin
             context.setNodeValue(PATHS, new long[]{});
         }
         else {
-            var previous_paths = context.longArrayNodeValue(PATHS);
-            var new_paths = new ArrayList<Long>();
-            new_paths.addAll(nativeArrayToArrayList(previous_paths));
-            new_paths.addAll(nativeArrayToArrayList(paths));
-            context.setNodeValue(PATHS, arrayListToNativeArray(new_paths));
+            context.setNodeValue(PATHS, paths);
         }
     }
 
