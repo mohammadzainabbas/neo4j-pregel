@@ -170,7 +170,7 @@ public class WritePathsMiningPregel implements PregelComputation<WritePathsMinin
             context.setNodeValue(PATHS, new long[] {nodeOriginalId, IDENTIFIER});
             context.sendToNeighbors(nodeId); // send node_id to all neighbors (to let them know where they got this message from)
 
-            
+
         } 
         else if (superstep == PathFindingPhase.CONNECT_NEIGHBORS_PATH.step) {
             var _messages = new ArrayList<Long>();
@@ -340,7 +340,7 @@ public class WritePathsMiningPregel implements PregelComputation<WritePathsMinin
         @Value.Default
         @Configuration.Key("writePath")
         default String writePath() {
-            return "";
+            return "/Users/mohammadzainabbas/Desktop/";
         }
         
         static WritePathsMiningPregelConfig of(CypherMapWrapper userInput) {
