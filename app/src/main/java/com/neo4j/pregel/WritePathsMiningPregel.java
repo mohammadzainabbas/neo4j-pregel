@@ -197,8 +197,8 @@ public class WritePathsMiningPregel implements PregelComputation<WritePathsMinin
         } catch (IOException e) {
             context.logDebug("Error while reading from file: " + e.getMessage());
         }
-    return paths;
-}
+        return arrayListToNativeArray(paths);
+    }
 
     public void addOutputResults(ComputeContext<WritePathsMiningPregelConfig> context, String filePath) {
         var paths = readFromFile(context, filePath);
