@@ -60,12 +60,12 @@ class WritePathsMiningPregelAlgoTest {
     private TestGraph graph;
 
     @Test
-    void runPathsMiningPregel() {
+    void runWritePathsMiningPregel() {
         int maxIterations = 10;
         boolean isEncodedOutput = false;
         long identifier = -1;
 
-        var config = ImmutablePathsMiningPregelConfig.builder()
+        var config = ImmutableWritePathsMiningPregelConfig.builder()
             .maxIterations(maxIterations)
             .isEncodedOutput(isEncodedOutput)
             .identifier(identifier)
@@ -74,7 +74,7 @@ class WritePathsMiningPregelAlgoTest {
         var pregelJob = Pregel.create(
             graph,
             config,
-            new PathsMiningPregel(),
+            new WritePathsMiningPregel(),
             Pools.DEFAULT,
             ProgressTracker.NULL_TRACKER
         );
