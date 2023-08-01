@@ -24,8 +24,10 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import java.io.DataOutputStream;
+import java.io.DataInputStream;
 import java.io.FileOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.FileReader;
 import java.io.BufferedReader;
@@ -169,7 +171,7 @@ public class WritePathsMiningPregel implements PregelComputation<WritePathsMinin
 
     public long[] readFromFile(ComputeContext<WritePathsMiningPregelConfig> context, String filePath) {
         long[] paths = null;
-        try (DataOutputStream dos = new DataOutputStream(new FileOutputStream(filePath))) {
+        try (DataInputStream dis = new DataInputStream(new FileInputStream(filePath))) {
             int length = dos.readInt(); // Read the length of the array first
             paths = new long[length];
             for (int i = 0; i < length; i++) {
