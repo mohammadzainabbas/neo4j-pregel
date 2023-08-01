@@ -23,7 +23,6 @@ public class WriteFindFrequentSignatures {
         function.aggregate(paths, identifier);
         return function.result().stream();
     }
-
     public class SignatureCount {
         public String signature;
         public Long count;
