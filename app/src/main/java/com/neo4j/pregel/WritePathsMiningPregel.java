@@ -198,7 +198,6 @@ public class WritePathsMiningPregel implements PregelComputation<WritePathsMinin
             
             File file = new File(context.config().writePath(), nodeOriginalId + ".txt");
 
-
             context.setNodeValue(PATHS, new long[] {nodeOriginalId, IDENTIFIER});
             context.sendToNeighbors(nodeId); // send node_id to all neighbors (to let them know where they got this message from)
 
