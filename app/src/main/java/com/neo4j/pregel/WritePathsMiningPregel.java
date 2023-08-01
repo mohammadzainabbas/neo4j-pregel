@@ -154,6 +154,10 @@ public class WritePathsMiningPregel implements PregelComputation<WritePathsMinin
         return _messageList;
     }
 
+    public void writeToFile(ComputeContext<WritePathsMiningPregelConfig> context, File file, long[] paths) {
+        
+    }
+
     /* Called for each node in every superstep */
     @Override
     public void compute(ComputeContext<WritePathsMiningPregelConfig> context, Messages messages) {
