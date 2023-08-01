@@ -1,9 +1,7 @@
 package com.neo4j.proc;
 
 import org.neo4j.procedure.*;
-
 import org.neo4j.logging.Log;
-
 import java.util.stream.Stream;
 import java.util.LinkedHashMap;
 import java.util.List;
