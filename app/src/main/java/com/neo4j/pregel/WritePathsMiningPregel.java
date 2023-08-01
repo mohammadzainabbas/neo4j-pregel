@@ -23,6 +23,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import java.io.DataOutputStream;
+import java.io.FileOutputStream;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.FileReader;
@@ -155,7 +157,16 @@ public class WritePathsMiningPregel implements PregelComputation<WritePathsMinin
     }
 
     public void writeToFile(ComputeContext<WritePathsMiningPregelConfig> context, File file, long[] paths) {
-        
+        try {
+            FileWriter fileWriter = new FileWriter(file, true);
+            for (var path: paths) {
+                fileWriter.write(context.toOriginalId(path) + " ");
+            }
+            fileWriter.write("\n");
+            fileWriter.close();
+        } catch (IOException e) {
+            context.logDebug("Error while writing to file: " + e.getMessage());
+        }
     }
 
     /* Called for each node in every superstep */
