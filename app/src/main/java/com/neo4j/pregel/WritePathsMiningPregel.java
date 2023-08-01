@@ -188,6 +188,7 @@ public class WritePathsMiningPregel implements PregelComputation<WritePathsMinin
         try (DataInputStream dis = new DataInputStream(new FileInputStream(filePath))) {
             int length = dis.readInt(); // Read the length of the array first
             for (int i = 0; i < length; i++) {
+                var value = dis.readLong();
                 paths.add(dis.readLong());
             }
         } catch (IOException e) {
