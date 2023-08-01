@@ -16,13 +16,18 @@ import org.neo4j.gds.beta.pregel.context.MasterComputeContext;
 import org.neo4j.gds.config.SeedConfig;
 import org.neo4j.gds.core.CypherMapWrapper;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.IOException;
 
 @PregelProcedure(name = "esilv.pregel.find_paths_with_write", modes = { GDSMode.STREAM, GDSMode.MUTATE }, description = "Paths Mining with Pregel (find all paths of length 'max_iteration'). Write to disk while finding the paths - Frequent Pattern Mining :: Neo4j")
 public class WritePathsMiningPregel implements PregelComputation<WritePathsMiningPregel.WritePathsMiningPregelConfig> {
