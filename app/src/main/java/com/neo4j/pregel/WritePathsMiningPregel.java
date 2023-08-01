@@ -197,7 +197,7 @@ public class WritePathsMiningPregel implements PregelComputation<WritePathsMinin
         if (context.isInitialSuperstep() && superstep == PathFindingPhase.INIT_PATH.step) {
             
             File file = new File(context.config().writePath(), nodeId + ".txt");
-            
+
 
             context.setNodeValue(PATHS, new long[] {nodeOriginalId, IDENTIFIER});
             context.sendToNeighbors(nodeId); // send node_id to all neighbors (to let them know where they got this message from)
@@ -340,10 +340,10 @@ public class WritePathsMiningPregel implements PregelComputation<WritePathsMinin
         }
     }
 
-    // @Override
-    // public boolean masterCompute(MasterComputeContext<WritePathsMiningPregel.WritePathsMiningPregelConfig> context) {
-    //     return context.superstep() >= 4; // stop after 2 supersteps
-    // }
+    @Override
+    public boolean masterCompute(MasterComputeContext<WritePathsMiningPregel.WritePathsMiningPregelConfig> context) {
+        return context.superstep() >= 1; // stop after 2 supersteps
+    }
 
     enum PathFindingPhase {
         INIT_PATH(0),
