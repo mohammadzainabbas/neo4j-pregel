@@ -3,15 +3,20 @@ package com.neo4j.proc;
 import org.neo4j.procedure.*;
 
 import com.neo4j.Constants;
+import com.neo4j.pregel.WritePathsMiningPregel.WritePathsMiningPregelConfig;
 import com.neo4j.proc.FindFrequentSignatures.SignatureCount;
 
+import org.neo4j.gds.beta.pregel.context.ComputeContext;
 import org.neo4j.logging.Log;
 import java.util.stream.Stream;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.io.DataInputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -41,6 +46,20 @@ public class WriteFindFrequentSignatures {
 
     public class WriteFindFrequentSignaturesFunction {
         private final ConcurrentHashMap<String, Long> signature_count_map = new ConcurrentHashMap<String, Long>();
+
+        public long[] readFromFile(String filePath) {
+            long[] paths = null;
+            try (DataInputStream dis = new DataInputStream(new FileInputStream(filePath))) {
+                int length = dis.readInt(); // Read the length of the array first
+                paths = new long[length];
+                for (int i = 0; i < length; i++) {
+                    paths[i] = dis.readLong();
+                }
+            } catch (IOException e) {
+                context.logDebug("Error while reading from file: " + e.getMessage());
+            }
+            return paths;
+        }
 
         public void aggregate(List<Long> nodeIds, String pathDir, Long identifier) {
 
