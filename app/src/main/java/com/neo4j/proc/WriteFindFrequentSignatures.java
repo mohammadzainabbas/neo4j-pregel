@@ -37,27 +37,11 @@ public class WriteFindFrequentSignatures {
     public class WriteFindFrequentSignaturesFunction {
         private final ConcurrentHashMap<String, Long> signature_count_map = new ConcurrentHashMap<String, Long>();
 
-        public String convertToSignature(ArrayList<Long> array) {
-            HashMap<Long, Character> map = new HashMap<>();
-            char currentChar = 'A';
-            StringBuilder signature = new StringBuilder();
-
-            for (long number : array) {
-                if (!map.containsKey(number)) {
-                    map.put(number, currentChar);
-                    currentChar++;
-                }
-                signature.append(map.get(number));
-            }
-
-            return signature.toString();
-        }
-
         public void aggregate(List<Long> paths, Long identifier) {
             ArrayList<Long> _paths = new ArrayList<Long>();
             for (Long el: paths) {
                 if (el.equals(identifier)) {
-                    String signature = convertToSignature(_paths);
+                    String signature = ProcUtils.convertToSignature(_paths);
                     signature_count_map.put(signature, signature_count_map.getOrDefault(signature, 0L) + 1);
                     _paths.clear();
                 } else {
