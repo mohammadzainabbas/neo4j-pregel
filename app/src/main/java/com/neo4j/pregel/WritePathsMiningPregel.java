@@ -340,7 +340,7 @@ public class WritePathsMiningPregel implements PregelComputation<WritePathsMinin
         @Value.Default
         @Configuration.Key("writePath")
         default String writePath() {
-            return "/Users/mohammadzainabbas/Desktop/";
+            return "/Users/mohammadzainabbas/Desktop/paths";
         }
         
         static WritePathsMiningPregelConfig of(CypherMapWrapper userInput) {
