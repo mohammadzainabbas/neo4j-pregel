@@ -19,7 +19,7 @@ public class WriteFindFrequentSignatures {
     @Description("Returns the frequency for all the signatures found in the given paths.")
     public Stream<SignatureCount> find_signatures(@Name("paths") List<Long> paths, @Name("identifier") Long identifier) {
         // log.debug("find_signatures called");
-        FindFrequentSignaturesFunction function = new FindFrequentSignaturesFunction();
+        WriteFindFrequentSignaturesFunction function = new WriteFindFrequentSignaturesFunction();
         function.aggregate(paths, identifier);
         return function.result().stream();
     }
@@ -34,7 +34,7 @@ public class WriteFindFrequentSignatures {
         }
     }
 
-    public class FindFrequentSignaturesFunction {
+    public class WriteFindFrequentSignaturesFunction {
         private final ConcurrentHashMap<String, Long> signature_count_map = new ConcurrentHashMap<String, Long>();
 
         public String convertToSignature(ArrayList<Long> array) {
