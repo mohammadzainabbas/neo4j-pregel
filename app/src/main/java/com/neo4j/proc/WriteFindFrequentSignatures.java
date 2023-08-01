@@ -25,7 +25,7 @@ public class WriteFindFrequentSignatures {
     @Description("Returns the frequency for all the signatures found in the given paths files.")
     public Stream<SignatureCount> find_signatures_with_write(
         @Name("nodeId") Long nodeId, 
-        @Name(value = "writePath", defaultValue = path) String writePath, 
+        @Name(value = "writePath", defaultValue default path) String writePath, 
         @Name("identifier") Long identifier) {
         // log.debug("find_signatures called");
         WriteFindFrequentSignaturesFunction function = new WriteFindFrequentSignaturesFunction();
