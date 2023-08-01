@@ -272,6 +272,10 @@ public class WritePathsMiningPregel implements PregelComputation<WritePathsMinin
             
             // var previous_messages = context.longArrayNodeValue(PATHS);
             var previous_messages = readFromFile(context, file_name);
+            if (previous_messages == null) {
+                context.voteToHalt();
+                return;
+            }
             var previous_paths = extractPreviousPaths(previous_messages, IDENTIFIER);
             
             var new_path = new ArrayList<Long>();
