@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ProcUtils {
-    public String convertToSignature(ArrayList<Long> array) {
+    static public String convertToSignature(ArrayList<Long> array) {
         HashMap<Long, Character> map = new HashMap<>();
         char currentChar = 'A';
         StringBuilder signature = new StringBuilder();
