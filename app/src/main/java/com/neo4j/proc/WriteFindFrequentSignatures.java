@@ -11,11 +11,11 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class FindFrequentSignatures {
+public class WriteFindFrequentSignatures {
     // @Context
     // public Log log;
 
-    @Procedure(value = "esilv.proc.find_signatures", mode = Mode.READ)
+    @Procedure(value = "esilv.proc.find_signatures_with_write", mode = Mode.READ)
     @Description("Returns the frequency for all the signatures found in the given paths.")
     public Stream<SignatureCount> find_signatures(@Name("paths") List<Long> paths, @Name("identifier") Long identifier) {
         // log.debug("find_signatures called");
