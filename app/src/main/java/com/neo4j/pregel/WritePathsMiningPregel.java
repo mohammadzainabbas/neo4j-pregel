@@ -353,7 +353,7 @@ public class WritePathsMiningPregel implements PregelComputation<WritePathsMinin
             // context.setNodeValue(PATHS, arrayListToNativeArray(new_path)); // update paths internally (for each node)
         }
         
-        if (superstep == context.config().maxIterations()) {
+        if (superstep == context.config().maxIterations() - 1) {
             addOutputResults(context, file_name);
         }
     }
