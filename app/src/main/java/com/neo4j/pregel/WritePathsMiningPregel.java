@@ -358,10 +358,10 @@ public class WritePathsMiningPregel implements PregelComputation<WritePathsMinin
         }
     }
 
-    @Override
-    public boolean masterCompute(MasterComputeContext<WritePathsMiningPregel.WritePathsMiningPregelConfig> context) {
-        return context.superstep() >= 1; // stop after 2 supersteps
-    }
+    // @Override
+    // public boolean masterCompute(MasterComputeContext<WritePathsMiningPregel.WritePathsMiningPregelConfig> context) {
+    //     return context.superstep() >= 1; // stop after 2 supersteps
+    // }
 
     enum PathFindingPhase {
         INIT_PATH(0),
