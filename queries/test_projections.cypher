@@ -56,11 +56,6 @@ ORDER BY count DESC
 
 CREATE CONSTRAINT unique_id IF NOT EXISTS FOR (n:User) REQUIRE n.id IS UNIQUE;
 
-LOAD CSV FROM 'file:///Users/mohammadzainabbas/Downloads/twitter-2010.txt' AS line FIELDTERMINATOR ' '
-MERGE (from:TwitterUser {id: toInteger(line[0])})
-MERGE (to:TwitterUser {id: toInteger(line[1])})
-MERGE (from)-[:FOLLOWS]->(to);
-
 LOAD CSV FROM 'file:///Users/mohammadzainabbas/Downloads/soc-LiveJournal1.txt' AS line FIELDTERMINATOR '\t'
 WITH line
 LIMIT 10000
@@ -91,3 +86,9 @@ ORDER BY count DESC
 
 CREATE CONSTRAINT twitter_unique_id IF NOT EXISTS FOR (n:TwitterUser) REQUIRE n.id IS UNIQUE;
 
+LOAD CSV FROM 'file:///Users/mohammadzainabbas/Downloads/twitter-2010.txt' AS line FIELDTERMINATOR ' '
+WITH line
+LIMIT 10000
+MERGE (from:TwitterUser {id: toInteger(line[0])})
+MERGE (to:TwitterUser {id: toInteger(line[1])})
+MERGE (from)-[:FOLLOWS]->(to);
