@@ -92,3 +92,13 @@ LIMIT 10000
 MERGE (from:TwitterUser {id: toInteger(line[0])})
 MERGE (to:TwitterUser {id: toInteger(line[1])})
 MERGE (from)-[:FOLLOWS]->(to);
+
+MATCH (s)-[r]-> (t)
+WITH s, r, t
+LIMIT 100
+WITH gds.graph.project(
+    "twitter",
+    s,
+    t
+) as g
+RETURN g.graphName as graph_name, g.nodeCount as nodes, g.relationshipCount as rels;
