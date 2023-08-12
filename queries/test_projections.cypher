@@ -56,7 +56,7 @@ ORDER BY count DESC
 
 CREATE CONSTRAINT unique_id IF NOT EXISTS FOR (n:User) REQUIRE n.id IS UNIQUE;
 
-LOAD CSV FROM 'file:///Users/mohammadzainabbas/Downloads/twitter.txt' AS line FIELDTERMINATOR ' '
+LOAD CSV FROM 'file:///Users/mohammadzainabbas/Downloads/twitter-2010.txt' AS line FIELDTERMINATOR ' '
 MERGE (from:TwitterUser {id: toInteger(line[0])})
 MERGE (to:TwitterUser {id: toInteger(line[1])})
 MERGE (from)-[:FOLLOWS]->(to);
