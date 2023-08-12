@@ -102,3 +102,12 @@ WITH gds.graph.project(
     t
 ) as g
 RETURN g.graphName as graph_name, g.nodeCount as nodes, g.relationshipCount as rels;
+
+WITH -1 as identifier
+CALL esilv.pregel.find_paths.stream("twitter", {maxIterations: 5, identifier: identifier})
+YIELD nodeId, values
+UNWIND values.paths AS paths
+WITH collect(paths) as path, identifier
+CALL esilv.proc.find_signatures(path, identifier) YIELD signature, count
+RETURN signature, count
+ORDER BY count DESC
