@@ -79,3 +79,8 @@ WITH collect(paths) as path, identifier
 CALL esilv.proc.find_signatures(path, identifier) YIELD signature, count
 RETURN signature, count
 ORDER BY count DESC
+
+//------------
+
+CREATE CONSTRAINT twitter_unique_id IF NOT EXISTS FOR (n:TwitterUser) REQUIRE n.id IS UNIQUE;
+
