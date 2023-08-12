@@ -51,3 +51,31 @@ WITH collect(_paths) as path, -1 as identifier
 CALL esilv.proc.find_signatures(path, identifier) YIELD signature, count
 RETURN signature, count
 ORDER BY count DESC
+
+//------------
+
+LOAD CSV FROM 'file:///Users/mohammadzainabbas/Downloads/soc-LiveJournal1.txt' AS line FIELDTERMINATOR '\t'
+WITH line
+LIMIT 10000
+MERGE (from:User {id: toInteger(line[0])})
+MERGE (to:User {id: toInteger(line[1])})
+MERGE (from)-[:FRIEND]->(to);
+
+MATCH (s)-[r]-> (t)
+WITH s, r, t
+LIMIT 100
+WITH gds.graph.project(
+    "livejournal",
+    s,
+    t
+) as g
+RETURN g.graphName as graph_name, g.nodeCount as nodes, g.relationshipCount as rels;
+
+WITH -1 as identifier
+CALL esilv.pregel.find_paths.stream("livejournal", {maxIterations: 5, identifier: identifier})
+YIELD nodeId, values
+UNWIND values.paths AS paths
+WITH collect(paths) as path, identifier
+CALL esilv.proc.find_signatures(path, identifier) YIELD signature, count
+RETURN signature, count
+ORDER BY count DESC
