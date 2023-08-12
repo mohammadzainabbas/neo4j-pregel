@@ -1,3 +1,4 @@
+```
 Input: List of path "L_v" for each V, identifier
 Ouput: List of frequent signatures "FS"
 
@@ -25,3 +26,4 @@ Function find_signatures(L_v, identifier) {
 
     return signature_count_map
 }
+```
