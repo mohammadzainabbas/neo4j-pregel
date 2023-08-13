@@ -24,7 +24,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @PregelProcedure(name = "esilv.pregel.find_paths", modes = { GDSMode.STREAM, GDSMode.MUTATE }, description = "Paths Mining with Pregel (find all paths of length 'max_iteration') - Frequent Pattern Mining :: Neo4j")
-public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.PathsMiningPregelConfig> {
+public class PathsMiningGADMPregel implements PregelComputation<PathsMiningGADMPregel.PathsMiningGADMPregelConfig> {
 
     // INTERNALS
     public static final String PATHS = "paths";
@@ -91,7 +91,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
      
     /* Each node will have this value-schema during pregel computation */
     @Override
-    public PregelSchema schema(PathsMiningPregelConfig config) {
+    public PregelSchema schema(PathsMiningGADMPregelConfig config) {
 
         var schema = new PregelSchema.Builder()
             .add(PATHS, ValueType.LONG_ARRAY);
@@ -101,11 +101,11 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
     
     /* Called in the beginning of the first superstep of the Pregel computation and allows initializing node values */
     @Override
-    public void init(InitContext<PathsMiningPregelConfig> context) {
+    public void init(InitContext<PathsMiningGADMPregelConfig> context) {
         context.setNodeValue(PATHS, new long[]{});
     }
 
-    public void sentToAllNeighbors(ComputeContext<PathsMiningPregelConfig> context, ArrayList<Long> messages) {
+    public void sentToAllNeighbors(ComputeContext<PathsMiningGADMPregelConfig> context, ArrayList<Long> messages) {
         var neighbors = neighbors_map.get(context.nodeId());
 
         for (var neighbor: neighbors) {
@@ -129,7 +129,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
         return previous_paths;
     }
 
-    // public void convertToOriginalIds(ComputeContext<PathsMiningPregelConfig> context) {
+    // public void convertToOriginalIds(ComputeContext<PathsMiningGADMPregelConfig> context) {
     //     var paths = context.longArrayNodeValue(PATHS);
     //     boolean useOriginalIds = context.config().useOriginalIds();
     //     var nodeId = useOriginalIds ? context.toOriginalId() : context.nodeId();
@@ -172,7 +172,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
 
     /* Called for each node in every superstep */
     @Override
-    public void compute(ComputeContext<PathsMiningPregelConfig> context, Messages messages) {
+    public void compute(ComputeContext<PathsMiningGADMPregelConfig> context, Messages messages) {
         var nodeId = context.nodeId();
         var nodeOriginalId = context.toOriginalId(); // for showing correct IDs in the output
         int superstep = context.superstep();
@@ -311,7 +311,7 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
     }
 
     // @Override
-    // public boolean masterCompute(MasterComputeContext<PathsMiningPregel.PathsMiningPregelConfig> context) {
+    // public boolean masterCompute(MasterComputeContext<PathsMiningGADMPregel.PathsMiningGADMPregelConfig> context) {
     //     return context.superstep() >= 4; // stop after 2 supersteps
     // }
 
@@ -328,9 +328,9 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
     }
 
     @ValueClass
-    @Configuration("PathsMiningPregelConfigImpl")
+    @Configuration("PathsMiningGADMPregelConfigImpl")
     @SuppressWarnings("immutables:subtype")
-    public interface PathsMiningPregelConfig extends PregelProcedureConfig, SeedConfig {
+    public interface PathsMiningGADMPregelConfig extends PregelProcedureConfig, SeedConfig {
 
         @Override
         default boolean isAsynchronous() {
@@ -349,8 +349,8 @@ public class PathsMiningPregel implements PregelComputation<PathsMiningPregel.Pa
             return -1;
         }
         
-        static PathsMiningPregelConfig of(CypherMapWrapper userInput) {
-            return new PathsMiningPregelConfigImpl(userInput);
+        static PathsMiningGADMPregelConfig of(CypherMapWrapper userInput) {
+            return new PathsMiningGADMPregelConfigImpl(userInput);
         }
     }
 }
