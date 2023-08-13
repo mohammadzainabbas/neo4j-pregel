@@ -105,6 +105,11 @@ public class PathsMiningGADMPregel implements PregelComputation<PathsMiningGADMP
     @Override
     public void init(InitContext<PathsMiningGADMPregelConfig> context) {
         context.setNodeValue(PATHS, new long[]{});
+
+        if (context.nodeProperties(GADM) != null) {
+            context.setNodeValue(GADM, context.nodeProperties(GADM).longValue(nodeId));
+        }
+
         if (context.nodeProperties(GADM) != null)
             context.setNodeValue(GADM, context.nodeProperties(GADM).get().asLong());
         else
