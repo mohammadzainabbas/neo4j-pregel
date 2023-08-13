@@ -28,6 +28,7 @@ public class PathsMiningGADMPregel implements PregelComputation<PathsMiningGADMP
 
     // INTERNALS
     public static final String PATHS = "paths";
+    public static final String GADM = "gadm";
     
     // to save all neighbors (incoming + outgoing)
     // to keep track of [where this message was sent from] -> [to which node]
