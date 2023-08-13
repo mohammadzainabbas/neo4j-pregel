@@ -1,4 +1,4 @@
-dataset,nodes,edges,time(in ms)
+dataset,nodes,edges,find_paths (in ms),find_signatures(in ms)
 twitter,84,100,
 us_patents,
 livejournal,
