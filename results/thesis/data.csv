@@ -1,0 +1,5 @@
+dataset,nodes,edges,size (in GiB)
+twitter,84,100,2
+us_patents,
+livejournal,
+mel_data,
