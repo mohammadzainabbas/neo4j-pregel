@@ -1,6 +1,6 @@
 ﻿signature,count
-"""ABCDE""",2348
-"""ABCDB""",256
-"""ABCAD""",256
-"""ABCDA""",48
-"""ABCAB""",24
+ABCDE,2348
+ABCDB,256
+ABCAD,256
+ABCDA,48
+ABCAB,24
