@@ -6,3 +6,18 @@ mel_data,
 
 
 us_patents,778092,1000000, 571,                 6.8,                  62 MiB,  
+
+
+Dataset,Graph Size,In-memory size
+Twitter,1000,1992,189
+Twitter,5000,2392,472
+Twitter,10000,3368,972
+US Patents,1000,1293,327
+US Patents,5000,1639,693
+US Patents,10000,3979,1973
+Live Journal,1000,1934,499
+Live Journal,5000,1979,2739
+Live Journal,10000,2399,1362
+MEL Circulation Graph,1000,280,80
+MEL Circulation Graph,5000,2830,693
+MEL Circulation Graph,10000,2973,2830
