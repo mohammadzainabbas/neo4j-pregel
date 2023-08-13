@@ -1,5 +1,12 @@
-dataset,nodes,edges,time(in ms)
-twitter,84,100,37
+dataset,size,time
+twitter,10000,37
+twitter,100000,37
+twitter,500000,37
+twitter,1000000,37
+twitter,50000,37
+
+
+
 us_patents,
 livejournal,
 mel_data,
