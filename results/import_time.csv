@@ -1,2 +1,2 @@
-dataset,nodes,time(in ms)
-
+dataset,nodes,edges,time(in ms)
+twitter,654566,
