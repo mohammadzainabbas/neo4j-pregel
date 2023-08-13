@@ -1,11 +1,11 @@
-dataset,maxIterations,time (in ms)
+dataset,maxIterations,time( in ms )
 twitter,3,297
 twitter,4,508
-twitter,5,2974
-twitter,6,3927
-twitter,7,9230
-twitter,8,15020
-twitter,9,24027
+twitter,5,3927
+twitter,6,9230
+twitter,7,15020
+twitter,8,29838
+twitter,9,162863
 us_patents,10000,4800
 us_patents,50000,6848
 us_patents,100000,8377
