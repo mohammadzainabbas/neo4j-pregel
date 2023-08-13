@@ -1,12 +1,12 @@
 dataset,nodes, edges, creation_time(in ms), heapsize(in GiB), inmemory size (in KiB), maxIterations, find_paths (in ms), find_signatures(in ms)
-twitter,  84,   100,        593,                2,                  4278,                   3,                6,                   2             
-twitter,  84,   100,        593,              2.49,                 4278,                   4,                4,                   3
-twitter,  84,   100,        593,              2.2,                  4278,                   5,                6,                   5
-twitter,  84,   100,        593,              2.3,                  4278,                   6,               12,                   8
-twitter,  84,   100,        593,              2.4,                  4278,                   7,               38,                  30
-twitter,  84,   100,        593,              2.9,                  4278,                   8,               155,                320
-twitter,  84,   100,        593,              3.9,                  4278,                   9,               909,                805
-twitter,  455,  500,        593,              3.9,                  4278,                   9,               909,                805
+twitter,  84,   100,        10,                2,                  4278,                   3,                6,                   2             
+twitter,  84,   100,        10,              2.49,                 4278,                   4,                4,                   3
+twitter,  84,   100,        10,              2.2,                  4278,                   5,                6,                   5
+twitter,  84,   100,        10,              2.3,                  4278,                   6,               12,                   8
+twitter,  84,   100,        10,              2.4,                  4278,                   7,               38,                  30
+twitter,  84,   100,        10,              2.9,                  4278,                   8,               155,                320
+twitter,  84,   100,        10,              3.9,                  4278,                   9,               909,                805
+twitter,  455,  500,        45,              3.9,                  4278,                   9,               909,                805
 
 us_patents,
 livejournal,
