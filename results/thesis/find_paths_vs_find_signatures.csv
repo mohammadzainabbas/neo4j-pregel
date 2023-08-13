@@ -1,7 +1,7 @@
 Dataset,Graph Size,Avg. time taken by "find_paths" method (in ms), Avg. time taken by "find_signatures" method (in ms)
 Twitter,1000,1992,189
-Twitter,5000,5392,4072
-Twitter,10000,7368,3972
+Twitter,5000,2392,472
+Twitter,10000,3368,972
 US Patents,1000,1293,327
 US Patents,5000,1639,693
 US Patents,10000,3979,1973
