@@ -1,5 +1,6 @@
 dataset,nodes,edges,time(in ms),maxIterations
 twitter,84,100,8,3
+twitter,84,100,8,4
 us_patents,
 livejournal,
 mel_data,
