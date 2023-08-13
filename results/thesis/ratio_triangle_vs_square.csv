@@ -1,5 +1,4 @@
-dataset,nodes,edges,triangle,square
-twitter,84,100,126
-us_patents,
-livejournal,
-mel_data,
+year,triangle,square
+2017,
+2018,
+2019,
