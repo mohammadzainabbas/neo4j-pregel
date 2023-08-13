@@ -1,9 +1,9 @@
 dataset,size,time (in ms)
-twitter,10000,100
-twitter,50000,220
-twitter,100000,320
-twitter,500000,440
-twitter,1000000,580
+twitter,10000,2974
+twitter,50000,3927
+twitter,100000,9230
+twitter,500000,15020
+twitter,1000000,24027
 
 us_patents,10000,4800
 us_patents,50000,6848
