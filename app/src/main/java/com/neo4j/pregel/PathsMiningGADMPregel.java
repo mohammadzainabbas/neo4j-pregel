@@ -95,7 +95,8 @@ public class PathsMiningGADMPregel implements PregelComputation<PathsMiningGADMP
     public PregelSchema schema(PathsMiningGADMPregelConfig config) {
 
         var schema = new PregelSchema.Builder()
-            .add(PATHS, ValueType.LONG_ARRAY);
+            .add(PATHS, ValueType.LONG_ARRAY)
+            .add(GADM, ValueType.LONG);
 
         return schema.build();
     }
@@ -104,6 +105,11 @@ public class PathsMiningGADMPregel implements PregelComputation<PathsMiningGADMP
     @Override
     public void init(InitContext<PathsMiningGADMPregelConfig> context) {
         context.setNodeValue(PATHS, new long[]{});
+        if (context.nodeProperties(GADM) != null)
+            context.setNodeValue(GADM, context.nodeProperties(GADM).get().asLong());
+        else
+            context.setNodeValue(GADM, context.nodeId());
+        context.setNodeValue(GADM, context.nodeId());
     }
 
     public void sentToAllNeighbors(ComputeContext<PathsMiningGADMPregelConfig> context, ArrayList<Long> messages) {
