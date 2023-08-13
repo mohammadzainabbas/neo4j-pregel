@@ -1,4 +1,4 @@
-Dataset,Avg. time taken by "find_paths" method (in ms), Avg. time taken by "find_signatures" method (in ms)
+Dataset,Graph Size,Avg. time taken by "find_paths" method (in ms), Avg. time taken by "find_signatures" method (in ms)
 Twitter,
 US Patents,
 Live Journal,
