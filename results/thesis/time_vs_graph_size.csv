@@ -1,9 +1,9 @@
 dataset,size,time
 twitter,10000,
-twitter,50000,37
-twitter,100000,37
-twitter,500000,37
-twitter,1000000,37
+twitter,50000,
+twitter,100000,
+twitter,500000,
+twitter,1000000,
 
 
 
