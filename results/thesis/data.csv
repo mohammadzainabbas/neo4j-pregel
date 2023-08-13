@@ -1,4 +1,4 @@
-dataset,nodes,edges,creation_time(in ms),heapsize(in GiB),maxIterations,time(in ms),
+dataset,nodes,edges,creation_time(in ms),heapsize(in GiB),maxIterations,find_paths (in ms), find_signatures(in ms)
 twitter,84,100,593,2,4278
 us_patents,
 livejournal,
