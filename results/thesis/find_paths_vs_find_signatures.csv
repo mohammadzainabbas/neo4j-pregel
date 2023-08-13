@@ -1,5 +1,5 @@
-dataset,nodes,edges,find_paths (in ms),find_signatures(in ms)
-twitter,84,100,
+dataset,nodes,edges,maxIterations,find_paths (in ms),find_signatures(in ms)
+twitter,84,100,3,,
 us_patents,
 livejournal,
 mel_data,
