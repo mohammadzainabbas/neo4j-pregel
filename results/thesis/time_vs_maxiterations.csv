@@ -1,5 +1,5 @@
-dataset,nodes,edges,time(in ms)
-twitter,
+dataset,nodes,edges,time(in ms),maxIterations
+twitter,84,100,37,3
 us_patents,
 livejournal,
 mel_data,
