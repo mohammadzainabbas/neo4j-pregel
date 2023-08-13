@@ -1,5 +1,5 @@
 dataset,projection,nodes,edges,time(in ms)
-twitter,
+twitter,100,84
 us_patents,
 livejournal,
 mel_data,
