@@ -2,7 +2,7 @@ Dataset,Graph Size,Avg. time taken by "find_paths" method (in ms), Avg. time tak
 Twitter,1000,1992,189
 Twitter,5000,5392,4072
 Twitter,10000,7368,3972
-US Patents,1000,
+US Patents,1000,9293
 US Patents,5000,
 US Patents,10000,
 Live Journal,1000,
