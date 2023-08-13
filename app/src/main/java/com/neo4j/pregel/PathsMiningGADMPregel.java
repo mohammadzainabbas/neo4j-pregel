@@ -107,14 +107,9 @@ public class PathsMiningGADMPregel implements PregelComputation<PathsMiningGADMP
         context.setNodeValue(PATHS, new long[]{});
 
         if (context.nodeProperties(GADM) != null) {
+            var nodeId = context.nodeId();
             context.setNodeValue(GADM, context.nodeProperties(GADM).longValue(nodeId));
         }
-
-        if (context.nodeProperties(GADM) != null)
-            context.setNodeValue(GADM, context.nodeProperties(GADM).get().asLong());
-        else
-            context.setNodeValue(GADM, context.nodeId());
-        context.setNodeValue(GADM, context.nodeId());
     }
 
     public void sentToAllNeighbors(ComputeContext<PathsMiningGADMPregelConfig> context, ArrayList<Long> messages) {
