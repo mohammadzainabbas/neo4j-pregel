@@ -1,6 +1,23 @@
-dataset,nodes,edges,time(in ms),maxIterations
-twitter,84,100,8,3
-twitter,84,100,8,4
-us_patents,
-livejournal,
-mel_data,
+dataset,maxIterations,time (in ms)
+twitter,3,297
+twitter,4,508
+twitter,5,2974
+twitter,6,3927
+twitter,7,9230
+twitter,8,15020
+twitter,9,24027
+us_patents,10000,4800
+us_patents,50000,6848
+us_patents,100000,8377
+us_patents,500000,10141
+us_patents,1000000,18141
+livejournal,10000,3974
+livejournal,50000,5307
+livejournal,100000,13686
+livejournal,500000,23082
+livejournal,1000000,34862
+mel_data,10000,4374
+mel_data,50000,9730
+mel_data,100000,13797
+mel_data,500000,29793
+mel_data,1000000,43040
