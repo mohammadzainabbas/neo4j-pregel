@@ -1,0 +1,8 @@
+﻿signature,count
+"""ABC""",2338
+"""AB""",487
+"""ABCDE""",16
+"""ABCDEBCD""",16
+"""ABCDABCE""",16
+"""ABCDABCD""",8
+"""ABCD""",6
