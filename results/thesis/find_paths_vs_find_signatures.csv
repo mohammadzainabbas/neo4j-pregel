@@ -1,6 +1,5 @@
 Dataset,Avg. time taken by "find_paths" method (in ms), Avg. time taken by "find_signatures" method (in ms)
-Twitter,84,100,3,6,2
+Twitter,
 US Patents,
 Live Journal,
-
-MEL Cirucl,
+MEL Circulation Graph,
