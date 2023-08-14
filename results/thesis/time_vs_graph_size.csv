@@ -1,0 +1,21 @@
+dataset,size,time (in ms)
+twitter,10000,2974
+twitter,50000,3927
+twitter,100000,9230
+twitter,500000,15020
+twitter,1000000,24027
+us_patents,10000,4800
+us_patents,50000,6848
+us_patents,100000,8377
+us_patents,500000,10141
+us_patents,1000000,18141
+livejournal,10000,3974
+livejournal,50000,5307
+livejournal,100000,13686
+livejournal,500000,23082
+livejournal,1000000,34862
+mel_data,10000,4374
+mel_data,50000,9730
+mel_data,100000,13797
+mel_data,500000,29793
+mel_data,1000000,43040
